@@ -1,0 +1,179 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+
+.wishlist {
+	width: 100%;
+	max-width: 600px;
+}
+
+.wishlist ul {
+	list-style: none;
+}
+
+.wishlist li {
+	position: relative;
+	margin-bottom: 24px;
+	min-height: 150px;
+	/* box-shadow: 0px 1px 12px #dcdbdb; */
+	padding-bottom: 20px;
+	border-bottom: 2px solid black;
+}
+
+.wishlist li:last-of-type {
+  border-bottom: none;
+}
+
+.wishlist .image-wrapper {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.wishlist .image-wrapper img {
+	object-fit: contain;
+	width: 150px;
+	height: 150px;
+	padding: 20px;
+	outline: none;
+}
+
+.wishlist .image-wrapper span {
+	display: block;
+	width: 110px;
+	height: 110px;
+	margin: 20px;
+	background: #eeeeee;
+}
+
+.wishlist .content-wrapper {
+	margin-left: 170px;
+	padding-top: 16px;
+	padding-right: 20px;
+}
+
+.wishlist .content-wrapper h2 {
+	font-size: 16px;
+  line-height: 1.2;
+  color: black;
+  font-weight: bold;
+}
+
+.wishlist .content-wrapper p {
+	font-size: 12px;
+	padding-bottom: 60px;
+}
+
+.wishlist .content-wrapper .price {
+	display: inline-block;
+  position: absolute;
+  bottom: 33px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.wishlist .content-wrapper .buy-button {
+  position: absolute;
+  margin-top: -4px;
+  right: 20px;
+  bottom: 30px;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  box-shadow: none;
+  background: #000000;
+}
+
+@media (max-width: 440px) {
+	.wishlist .content-wrapper {
+		padding-bottom: 40px;
+	}
+
+	.wishlist .content-wrapper .price {
+		bottom: 73px;
+	}
+
+	.wishlist .content-wrapper .buy-button {
+		right: auto;
+		bottom: 30px;
+	}
+
+	.wishlist .content-wrapper p {
+		padding-bottom: 30px;
+	}
+}
+
+.wishlist .content-wrapper .buy-button.unavailable {
+	background: #e2e2e2;
+  pointer-events: none;
+  cursor: default;
+}
+
+.wishlist .content-wrapper .buy-button:hover {
+	background: #ffffff;
+  color: black;
+  border: 2px solid black;
+  padding: 2px 8px;
+}
+
+
+.wishlist .overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	z-index: 1000;
+}
+
+.wishlist .overlay.hidden {
+	display: none;
+}
+
+.wishlist .overlay .content-wrapper {
+	position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 450px;
+  margin-left: -225px;
+  background: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.wishlist .overlay .content-wrapper p {
+	padding-bottom: 0px;
+	font-size: 16px;
+}
+
+.wishlist .overlay .content-wrapper p em {
+	font-weight: bold;
+}
+
+.wishlist .overlay button {
+	padding: 4px 16px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: white;
+	text-decoration: none;
+	box-shadow: none;
+	background: black;
+	border-radius: 0px;
+}
+
+.wishlist .overlay button:hover {
+	background: #ffffff;
+  color: black;
+  border: 2px solid black;
+  padding: 2px 14px;
+}
