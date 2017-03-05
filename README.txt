@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,8 +42,11 @@ Yes absolutely, no strings attached.
 
 == Changelog ==
 
+= 1.0.2 =
+* Fix for a bug causing the wishlist to be always embedded at the top
+
 = 1.0.1 =
-* Fix of a minor JavaScript Bug
+* Fix of a minor JavaScript bug
 
 = 1.0.0 =
 * First version of WPGiftRegistry with the basic functionality.

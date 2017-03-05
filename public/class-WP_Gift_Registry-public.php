@@ -116,10 +116,12 @@ class WP_Gift_Registry_Public {
 	 * @since    1.0.0
 	 */
 	public function create_wishlist_shortcode() {
+
 		add_shortcode('wishlist', function() {
 
 			$wishlist = get_option('wishlist')['wishlist_group'];
-			//echo "<pre>" . print_r($wishlist) . "</pre>";
+
+			ob_start();
 
 			if ( !empty( $wishlist ) ) {
 			?>
@@ -170,8 +172,13 @@ class WP_Gift_Registry_Public {
 
 			<?php
 			}
+
+			$output = ob_get_clean();
+			return $output;
+
 		});
 	}
+
 
 	/**
 	 * Updates the gift availability (called through AJAX)
