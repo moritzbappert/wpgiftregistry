@@ -15,7 +15,6 @@
 			});
 
 			overlay.querySelector('button#yes').addEventListener('click', (e) => {
-
 				$.ajax({
 					url: variables.ajaxurl,
 					type: 'POST',
