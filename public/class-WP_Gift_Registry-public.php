@@ -138,6 +138,12 @@ class WP_Gift_Registry_Public {
 					} else {
 						$availability_class = '';
 					}
+					if ( empty($gift['gift_url']) ) {
+						$gift['gift_url'] = "";
+					}
+					if ( empty($gift['gift_image']) ) {
+						$gift['gift_image'] = "";
+					}
 
 					if ( empty($gift['gift_image']) && strpos( $gift['gift_url'], 'amazon.com' ) ) {
 						$pid = substr(strstr($gift['gift_url'],"p/"),2,10);
@@ -152,7 +158,7 @@ class WP_Gift_Registry_Public {
 							<h2><?php echo $gift['gift_title']; ?></h2>
 							<p><?php echo $gift['gift_description']; ?></p>
 							<div class="price"><?php echo (!empty($gift['gift_price']) ? '$' . $gift['gift_price'] : ''); ?></div>
-							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">VIEW/BUY</a>' : ''); ?>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">VIEW/BUY</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">VIEW/BUY</a>'); ?>
 						</div>
 					</li>
 				<?php
