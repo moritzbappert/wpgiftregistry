@@ -120,6 +120,8 @@ class WP_Gift_Registry_Public {
 		add_shortcode('wishlist', function() {
 
 			$wishlist = get_option('wishlist')['wishlist_group'];
+			$currency = get_option('wishlist_settings')['currency_symbol'];
+			$currency_placement = get_option('wishlist_settings')['currency_symbol_placement'];
 
 			ob_start();
 
@@ -157,7 +159,17 @@ class WP_Gift_Registry_Public {
 						<div class="content-wrapper">
 							<h2><?php echo $gift['gift_title']; ?></h2>
 							<p><?php echo $gift['gift_description']; ?></p>
-							<div class="price"><?php echo (!empty($gift['gift_price']) ? '$' . $gift['gift_price'] : ''); ?></div>
+							<?php
+								$price_string = "";
+								if ( !empty($gift['gift_price'] ) ) {
+									if ( $currency_placement === 'before' ) {
+										$price_string = $currency . $gift['gift_price'];
+									} else {
+										$price_string = $gift['gift_price'] . $currency;
+									}
+								}
+							?>
+							<div class="price"><?php echo $price_string; ?></div>
 							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
 						</div>
 					</li>
