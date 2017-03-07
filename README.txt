@@ -17,7 +17,7 @@ WPGiftRegistry easily lets you add gifts to your wishlist and embed it anywhere 
 
 WPGiftRegistry comes with a sleek look that suits most websites because of it’s simplicity and is designed responsively so it displays nicely on all devices.
 
-=Languages=
+= Languages =
 * English
 * German
 
