@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,10 @@ Are you looking for a clean and simple solution to display your wedding gift reg
 WPGiftRegistry easily lets you add gifts to your wishlist and embed it anywhere with the `[wishlist]` shortcode. Each gift is displayed with an image, a title, a description, the price and a product link. More importantly, people can indicate if they already bought the gift (so nobody else does).
 
 WPGiftRegistry comes with a sleek look that suits most websites because of it’s simplicity and is designed responsively so it displays nicely on all devices.
+
+=Languages=
+* English
+* German
 
 *Disclaimer*: As this is a free plugin, some of your product links may be transformed into affiliate links.
 
@@ -41,6 +45,11 @@ Yes absolutely, no strings attached.
 
 
 == Changelog ==
+
+= 1.1.0 =
+* New feature enabling wishlist items to be used without a product URL
+* New settings page to customize the currency symbol used for displaying of the wishlist
+* German translation
 
 = 1.0.2 =
 * Fix for a bug causing the wishlist to be always embedded at the top
