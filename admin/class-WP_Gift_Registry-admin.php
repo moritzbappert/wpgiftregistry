@@ -134,11 +134,12 @@ class WP_Gift_Registry_Admin {
 		?>
 		<div class="wrap cmb2-options-page wishlist">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<p>First add some gifts to your wishlist below. Then use the <code>[wishlist]</code> shortcode anywhere on your page to include this whishlist.</p>
+			<p><?php echo sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'WPGiftRegistry'), '<code>[wishlist]</code>' ); ?></p>
 			<br>
 			<?php cmb2_metabox_form( 'wishlist', 'wishlist' ); ?>
 			<br>
-			<p>This plugin was created by <a href="http://dreiqbik.de">dreiQBIK</a>. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!</p>
+			<p><?php echo sprintf( __('This plugin was created by $s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'WPGiftRegistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+			<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'WPGiftRegistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
 		</div>
 		<?php
   }

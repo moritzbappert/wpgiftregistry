@@ -158,7 +158,7 @@ class WP_Gift_Registry_Public {
 							<h2><?php echo $gift['gift_title']; ?></h2>
 							<p><?php echo $gift['gift_description']; ?></p>
 							<div class="price"><?php echo (!empty($gift['gift_price']) ? '$' . $gift['gift_price'] : ''); ?></div>
-							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">VIEW/BUY</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">VIEW/BUY</a>'); ?>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
 						</div>
 					</li>
 				<?php
@@ -169,9 +169,9 @@ class WP_Gift_Registry_Public {
 				<div class="overlay hidden">
 					<div class="content-wrapper">
 						<p>
-							Do you want to mark <span id="item-name"></span> as <em>bought</em> so that nobody else gifts it?
+							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'WPGiftRegistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
 						</p>
-						<button id="yes">Yes</button><button id="no">No, Cancel</button>
+						<button id="yes"><?php echo __('Yes', 'WPGiftRegistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'WPGiftRegistry'); ?></button>
 					</div>
 				</div>
 			</section>
