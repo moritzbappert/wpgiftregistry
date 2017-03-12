@@ -33,8 +33,22 @@ Post Metaboxes
 		margin: 0 0 0.8em;
 
 		.cmbhandle {
-			right: -1em;
+			/* right: -1em; */
+			right: -3em;
 			position: relative;
+		}
+
+		.drag-handle {
+	    color: #aaa;
+      float: right;
+      width: 22px;
+      height: 24px;
+      cursor: pointer;
+      padding-top: 9px;
+      padding-left: 9px;
+      top: 0.2em;
+      right: 1em;
+      position: relative;
 		}
 	}
 

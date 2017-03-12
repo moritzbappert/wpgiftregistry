@@ -98,6 +98,126 @@ window.CMB2 = window.CMB2 || {};
 				})
 				.on( 'click', '.cmb-shift-rows', cmb.shiftRows )
 				.on( 'cmb2_add_row', cmb.emptyValue );
+
+			var sort = Sortable.create($repeatGroup.get(0), {
+			  animation: 150,
+			  //handle: ".drag-handle",
+			  // Changed sorting within list
+	      onUpdate: function ( evt ) {
+	          var itemEl = evt.item;  // dragged HTMLElement
+	          var oldIndex = evt.oldIndex;
+	          var newIndex = evt.newIndex;
+	          var count = newIndex - oldIndex;
+	          var direction = count / Math.abs(count);
+	          var itemCount = Math.abs(count);
+
+	          for ( var i = oldIndex; i < itemCount; i += direction ) {
+	          	if ( direction < 0 ) {
+	          		var $this = $('.button.move-up', '.cmb-repeatable-grouping[data-iterator="' + i + '"]');
+	          	} else {
+	          		var $this = $('.button.move-down', '.cmb-repeatable-grouping[data-iterator="' + i + '"]');
+	          	}
+
+	          	var $from = $this.parents( '.cmb-repeatable-grouping' );
+	          	var $goto = $this.hasClass( 'move-up' ) ? $from.prev( '.cmb-repeatable-grouping' ) : $from.next( '.cmb-repeatable-grouping' );
+
+	          	// Before shift occurs.
+	          	cmb.triggerElement( $this, 'cmb2_shift_rows_enter', $this, $from, $goto );
+
+	          	if ( ! $goto.length ) {
+	          		return;
+	          	}
+
+	          	// About to shift
+	          	cmb.triggerElement( $this, 'cmb2_shift_rows_start', $this, $from, $goto );
+
+	          	var inputVals = [];
+	          	// Loop this item's fields
+	          	$from.find( cmb.repeatEls ).each( function() {
+	          		var $element = $( this );
+	          		var elType = $element.attr( 'type' );
+	          		var val;
+
+	          		if ( $element.hasClass('cmb2-media-status') ) {
+	          			// special case for image previews
+	          			val = $element.html();
+	          		} else if ( 'checkbox' === elType || 'radio' === elType ) {
+	          			val = $element.is(':checked');
+	          		} else if ( 'select' === $element.prop('tagName') ) {
+	          			val = $element.is(':selected');
+	          		} else {
+	          			val = $element.val();
+	          		}
+
+	          		// Get all the current values per element
+	          		inputVals.push( { val: val, $: $element } );
+	          	});
+	          	// And swap them all
+	          	$goto.find( cmb.repeatEls ).each( function( index ) {
+	          		var $element = $( this );
+	          		var elType = $element.attr( 'type' );
+	          		var val;
+
+	          		if ( $element.hasClass('cmb2-media-status') ) {
+	          			var toRowId = $element.closest('.cmb-repeatable-grouping').attr('data-iterator');
+	          			var fromRowId = inputVals[ index ].$.closest('.cmb-repeatable-grouping').attr('data-iterator');
+
+	          			// special case for image previews
+	          			val = $element.html();
+	          			$element.html( inputVals[ index ].val );
+	          			inputVals[ index ].$.html( val );
+
+	          			inputVals[ index ].$.find( 'input' ).each(function() {
+	          				var name = $( this ).attr( 'name' );
+	          				name = name.replace( '['+toRowId+']', '['+fromRowId+']' );
+	          				$( this ).attr( 'name', name );
+	          			});
+	          			$element.find('input').each(function() {
+	          				var name = $( this ).attr('name');
+	          				name = name.replace('['+fromRowId+']', '['+toRowId+']');
+	          				$( this ).attr('name', name);
+	          			});
+
+	          		}
+	          		// handle checkbox swapping
+	          		else if ( 'checkbox' === elType  ) {
+	          			inputVals[ index ].$.prop( 'checked', $element.is(':checked') );
+	          			$element.prop( 'checked', inputVals[ index ].val );
+	          		}
+	          		// handle radio swapping
+	          		else if ( 'radio' === elType  ) {
+	          			if ( $element.is( ':checked' ) ) {
+	          				inputVals[ index ].$.attr( 'data-checked', 'true' );
+	          			}
+	          			if ( inputVals[ index ].$.is( ':checked' ) ) {
+	          				$element.attr( 'data-checked', 'true' );
+	          			}
+	          		}
+	          		// handle select swapping
+	          		else if ( 'select' === $element.prop('tagName') ) {
+	          			inputVals[ index ].$.prop( 'selected', $element.is(':selected') );
+	          			$element.prop( 'selected', inputVals[ index ].val );
+	          		}
+	          		// handle normal input swapping
+	          		else {
+	          			inputVals[ index ].$.val( $element.val() );
+	          			$element.val( inputVals[ index ].val );
+	          		}
+	          	});
+
+	          	$from.find( 'input[data-checked=true]' ).prop( 'checked', true ).removeAttr( 'data-checked' );
+	          	$goto.find( 'input[data-checked=true]' ).prop( 'checked', true ).removeAttr( 'data-checked' );
+
+	          	// trigger color picker change event
+	          	$from.find( 'input[type="text"].cmb2-colorpicker' ).trigger( 'change' );
+	          	$goto.find( 'input[type="text"].cmb2-colorpicker' ).trigger( 'change' );
+
+	          	// shift done
+	          	cmb.triggerElement( $this, 'cmb2_shift_rows_complete', $this, $from, $goto );
+	          }
+
+	      }
+			});
 		}
 
 		// on pageload

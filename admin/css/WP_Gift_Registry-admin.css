@@ -689,8 +689,23 @@ Post Metaboxes
 
 .postbox-container .cmb-row .cmbhandle,
 .cmb-repeat-group-wrap .cmb-row .cmbhandle {
-	right: -1em;
+	/* right: -1em; */
+	right: -3em;
 	position: relative;
+}
+
+.postbox-container .cmb-row .drag-handle ,
+.cmb-repeat-group-wrap .cmb-row .drag-handle  {
+  color: #aaa;
+  float: right;
+  width: 22px;
+  height: 24px;
+  cursor: pointer;
+  padding-top: 9px;
+  padding-left: 9px;
+  top: 0.2em;
+  right: 1em;
+  position: relative;
 }
 
 /* line 39, sass/partials/_post_metaboxes.scss */
