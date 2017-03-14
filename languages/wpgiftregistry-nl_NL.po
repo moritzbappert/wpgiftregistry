@@ -1,0 +1,768 @@
+# Translation of Plugins - WPGiftRegistry - A Wishlist Plugin for Weddings, Birthdays etc. - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - WPGiftRegistry - A Wishlist Plugin for Weddings, Birthdays etc. - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-03-14 08:50:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - WPGiftRegistry - A Wishlist Plugin for Weddings, Birthdays etc. - Stable (latest release)\n"
+
+#: public/class-WP_Gift_Registry-public.php:186
+msgid "No, Cancel"
+msgstr "Nee, annuleren"
+
+#: public/class-WP_Gift_Registry-public.php:184
+msgid "Do you want to mark %s as %sbought%s so that nobody else gifts it?"
+msgstr "Wil je %s markeren als %sgekocht%s zodat niemand anders dit cadeau koopt?"
+
+#: public/class-WP_Gift_Registry-public.php:173
+msgid "VIEW/BUY"
+msgstr "BEKIJK/KOOP"
+
+#: admin/class-WP_Gift_Registry-admin.php:369
+msgid "Wishlist settings updated."
+msgstr "Wensenlijst instellingen bijgewerkt."
+
+#: admin/class-WP_Gift_Registry-admin.php:331
+msgid "After the price"
+msgstr "Achter het bedrag"
+
+#: admin/class-WP_Gift_Registry-admin.php:330
+msgid "Before the price"
+msgstr "Voor het bedrag"
+
+#: admin/class-WP_Gift_Registry-admin.php:325
+msgid "Currency Symbol Placement"
+msgstr "Plaats van valutateken"
+
+#: admin/class-WP_Gift_Registry-admin.php:317
+msgid "Currency in which the gift price will be displayed"
+msgstr "Valuta waarin de prijs van het cadeau wordt weergegeven"
+
+#: admin/class-WP_Gift_Registry-admin.php:316
+msgid "Currency"
+msgstr "Valuta"
+
+#: admin/class-WP_Gift_Registry-admin.php:155
+msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
+msgstr "%sSchrijf een goede review voor ons%s als je deze plugin handig vind."
+
+#: admin/class-WP_Gift_Registry-admin.php:154
+msgid "This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!"
+msgstr "Deze plugin is geschreven door %s. Neem contact met ons op op kontakt@dreiqbik.de voor vragen of uitbreidingen."
+
+#: admin/class-WP_Gift_Registry-admin.php:150
+msgid "First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist."
+msgstr "Als eerste zal je wat cadeaus moeten toevoegen aan de wensenlijst hieronder. Daarna kan je de shortcode %s overal op je pagina gebruiken om de wensenlijst te laten zien."
+
+#: admin/class-WP_Gift_Registry-admin.php:126
+#: admin/class-WP_Gift_Registry-admin.php:127
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin/class-WP_Gift_Registry-admin.php:116
+#: admin/class-WP_Gift_Registry-admin.php:117
+msgid "Wishlist"
+msgstr "Wensenlijst"
+
+#. Author of the plugin/theme
+msgid "Moritz Bappert"
+msgstr "Moritz Bappert"
+
+#. Description of the plugin/theme
+msgid "A simple way to create a linked list of wishes for your wedding, birthday or other occasion."
+msgstr "Een simpele manier voor het creëren van een lijst met al je wensen voor bruiloft, verjaardag of enig andere gebeurtenis."
+
+#. #-#-#-#-#  tmp-wpgiftregistry.pot (WPGiftRegistry 1.2.0)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  tmp-wpgiftregistry.pot (WPGiftRegistry 1.2.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://dreiqbik.de"
+msgstr "http://dreiqbik.de"
+
+#. Plugin Name of the plugin/theme
+msgid "WPGiftRegistry"
+msgstr "WPGiftRegistry"
+
+#: vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+msgid "No terms"
+msgstr "Geen termen"
+
+#: vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+msgid "Add or Upload Files"
+msgstr "Toevoegen of Uploaden van bestanden"
+
+#: vendor/cmb2/includes/types/CMB2_Type_File.php:36
+msgid "Add or Upload File"
+msgstr "Toevoegen of Uploaden van bestand"
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:283
+msgid "Scope under which the request is made; determines fields present in response."
+msgstr "Scope op grond waarvan het verzoek wordt gedaan; bepaalt velden aanwezig in de reactie."
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:265
+msgid "Limit results to those matching a string."
+msgstr "Beperk resultaten met die overeenkomen met een string."
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "Maximaal nummer van items welke weergegeven worden in resultaat."
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:248
+msgid "Current page of the collection."
+msgstr "Huidige pagina van de collectie."
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:34
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:44
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:54
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:64
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:74
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:84
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:94
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:104
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:114
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:124
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:134
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:145
+msgid "Method '%s' not implemented. Must be over-ridden in subclass."
+msgstr "Methode '%s' niet geimplementeerd. Moet worden overschreven in subclass."
+
+#: vendor/cmb2/includes/shim/WP_REST_Controller.php:24
+msgid "The register_routes() method must be overriden"
+msgstr "De register_routes() methode moet worden overschreven"
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:407
+msgid "Value Error for %s"
+msgstr "Value Error voor %s"
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:308
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:335
+msgid "No field found by that id."
+msgstr "Geen veld gevonden voor dat id."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:295
+msgid "CMB2 Field value cannot be modified without the object_id and object_type parameters specified."
+msgstr "CMB2 Veld waarde kan niet bewerkt worden zonder de waardes object_id en object_type "
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:236
+msgid "CMB2 Field value cannot be updated without the value parameter specified."
+msgstr "CMB2 Veld waarde kan niet worden ge-update zonder de waarde parameter."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:33
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:36
+msgid "To view or modify the field's value, the 'object_id' and 'object_type' arguments are required."
+msgstr "Om dit veld te bekijken of bewerken, zijn de argumenten 'object_id' en 'object_type' vereist."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:30
+msgid "When the '_rendered' argument is passed, the renderable field attributes will be returned fully rendered. By default, the names of the callback handers for the renderable attributes will be returned."
+msgstr "Wanneer de '_rendered' argument wordt doorgegeven, worden de attributen van het ge-rendered veld teruggegeven en volledig weergegeven. Standaard worden de namen van de callback handlers voor de te renderen attributen geretourneerd."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Fields.php:27
+msgid "Includes the box object which the fields are registered to in the response."
+msgstr "Bevat het box object waarvan de velden zijn geregistreerd in de response."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:122
+msgid "No boxes found."
+msgstr "Geen boxes gevonden."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller_Boxes.php:50
+msgid "Includes the registered fields for the box in the response."
+msgstr "Bevat de geregistreerde velden voor de box in de response"
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:375
+msgid "The title for the object."
+msgstr "De titel voor het object."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:370
+msgid "The id for the object."
+msgstr "Het id voor het object."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:365
+msgid "A human-readable description of the object."
+msgstr "Een leesbare omschrijving van het object."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:289
+msgid "No box found by that id. A box needs to be registered with the \"show_in_rest\" parameter configured."
+msgstr "Geen box gevonden voor dat ID. Een box moet geregistreerd zijn met \"show_in_rest\" parameter geconfigureerd."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:268
+msgid "This box does not have write permissions."
+msgstr "Deze box heeft geen schrijfrechten."
+
+#: vendor/cmb2/includes/rest-api/CMB2_REST_Controller.php:250
+msgid "This box does not have read permissions."
+msgstr "Deze box heeft geen leesrechten."
+
+#: vendor/cmb2/includes/helper-functions.php:287
+msgid "Save"
+msgstr "Opslaan"
+
+#: vendor/cmb2/includes/CMB2_hookup.php:389
+msgid "Toggle panel: %s"
+msgstr "Wissel paneel: %s"
+
+#: vendor/cmb2/includes/CMB2_hookup.php:152
+msgid "Term metaboxes configuration requires a \"taxonomies\" parameter."
+msgstr "Term Metaboxes vereist een configuratie van parameter \"taxonomieën\"."
+
+#: vendor/cmb2/includes/CMB2_hookup.php:148
+msgid "Term Metadata is a WordPress 4.4+ feature. Please upgrade your WordPress install."
+msgstr "Term Metadata is een WordPress 4.4+ functie. Gelieve je WordPress installatie te upgraden."
+
+#: vendor/cmb2/includes/CMB2_Types.php:329
+msgid "Add Row"
+msgstr "Voeg Rij Toe"
+
+#: vendor/cmb2/includes/CMB2_JS.php:157
+msgid "Select / Deselect All"
+msgstr "Alle selecteren / deselecteren"
+
+#: vendor/cmb2/includes/CMB2_JS.php:156
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+msgid "Download"
+msgstr "Downloaden"
+
+#: vendor/cmb2/includes/CMB2_JS.php:154 vendor/cmb2/includes/CMB2_Types.php:392
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: vendor/cmb2/includes/CMB2_JS.php:153
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+msgid "Remove Image"
+msgstr "Afbeelding verwijderen"
+
+#: vendor/cmb2/includes/CMB2_JS.php:152
+msgid "Use these files"
+msgstr "Gebruik deze bestanden"
+
+#: vendor/cmb2/includes/CMB2_JS.php:151
+msgid "Use this file"
+msgstr "Gebruik dit bestand"
+
+#: vendor/cmb2/includes/CMB2_JS.php:145
+msgctxt "Valid formatting string, as per http://trentrichardson.com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr "hh:mm TT"
+
+#: vendor/cmb2/includes/CMB2_JS.php:143
+msgid "Now"
+msgstr "Nu"
+
+#: vendor/cmb2/includes/CMB2_JS.php:142
+msgid "Second"
+msgstr "Seconde"
+
+#: vendor/cmb2/includes/CMB2_JS.php:141
+msgid "Minute"
+msgstr "Minuut"
+
+#: vendor/cmb2/includes/CMB2_JS.php:140
+msgid "Hour"
+msgstr "Uur"
+
+#: vendor/cmb2/includes/CMB2_JS.php:139
+msgid "Time"
+msgstr "Tijd"
+
+#: vendor/cmb2/includes/CMB2_JS.php:138
+msgid "Choose Time"
+msgstr "Kies Tijd"
+
+#: vendor/cmb2/includes/CMB2_JS.php:134 vendor/cmb2/includes/CMB2_JS.php:144
+msgid "Done"
+msgstr "Klaar"
+
+#: vendor/cmb2/includes/CMB2_JS.php:133
+msgid "Today"
+msgstr "Vandaag"
+
+#: vendor/cmb2/includes/CMB2_JS.php:132
+msgid "Prev"
+msgstr "Vorige"
+
+#: vendor/cmb2/includes/CMB2_JS.php:131
+msgid "Next"
+msgstr "Volgende"
+
+#: vendor/cmb2/includes/CMB2_JS.php:130
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr "Jan, Feb, Maa, Apr, Mei, Jun, Jul, Aug, Sep, Okt, Nov, Dec"
+
+#: vendor/cmb2/includes/CMB2_JS.php:129
+msgid "January, February, March, April, May, June, July, August, September, October, November, December"
+msgstr "Januari, Februari, Maart, April, Mei, Juni, Juli, Augustus, September, Oktober, November, December"
+
+#: vendor/cmb2/includes/CMB2_JS.php:128
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr "Zon, Maa, Din, Woe, Don, Vri, Zat"
+
+#: vendor/cmb2/includes/CMB2_JS.php:127
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr "Zo, Ma, Di, Wo, Do, Vr, Za"
+
+#: vendor/cmb2/includes/CMB2_JS.php:126
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr "Zondag, Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag, Zondag"
+
+#: vendor/cmb2/includes/CMB2_JS.php:125
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr "mm/dd/jj"
+
+#: vendor/cmb2/includes/CMB2_JS.php:99
+msgid "Current Color"
+msgstr "Huidige kleur"
+
+#: vendor/cmb2/includes/CMB2_JS.php:98
+msgid "Select Color"
+msgstr "Kleur selecteren"
+
+#: vendor/cmb2/includes/CMB2_JS.php:97
+msgid "Default"
+msgstr "Standaard"
+
+#: vendor/cmb2/includes/CMB2_JS.php:96 vendor/cmb2/includes/CMB2_JS.php:135
+msgid "Clear"
+msgstr "Wissen"
+
+#: vendor/cmb2/includes/CMB2_Field_Display.php:409
+#: vendor/cmb2/includes/CMB2_JS.php:155
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+msgid "File:"
+msgstr "Bestand:"
+
+#: vendor/cmb2/includes/CMB2_Field.php:1206
+msgid "Sorry, this field does not have a cmb_id specified."
+msgstr "Sorry, dit veld heeft geen cmb_id gespecificeerd."
+
+#: vendor/cmb2/includes/CMB2_Field.php:1141
+#: vendor/cmb2/includes/CMB2_Field.php:1145
+msgid "None"
+msgstr "Geen"
+
+#: vendor/cmb2/includes/CMB2_Field.php:1119
+msgid "Remove Group"
+msgstr "Verwijder Groep"
+
+#: vendor/cmb2/includes/CMB2_Field.php:1118
+msgid "Add Group"
+msgstr "Voeg Groep Toe"
+
+#: vendor/cmb2/includes/CMB2_Base.php:473
+#: vendor/cmb2/includes/types/CMB2_Type_Base.php:123
+msgid "Invalid %1$s method: %2$s"
+msgstr "Ongeldig %1$s method: %2$s"
+
+#: vendor/cmb2/includes/CMB2_Base.php:459
+#: vendor/cmb2/includes/types/CMB2_Type_Base.php:138
+msgid "Invalid %1$s property: %2$s"
+msgstr "Ongeldig %1$s property: %2$s"
+
+#: vendor/cmb2/includes/CMB2_Base.php:426
+msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s with no alternative available."
+msgstr "%1$s werd aangeroepen met een parameter die is <strong>verouderd</strong> sinds versie %2$s met geen alternatief beschikbaar."
+
+#: vendor/cmb2/includes/CMB2_Base.php:423
+msgid "%1$s was called with a parameter that is <strong>deprecated</strong> since version %2$s! %3$s"
+msgstr "%1$s werd aangeroepen met een parameter die is <strong>verouderd</strong> sinds versie %2$s! %3$s"
+
+#: vendor/cmb2/includes/CMB2_Base.php:393
+msgid "Using the \"%s\" field parameter as a callback has been deprecated in favor of the \"%s\" parameter."
+msgstr "Met behulp van de \"%s\" parameter veld als een callback is afgekeurd in het voordeel van de parameter \"%s\"."
+
+#: vendor/cmb2/includes/CMB2_Base.php:389
+msgid "The \"%s\" field parameter has been deprecated in favor of the \"%s\" parameter."
+msgstr "Het \"%s\" veld parameter is verouder in voordeel van de \"%s\" parameter."
+
+#: vendor/cmb2/includes/CMB2_Ajax.php:173
+msgid "Remove Embed"
+msgstr "Verwijder Embed"
+
+#: vendor/cmb2/includes/CMB2_Ajax.php:71
+msgid "Please Try Again"
+msgstr "Opnieuw proberen"
+
+#: vendor/cmb2/includes/CMB2.php:471
+msgid "Click to toggle"
+msgstr "Klik om te wisselen"
+
+#: vendor/cmb2/includes/CMB2.php:127
+msgid "Metabox configuration is required to have an ID parameter."
+msgstr "Metabox configuratie vereist het hebben van een ID parameter."
+
+#: vendor/cmb2/example-functions.php:718
+msgid "Will show in REST API \"editable\" contexts only (`POST` requests)."
+msgstr "Wordt weergegeven in REST API \"bewerkbare\" context alleen (`POST` requests)."
+
+#: vendor/cmb2/example-functions.php:717
+msgid "REST Editable Test Text"
+msgstr "REST Bewerkbare Test Tekst"
+
+#: vendor/cmb2/example-functions.php:711
+msgid "Will show in the REST API for this box and for pages."
+msgstr "Wordt weergegeven in de REST API voor deze box en voor pagina's."
+
+#: vendor/cmb2/example-functions.php:710
+msgid "REST Test Text"
+msgstr "REST Test Tekst"
+
+#: vendor/cmb2/example-functions.php:701
+msgid "REST Test Box"
+msgstr "REST Test Box"
+
+#: vendor/cmb2/example-functions.php:665
+msgid "Site Background Color"
+msgstr "Achtergrondkleur Site"
+
+#: vendor/cmb2/example-functions.php:650
+msgid "Theme Options Metabox"
+msgstr "Thema instellingen Metabox"
+
+#: vendor/cmb2/example-functions.php:628
+msgid "Arbitrary Term Field"
+msgstr "Willekeurige Term Veld"
+
+#: vendor/cmb2/example-functions.php:621
+msgid "Term Image"
+msgstr "Term Afbeelding"
+
+#: vendor/cmb2/example-functions.php:606
+msgid "Category Metabox"
+msgstr "Categorie Metabox"
+
+#: vendor/cmb2/example-functions.php:586
+msgid "User Field"
+msgstr "Gebruiker Veld"
+
+#: vendor/cmb2/example-functions.php:579
+msgid "Linkedin URL"
+msgstr "Linkedin URL"
+
+#: vendor/cmb2/example-functions.php:572
+msgid "Google+ URL"
+msgstr "Google+ URL"
+
+#: vendor/cmb2/example-functions.php:565
+msgid "Twitter URL"
+msgstr "Twitter URL"
+
+#: vendor/cmb2/example-functions.php:558
+msgid "Facebook URL"
+msgstr "Facebook URL"
+
+#: vendor/cmb2/example-functions.php:551
+msgid "Avatar"
+msgstr "Avatar"
+
+#: vendor/cmb2/example-functions.php:543 vendor/cmb2/example-functions.php:613
+msgid "Extra Info"
+msgstr "Extra Info"
+
+#: vendor/cmb2/example-functions.php:536
+msgid "User Profile Metabox"
+msgstr "Gebruikersprofiel Metabox"
+
+#: vendor/cmb2/example-functions.php:517
+msgid "Image Caption"
+msgstr "Onderschrift"
+
+#: vendor/cmb2/example-functions.php:511
+msgid "Entry Image"
+msgstr "Artikel Afbeelding"
+
+#: vendor/cmb2/example-functions.php:505
+msgid "Write a short description for this entry"
+msgstr "Schrijf een korte omschrijving voor dit artikel"
+
+#: vendor/cmb2/example-functions.php:504
+msgid "Description"
+msgstr "Omschrijving"
+
+#: vendor/cmb2/example-functions.php:497
+msgid "Entry Title"
+msgstr "Artikel Titel"
+
+#: vendor/cmb2/example-functions.php:484
+msgid "Remove Entry"
+msgstr "Verwijder Artikel"
+
+#: vendor/cmb2/example-functions.php:483
+msgid "Add Another Entry"
+msgstr "Voeg een ander artikel toe"
+
+#: vendor/cmb2/example-functions.php:482
+msgid "Entry {#}"
+msgstr "Artikel {#}"
+
+#: vendor/cmb2/example-functions.php:480
+msgid "Generates reusable form entries"
+msgstr "Genereert herbruikbare formulier entries"
+
+#: vendor/cmb2/example-functions.php:472
+msgid "Repeating Field Group"
+msgstr "Herhalend Veld Groep"
+
+#: vendor/cmb2/example-functions.php:443
+msgid "About Page Metabox"
+msgstr "Over Page Metabox"
+
+#. translators: %s: link to codex.wordpress.org/Embeds
+#: vendor/cmb2/example-functions.php:410
+msgid "Enter a youtube, twitter, or instagram URL. Supports services listed at %s."
+msgstr "Vul je youtube, twitter, of instagram URL in. Een lijst met ondersteunende diensten is te vinden op %s."
+
+#: vendor/cmb2/example-functions.php:407
+msgid "oEmbed"
+msgstr "oEmbed"
+
+#: vendor/cmb2/example-functions.php:400
+msgid "Upload or add multiple images/attachments."
+msgstr "Upload of voeg meerdere afbeeldingen/bijlagen toe."
+
+#: vendor/cmb2/example-functions.php:399
+msgid "Multiple Files"
+msgstr "Meerdere Bestanden"
+
+#: vendor/cmb2/example-functions.php:393
+msgid "Upload an image or enter a URL."
+msgstr "Upload een afbeelding of voer een URL in."
+
+#: vendor/cmb2/example-functions.php:392
+msgid "Test Image"
+msgstr "Test Afbeelding"
+
+#: vendor/cmb2/example-functions.php:384
+msgid "Test wysiwyg"
+msgstr "Test wysiwyg"
+
+#: vendor/cmb2/example-functions.php:378
+msgid "Check Three"
+msgstr "Check drie"
+
+#: vendor/cmb2/example-functions.php:377
+msgid "Check Two"
+msgstr "Check twee"
+
+#: vendor/cmb2/example-functions.php:376
+msgid "Check One"
+msgstr "Check één "
+
+#: vendor/cmb2/example-functions.php:370
+msgid "Test Multi Checkbox"
+msgstr "Test Multi Checkbox"
+
+#: vendor/cmb2/example-functions.php:363
+msgid "Test Checkbox"
+msgstr "Test Checkbox"
+
+#: vendor/cmb2/example-functions.php:354
+msgid "Test Taxonomy Multi Checkbox"
+msgstr "Test Taxonomy Multi Checkbox"
+
+#: vendor/cmb2/example-functions.php:346
+msgid "Test Taxonomy Select"
+msgstr "Test Taxonomy Select"
+
+#: vendor/cmb2/example-functions.php:337
+msgid "Test Taxonomy Radio"
+msgstr "Test Taxonomy Radio"
+
+#: vendor/cmb2/example-functions.php:325
+msgid "Test Radio"
+msgstr "Test Radio"
+
+#: vendor/cmb2/example-functions.php:312
+msgid "Test Radio inline"
+msgstr "Test Radio inline"
+
+#: vendor/cmb2/example-functions.php:307 vendor/cmb2/example-functions.php:320
+#: vendor/cmb2/example-functions.php:332
+msgid "Option Three"
+msgstr "Keuze Drie"
+
+#: vendor/cmb2/example-functions.php:306 vendor/cmb2/example-functions.php:319
+#: vendor/cmb2/example-functions.php:331
+msgid "Option Two"
+msgstr "Keuze Twee"
+
+#: vendor/cmb2/example-functions.php:305 vendor/cmb2/example-functions.php:318
+#: vendor/cmb2/example-functions.php:330
+msgid "Option One"
+msgstr "Keuze Een"
+
+#: vendor/cmb2/example-functions.php:299
+msgid "Test Select"
+msgstr "Test Select"
+
+#: vendor/cmb2/example-functions.php:293
+msgid "This is a title description"
+msgstr "Dit is een titel omschrijving"
+
+#: vendor/cmb2/example-functions.php:292
+msgid "Test Title Weeeee"
+msgstr "Test Titel Weeeeee"
+
+#: vendor/cmb2/example-functions.php:285
+msgid "Test Text Area for Code"
+msgstr "Test Tekst Area voor Code"
+
+#: vendor/cmb2/example-functions.php:278
+msgid "Test Text Area Small"
+msgstr "Test Tekst Area Klein"
+
+#: vendor/cmb2/example-functions.php:271
+msgid "Test Text Area"
+msgstr "Test Tekst Area"
+
+#: vendor/cmb2/example-functions.php:258
+msgid "Test Color Picker"
+msgstr "Test Kleuren Kiezer"
+
+#: vendor/cmb2/example-functions.php:249
+msgid "Test Money"
+msgstr "Test Geld"
+
+#: vendor/cmb2/example-functions.php:232
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr "Test Datum/Tijd kiezer Combo (UNIX timestamp)"
+
+#: vendor/cmb2/example-functions.php:224
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr "Test Datumprikker (UNIX timestamp)"
+
+#: vendor/cmb2/example-functions.php:216
+msgid "Test Date Picker"
+msgstr "Test Datumprikker"
+
+#: vendor/cmb2/example-functions.php:209 vendor/cmb2/example-functions.php:210
+msgid "Time zone"
+msgstr "Tijdzone"
+
+#: vendor/cmb2/example-functions.php:201
+msgid "Test Time"
+msgstr "Test Tijd"
+
+#: vendor/cmb2/example-functions.php:193
+msgid "Test Text Email"
+msgstr "Test Tekst E-mail"
+
+#: vendor/cmb2/example-functions.php:184
+msgid "Website URL"
+msgstr "Website URL"
+
+#: vendor/cmb2/example-functions.php:176
+msgid "Custom Rendered Field"
+msgstr "Custom Rendered Veld"
+
+#: vendor/cmb2/example-functions.php:167
+msgid "Hey there, I'm a read-only field"
+msgstr "Hey daar, Ik ben een alleen-lezen veld"
+
+#: vendor/cmb2/example-functions.php:163
+msgid "Read-only Disabled Field"
+msgstr "Uitgeschakeld Alleen-lezen Veld"
+
+#: vendor/cmb2/example-functions.php:156
+msgid "Test Text Medium"
+msgstr "Test Tekst Middel"
+
+#: vendor/cmb2/example-functions.php:143
+msgid "Test Text Small"
+msgstr "Test Tekst Klein"
+
+#: vendor/cmb2/example-functions.php:131 vendor/cmb2/example-functions.php:144
+#: vendor/cmb2/example-functions.php:157 vendor/cmb2/example-functions.php:164
+#: vendor/cmb2/example-functions.php:177 vendor/cmb2/example-functions.php:185
+#: vendor/cmb2/example-functions.php:194 vendor/cmb2/example-functions.php:202
+#: vendor/cmb2/example-functions.php:217 vendor/cmb2/example-functions.php:225
+#: vendor/cmb2/example-functions.php:233 vendor/cmb2/example-functions.php:250
+#: vendor/cmb2/example-functions.php:259 vendor/cmb2/example-functions.php:272
+#: vendor/cmb2/example-functions.php:279 vendor/cmb2/example-functions.php:286
+#: vendor/cmb2/example-functions.php:300 vendor/cmb2/example-functions.php:313
+#: vendor/cmb2/example-functions.php:326 vendor/cmb2/example-functions.php:338
+#: vendor/cmb2/example-functions.php:347 vendor/cmb2/example-functions.php:355
+#: vendor/cmb2/example-functions.php:364 vendor/cmb2/example-functions.php:371
+#: vendor/cmb2/example-functions.php:385 vendor/cmb2/example-functions.php:453
+#: vendor/cmb2/example-functions.php:544 vendor/cmb2/example-functions.php:552
+#: vendor/cmb2/example-functions.php:559 vendor/cmb2/example-functions.php:566
+#: vendor/cmb2/example-functions.php:573 vendor/cmb2/example-functions.php:580
+#: vendor/cmb2/example-functions.php:587 vendor/cmb2/example-functions.php:614
+#: vendor/cmb2/example-functions.php:622 vendor/cmb2/example-functions.php:629
+#: vendor/cmb2/example-functions.php:666
+msgid "field description (optional)"
+msgstr "Veldomschrijving (optioneel)"
+
+#: vendor/cmb2/example-functions.php:130 vendor/cmb2/example-functions.php:452
+msgid "Test Text"
+msgstr "Test Tekst"
+
+#: vendor/cmb2/example-functions.php:117
+msgid "Test Metabox"
+msgstr "Test Metabox"
+
+#: admin/class-WP_Gift_Registry-admin.php:352
+msgid "Wishlist updated."
+msgstr "Wishlist ge-update."
+
+#: admin/class-WP_Gift_Registry-admin.php:292
+msgid "No"
+msgstr "Nee"
+
+#: admin/class-WP_Gift_Registry-admin.php:291
+#: public/class-WP_Gift_Registry-public.php:186
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/class-WP_Gift_Registry-admin.php:287
+msgid "Is the gift available for purchase (nobody already buying it)?"
+msgstr "Is dit cadeau beschikbaar voor aanschaf (Heeft niemand dit al gekocht)?"
+
+#: admin/class-WP_Gift_Registry-admin.php:286
+msgid "Availability"
+msgstr "Beschikbaar"
+
+#: admin/class-WP_Gift_Registry-admin.php:278
+msgid "Product URL"
+msgstr "Product Link"
+
+#: admin/class-WP_Gift_Registry-admin.php:265
+msgid "Price"
+msgstr "Prijs"
+
+#: admin/class-WP_Gift_Registry-admin.php:244
+msgid "Description (optional)"
+msgstr "Omschrijving (Optioneel)"
+
+#: admin/class-WP_Gift_Registry-admin.php:234
+msgid "Add Image"
+msgstr "Afbeelding Toevoegen"
+
+#: admin/class-WP_Gift_Registry-admin.php:226
+msgid "Upload an image or enter a URL. If left empty, we'll try to automatically retrieve an image (currently only working with amazon.com)."
+msgstr "Upload een afbeelding of vul de link in. Indien leeg, zullen we proberen automatisch een afbeelding vinden (werkt momenteel enkel met amazon.com)"
+
+#: admin/class-WP_Gift_Registry-admin.php:225
+msgid "Gift Image"
+msgstr "Cadeau afbeelding"
+
+#: admin/class-WP_Gift_Registry-admin.php:216
+msgid "Gift Title"
+msgstr "Cadeau Titel"
+
+#: admin/class-WP_Gift_Registry-admin.php:206
+msgid "Remove Gift"
+msgstr "Verwijder Cadeau"
+
+#: admin/class-WP_Gift_Registry-admin.php:205
+msgid "Add Another Gift"
+msgstr "Voeg een ander Cadeau toe"
+
+#: admin/class-WP_Gift_Registry-admin.php:204
+msgid "Gift {#}"
+msgstr "Cadeau {#}"
