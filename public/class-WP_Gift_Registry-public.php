@@ -235,9 +235,9 @@ class WP_Gift_Registry_Public {
 
 
 /**
-	 * Transforms Amazon Links into our Affiliate Links
-	 * @since    1.0.0
-	 */
+ * Transforms Amazon Links into our Affiliate Links
+ * @since    1.0.0
+ */
 	function transform_to_affiliate_link( $link ) {
 		$link = htmlspecialchars( $link ); // This is the original Amazon link that is entered by the user.
 		$pid = substr(strstr($link,"p/"),2,10);
