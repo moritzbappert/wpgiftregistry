@@ -6,15 +6,17 @@
 	 */
 	$(function() {
 
-		const wishlistItems = document.querySelectorAll('.wishlist li');
-		const overlay = document.querySelector('.wishlist .overlay');
+		var wishlistItems = $('.wishlist li');
+		var overlay = $('.wishlist .overlay');
 
 		if ( overlay ) {
-			overlay.querySelector('button#no').addEventListener('click', () => {
-				overlay.classList.toggle('hidden');
+			$('button#no', overlay).on('click', function() {
+				overlay.toggleClass('hidden');
 			});
 
-			overlay.querySelector('button#yes').addEventListener('click', (e) => {
+			$('button#yes', overlay).on('click', function(e) {
+				var itemName = $(this).data('item-name');
+
 				$.ajax({
 					url: variables.ajaxurl,
 					type: 'POST',
@@ -22,29 +24,30 @@
 					data: {
 						action: 'update_gift_availability',
 						nonce: variables.updateGiftAvailabiltyNonce,
-						itemName: e.target.dataset.itemName,
+						itemName: itemName,
 						availability: 'false'
 					},
 				})
 				.done(function(response) {
 
 					// update the button
-					document.querySelector('li[data-item-name="' + e.target.dataset.itemName + '"] .buy-button').classList.toggle('unavailable');
+					$('li[data-item-name="' + itemName + '"] .buy-button').toggleClass('unavailable');
 
 				});
 
-				overlay.classList.toggle('hidden');
+				overlay.toggleClass('hidden');
 			});
 		}
+		wishlistItems.each(function(index, el) {
+			$('.buy-button', $(this)).on('click', function(e) {
+				//e.preventDefault();
 
-		wishlistItems.forEach(item => item.querySelector('.buy-button').addEventListener('click', (e) => {
-			//e.preventDefault();
-
-			const itemName = e.target.parentElement.querySelector('h2').innerHTML;
-			overlay.querySelector('#item-name').innerHTML = itemName;
-			overlay.querySelector('button#yes').dataset.itemName = itemName;
-			overlay.classList.toggle('hidden');
-		}));
+				var itemName = $('h2', $(this).parent()).html();
+				$('#item-name', overlay).text(itemName);
+				$('button#yes', overlay).data('item-name', itemName);
+				overlay.toggleClass('hidden');
+			});
+		});
 	});
 
 })( jQuery );
