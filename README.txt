@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,9 @@ Yes absolutely, no strings attached.
 
 
 == Changelog ==
+
+= 1.2.5 =
+* Important bugfix for a display error in the reservation overlay
 
 = 1.2.4 =
 * Bugfix for IE and Edge

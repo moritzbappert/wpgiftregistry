@@ -43,7 +43,7 @@
 				//e.preventDefault();
 
 				var itemName = $('h2', $(this).parent()).html();
-				$('#item-name', overlay).text(itemName);
+				$('#item-name', overlay).html(itemName);
 				$('button#yes', overlay).data('item-name', itemName);
 				overlay.toggleClass('hidden');
 			});
