@@ -21,6 +21,9 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
+namespace WPGiftRegistry;
+use \WPGiftRegistry;
+
 class WP_Gift_Registry_Public {
 
 	/**
@@ -77,7 +80,7 @@ class WP_Gift_Registry_Public {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-public.css', array(), $this->version, 'all' );
 
 		// new styles
-		wp_enqueue_style( $this->plugin_name . '-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -100,10 +103,10 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, false );
 
 		// new scripts
-		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, false );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name, 'variables', array(
@@ -173,7 +176,7 @@ class WP_Gift_Registry_Public {
 								}
 							?>
 							<div class="price"><?php echo $price_string; ?></div>
-							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>'); ?>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
 						</div>
 					</li>
 				<?php
@@ -184,48 +187,12 @@ class WP_Gift_Registry_Public {
 				<div class="overlay hidden">
 					<div class="content-wrapper">
 						<p>
-							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'wpgiftregistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
+							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'WPGiftRegistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
 						</p>
-						<button id="yes"><?php echo __('Yes', 'wpgiftregistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'wpgiftregistry'); ?></button>
+						<button id="yes"><?php echo __('Yes', 'WPGiftRegistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'WPGiftRegistry'); ?></button>
 					</div>
 				</div>
-
 			</section>
-
-			<div class="m_popup">
-				<div class="m_popup__step is-active" data-step="1">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 1</p>
-					<button class="m_btn m_btn--next">Next</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-				<div class="m_popup__step" data-step="2">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 2</p>
-					<button class="m_btn m_btn--prev">Back</button>
-					<button class="m_btn m_btn--next">Next</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-				<div class="m_popup__step" data-step="3">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 3</p>
-					<button class="m_btn m_btn--prev">Back</button>
-					<button class="m_btn m_btn--save">Save</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-			</div>
 
 			<?php
 			}
