@@ -122,8 +122,8 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-gift-registry-public.php';
 
 			// Include CMB2
-			if ( file_exists( __DIR__ . '/../vendor/cmb2/init.php' ) ) {
-			  require_once __DIR__ . '/../vendor/cmb2/init.php';
+			if ( file_exists( __DIR__ . '/libraries/cmb2/init.php' ) ) {
+			  require_once __DIR__ . '/libraries/cmb2/init.php';
 			}
 
 			$this->loader = new WP_Gift_Registry_Loader();
