@@ -77,7 +77,7 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/WP_Gift_Registry-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp_gift_registry-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -100,7 +100,7 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/WP_Gift_Registry-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp_gift_registry-public.js', array( 'jquery' ), $this->version, false );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name, 'variables', array(

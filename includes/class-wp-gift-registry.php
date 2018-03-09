@@ -105,24 +105,24 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			 * The class responsible for orchestrating the actions and filters of the
 			 * core plugin.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-WP_Gift_Registry-loader.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-gift-registry-loader.php';
 
 			/**
 			 * The class responsible for defining internationalization functionality
 			 * of the plugin.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-WP_Gift_Registry-i18n.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wp-gift-registry-i18n.php';
 
 			/**
 			 * The class responsible for defining all actions that occur in the admin area.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-WP_Gift_Registry-admin.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wp-gift-registry-admin.php';
 
 			/**
 			 * The class responsible for defining all actions that occur in the public-facing
 			 * side of the site.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-WP_Gift_Registry-public.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wp-gift-registry-public.php';
 
 			// Include CMB2
 			if ( file_exists( __DIR__ . '/../vendor/cmb2/init.php' ) ) {
