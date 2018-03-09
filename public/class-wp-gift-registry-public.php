@@ -21,9 +21,6 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
-
 class WP_Gift_Registry_Public {
 
 	/**
@@ -77,8 +74,11 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-public.css', array(), $this->version, 'all' );
+
+		// new styles
+		wp_enqueue_style( $this->plugin_name . '-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -100,7 +100,10 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp_gift_registry-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
+
+		// new scripts
+		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name, 'variables', array(
@@ -300,12 +303,42 @@ class WP_Gift_Registry_Public {
                         <i class="wpgr-m_card__toggle-icon"></i>
                     </div>
                 </div>
-
-
-
             </section>
 
-
+			<div class="m_popup">
+				<div class="m_popup__step is-active" data-step="1">
+					<ul>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+					</ul>
+					<p class="m_popup__content">Step 1</p>
+					<button class="m_btn m_btn--next">Next</button>
+					<button class="m_btn m_btn--close">x</button>
+				</div>
+				<div class="m_popup__step" data-step="2">
+					<ul>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+					</ul>
+					<p class="m_popup__content">Step 2</p>
+					<button class="m_btn m_btn--prev">Back</button>
+					<button class="m_btn m_btn--next">Next</button>
+					<button class="m_btn m_btn--close">x</button>
+				</div>
+				<div class="m_popup__step" data-step="3">
+					<ul>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+						<li class="m_popup__list-item"></li>
+					</ul>
+					<p class="m_popup__content">Step 3</p>
+					<button class="m_btn m_btn--prev">Back</button>
+					<button class="m_btn m_btn--save">Save</button>
+					<button class="m_btn m_btn--close">x</button>
+				</div>
+			</div>
 
 			<?php
 
