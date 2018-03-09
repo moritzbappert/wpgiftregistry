@@ -1,0 +1,11 @@
+# Files
+*.log
+/admin/js/**/*.min.js
+/admin/css/**/*.min.css
+/public/js/**/*.min.js
+/public/css/**/*.min.css
+
+# Folders
+/_config/node_modules
+/admin/css/maps
+/public/css/maps
