@@ -41,59 +41,146 @@ var global = (function($) {
 
 })(jQuery);
 
-(function( $ ) {
-    'use strict';
+var mCard = (function($) {
 
-    /**
-     * DOCUMENT READY
-     */
-    $(function() {
+    /******************************************************************
+        VARS
+    ******************************************************************/
 
-        var wishlistItems = $('.wishlist li');
-        var overlay = $('.wishlist .overlay');
+    var $btnToggle = $('.m_btn__toggle');
+    var $btnView = $('.m_btn__view');
+    var $popup = $('.m_popup');
 
-        if ( overlay ) {
-            $('button#no', overlay).on('click', function() {
-                overlay.toggleClass('hidden');
-            });
 
-            $('button#yes', overlay).on('click', function(e) {
-                var itemName = $(this).data('item-name');
+    /******************************************************************
+        EVENTS
+    ******************************************************************/
 
-                $.ajax({
-                    url: variables.ajaxurl,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        action: 'update_gift_availability',
-                        nonce: variables.updateGiftAvailabiltyNonce,
-                        itemName: itemName,
-                        availability: 'false'
-                    },
-                })
-                .done(function(response) {
+    $btnToggle.on('click', toggleContent);
 
-                    // update the button
-                    $('li[data-item-name="' + itemName + '"] .buy-button').toggleClass('unavailable');
+    $btnView.on('click', openPopup);
 
-                });
+    /******************************************************************
+        FUNCTIONS
+    ******************************************************************/
 
-                overlay.toggleClass('hidden');
-            });
-        }
-        wishlistItems.each(function(index, el) {
-            $('.buy-button', $(this)).on('click', function(e) {
-                //e.preventDefault();
+    function toggleContent() {
+        $(this).closest('.m_card').find('.m_card__content').slideToggle('fast');
+    }
 
-                var itemName = $('h2', $(this).parent()).html();
-                $('#item-name', overlay).html(itemName);
-                $('button#yes', overlay).data('item-name', itemName);
-                overlay.toggleClass('hidden');
-            });
-        });
+    function openPopup() {
+        var $clickedBtn = $(this);
+        var $clickedCard = $clickedBtn.closest('.m_card');
+        var wishID = $clickedCard.data('wish');
+
+        $popup.attr('data-wish', wishID);
+        $popup.addClass('is-active');
+    }
+
+
+})(jQuery);
+
+var mPopup = (function($) {
+
+    /******************************************************************
+        VARS
+    ******************************************************************/
+
+    var $popup = $('.m_popup');
+    var $step = $('.m_popup__step');
+    var $btnNext = $step.find('.m_btn--next');
+    var $btnPrev = $step.find('.m_btn--prev');
+    var $btnSave = $step.find('.m_btn--save');
+    var $btnClose = $step.find('.m_btn--close');
+    var $body = $('body');
+
+
+    /******************************************************************
+        EVENTS
+    ******************************************************************/
+
+    $body.on('click', function(e){
+        checkIfPopupWasClicked(e);
     });
+    $btnNext.on('click', nextStep);
+    $btnPrev.on('click', prevStep);
+    $btnSave.on('click', saveData);
+    $btnClose.on('click', closePopup);
 
-})( jQuery );
+    /******************************************************************
+        FUNCTIONS
+    ******************************************************************/
+
+    function nextStep() {
+        var $clickedBtn = $(this);
+        var $currentStep = $clickedBtn.closest('.m_popup__step');
+
+        // hide current step
+        $currentStep.removeClass('is-active');
+
+        // make next step active
+        $currentStep.next('.m_popup__step').addClass('is-active');
+    }
+
+    function prevStep() {
+        var $clickedBtn = $(this);
+        var $currentStep = $clickedBtn.closest('.m_popup__step');
+
+        // hide current step
+        $currentStep.removeClass('is-active');
+
+        // make next step active
+        $currentStep.prev('.m_popup__step').addClass('is-active');
+    }
+
+    function checkIfPopupWasClicked(e) {
+        var $clickTarget = $(e.target);
+
+        // do not prevent click of view button
+        if ($(e.target).hasClass('m_btn__view')) return;
+
+        // check if popup is even active
+        if (!$popup.hasClass('is-active')) return;
+
+        // prevent closing on click on popup elements
+        if ($(e.target).closest('.m_popup').length) {
+            // allow x icon and save button to be clicked
+            if (!$(e.target).hasClass('m_btn--close') || !$(e.target).hasClass('m_btn--save')) return;
+        }
+        closePopup();
+    }
+
+    function closePopup() {
+        // make first step active for future popups
+        $step.removeClass('is-active');
+        $('.m_popup__step:first-child').addClass('is-active');
+
+        // close popup
+        $popup.removeClass('is-active');
+    }
+
+    function saveData() {
+
+        // $.ajax({
+        //     url: '/path/to/file',
+        //     type: 'default GET (Other values: POST)',
+        //     dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+        //     data: {param1: 'value1'},
+        // })
+        // .done(function() {
+        //     console.log("success");
+        // })
+        // .fail(function() {
+        //     console.log("error");
+        // })
+        // .always(function() {
+        //     console.log("complete");
+        // });
+
+        closePopup();
+    }
+
+})(jQuery);
 
 /******************************************************************
     _EXAMPLE.JS

@@ -80,7 +80,7 @@ class WP_Gift_Registry_Public {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-public.css', array(), $this->version, 'all' );
 
 		// new styles
-		wp_enqueue_style( $this->plugin_name . '-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -103,10 +103,10 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, false );
 
 		// new scripts
-		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, false );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name, 'variables', array(
@@ -135,82 +135,64 @@ class WP_Gift_Registry_Public {
 			?>
 
 			<section class="wishlist">
+				<ul>
+				<?php
+				$i = 0;
+				foreach( $wishlist as $gift ) {
 
-				<div class="m_card" data-wish="1">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
+					$availability = $gift['gift_availability'];
+					if ( $availability == 'false' ) {
+						$availability_class = ' unavailable';
+					} else {
+						$availability_class = '';
+					}
+					if ( empty($gift['gift_url']) ) {
+						$gift['gift_url'] = "";
+					}
+					if ( empty($gift['gift_image']) ) {
+						$gift['gift_image'] = "";
+					}
+
+					if ( empty($gift['gift_image']) && strpos( $gift['gift_url'], 'amazon.com' ) ) {
+						$pid = substr(strstr($gift['gift_url'],"p/"),2,10);
+						$gift['gift_image'] = 'http://images.amazon.com/images/P/' . $pid . '.01._SCMZZZZZZZ_.jpg';
+					}
+				?>
+					<li data-item-name="<?php echo $gift['gift_title']; ?>">
+						<div class="image-wrapper">
+							<?php echo ($gift['gift_image'] ? '<img src="' . $gift['gift_image'] . '">' : '<span></span>'); ?>
+						</div>
+						<div class="content-wrapper">
+							<h2><?php echo $gift['gift_title']; ?></h2>
+							<p><?php echo $gift['gift_description']; ?></p>
+							<?php
+								$price_string = "";
+								if ( !empty($gift['gift_price'] ) ) {
+									if ( $currency_placement === 'before' ) {
+										$price_string = $currency . $gift['gift_price'];
+									} else {
+										$price_string = $gift['gift_price'] . $currency;
+									}
+								}
+							?>
+							<div class="price"><?php echo $price_string; ?></div>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
+						</div>
+					</li>
+				<?php
+					$i++;
+				}
+				?>
+				</ul>
+				<div class="overlay hidden">
+					<div class="content-wrapper">
+						<p>
+							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'WPGiftRegistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
+						</p>
+						<button id="yes"><?php echo __('Yes', 'WPGiftRegistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'WPGiftRegistry'); ?></button>
 					</div>
 				</div>
-
-				<div class="m_card" data-wish="2">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
-					</div>
-				</div>
-
-				<div class="m_card" data-wish="3">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
-					</div>
-				</div>
-
 			</section>
-
-			<div class="m_popup">
-				<div class="m_popup__step is-active" data-step="1">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 1</p>
-					<button class="m_btn m_btn--next">Next</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-				<div class="m_popup__step" data-step="2">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 2</p>
-					<button class="m_btn m_btn--prev">Back</button>
-					<button class="m_btn m_btn--next">Next</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-				<div class="m_popup__step" data-step="3">
-					<ul>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-						<li class="m_popup__list-item"></li>
-					</ul>
-					<p class="m_popup__content">Step 3</p>
-					<button class="m_btn m_btn--prev">Back</button>
-					<button class="m_btn m_btn--save">Save</button>
-					<button class="m_btn m_btn--close">x</button>
-				</div>
-			</div>
 
 			<?php
 			}
