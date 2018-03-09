@@ -21,9 +21,6 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
-
 class WP_Gift_Registry_Public {
 
 	/**
@@ -135,43 +132,61 @@ class WP_Gift_Registry_Public {
 			?>
 
 			<section class="wishlist">
+				<ul>
+				<?php
+				$i = 0;
+				foreach( $wishlist as $gift ) {
 
-				<div class="m_card" data-wish="1">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
-					</div>
-				</div>
+					$availability = $gift['gift_availability'];
+					if ( $availability == 'false' ) {
+						$availability_class = ' unavailable';
+					} else {
+						$availability_class = '';
+					}
+					if ( empty($gift['gift_url']) ) {
+						$gift['gift_url'] = "";
+					}
+					if ( empty($gift['gift_image']) ) {
+						$gift['gift_image'] = "";
+					}
 
-				<div class="m_card" data-wish="2">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
-					</div>
-				</div>
-
-				<div class="m_card" data-wish="3">
-					<header class="m_card__header">
-						<div class="m_card__img"></div>
-						<h1 class="m_card__heading">Megageiles Geschenk</h1>
-					</header>
-					<button class="m_btn m_btn__view">View</button>
-					<button class="m_btn m_btn__toggle">Toggle</button>
-					<div class="m_card__content">
-						<p>Lorem ipsum dolor sit amet.</p>
-						<span class="m_card__slider">6/10</span>
+					if ( empty($gift['gift_image']) && strpos( $gift['gift_url'], 'amazon.com' ) ) {
+						$pid = substr(strstr($gift['gift_url'],"p/"),2,10);
+						$gift['gift_image'] = 'http://images.amazon.com/images/P/' . $pid . '.01._SCMZZZZZZZ_.jpg';
+					}
+				?>
+					<li data-item-name="<?php echo $gift['gift_title']; ?>">
+						<div class="image-wrapper">
+							<?php echo ($gift['gift_image'] ? '<img src="' . $gift['gift_image'] . '">' : '<span></span>'); ?>
+						</div>
+						<div class="content-wrapper">
+							<h2><?php echo $gift['gift_title']; ?></h2>
+							<p><?php echo $gift['gift_description']; ?></p>
+							<?php
+								$price_string = "";
+								if ( !empty($gift['gift_price'] ) ) {
+									if ( $currency_placement === 'before' ) {
+										$price_string = $currency . $gift['gift_price'];
+									} else {
+										$price_string = $gift['gift_price'] . $currency;
+									}
+								}
+							?>
+							<div class="price"><?php echo $price_string; ?></div>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>'); ?>
+						</div>
+					</li>
+				<?php
+					$i++;
+				}
+				?>
+				</ul>
+				<div class="overlay hidden">
+					<div class="content-wrapper">
+						<p>
+							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'wpgiftregistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
+						</p>
+						<button id="yes"><?php echo __('Yes', 'wpgiftregistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'wpgiftregistry'); ?></button>
 					</div>
 				</div>
 

@@ -21,12 +21,9 @@
  * Author URI:        http://dreiqbik.de
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       WPGiftRegistry
+ * Text Domain:       wpgiftregistry
  * Domain Path:       /languages
  */
-
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -37,8 +34,8 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-WP_Gift_Registry-activator.php
  */
-function activate_WP_Gift_Registry() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-WP_Gift_Registry-activator.php';
+function activate_wp_gift_registry() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-gift-registry-activator.php';
 	WP_Gift_Registry_Activator::activate();
 }
 
@@ -46,19 +43,19 @@ function activate_WP_Gift_Registry() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-WP_Gift_Registry-deactivator.php
  */
-function deactivate_WP_Gift_Registry() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-WP_Gift_Registry-deactivator.php';
+function deactivate_wp_gift_registry() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wp-gift-registry-deactivator.php';
 	WP_Gift_Registry_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_WP_Gift_Registry' );
-register_deactivation_hook( __FILE__, 'deactivate_WP_Gift_Registry' );
+register_activation_hook( __FILE__, 'activate_wp_wp_gift_registry' );
+register_deactivation_hook( __FILE__, 'deactivate_wp_gift_registry' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-WP_Gift_Registry.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-wp-gift-registry.php';
 
 /**
  * Begins execution of the plugin.
@@ -69,10 +66,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-WP_Gift_Registry.php';
  *
  * @since    1.0.0
  */
-function run_WP_Gift_Registry() {
+function run_wp_gift_registry() {
 
 	$plugin = new WP_Gift_Registry();
 	$plugin->run();
 
 }
-run_WP_Gift_Registry();
+run_wp_gift_registry();
