@@ -1,7 +1,311 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300);
 /******************************************************************
-STYLESHEET: STYLE
-
-This is the place where all scss files get imported.
+	COLORS
 ******************************************************************/
+/* ====================================
+		GREYSCALE
+	==================================== */
+/* ====================================
+		PROJECT
+	==================================== */
+/* ====================================
+		SPECIALS
+	==================================== */
+/******************************************************************
+	FONTS
+******************************************************************/
+/* ====================================
+		INITIALIZE
+	==================================== */
+/******************************************************************
+	BREAKPOINTS
+******************************************************************/
+/******************************************************************
+
+    SETTINGS: SET_MIXINS
+        > BREAKPOINTS
+        > CLEARFIX
+
+******************************************************************/
+/******************************************************************
+
+    BREAKPOINTS
+
+        --> @include medium {...}
+
+******************************************************************/
+/******************************************************************
+
+    CLEARFIX
+
+        --> @include clearfix;
+
+******************************************************************/
+section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 200px auto;
+}
+
+.wpgr-m_card {
+  position: relative;
+  background-color: #ffffff;
+  margin-bottom: 70px;
+  border: 1px solid #f5f5f5;
+  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  cursor: default;
+}
+
+.wpgr-m_card__price-wrapper {
+  transition: background-color 0.2s ease-in-out;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, -30%);
+  background: #fac8bf;
+  padding: 10px 30px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wpgr-m_card__price {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.wpgr-m_card__price-text {
+  margin: 0;
+  margin-top: -10px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.wpgr-m_card__main {
+  display: flex;
+  padding: 3rem 8rem 2rem 3rem;
+}
+
+.wpgr-m_card__figure-wrapper {
+  width: 200px;
+  margin-right: 4rem;
+}
+
+.wpgr-m_card__figure {
+  width: 200px;
+  height: 200px;
+  background-image: url("../src/img/placeholder-author-detail-02.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #f5f5f5;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wpgr-m_card__content {
+  padding: 0;
+}
+
+.wpgr-m_card__heading {
+  transition: color 0.2s ease-in-out;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 42px;
+  line-height: 56px;
+  font-weight: 400;
+}
+
+.wpgr-m_card__desc {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #a0a0a0;
+}
+
+.wpgr-m_card__btn-wrapper {
+  text-align: right;
+}
+
+.wpgr-m_card__btn {
+  margin-left: 10px;
+}
+
+.wpgr-m_card__footer {
+  display: flex;
+  position: relative;
+  padding: 2rem 8rem 3rem 3rem;
+  background: #fcfcfc;
+}
+
+.wpgr-m_card__buyer-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 200px 0 0;
+  margin-right: 4rem;
+}
+
+.wpgr-m_card__buyer {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #fac8bf;
+}
+
+.wpgr-m_card__process {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: rgba(250, 200, 191, 0.3);
+  border-radius: 5px;
+  padding: 0 2rem;
+}
+
+.wpgr-m_card__process-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #fac8bf;
+  border-radius: 5px;
+}
+
+.wpgr-m_card__process-price {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.wpgr-m_card__process-count {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.wpgr-m_card__toggle {
+  transition: background-color 0.2s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #addedc;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wpgr-m_card__toggle:hover {
+  background: #8abdbb;
+}
+
+.wpgr-m_card--single .wpgr-m_card__main {
+  padding: 3rem 8rem 4rem 3rem;
+}
+
+.wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
+  padding: 3rem 8rem 2rem 3rem;
+}
+
+.wpgr-m_card--buyed {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.6;
+}
+
+.wpgr-m_card--buyed:hover {
+  opacity: 1;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__main {
+  background: #fcfcfc;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__price-wrapper {
+  transition: opacity 0.2s ease-in-out;
+  background: #a0a0a0;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__figure {
+  opacity: 1;
+  filter: grayscale(100%);
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__heading {
+  color: #a0a0a0;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__desc {
+  color: #a0a0a0;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__toggle {
+  background: #a0a0a0;
+}
+
+.wpgr-m_card.is-collapsed {
+  cursor: pointer;
+}
+
+.wpgr-m_card.is-collapsed:not(.wpgr-m_card--buyed):hover .wpgr-m_card__price-wrapper {
+  background: #ffa393;
+}
+
+.wpgr-m_card.is-collapsed:not(.wpgr-m_card--buyed):hover .wpgr-m_card__toggle {
+  background: #8abdbb;
+}
+
+.wpgr-m_card.is-collapsed .wpgr-m_card__btn-wrapper {
+  display: none;
+}
+
+.wpgr-m_card.is-collapsed .wpgr-m_card__footer {
+  display: none;
+}
+
+.wpgr-m_btn,
+a.wpgr-m_btn {
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  padding: 1em 2em;
+  margin-top: 1em;
+  transition: 0.1s ease-in-out;
+  background-color: #addedc;
+  border-bottom: 2px solid #8abdbb;
+  color: #ffffff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+@media only screen and (min-width: 961px) {
+  .wpgr-m_btn:hover,
+  a.wpgr-m_btn:hover {
+    outline: 0;
+    background-color: #8abdbb;
+    color: #ffffff;
+  }
+}
 
 /*# sourceMappingURL=maps/style.css.map */

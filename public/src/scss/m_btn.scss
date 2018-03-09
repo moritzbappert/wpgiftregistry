@@ -1,0 +1,24 @@
+.wpgr-m_btn,
+a.wpgr-m_btn {
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    padding: 1em 2em;
+    margin-top: 1em;
+    transition: 0.1s ease-in-out;
+    background-color: $c1-main;
+    border-bottom: 2px solid  $c2-main;
+    color: $c-white;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+
+        @include medium {
+            outline: 0;
+            background-color: $c2-main;
+            color: $c-white;
+        }
+    }
+}

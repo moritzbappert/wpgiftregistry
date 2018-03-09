@@ -77,7 +77,7 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp_gift_registry-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -125,71 +125,189 @@ class WP_Gift_Registry_Public {
 
 			ob_start();
 
-			if ( !empty( $wishlist ) ) {
+
 			?>
 
-			<section class="wishlist">
-				<ul>
-				<?php
-				$i = 0;
-				foreach( $wishlist as $gift ) {
+            <section>
+                <div class="wpgr-m_card ">
+                    <div class="wpgr-m_card__price-wrapper">
+                        <p class="wpgr-m_card__price">20€</p>
+                        <p class="wpgr-m_card__price-text">each</p>
+                    </div>
+                    <div class="wpgr-m_card__main">
+                        <div class="wpgr-m_card__figure-wrapper">
+                            <div class="wpgr-m_card__figure"></div>
+                        </div>
+                        <div class="wpgr-m_card__content">
+                            <h4 class="wpgr-m_card__heading">Ein Papierschiffchen mit Anker!</h4>
+                            <div class="wpgr-m_card__content-details is-hidden">
+                                <p class="wpgr-m_card__desc">
+                                    Professionally enable revolutionary ideas vis-a-vis premium human capital.
+                                    Progressively strategize client-focused processes via resource-leveling growth strategies.
+                                </p>
+                                <div class="wpgr-m_card__btn-wrapper">
+                                    <a class="wpgr-m_card__btn wpgr-m_btn" href="#">Anschauen</a>
+                                    <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">Mitschenken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="wpgr-m_card__footer is-hidden">
+                        <div class="wpgr-m_card__buyer-wrapper">
+                            <i class="wpgr-m_card__buyer"></i>
+                        </div>
+                        <div class="wpgr-m_card__process">
+                            <div class="wpgr-m_card__process-bar"></div>
+                            <p class="wpgr-m_card__process-price">
+                                <span class="wpgr-m_card__process-price-partial">100€</span>
+                                <span class="wpgr-m_card__process-price-total"> / 200€</span>
+                            </p>
+                            <p class="wpgr-m_card__process-count">
+                                <span class="wpgr-m_card__process-count-partial">10</span>
+                                <span class="wpgr-m_card__process-count-total"> / 20</span>
+                            </p>
+                        </div>
+                    </footer>
+                    <div class="wpgr-m_card__toggle">
+                        <i class="wpgr-m_card__toggle-icon"></i>
+                    </div>
+                </div>
 
-					$availability = $gift['gift_availability'];
-					if ( $availability == 'false' ) {
-						$availability_class = ' unavailable';
-					} else {
-						$availability_class = '';
-					}
-					if ( empty($gift['gift_url']) ) {
-						$gift['gift_url'] = "";
-					}
-					if ( empty($gift['gift_image']) ) {
-						$gift['gift_image'] = "";
-					}
+                <div class="wpgr-m_card is-collapsed">
+                    <div class="wpgr-m_card__price-wrapper">
+                        <p class="wpgr-m_card__price">20€</p>
+                        <p class="wpgr-m_card__price-text">each</p>
+                    </div>
+                    <div class="wpgr-m_card__main">
+                        <div class="wpgr-m_card__figure-wrapper">
+                            <div class="wpgr-m_card__figure"></div>
+                        </div>
+                        <div class="wpgr-m_card__content">
+                            <h4 class="wpgr-m_card__heading">Ein Papierschiffchen mit Anker!</h4>
+                            <div class="wpgr-m_card__content-details is-hidden">
+                                <p class="wpgr-m_card__desc">
+                                    Professionally enable revolutionary ideas vis-a-vis premium human capital.
+                                    Progressively strategize client-focused processes via resource-leveling growth strategies.
+                                </p>
+                                <div class="wpgr-m_card__btn-wrapper">
+                                    <a class="wpgr-m_card__btn wpgr-m_btn" href="#">Anschauen</a>
+                                    <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">Mitschenken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="wpgr-m_card__footer is-hidden">
+                        <div class="wpgr-m_card__buyer-wrapper">
+                            <i class="wpgr-m_card__buyer"></i>
+                        </div>
+                        <div class="wpgr-m_card__process">
+                            <div class="wpgr-m_card__process-bar"></div>
+                            <p class="wpgr-m_card__process-price">
+                                <span class="wpgr-m_card__process-price-partial">100€</span>
+                                <span class="wpgr-m_card__process-price-total"> / 200€</span>
+                            </p>
+                            <p class="wpgr-m_card__process-count">
+                                <span class="wpgr-m_card__process-count-partial">10</span>
+                                <span class="wpgr-m_card__process-count-total"> / 20</span>
+                            </p>
+                        </div>
+                    </footer>
+                    <div class="wpgr-m_card__toggle">
+                        <i class="wpgr-m_card__toggle-icon"></i>
+                    </div>
+                </div>
 
-					if ( empty($gift['gift_image']) && strpos( $gift['gift_url'], 'amazon.com' ) ) {
-						$pid = substr(strstr($gift['gift_url'],"p/"),2,10);
-						$gift['gift_image'] = 'http://images.amazon.com/images/P/' . $pid . '.01._SCMZZZZZZZ_.jpg';
-					}
-				?>
-					<li data-item-name="<?php echo $gift['gift_title']; ?>">
-						<div class="image-wrapper">
-							<?php echo ($gift['gift_image'] ? '<img src="' . $gift['gift_image'] . '">' : '<span></span>'); ?>
-						</div>
-						<div class="content-wrapper">
-							<h2><?php echo $gift['gift_title']; ?></h2>
-							<p><?php echo $gift['gift_description']; ?></p>
-							<?php
-								$price_string = "";
-								if ( !empty($gift['gift_price'] ) ) {
-									if ( $currency_placement === 'before' ) {
-										$price_string = $currency . $gift['gift_price'];
-									} else {
-										$price_string = $gift['gift_price'] . $currency;
-									}
-								}
-							?>
-							<div class="price"><?php echo $price_string; ?></div>
-							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
-						</div>
-					</li>
-				<?php
-					$i++;
-				}
-				?>
-				</ul>
-				<div class="overlay hidden">
-					<div class="content-wrapper">
-						<p>
-							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'WPGiftRegistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
-						</p>
-						<button id="yes"><?php echo __('Yes', 'WPGiftRegistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'WPGiftRegistry'); ?></button>
-					</div>
-				</div>
-			</section>
+                <div class="wpgr-m_card wpgr-m_card--single">
+                    <div class="wpgr-m_card__price-wrapper">
+                        <p class="wpgr-m_card__price">20€</p>
+                        <p class="wpgr-m_card__price-text">each</p>
+                    </div>
+                    <div class="wpgr-m_card__main">
+                        <div class="wpgr-m_card__figure-wrapper">
+                            <div class="wpgr-m_card__figure"></div>
+                        </div>
+                        <div class="wpgr-m_card__content">
+                            <h4 class="wpgr-m_card__heading">Ein Papierschiffchen mit Anker!</h4>
+                            <div class="wpgr-m_card__content-details is-hidden">
+                                <p class="wpgr-m_card__desc">
+                                    Professionally enable revolutionary ideas vis-a-vis premium human capital.
+                                    Progressively strategize client-focused processes via resource-leveling growth strategies.
+                                </p>
+                                <div class="wpgr-m_card__btn-wrapper">
+                                    <a class="wpgr-m_card__btn wpgr-m_btn" href="#">Anschauen</a>
+                                    <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">Mitschenken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpgr-m_card__toggle">
+                        <i class="wpgr-m_card__toggle-icon"></i>
+                    </div>
+                </div>
+
+                <div class="wpgr-m_card wpgr-m_card--single is-collapsed">
+                    <div class="wpgr-m_card__price-wrapper">
+                        <p class="wpgr-m_card__price">20€</p>
+                        <p class="wpgr-m_card__price-text">each</p>
+                    </div>
+                    <div class="wpgr-m_card__main">
+                        <div class="wpgr-m_card__figure-wrapper">
+                            <div class="wpgr-m_card__figure"></div>
+                        </div>
+                        <div class="wpgr-m_card__content">
+                            <h4 class="wpgr-m_card__heading">Ein Papierschiffchen mit Anker!</h4>
+                            <div class="wpgr-m_card__content-details is-hidden">
+                                <p class="wpgr-m_card__desc">
+                                    Professionally enable revolutionary ideas vis-a-vis premium human capital.
+                                    Progressively strategize client-focused processes via resource-leveling growth strategies.
+                                </p>
+                                <div class="wpgr-m_card__btn-wrapper">
+                                    <a class="wpgr-m_card__btn wpgr-m_btn" href="#">Anschauen</a>
+                                    <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">Mitschenken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpgr-m_card__toggle">
+                        <i class="wpgr-m_card__toggle-icon"></i>
+                    </div>
+                </div>
+
+                <div class="wpgr-m_card wpgr-m_card--single wpgr-m_card--buyed is-collapsed">
+                    <div class="wpgr-m_card__price-wrapper">
+                        <p class="wpgr-m_card__price">OUT</p>
+                        <p class="wpgr-m_card__price-text">bought</p>
+                    </div>
+                    <div class="wpgr-m_card__main">
+                        <div class="wpgr-m_card__figure-wrapper">
+                            <div class="wpgr-m_card__figure"></div>
+                        </div>
+                        <div class="wpgr-m_card__content">
+                            <h4 class="wpgr-m_card__heading">Ein Papierschiffchen mit Anker!</h4>
+                            <div class="wpgr-m_card__content-details is-hidden">
+                                <p class="wpgr-m_card__desc">
+                                    Professionally enable revolutionary ideas vis-a-vis premium human capital.
+                                    Progressively strategize client-focused processes via resource-leveling growth strategies.
+                                </p>
+                                <div class="wpgr-m_card__btn-wrapper">
+                                    <a class="wpgr-m_card__btn wpgr-m_btn" href="#">Anschauen</a>
+                                    <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">Mitschenken</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpgr-m_card__toggle">
+                        <i class="wpgr-m_card__toggle-icon"></i>
+                    </div>
+                </div>
+
+
+
+            </section>
+
+
 
 			<?php
-			}
 
 			$output = ob_get_clean();
 			return $output;
