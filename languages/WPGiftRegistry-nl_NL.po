@@ -11,61 +11,61 @@ msgstr ""
 "Language: nl\n"
 "Project-Id-Version: Plugins - WPGiftRegistry - A Wishlist Plugin for Weddings, Birthdays etc. - Stable (latest release)\n"
 
-#: public/class-WP_Gift_Registry-public.php:186
+#: public/class-wp-gift-registry-public.php:186
 msgid "No, Cancel"
 msgstr "Nee, annuleren"
 
-#: public/class-WP_Gift_Registry-public.php:184
+#: public/class-wp-gift-registry-public.php:184
 msgid "Do you want to mark %s as %sbought%s so that nobody else gifts it?"
 msgstr "Wil je %s markeren als %sgekocht%s zodat niemand anders dit cadeau koopt?"
 
-#: public/class-WP_Gift_Registry-public.php:173
+#: public/class-wp-gift-registry-public.php:173
 msgid "VIEW/BUY"
 msgstr "BEKIJK/KOOP"
 
-#: admin/class-WP_Gift_Registry-admin.php:369
+#: admin/class-wp-gift-registry-admin.php:369
 msgid "Wishlist settings updated."
 msgstr "Wensenlijst instellingen bijgewerkt."
 
-#: admin/class-WP_Gift_Registry-admin.php:331
+#: admin/class-wp-gift-registry-admin.php:331
 msgid "After the price"
 msgstr "Achter het bedrag"
 
-#: admin/class-WP_Gift_Registry-admin.php:330
+#: admin/class-wp-gift-registry-admin.php:330
 msgid "Before the price"
 msgstr "Voor het bedrag"
 
-#: admin/class-WP_Gift_Registry-admin.php:325
+#: admin/class-wp-gift-registry-admin.php:325
 msgid "Currency Symbol Placement"
 msgstr "Plaats van valutateken"
 
-#: admin/class-WP_Gift_Registry-admin.php:317
+#: admin/class-wp-gift-registry-admin.php:317
 msgid "Currency in which the gift price will be displayed"
 msgstr "Valuta waarin de prijs van het cadeau wordt weergegeven"
 
-#: admin/class-WP_Gift_Registry-admin.php:316
+#: admin/class-wp-gift-registry-admin.php:316
 msgid "Currency"
 msgstr "Valuta"
 
-#: admin/class-WP_Gift_Registry-admin.php:155
+#: admin/class-wp-gift-registry-admin.php:155
 msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
 msgstr "%sSchrijf een goede review voor ons%s als je deze plugin handig vind."
 
-#: admin/class-WP_Gift_Registry-admin.php:154
+#: admin/class-wp-gift-registry-admin.php:154
 msgid "This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!"
 msgstr "Deze plugin is geschreven door %s. Neem contact met ons op op kontakt@dreiqbik.de voor vragen of uitbreidingen."
 
-#: admin/class-WP_Gift_Registry-admin.php:150
+#: admin/class-wp-gift-registry-admin.php:150
 msgid "First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist."
 msgstr "Als eerste zal je wat cadeaus moeten toevoegen aan de wensenlijst hieronder. Daarna kan je de shortcode %s overal op je pagina gebruiken om de wensenlijst te laten zien."
 
-#: admin/class-WP_Gift_Registry-admin.php:126
-#: admin/class-WP_Gift_Registry-admin.php:127
+#: admin/class-wp-gift-registry-admin.php:126
+#: admin/class-wp-gift-registry-admin.php:127
 msgid "Settings"
 msgstr "Instellingen"
 
-#: admin/class-WP_Gift_Registry-admin.php:116
-#: admin/class-WP_Gift_Registry-admin.php:117
+#: admin/class-wp-gift-registry-admin.php:116
+#: admin/class-wp-gift-registry-admin.php:117
 msgid "Wishlist"
 msgstr "Wensenlijst"
 
@@ -706,63 +706,63 @@ msgstr "Test Tekst"
 msgid "Test Metabox"
 msgstr "Test Metabox"
 
-#: admin/class-WP_Gift_Registry-admin.php:352
+#: admin/class-wp-gift-registry-admin.php:352
 msgid "Wishlist updated."
 msgstr "Wishlist ge-update."
 
-#: admin/class-WP_Gift_Registry-admin.php:292
+#: admin/class-wp-gift-registry-admin.php:292
 msgid "No"
 msgstr "Nee"
 
-#: admin/class-WP_Gift_Registry-admin.php:291
-#: public/class-WP_Gift_Registry-public.php:186
+#: admin/class-wp-gift-registry-admin.php:291
+#: public/class-wp-gift-registry-public.php:186
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/class-WP_Gift_Registry-admin.php:287
+#: admin/class-wp-gift-registry-admin.php:287
 msgid "Is the gift available for purchase (nobody already buying it)?"
 msgstr "Is dit cadeau beschikbaar voor aanschaf (Heeft niemand dit al gekocht)?"
 
-#: admin/class-WP_Gift_Registry-admin.php:286
+#: admin/class-wp-gift-registry-admin.php:286
 msgid "Availability"
 msgstr "Beschikbaar"
 
-#: admin/class-WP_Gift_Registry-admin.php:278
+#: admin/class-wp-gift-registry-admin.php:278
 msgid "Product URL"
 msgstr "Product Link"
 
-#: admin/class-WP_Gift_Registry-admin.php:265
+#: admin/class-wp-gift-registry-admin.php:265
 msgid "Price"
 msgstr "Prijs"
 
-#: admin/class-WP_Gift_Registry-admin.php:244
+#: admin/class-wp-gift-registry-admin.php:244
 msgid "Description (optional)"
 msgstr "Omschrijving (Optioneel)"
 
-#: admin/class-WP_Gift_Registry-admin.php:234
+#: admin/class-wp-gift-registry-admin.php:234
 msgid "Add Image"
 msgstr "Afbeelding Toevoegen"
 
-#: admin/class-WP_Gift_Registry-admin.php:226
+#: admin/class-wp-gift-registry-admin.php:226
 msgid "Upload an image or enter a URL. If left empty, we'll try to automatically retrieve an image (currently only working with amazon.com)."
 msgstr "Upload een afbeelding of vul de link in. Indien leeg, zullen we proberen automatisch een afbeelding vinden (werkt momenteel enkel met amazon.com)"
 
-#: admin/class-WP_Gift_Registry-admin.php:225
+#: admin/class-wp-gift-registry-admin.php:225
 msgid "Gift Image"
 msgstr "Cadeau afbeelding"
 
-#: admin/class-WP_Gift_Registry-admin.php:216
+#: admin/class-wp-gift-registry-admin.php:216
 msgid "Gift Title"
 msgstr "Cadeau Titel"
 
-#: admin/class-WP_Gift_Registry-admin.php:206
+#: admin/class-wp-gift-registry-admin.php:206
 msgid "Remove Gift"
 msgstr "Verwijder Cadeau"
 
-#: admin/class-WP_Gift_Registry-admin.php:205
+#: admin/class-wp-gift-registry-admin.php:205
 msgid "Add Another Gift"
 msgstr "Voeg een ander Cadeau toe"
 
-#: admin/class-WP_Gift_Registry-admin.php:204
+#: admin/class-wp-gift-registry-admin.php:204
 msgid "Gift {#}"
 msgstr "Cadeau {#}"

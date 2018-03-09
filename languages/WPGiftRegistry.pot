@@ -16,132 +16,132 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-WP_Gift_Registry-admin.php:113
-#: admin/class-WP_Gift_Registry-admin.php:114
+#: admin/class-wp-gift-registry-admin.php:113
+#: admin/class-wp-gift-registry-admin.php:114
 msgid "Wishlist"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:123
-#: admin/class-WP_Gift_Registry-admin.php:124
+#: admin/class-wp-gift-registry-admin.php:123
+#: admin/class-wp-gift-registry-admin.php:124
 msgid "Settings"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:147
+#: admin/class-wp-gift-registry-admin.php:147
 #, php-format
 msgid ""
 "First add some gifts to your wishlist below. Then use the %s shortcode "
 "anywhere on your page to include this whishlist."
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:151
+#: admin/class-wp-gift-registry-admin.php:151
 #, php-format
 msgid ""
 "This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik."
 "de for any feature requests!"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:152
+#: admin/class-wp-gift-registry-admin.php:152
 #, php-format
 msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:201
+#: admin/class-wp-gift-registry-admin.php:201
 msgid "Gift {#}"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:202
+#: admin/class-wp-gift-registry-admin.php:202
 msgid "Add Another Gift"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:203
+#: admin/class-wp-gift-registry-admin.php:203
 msgid "Remove Gift"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:213
+#: admin/class-wp-gift-registry-admin.php:213
 msgid "Gift Title"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:222
+#: admin/class-wp-gift-registry-admin.php:222
 msgid "Gift Image"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:223
+#: admin/class-wp-gift-registry-admin.php:223
 msgid ""
 "Upload an image or enter a URL. If left empty, we'll try to automatically "
 "retrieve an image (currently only working with amazon.com)."
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:231
+#: admin/class-wp-gift-registry-admin.php:231
 msgid "Add Image"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:241
+#: admin/class-wp-gift-registry-admin.php:241
 msgid "Description (optional)"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:279
+#: admin/class-wp-gift-registry-admin.php:279
 msgid "Price"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:292
+#: admin/class-wp-gift-registry-admin.php:292
 msgid "Product URL"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:300
+#: admin/class-wp-gift-registry-admin.php:300
 msgid "Availability"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:301
+#: admin/class-wp-gift-registry-admin.php:301
 msgid "Is the gift available for purchase (nobody already buying it)?"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:305
-#: public/class-WP_Gift_Registry-public.php:174
+#: admin/class-wp-gift-registry-admin.php:305
+#: public/class-wp-gift-registry-public.php:174
 msgid "Yes"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:306
+#: admin/class-wp-gift-registry-admin.php:306
 msgid "No"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:330
+#: admin/class-wp-gift-registry-admin.php:330
 msgid "Currency"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:331
+#: admin/class-wp-gift-registry-admin.php:331
 msgid "Currency in which the gift price will be displayed"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:339
+#: admin/class-wp-gift-registry-admin.php:339
 msgid "Currency Symbol Placement"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:344
+#: admin/class-wp-gift-registry-admin.php:344
 msgid "Before the price"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:345
+#: admin/class-wp-gift-registry-admin.php:345
 msgid "After the price"
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:366
+#: admin/class-wp-gift-registry-admin.php:366
 msgid "Wishlist updated."
 msgstr ""
 
-#: admin/class-WP_Gift_Registry-admin.php:383
+#: admin/class-wp-gift-registry-admin.php:383
 msgid "Wishlist settings updated."
 msgstr ""
 
-#: public/class-WP_Gift_Registry-public.php:161
+#: public/class-wp-gift-registry-public.php:161
 msgid "VIEW/BUY"
 msgstr ""
 
-#: public/class-WP_Gift_Registry-public.php:172
+#: public/class-wp-gift-registry-public.php:172
 #, php-format
 msgid "Do you want to mark %s as %sbought%s so that nobody else gifts it?"
 msgstr ""
 
-#: public/class-WP_Gift_Registry-public.php:174
+#: public/class-wp-gift-registry-public.php:174
 msgid "No, Cancel"
 msgstr ""
 

@@ -39,7 +39,7 @@ class WP_Gift_Registry_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'WPGiftRegistry',
+			'wpgiftregistry',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);
