@@ -22,9 +22,6 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
-
 class WP_Gift_Registry_Loader {
 
 	/**

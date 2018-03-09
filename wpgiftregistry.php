@@ -25,9 +25,6 @@
  * Domain Path:       /languages
  */
 
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
-
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;

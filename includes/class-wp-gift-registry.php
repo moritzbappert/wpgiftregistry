@@ -28,9 +28,6 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
-namespace WPGiftRegistry;
-use \WPGiftRegistry;
-
 if ( !class_exists( 'WP_Gift_Registry' ) ) {
 	class WP_Gift_Registry {
 
