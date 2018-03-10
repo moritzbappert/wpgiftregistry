@@ -1,24 +1,46 @@
 .wpgr-m_btn,
 a.wpgr-m_btn {
+    transition: background-color 0.2s ease-in-out;
     display: inline-block;
     font-weight: 700;
     text-transform: uppercase;
     border: none;
     border-radius: 5px;
-    padding: 1em 2em;
-    margin-top: 1em;
+    padding: 10px 16px;
     transition: 0.1s ease-in-out;
     background-color: $c1-main;
     border-bottom: 2px solid  $c2-main;
+    font-size: 14px;
     color: $c-white;
-    transition: background-color 0.2s ease-in-out;
+
+    @include medium {
+        padding: 10px 16px;
+        ffont-size: 14px;
+    }
 
     &:hover {
+        outline: 0;
+        background-color: $c2-main;
+        color: $c-white;
+    }
+}
 
-        @include medium {
-            outline: 0;
-            background-color: $c2-main;
-            color: $c-white;
-        }
+.wpgr-m_btn-close {
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1);
+    background-color: $c1-main;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    @include medium {
+        width: 60px;
+        height: 60px;
+    }
+
+    &:hover {
+        background-color: $c2-main;
     }
 }
