@@ -193,6 +193,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 				// Add metaboxes to our options page
 				$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_old_wishlist_page_metaboxes' );
+
+				// Add admin notices (notice about the new version)
+				$this->loader->add_action( 'admin_notices', $plugin_admin, 'add_update_notice_for_old_plugin' );
 			}
 
 		}
