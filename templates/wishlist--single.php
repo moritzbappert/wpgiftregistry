@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
 
-<section class="wpgr-section" data-id="wpgr-<?= $atts['id'] ?>">
+<section class="wpgr-wishlist" data-id="<?= $atts['id'] ?>">
 
 <?php
     $i = 0;
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             $classes[] = 'wpgr-m_card--bought';
         }
         if ( $is_single ) {
-            // $classes[] = 'wpgr-m_card--single';
+            $classes[] = 'wpgr-m_card--single';
         }
 
     ?>

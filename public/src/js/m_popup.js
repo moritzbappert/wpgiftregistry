@@ -43,7 +43,7 @@ var mPopup = (function($) {
     // save data on click on btn save
     $btnSave.on('click', function(e) {
         e.preventDefault();
-        saveData();
+        saveData(e);
     });
 
     // close popup on click on btn close
@@ -156,23 +156,31 @@ var mPopup = (function($) {
         $body.removeClass('no-scroll');
     }
 
-    function saveData() {
+    function saveData(e) {
+        var $currentGiftPopup = $(e.target).closest('.wpgr-o_popup');
+        var giftID = $currentGiftPopup.data('wish-id');
+        var wishlistID = $currentGiftPopup.data('wishlist-id');
+        var reserverName = $currentGiftPopup.find('#your_name2').val();
 
-        // $.ajax({
-        //     url: '/path/to/file',
-        //     type: 'default GET (Other values: POST)',
-        //     dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-        //     data: {param1: 'value1'},
-        // })
-        // .done(function() {
-        //     console.log("success");
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // })
-        // .always(function() {
-        //     console.log("complete");
-        // });
+        $.ajax({
+            url: variables.ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'update_gift_availability',
+                nonce: variables.update_gift_availabilty_nonce,
+                wishlist_id: wishlistID,
+                gift_id: giftID,
+                gift_availability: 'false',
+                gift_reserver: reserverName,
+            },
+        })
+        .done(function(response) {
+
+            // deactivate card
+            $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
+
+        });
 
         closePopup();
     }
