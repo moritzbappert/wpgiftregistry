@@ -131,6 +131,9 @@
 
     &__btn-wrapper {
         text-align: left;
+        // max-height: 100px;
+        // opacity: 1;
+        // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
         @include medium {
             text-align: right;
@@ -150,6 +153,9 @@
         position: relative;
         padding: 1rem 2rem 3rem 2rem;
         background: $c9-grey;
+        // max-height: 100px;
+        // opacity: 1;
+        // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
         @include medium {
             display: flex;
@@ -290,7 +296,7 @@
         }
     }
 
-    &--buyed {
+    &--bought {
         transition: opacity 0.2s ease-in-out;
         opacity: 0.6;
 
@@ -324,7 +330,7 @@
     &.is-collapsed {
         cursor: pointer;
 
-        &:not(.wpgr-m_card--buyed) {
+        &:not(.wpgr-m_card--bought) {
             &:hover {
                 .wpgr-m_card__price-wrapper {
                     background: $c2-second;
@@ -338,10 +344,16 @@
 
         .wpgr-m_card__btn-wrapper {
             display: none;
+            // opacity: 0;
+            // visibility: hidden;
+            // max-height: 0;
         }
 
         .wpgr-m_card__footer {
             display: none;
+            // opacity: 0;
+            // visibility: hidden;
+            // max-height: 0;
         }
     }
 }

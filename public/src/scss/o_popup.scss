@@ -12,6 +12,16 @@
 
     &.is-active {
         display: block;
+
+        .wpgr-o_popup__step--1 .wpgr-o_popup__list-item:first-child {
+            background: $c1-main;
+            cursor: default;
+        }
+
+        .wpgr-o_popup__step--2 .wpgr-o_popup__list-item:nth-child(2) {
+            background: $c1-main;
+            cursor: default;
+        }
     }
 
     &__step {
@@ -72,11 +82,6 @@
         &:hover {
             background: $c1-second;
         }
-
-        &.is-active {
-            background: $c1-main;
-            cursor: default;
-        }
     }
 
     &__question {
@@ -124,11 +129,12 @@
         }
 
         .wpgr-m_btn__buyer-content {
+            display: none;
             position: relative;
             margin-bottom: 1rem;
 
-            &.is-hidden {
-                display: none;
+            &.is-active {
+                display: block;
             }
         }
 
@@ -157,7 +163,8 @@
             font-size: 18px;
             color: $c4-grey;
 
-            &.is-active {
+            &.is-active,
+            &.is-done {
                 left: 1.2em;
                 top: 0.3em;
                 font-size: 12px;

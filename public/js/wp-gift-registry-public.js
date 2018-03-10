@@ -18,12 +18,12 @@
 				var itemName = $(this).data('item-name');
 
 				$.ajax({
-					url: variables.ajaxurl,
+					url: variablesOld.ajaxurl,
 					type: 'POST',
 					dataType: 'json',
 					data: {
 						action: 'update_gift_availability',
-						nonce: variables.updateGiftAvailabiltyNonce,
+						nonce: variablesOld.updateGiftAvailabiltyNonce,
 						itemName: itemName,
 						availability: 'false'
 					},
