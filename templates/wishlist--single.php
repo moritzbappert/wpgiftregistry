@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <div class="wpgr-m_card__main">
                 <div class="wpgr-m_card__figure-wrapper">
-                    <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ?: "style='background-image:url('" . $gift['gift_image'] . "')'" ?>></div>
+                    <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ? '' : "style='background-image:url(" . $gift['gift_image'] . ")'" ?>></div>
                 </div>
                 <div class="wpgr-m_card__content">
                     <?php if ( !empty($gift['gift_title']) ): ?>
