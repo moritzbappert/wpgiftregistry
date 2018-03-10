@@ -448,10 +448,6 @@ section.wpgr-wishlist .wpgr-m_card--bought {
   opacity: 0.6;
 }
 
-section.wpgr-wishlist .wpgr-m_card--bought:hover {
-  opacity: 1;
-}
-
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
