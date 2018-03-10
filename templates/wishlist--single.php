@@ -16,16 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
     foreach ( $wishlist as $gift ):
 
-        $i++;
+        $is_available = $gift['gift_availability'] == 'true';
+        $is_single = true; // needs to be replaced
+        $has_buyer = !empty($gift['gift_reserver']);
 
         $classes = array('wpgr-m_card', 'is-collapsed');
 
-        // needs to be replaced
-        $is_bought = false;
-        $is_single = true;
-        $has_buyer = false;
-
-        if ( $is_bought ) {
+        if ( !$is_available ) {
             $classes[] = 'wpgr-m_card--bought';
         }
         if ( $is_single ) {
@@ -33,7 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         }
 
     ?>
-        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $i ?>">
+
+        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $gift['gift_id'] ?>">
 
         <?php if ( !empty($gift['gift_price']) ): ?>
             <div class="wpgr-m_card__price-wrapper">
@@ -99,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     endforeach;
 ?>
 
-    <!-- <div class="wpgr-m_card">
+    <div class="wpgr-m_card">
         <div class="wpgr-m_card__price-wrapper">
             <p class="wpgr-m_card__price">20€</p>
             <p class="wpgr-m_card__price-text">each</p>
@@ -270,7 +268,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <i class="wpgr-m_card__toggle-icon"></i>
         </div>
     </div>
-</section> -->
+</section>
 
 <form class="wpgr-o_popup wpgr-o_popup__form">
 
@@ -284,7 +282,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <label class="wpgr-o_popup__input-label" for="your_name2">Dein Name</label>
             <input id="your_name2" class="wpgr-o_popup__input-text" type="text">
         </div>
-
         <div class="wpgr-o_popup__btn-wrapper">
             <button class="wpgr-o_popup__btn-prev wpgr-m_btn">Abbrechen</button>
             <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">

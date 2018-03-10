@@ -157,7 +157,7 @@ var mPopup = (function($) {
     var $btnClose = $step.find('.wpgr-o_popup__btn-close');
     var $indicatorOne = $step.find('.wpgr-o_popup__list-item-01');
     var $indicatorTwo = $step.find('.wpgr-o_popup__list-item-02');
-    var $input = $('.wpgr-o_popup__input-text');
+    var $input = $('.wpgr-o_popup__input-wrapper input');
     var $inputArea = $('.wpgr-o_popup__input-textarea');
     var $label = $('.wpgr-o_popup__input-label');
     var $radioYes = $('#buyer_yes');
@@ -229,6 +229,7 @@ var mPopup = (function($) {
 
     function activateFloatLabel() {
         var $this = $(this);
+        $this.prev().removeClass('is-done');
         $this.prev().addClass('is-active');
     }
 

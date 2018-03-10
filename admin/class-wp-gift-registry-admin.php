@@ -145,6 +145,34 @@ class WP_Gift_Registry_Admin {
 
 	}
 
+	/**
+	 * Add custom field type for unique ids
+	 *
+	 * @since    1.3.0
+	 */
+	public function add_custom_cmb2_fields() {
+
+		add_filter( 'cmb2_render_unique_id', 'cmb2_render_unique_id', 10, 5 );
+		add_filter( 'cmb2_sanitize_unique_id', 'cmb2_sanitize_unique_id', 10, 3 );
+
+		// render unique id
+		function cmb2_render_unique_id( $field_args, $escaped_value, $object_id, $object_type, $field_type_object ) {
+		    echo $field_type_object->input( array( 'class' => 'cmb2_unique_id', 'type' => 'hidden' ) );
+		}
+
+		// sanitize the field
+		function cmb2_sanitize_unique_id( $override, $new, $object_id ) {
+		    // Set unique id if it's not already set
+		    if( empty( $new ) ) {
+		        $value = uniqid( $object_id, false );
+		    } else {
+		        $value = $new;
+		    }
+		    return $value;
+		}
+	}
+
+
 
 
 	/**
@@ -234,9 +262,16 @@ class WP_Gift_Registry_Admin {
   		        'add_button'    => __( 'Add Another Gift', 'wpgiftregistry' ),
   		        'remove_button' => __( 'Remove Gift', 'wpgiftregistry' ),
   		        'sortable'      => true, // beta
-  		        // 'closed'     => true, // true to have the groups closed by default
+  		        'closed'     => true, // true to have the groups closed by default
   		    ),
   		) );
+
+  		// Unique ID
+  		$metabox->add_group_field( $group_field, array(
+  			'id' => 'gift_id',
+  			'type' => 'unique_id'
+  		) );
+
 
 		// Title
 		$metabox->add_group_field( $group_field, array(
@@ -313,6 +348,18 @@ class WP_Gift_Registry_Admin {
 	            'false'   => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'true',
+	    ) );
+
+	    // Who reserved this?
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
+	        'desc' => '',
+	        'id'   => 'gift_reserver',
+	        'type' => 'text_medium',
+	     	// 'attributes' => array(
+    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+    		// 	'data-conditional-value' => 'false',
+    		// ),
 	    ) );
 
 	    // Shortcode Metabox
