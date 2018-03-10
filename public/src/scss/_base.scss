@@ -3,3 +3,11 @@ section {
     max-width: 1280px;
     margin: 200px auto;
 }
+
+body {
+    overflow-x: hidden;
+
+    &.no-scroll {
+        overflow-y: hidden;
+    }
+}

@@ -47,6 +47,14 @@ section {
   margin: 200px auto;
 }
 
+body {
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow-y: hidden;
+}
+
 .wpgr-m_card {
   box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -345,32 +353,6 @@ section {
   background: #52aaa6;
 }
 
-.wpgr-m_card__toggle:focus {
-  outline: 0;
-}
-
-.wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
-  transform: rotate(180deg);
-}
-
-.wpgr-m_card__toggle-icon {
-  transition: transform 0.15s ease-in-out;
-  display: block;
-  background-image: url("../src/img/ic_expand_more_48px-white.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-  margin-top: 10px;
-}
-
-@media only screen and (min-width: 961px) {
-  .wpgr-m_card__toggle-icon {
-    margin-top: 16px;
-  }
-}
-
 .wpgr-m_card--single .wpgr-m_card__main {
   padding: 0rem 2rem 3rem 2rem;
 }
@@ -397,44 +379,34 @@ section {
   margin-bottom: 0;
 }
 
-.wpgr-m_card--buyed {
+.wpgr-m_card--bought {
   transition: opacity 0.2s ease-in-out;
   opacity: 0.6;
 }
 
-.wpgr-m_card--buyed:hover {
+.wpgr-m_card--bought:hover {
   opacity: 1;
 }
 
-.wpgr-m_card--buyed .wpgr-m_card__price-wrapper {
+.wpgr-m_card--bought .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
 }
 
-.wpgr-m_card--buyed .wpgr-m_card__price-icon {
-  display: block;
-  background-image: url("../src/img/ic_lock_48px-grey.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-}
-
-.wpgr-m_card--buyed .wpgr-m_card__figure {
+.wpgr-m_card--bought .wpgr-m_card__figure {
   opacity: 1;
   filter: grayscale(100%);
 }
 
-.wpgr-m_card--buyed .wpgr-m_card__heading {
+.wpgr-m_card--bought .wpgr-m_card__heading {
   color: #a0a0a0;
 }
 
-.wpgr-m_card--buyed .wpgr-m_card__desc {
+.wpgr-m_card--bought .wpgr-m_card__desc {
   color: #a0a0a0;
 }
 
-.wpgr-m_card--buyed .wpgr-m_card__toggle {
+.wpgr-m_card--bought .wpgr-m_card__toggle {
   background: #a0a0a0;
 }
 
@@ -442,11 +414,11 @@ section {
   cursor: pointer;
 }
 
-.wpgr-m_card.is-collapsed:not(.wpgr-m_card--buyed):hover .wpgr-m_card__price-wrapper {
+.wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__price-wrapper {
   background: #f77d68;
 }
 
-.wpgr-m_card.is-collapsed:not(.wpgr-m_card--buyed):hover .wpgr-m_card__toggle {
+.wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__toggle {
   background: #52aaa6;
 }
 
@@ -489,11 +461,6 @@ a.wpgr-m_btn:hover {
   color: #ffffff;
 }
 
-.wpgr-m_btn:focus,
-a.wpgr-m_btn:focus {
-  outline: 0;
-}
-
 .wpgr-m_btn-close {
   transition: background-color 0.2s ease-in-out;
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
@@ -516,20 +483,6 @@ a.wpgr-m_btn:focus {
   background-color: #52aaa6;
 }
 
-.wpgr-m_btn-close:focus {
-  outline: 0;
-}
-
-.wpgr-m_btn-close-icon {
-  display: block;
-  background-image: url("../src/img/ic_close_48px-white.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-}
-
 .wpgr-o_popup {
   display: none;
   overflow-y: scroll;
@@ -545,6 +498,16 @@ a.wpgr-m_btn:focus {
 
 .wpgr-o_popup.is-active {
   display: block;
+}
+
+.wpgr-o_popup.is-active .wpgr-o_popup__step--1 .wpgr-o_popup__list-item:first-child {
+  background: #73cbc7;
+  cursor: default;
+}
+
+.wpgr-o_popup.is-active .wpgr-o_popup__step--2 .wpgr-o_popup__list-item:nth-child(2) {
+  background: #73cbc7;
+  cursor: default;
 }
 
 .wpgr-o_popup__step {
@@ -609,11 +572,6 @@ a.wpgr-m_btn:focus {
   background: #ffa393;
 }
 
-.wpgr-o_popup__list-item.is-active {
-  background: #73cbc7;
-  cursor: default;
-}
-
 .wpgr-o_popup__question {
   margin: 0;
   margin-bottom: 0.5em;
@@ -648,24 +606,19 @@ a.wpgr-m_btn:focus {
   justify-content: flex-end;
 }
 
-.wpgr-o_popup__form:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .wpgr-o_popup__form .wpgr-o_popup__input-wrapper {
   position: relative;
   margin-bottom: 1rem;
 }
 
 .wpgr-o_popup__form .wpgr-m_btn__buyer-content {
+  display: none;
   position: relative;
   margin-bottom: 1rem;
 }
 
-.wpgr-o_popup__form .wpgr-m_btn__buyer-content.is-hidden {
-  display: none;
+.wpgr-o_popup__form .wpgr-m_btn__buyer-content.is-active {
+  display: block;
 }
 
 .wpgr-o_popup__form input[type="text"],
@@ -696,7 +649,7 @@ a.wpgr-m_btn:focus {
   color: #a0a0a0;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__input-label.is-active {
+.wpgr-o_popup__form .wpgr-o_popup__input-label.is-active, .wpgr-o_popup__form .wpgr-o_popup__input-label.is-done {
   left: 1.2em;
   top: 0.3em;
   font-size: 12px;
