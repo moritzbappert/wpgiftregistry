@@ -122,6 +122,10 @@ body.no-scroll {
   }
 }
 
+.wpgr-m_card__price-icon {
+  display: none;
+}
+
 .wpgr-m_card__main {
   padding: 0rem 2rem 2rem 2rem;
 }
@@ -434,6 +438,10 @@ body.no-scroll {
 .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
+}
+
+.wpgr-m_card--bought .wpgr-m_card__price {
+  display: none;
 }
 
 .wpgr-m_card--bought .wpgr-m_card__price-icon {

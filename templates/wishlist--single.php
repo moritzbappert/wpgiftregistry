@@ -46,6 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     ?>
                     </p>
                 <?php endif; ?>
+                <i class="wpgr-m_card__price-icon"></i>
             </div>
         <?php endif; ?>
 

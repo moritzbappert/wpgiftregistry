@@ -56,6 +56,10 @@
         }
     }
 
+    &__price-icon {
+        display: none;
+    }
+
     &__main {
         padding: 0rem 2rem 2rem 2rem;
 
@@ -351,6 +355,10 @@
         .wpgr-m_card__price-wrapper {
             transition: opacity 0.2s ease-in-out;
             background: $c4-grey;
+        }
+
+        .wpgr-m_card__price {
+            display: none;
         }
 
         .wpgr-m_card__price-icon {
