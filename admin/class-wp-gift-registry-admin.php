@@ -74,7 +74,8 @@ class WP_Gift_Registry_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '-style-admin', plugin_dir_url( __FILE__ ) . 'css/style-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -96,10 +97,10 @@ class WP_Gift_Registry_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main-admin.js', array( 'jquery' ), $this->version, true );
 
 
-		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, true );
 
 	}
 
@@ -177,7 +178,7 @@ class WP_Gift_Registry_Admin {
   	$menu_title = __('Settings', 'wpgiftregistry');
   	$capability = 'manage_options';
   	$slug = 'wpgr_settings';
-  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
+  	$callback = array( $this, 'plugin_wpgr_settings_page_content' );
   	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
   	$position = 100;
   	add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
@@ -325,7 +326,7 @@ class WP_Gift_Registry_Admin {
 
 		// Shortcode
   		$shortcode_metabox->add_field( array(
-			'name' => "<pre><code>[wishlist id='" . $metabox->object_id() . "']</code></pre>",
+			'name' => "<code>[wishlist id='" . $metabox->object_id() . "']</code>",
 			'type' => 'title',
 			'id'   => $prefix . 'shortcode',
 		) );
@@ -353,7 +354,7 @@ class WP_Gift_Registry_Admin {
 
   		function shortcode_column_content( $column, $id ) {
   		  if( 'shortcode' == $column ) {
-  		    echo "<pre><code>[wishlist id='" . $id . "']</code></pre>";
+  		    echo "<code>[wishlist id='" . $id . "']</code>";
   		  }
   		}
   		add_action( 'manage_wpgr_wishlist_posts_custom_column', 'shortcode_column_content', 5, 2 );
@@ -487,12 +488,12 @@ class WP_Gift_Registry_Admin {
 		) );
 
 		// Description
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => __( 'Description (optional)', 'wpgiftregistry' ),
-        'desc' => __( '', 'gift_registry' ),
-        'id'   => 'gift_description',
-        'type' => 'textarea_small',
-    ) );
+		$cmb->add_group_field( $group_field_id, array(
+	    	'name' => __( 'Description (optional)', 'wpgiftregistry' ),
+	    	'desc' => __( '', 'gift_registry' ),
+	    	'id'   => 'gift_description',
+	    	'type' => 'textarea_small',
+	    ) );
 
 
 		$currency_symbol_placement = get_option('wishlist_settings')['currency_symbol_placement'];

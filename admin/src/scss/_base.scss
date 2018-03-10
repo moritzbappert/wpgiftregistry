@@ -1,0 +1,39 @@
+.cmb2-wrap.form-table.cmb2-context-wrap.cmb2-context-wrap-after_title.cmb2-context-wrap-wpgr_wishlist.cmb2-context-wrap-wpgr_wishlist {
+
+    h5 {
+        font-size: 20px;
+    }
+
+    #wpgr-wishes-title {
+        margin: 1em 0;
+    }
+
+    p,
+    p.cmb2-metabox-description {
+        font-size: 16px;
+        color: #888;
+        font-style: normal;
+    }
+
+    .cmb2-metabox-description {
+        max-width: 800px;
+    }
+
+    code {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+    }
+}
+
+#wpgr-shortcode > code {
+    color: #fff;
+    background-color: #ffa393;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    padding: 1em;
+}

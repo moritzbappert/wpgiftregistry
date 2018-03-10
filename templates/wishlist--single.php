@@ -10,7 +10,96 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <section>
-    <div class="wpgr-m_card ">
+
+<?php
+    $i = 0;
+
+    foreach ( $wishlist as $gift ):
+
+        $classes = array('wpgr-m_card', 'is-collapsed');
+
+        // needs to be replaced
+        $is_bought = false;
+        $is_single = true;
+        $has_buyer = false;
+
+        if ( $is_bought ) {
+            $classes[] = 'wpgr-m_card--buyed';
+        }
+        if ( $is_single ) {
+            $classes[] = 'wpgr-m_card--single';
+        }
+
+    ?>
+        <div class="<?= implode(' ', $classes) ?>">
+
+        <?php if ( !empty($gift['gift_price']) ): ?>
+            <div class="wpgr-m_card__price-wrapper">
+                <p class="wpgr-m_card__price">
+                    <?= $currency_placement === 'before' ? $currency . $gift['gift_price'] : $gift['gift_price'] . $currency ?>
+                </p>
+                <?php if ( $is_single ): ?>
+                    <p class="wpgr-m_card__price-text">
+                    <?php
+                        /* translators: (price per) each part of the gift */
+                        echo __('each', 'wpgiftregistry');
+                    ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+            <div class="wpgr-m_card__main">
+                <div class="wpgr-m_card__figure-wrapper">
+                    <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ?: "style='background-image:url('" . $gift['gift_image'] . "')'" ?>></div>
+                </div>
+                <div class="wpgr-m_card__content">
+                    <?php if ( !empty($gift['gift_title']) ): ?>
+                        <h4 class="wpgr-m_card__heading"><?= $gift['gift_title'] ?></h4>
+                    <?php endif; ?>
+                    <div class="wpgr-m_card__content-details is-hidden">
+                        <?php if ( !empty($gift['gift_description']) ): ?>
+                            <p class="wpgr-m_card__desc">
+                                <?= $gift['gift_description'] ?>
+                            </p>
+                        <?php endif; ?>
+                        <div class="wpgr-m_card__btn-wrapper">
+                            <?php if ( !empty($gift['gift_url']) ): ?>
+                                <a class="wpgr-m_card__btn wpgr-m_btn" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>"><?= __('View', 'wpgiftregistry') ?></a>
+                            <?php endif; ?>
+                            <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">    <?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php if ( !$is_single ): ?>
+                <footer class="wpgr-m_card__footer is-hidden">
+                    <div class="wpgr-m_card__buyer-wrapper">
+                        <i class="wpgr-m_card__buyer"></i>
+                    </div>
+                    <div class="wpgr-m_card__process">
+                        <div class="wpgr-m_card__process-bar"></div>
+                        <p class="wpgr-m_card__process-price">
+                            <span class="wpgr-m_card__process-price-partial">100€</span>
+                            <span class="wpgr-m_card__process-price-total"> / 200€</span>
+                        </p>
+                        <p class="wpgr-m_card__process-count">
+                            <span class="wpgr-m_card__process-count-partial">10</span>
+                            <span class="wpgr-m_card__process-count-total"> / 20</span>
+                        </p>
+                    </div>
+                </footer>
+            <?php endif; ?>
+            <div class="wpgr-m_card__toggle">
+                <i class="wpgr-m_card__toggle-icon"></i>
+            </div>
+        </div>
+<?php
+    endforeach;
+?>
+
+    <!-- <div class="wpgr-m_card">
         <div class="wpgr-m_card__price-wrapper">
             <p class="wpgr-m_card__price">20€</p>
             <p class="wpgr-m_card__price-text">each</p>
@@ -181,7 +270,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <i class="wpgr-m_card__toggle-icon"></i>
         </div>
     </div>
-</section>
+</section> -->
 
 <div class="wpgr-o_popup wpgr-o_popup--single">
     <form class="wpgr-o_popup__form">
