@@ -110,7 +110,6 @@ class WP_Gift_Registry_Public {
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'updateGiftAvailabiltyNonce' => wp_create_nonce( 'gift-availability-81991' )
 		) );
-
 	}
 
 	/**
