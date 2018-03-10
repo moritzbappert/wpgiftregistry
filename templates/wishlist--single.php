@@ -16,12 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
     foreach ( $wishlist as $gift ):
 
-        $classes = array('wpgr-m_card', 'is-collapsed');
-
-        // needs to be replaced
         $is_available = $gift['gift_availability'] == 'true';
-        $is_single = true;
+        $is_single = true; // needs to be replaced
         $has_buyer = !empty($gift['gift_reserver']);
+
+        $classes = array('wpgr-m_card', 'is-collapsed');
 
         if ( !$is_available ) {
             $classes[] = 'wpgr-m_card--buyed';
