@@ -290,7 +290,7 @@
         }
     }
 
-    &--buyed {
+    &--bought {
         transition: opacity 0.2s ease-in-out;
         opacity: 0.6;
 
@@ -324,7 +324,7 @@
     &.is-collapsed {
         cursor: pointer;
 
-        &:not(.wpgr-m_card--buyed) {
+        &:not(.wpgr-m_card--bought) {
             &:hover {
                 .wpgr-m_card__price-wrapper {
                     background: $c2-second;

@@ -9,12 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
 
-<section>
+<section class="wpgr-section" data-id="wpgr-<?= $atts['id'] ?>">
 
 <?php
     $i = 0;
 
     foreach ( $wishlist as $gift ):
+
+        $i++;
 
         $classes = array('wpgr-m_card', 'is-collapsed');
 
@@ -24,21 +26,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         $has_buyer = false;
 
         if ( $is_bought ) {
-            $classes[] = 'wpgr-m_card--buyed';
+            $classes[] = 'wpgr-m_card--bought';
         }
         if ( $is_single ) {
-            $classes[] = 'wpgr-m_card--single';
+            // $classes[] = 'wpgr-m_card--single';
         }
 
     ?>
-        <div class="<?= implode(' ', $classes) ?>">
+        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $i ?>">
 
         <?php if ( !empty($gift['gift_price']) ): ?>
             <div class="wpgr-m_card__price-wrapper">
                 <p class="wpgr-m_card__price">
                     <?= $currency_placement === 'before' ? $currency . $gift['gift_price'] : $gift['gift_price'] . $currency ?>
                 </p>
-                <?php if ( $is_single ): ?>
+                <?php if ( !$is_single ): ?>
                     <p class="wpgr-m_card__price-text">
                     <?php
                         /* translators: (price per) each part of the gift */
@@ -57,17 +59,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php if ( !empty($gift['gift_title']) ): ?>
                         <h4 class="wpgr-m_card__heading"><?= $gift['gift_title'] ?></h4>
                     <?php endif; ?>
-                    <div class="wpgr-m_card__content-details is-hidden">
+                    <div class="wpgr-m_card__content-details">
                         <?php if ( !empty($gift['gift_description']) ): ?>
-                            <p class="wpgr-m_card__desc">
-                                <?= $gift['gift_description'] ?>
-                            </p>
+                            <p class="wpgr-m_card__desc"><?= $gift['gift_description'] ?></p>
                         <?php endif; ?>
                         <div class="wpgr-m_card__btn-wrapper">
                             <?php if ( !empty($gift['gift_url']) ): ?>
                                 <a class="wpgr-m_card__btn wpgr-m_btn" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>"><?= __('View', 'wpgiftregistry') ?></a>
                             <?php endif; ?>
-                            <button class="wpgr-m_card__btn wpgr-m_btn" type="button" name="button">    <?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?>
+                            <button class="wpgr-m_card__btn wpgr-m_btn wpgr-m_btn__open" type="button" name="button">    <?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?>
                             </button>
                         </div>
                     </div>
@@ -243,7 +243,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
     </div>
 
-    <div class="wpgr-m_card wpgr-m_card--single wpgr-m_card--buyed is-collapsed">
+    <div class="wpgr-m_card wpgr-m_card--single wpgr-m_card--bought is-collapsed">
         <div class="wpgr-m_card__price-wrapper">
             <p class="wpgr-m_card__price">OUT</p>
             <p class="wpgr-m_card__price-text">bought</p>
@@ -272,103 +272,93 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     </div>
 </section> -->
 
-<div class="wpgr-o_popup wpgr-o_popup--single">
-    <form class="wpgr-o_popup__form">
+<form class="wpgr-o_popup wpgr-o_popup__form">
 
-        <div id="wpgr_popup_name" class="wpgr-o_popup__step ">
-            <header class="wpgr-o_popup__header">
-                <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
-                <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
-            </header>
+    <div id="wpgr_popup_name" class="wpgr-o_popup__step wpgr-o_popup__step--1">
+        <header class="wpgr-o_popup__header">
+            <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
+            <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
+        </header>
 
-            <div class="wpgr-o_popup__input-wrapper">
-                <label class="wpgr-o_popup__input-label" for="your_name2">Dein Name</label>
-                <input id="your_name2" class="wpgr-o_popup__input-text" type="text">
-            </div>
-
-            <div class="wpgr-o_popup__btn-wrapper">
-                <button class="wpgr-o_popup__btn-prev wpgr-m_btn">Abbrechen</button>
-                <input class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">
-            </div>
-
-            <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
-            </button>
-
-            <ul class="wpgr-o_popup__process">
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
-            </ul>
+        <div class="wpgr-o_popup__input-wrapper">
+            <label class="wpgr-o_popup__input-label" for="your_name2">Dein Name</label>
+            <input id="your_name2" class="wpgr-o_popup__input-text" type="text">
         </div>
 
-        <div id="wpgr_popup_parts" class="wpgr-o_popup__step ">
-            <header class="wpgr-o_popup__header">
-                <p class="wpgr-o_popup__question">Wieviele Teile möchtest Du schenken?</p>
-                <p class="wpgr-o_popup__desc">Ein Teil entspricht 50€.</p>
-            </header>
-
-            <div class="wpgr-o_popup__input-wrapper">
-                <label class="wpgr-o_popup__input-label" for="part_number">Anteil</label>
-                <input id="part_number" class="wpgr-o_popup__input-number" type="number">
-            </div>
-
-            <div class="wpgr-o_popup__btn-wrapper">
-                <button class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next">Weiter</button>
-            </div>
-            <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
-            </button>
-            <ul class="wpgr-o_popup__process">
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
-            </ul>
+        <div class="wpgr-o_popup__btn-wrapper">
+            <button class="wpgr-o_popup__btn-prev wpgr-m_btn">Abbrechen</button>
+            <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">
         </div>
 
-        <div id="wpgr_popup_buyer" class="wpgr-o_popup__step is-active">
-            <header class="wpgr-o_popup__header">
-                <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
-                <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
-            </header>
+        <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
+            <i class="wpgr-m_btn-icon">x</i>
+        </button>
+    </div>
 
-            <div class="wpgr-o_popup__input-wrapper">
-                <label class="wpgr-o_popup__input-label" for="your_name">Dein Name</label>
-                <input id="your_name" class="wpgr-o_popup__input-text" type="text">
-            </div>
+    <div id="wpgr_popup_parts" class="wpgr-o_popup__step wpgr-o_popup__step--1">
+        <header class="wpgr-o_popup__header">
+            <p class="wpgr-o_popup__question">Wieviele Teile möchtest Du schenken?</p>
+            <p class="wpgr-o_popup__desc">Ein Teil entspricht 50€.</p>
+        </header>
 
-            <div class="wpgr-o_popup__buyer">
-                <p class="wpgr-o_popup__question">Willst du den Kauf übernehmen?</p>
-                <p class="wpgr-o_popup__desc">Übernheme die Organisation und hinterlege Deine Kontaktdaten.</p>
-                <div class="wpgr-o_popup__radio-wrapper">
-                    <input class="wpgr-o_popup__radio-btn" type="radio" id="buyer_yes" name="buyer" value="yes">
-                    <label class="wpgr-o_popup__radio-label" for="buyer_yes">Ja</label>
-                </div>
-                <div class="wpgr-o_popup__radio-wrapper">
-                    <input class="wpgr-o_popup__radio-btn" type="radio" id="buyer_no" name="buyer" value="no" checked="checked">
-                    <label class="wpgr-o_popup__radio-label" for="buyer_no">Nein</label>
-                </div>
-            </div>
-
-            <div class="wpgr-m_btn__buyer-content">
-                <label class="wpgr-o_popup__input-label" for="contact">Deine Kontaktdaten</label>
-                <textarea id="contact"></textarea>
-            </div>
-
-            <div class="wpgr-o_popup__btn-wrapper">
-                <button class="wpgr-o_popup__btn-prev wpgr-m_btn wpgr-m_btn--prev">Abbrechen</button>
-                <input class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">
-            </div>
-
-            <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
-            </button>
-
-            <ul class="wpgr-o_popup__process">
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01 is-active"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
-            </ul>
+        <div class="wpgr-o_popup__input-wrapper">
+            <label class="wpgr-o_popup__input-label" for="part_number">Anteil</label>
+            <input id="part_number" class="wpgr-o_popup__input-number" type="number">
         </div>
-    </form>
-</div>
+
+        <div class="wpgr-o_popup__btn-wrapper">
+            <button class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next">Weiter</button>
+        </div>
+        <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
+            <i class="wpgr-m_btn-icon">x</i>
+        </button>
+        <ul class="wpgr-o_popup__process">
+            <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
+            <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
+        </ul>
+    </div>
+
+    <div id="wpgr_popup_buyer" class="wpgr-o_popup__step wpgr-o_popup__step--2">
+        <header class="wpgr-o_popup__header">
+            <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
+            <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
+        </header>
+
+        <div class="wpgr-o_popup__input-wrapper">
+            <label class="wpgr-o_popup__input-label" for="your_name">Dein Name</label>
+            <input id="your_name" class="wpgr-o_popup__input-text" type="text">
+        </div>
+
+        <div class="wpgr-o_popup__buyer">
+            <p class="wpgr-o_popup__question">Willst du den Kauf übernehmen?</p>
+            <p class="wpgr-o_popup__desc">Übernheme die Organisation und hinterlege Deine Kontaktdaten.</p>
+            <div class="wpgr-o_popup__radio-wrapper">
+                <input class="wpgr-o_popup__radio-btn" type="radio" id="buyer_yes" name="buyer" value="yes">
+                <label class="wpgr-o_popup__radio-label" for="buyer_yes">Ja</label>
+            </div>
+            <div class="wpgr-o_popup__radio-wrapper">
+                <input class="wpgr-o_popup__radio-btn" type="radio" id="buyer_no" name="buyer" value="no" checked>
+                <label class="wpgr-o_popup__radio-label" for="buyer_no">Nein</label>
+            </div>
+        </div>
+
+        <div class="wpgr-m_btn__buyer-content">
+            <label class="wpgr-o_popup__input-label" for="contact">Deine Kontaktdaten</label>
+            <textarea id="contact" class="wpgr-o_popup__input-textarea"></textarea>
+        </div>
+
+        <div class="wpgr-o_popup__btn-wrapper">
+            <button class="wpgr-o_popup__btn-prev wpgr-m_btn wpgr-m_btn--prev">Abbrechen</button>
+            <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">
+        </div>
+
+        <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
+            <i class="wpgr-m_btn-icon">x</i>
+        </button>
+
+        <ul class="wpgr-o_popup__process">
+            <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01 is-active"></li>
+            <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
+        </ul>
+    </div>
+</form>
