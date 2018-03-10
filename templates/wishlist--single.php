@@ -99,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     endforeach;
 ?>
 
-    <!-- <div class="wpgr-m_card">
+    <div class="wpgr-m_card">
         <div class="wpgr-m_card__price-wrapper">
             <p class="wpgr-m_card__price">20€</p>
             <p class="wpgr-m_card__price-text">each</p>
@@ -270,12 +270,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <i class="wpgr-m_card__toggle-icon"></i>
         </div>
     </div>
-</section> -->
+</section>
 
 <div class="wpgr-o_popup wpgr-o_popup--single">
     <form class="wpgr-o_popup__form">
 
-        <div id="wpgr_popup_name" class="wpgr-o_popup__step ">
+        <div id="wpgr_popup_name" class="wpgr-o_popup__step is-active">
             <header class="wpgr-o_popup__header">
                 <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
                 <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
@@ -296,24 +296,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </button>
 
             <ul class="wpgr-o_popup__process">
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
+                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01 is-active"></li>
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
             </ul>
         </div>
 
-        <div id="wpgr_popup_parts" class="wpgr-o_popup__step ">
+        <div id="wpgr_popup_parts" class="wpgr-o_popup__step">
             <header class="wpgr-o_popup__header">
                 <p class="wpgr-o_popup__question">Wieviele Teile möchtest Du schenken?</p>
                 <p class="wpgr-o_popup__desc">Ein Teil entspricht 50€.</p>
             </header>
 
             <div class="wpgr-o_popup__input-wrapper">
-                <label class="wpgr-o_popup__input-label" for="part_number">Anteil</label>
+                <label class="wpgr-o_popup__input-label" for="part_number">Anteil/e als Zahl</label>
                 <input id="part_number" class="wpgr-o_popup__input-number" type="number">
             </div>
 
-            <div class="wpgr-o_popup__btn-wrapper">
+            <div class="wpgr-o_popup__btn-wrapper wpgr-o_popup__btn-wrapper--single">
                 <button class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next">Weiter</button>
             </div>
             <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
@@ -321,12 +321,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </button>
             <ul class="wpgr-o_popup__process">
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
+                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02 is-active"></li>
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
             </ul>
         </div>
 
-        <div id="wpgr_popup_buyer" class="wpgr-o_popup__step is-active">
+        <div id="wpgr_popup_buyer" class="wpgr-o_popup__step">
             <header class="wpgr-o_popup__header">
                 <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
                 <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
@@ -365,9 +365,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </button>
 
             <ul class="wpgr-o_popup__process">
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01 is-active"></li>
+                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
-                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03"></li>
+                <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03 is-active"></li>
             </ul>
         </div>
     </form>

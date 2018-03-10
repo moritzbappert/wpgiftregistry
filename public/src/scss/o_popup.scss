@@ -1,5 +1,5 @@
 .wpgr-o_popup {
-    display: block;
+    display: none;
     overflow-y: scroll;
     position: fixed;
     z-index: 10;
@@ -10,6 +10,10 @@
     height: 100%;
     padding-top: 100px;
 
+    &.is-active {
+        display: block;
+    }
+
     &__step {
         box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
         display: none;
@@ -18,8 +22,8 @@
         width: 90%;
         max-width: 400px;
         margin: 0 auto;
-        margin-top: 45vh;
-        padding: 3rem 1.5rem 4rem 1.5rem;
+        margin-top: 40vh;
+        padding: 3rem 1.5rem 5rem 1.5rem;
         border: 1px solid $c6-grey;
         transform: translateY(-50%);
         border-radius: 5px;
@@ -33,7 +37,11 @@
         position: absolute;
         top: 0;
         right: 0;
-        transform: translate(40%, -40%);
+        transform: translate(30%, -40%);
+
+        @include small {
+            transform: translate(40%, -40%);
+        }
     }
 
     &__process {
@@ -87,7 +95,8 @@
     }
 
     &__buyer {
-        margin-bottom: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     &__btn-wrapper {
@@ -98,6 +107,10 @@
         right: 0;
         width: 100%;
         padding: 1.5rem;
+
+        &--single {
+            justify-content: flex-end;
+        }
     }
 
     &__prev {
@@ -106,17 +119,23 @@
     &__form {
 
         .wpgr-o_popup__input-wrapper {
+            position: relative;
             margin-bottom: 1rem;
         }
 
         .wpgr-m_btn__buyer-content {
+            position: relative;
             margin-bottom: 1rem;
+
+            &.is-hidden {
+                display: none;
+            }
         }
 
         input[type="text"],
+        input[type="number"],
         textarea {
             width: 100%;
-
             background-color: $c9-grey;
             border: none;
             border-bottom: 2px solid $c1-main;
@@ -128,28 +147,25 @@
             }
         }
 
-        input[type="text"] + label {
+        .wpgr-o_popup__input-label {
             position: absolute;
             left: 1em;
             top: 1em;
             z-index: 5;
             user-select: none;
             transition: font-size 0.1s ease-out;
+            font-size: 18px;
+            color: $c4-grey;
 
-            &.active,
-            &.done {
+            &.is-active {
                 left: 1.2em;
                 top: 0.3em;
-                font-size: 0.8rem;
+                font-size: 12px;
                 font-weight: 700;
             }
 
-            &.done {
-                color: $c1-main;
-            }
-
-            &.active {
-                color: $c1-second;
+            &.is-active {
+                color: $c2-second;
             }
         }
 
@@ -157,7 +173,7 @@
             display: inline-block;
 
             &:not(:last-child) {
-                margin-right: 10px;
+                margin-right: 15px;
             }
         }
 
@@ -191,9 +207,9 @@
 
         input[type='radio'] + label {
             font-family: $font-1;
-            font-weight: 300;
-            font-size: rem(14px);
-            color: $c6-grey;
+            font-weight: 600;
+            font-size: 14px;
+            color: $c4-grey ;
         }
 
         input[type='radio']:checked + label {
@@ -204,13 +220,13 @@
         input[type='radio']:not(:checked) + label::before {
             content:' ';
             display:inline-block;
-            width: 16px;
-            height:16px;
+            width: 20px;
+            height:20px;
             position: relative;
-            top:4px;
-            border: 2px solid $c6-grey ;
+            top: 4px;
+            border: 2px solid $c4-grey;
             background: $c-white;
-            margin-right: rem(16px);
+            margin-right: 6px;
         }
 
         input[type=radio]:checked + label::before,
@@ -224,6 +240,7 @@
 
         input[type='radio']:checked  + label::before {
           background: $c1-main;
+          border: 2px solid $c1-main;
           box-shadow: inset 0 0 0 4px $c-white;
         }
     }
