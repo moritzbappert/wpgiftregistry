@@ -176,6 +176,12 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Add metaboxes to our custom post type
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes');
 
+			// Add custom field type for unique ids
+			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_custom_cmb2_fields');
+
+
+		// Old version stuff for compatibility
+
 			// Hook into the admin menu
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'create_plugin_settings_page' );
 
