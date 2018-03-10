@@ -19,11 +19,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         $classes = array('wpgr-m_card', 'is-collapsed');
 
         // needs to be replaced
-        $is_bought = false;
+        $is_available = $gift['gift_availability'] == 'true';
         $is_single = true;
-        $has_buyer = false;
+        $has_buyer = !empty($gift['gift_reserver']);
 
-        if ( $is_bought ) {
+        if ( !$is_available ) {
             $classes[] = 'wpgr-m_card--buyed';
         }
         if ( $is_single ) {
