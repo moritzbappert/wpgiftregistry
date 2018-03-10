@@ -325,7 +325,7 @@ class WP_Gift_Registry_Admin {
 
 		// Shortcode
   		$shortcode_metabox->add_field( array(
-			'name' => "<pre><code>[wishlist id='" . $metabox->object_id() . "']</code></pre>",
+			'name' => "<code>[wishlist id='" . $metabox->object_id() . "']</code>",
 			'type' => 'title',
 			'id'   => $prefix . 'shortcode',
 		) );
@@ -353,7 +353,7 @@ class WP_Gift_Registry_Admin {
 
   		function shortcode_column_content( $column, $id ) {
   		  if( 'shortcode' == $column ) {
-  		    echo "<pre><code>[wishlist id='" . $id . "']</code></pre>";
+  		    echo "<code>[wishlist id='" . $id . "']</code>";
   		  }
   		}
   		add_action( 'manage_wpgr_wishlist_posts_custom_column', 'shortcode_column_content', 5, 2 );
@@ -487,12 +487,12 @@ class WP_Gift_Registry_Admin {
 		) );
 
 		// Description
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => __( 'Description (optional)', 'wpgiftregistry' ),
-        'desc' => __( '', 'gift_registry' ),
-        'id'   => 'gift_description',
-        'type' => 'textarea_small',
-    ) );
+		$cmb->add_group_field( $group_field_id, array(
+	    	'name' => __( 'Description (optional)', 'wpgiftregistry' ),
+	    	'desc' => __( '', 'gift_registry' ),
+	    	'id'   => 'gift_description',
+	    	'type' => 'textarea_small',
+	    ) );
 
 
 		$currency_symbol_placement = get_option('wishlist_settings')['currency_symbol_placement'];
