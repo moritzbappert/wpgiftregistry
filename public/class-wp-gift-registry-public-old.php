@@ -21,6 +21,9 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
+namespace WPGiftRegistry;
+use \WPGiftRegistry;
+
 class WP_Gift_Registry_Public {
 
 	/**
@@ -74,11 +77,8 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp_gift_registry-public.css', array(), $this->version, 'all' );
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-public.css', array(), $this->version, 'all' );
-
-		// new styles
-		wp_enqueue_style( $this->plugin_name . '-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -100,10 +100,7 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
-
-		// new scripts
-		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp_gift_registry-public.js', array( 'jquery' ), $this->version, false );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name, 'variables', array(
@@ -120,39 +117,78 @@ class WP_Gift_Registry_Public {
 	 */
 	public function create_wishlist_shortcode() {
 
-		add_shortcode('wishlist', function($atts = [], $content = null) {
+		add_shortcode('wishlist', function() {
 
-			// normalize attribute keys, lowercase
-			$atts = array_change_key_case((array)$atts, CASE_LOWER);
-
-			// set attribute defaults
-			$atts = shortcode_atts(
-				array(
-					'id' => false, // false as default if no id parameter set
-				),
-				$atts
-			);
+			$wishlist = get_option('wishlist')['wishlist_group'];
+			$currency = get_option('wishlist_settings')['currency_symbol'];
+			$currency_placement = get_option('wishlist_settings')['currency_symbol_placement'];
 
 			ob_start();
 
-			if ( $atts['id'] !== false ) {
-				$currency = get_option('wpgr_settings')['currency_symbol'];
-				$currency_placement = get_option('wpgr_settings')['currency_symbol_placement'];
-				$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
+			if ( !empty( $wishlist ) ) {
+			?>
 
-				if ( !empty( $wishlist ) ) {
-					require_once( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+			<section class="wishlist">
+				<ul>
+				<?php
+				$i = 0;
+				foreach( $wishlist as $gift ) {
+
+					$availability = $gift['gift_availability'];
+					if ( $availability == 'false' ) {
+						$availability_class = ' unavailable';
+					} else {
+						$availability_class = '';
+					}
+					if ( empty($gift['gift_url']) ) {
+						$gift['gift_url'] = "";
+					}
+					if ( empty($gift['gift_image']) ) {
+						$gift['gift_image'] = "";
+					}
+
+					if ( empty($gift['gift_image']) && strpos( $gift['gift_url'], 'amazon.com' ) ) {
+						$pid = substr(strstr($gift['gift_url'],"p/"),2,10);
+						$gift['gift_image'] = 'http://images.amazon.com/images/P/' . $pid . '.01._SCMZZZZZZZ_.jpg';
+					}
+				?>
+					<li data-item-name="<?php echo $gift['gift_title']; ?>">
+						<div class="image-wrapper">
+							<?php echo ($gift['gift_image'] ? '<img src="' . $gift['gift_image'] . '">' : '<span></span>'); ?>
+						</div>
+						<div class="content-wrapper">
+							<h2><?php echo $gift['gift_title']; ?></h2>
+							<p><?php echo $gift['gift_description']; ?></p>
+							<?php
+								$price_string = "";
+								if ( !empty($gift['gift_price'] ) ) {
+									if ( $currency_placement === 'before' ) {
+										$price_string = $currency . $gift['gift_price'];
+									} else {
+										$price_string = $gift['gift_price'] . $currency;
+									}
+								}
+							?>
+							<div class="price"><?php echo $price_string; ?></div>
+							<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'WPGiftRegistry') . '</a>'); ?>
+						</div>
+					</li>
+				<?php
+					$i++;
 				}
+				?>
+				</ul>
+				<div class="overlay hidden">
+					<div class="content-wrapper">
+						<p>
+							<?php echo sprintf( __('Do you want to mark %s as %sbought%s so that nobody else gifts it?', 'WPGiftRegistry'), '<span id="item-name"></span>', '<em>', '</em>' ); ?>
+						</p>
+						<button id="yes"><?php echo __('Yes', 'WPGiftRegistry'); ?></button><button id="no"><?php echo __('No, Cancel', 'WPGiftRegistry'); ?></button>
+					</div>
+				</div>
+			</section>
 
-			} else {
-				// fallback for old plugin versions
-				$currency = get_option('wishlist_settings')['currency_symbol'];
-				$currency_placement = get_option('wishlist_settings')['currency_symbol_placement'];
-				$wishlist = get_option('wishlist')['wishlist_group'];
-
-				if ( !empty( $wishlist ) ) {
-					require_once( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single-old.php' );
-				}
+			<?php
 			}
 
 			$output = ob_get_clean();
