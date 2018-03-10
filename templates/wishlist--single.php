@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         }
 
     ?>
-        <div class="<?= implode(' ', $classes) ?>">
+        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $gift['gift_id'] ?>">
 
         <?php if ( !empty($gift['gift_price']) ): ?>
             <div class="wpgr-m_card__price-wrapper">
