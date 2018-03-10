@@ -316,6 +316,7 @@ var mPopup = (function($) {
             data: {
                 action: 'update_gift_availability',
                 nonce: variables.update_gift_availabilty_nonce,
+                version: 'new',
                 wishlist_id: wishlistID,
                 gift_id: giftID,
                 gift_availability: 'false',
