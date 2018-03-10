@@ -114,9 +114,26 @@ class WP_Gift_Registry_Public {
 	 */
 	public function create_wishlist_shortcode() {
 
-		add_shortcode('wishlist', function() {
+		add_shortcode('wishlist', function($atts = [], $content = null) {
 
-			$wishlist = get_option('wishlist')['wishlist_group'];
+			// normalize attribute keys, lowercase
+			$atts = array_change_key_case((array)$atts, CASE_LOWER);
+
+			// set attribute defaults
+			$atts = shortcode_atts(
+				array(
+					'id' => false, // false as default if no id parameter set
+				),
+				$atts
+			);
+
+			if ( $atts['id'] !== false ) {
+				$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
+			} else {
+				// fallback for old plugin versions
+				$wishlist = get_option('wishlist')['wishlist_group'];
+			}
+
 			$currency = get_option('wishlist_settings')['currency_symbol'];
 			$currency_placement = get_option('wishlist_settings')['currency_symbol_placement'];
 
