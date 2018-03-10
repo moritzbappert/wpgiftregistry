@@ -234,7 +234,7 @@ class WP_Gift_Registry_Admin {
   		        'add_button'    => __( 'Add Another Gift', 'wpgiftregistry' ),
   		        'remove_button' => __( 'Remove Gift', 'wpgiftregistry' ),
   		        'sortable'      => true, // beta
-  		        // 'closed'     => true, // true to have the groups closed by default
+  		        'closed'     => true, // true to have the groups closed by default
   		    ),
   		) );
 
@@ -313,6 +313,18 @@ class WP_Gift_Registry_Admin {
 	            'false'   => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'true',
+	    ) );
+
+	    // Who reserved this?
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
+	        'desc' => '',
+	        'id'   => 'gift_reserver',
+	        'type' => 'text_medium',
+	     	// 'attributes' => array(
+    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+    		// 	'data-conditional-value' => 'false',
+    		// ),
 	    ) );
 
 	    // Shortcode Metabox
