@@ -55,7 +55,7 @@ body.no-scroll {
   overflow-y: hidden;
 }
 
-.wpgr-m_card {
+section.wpgr-wishlist .wpgr-m_card {
   box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
   position: relative;
   background-color: #ffffff;
@@ -69,13 +69,13 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card {
+  section.wpgr-wishlist .wpgr-m_card {
     max-width: 960px;
     margin-bottom: 70px;
   }
 }
 
-.wpgr-m_card__price-wrapper {
+section.wpgr-wishlist .wpgr-m_card__price-wrapper {
   transition: background-color 0.2s ease-in-out;
   display: inline-block;
   position: absolute;
@@ -89,12 +89,12 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__price-wrapper {
+  section.wpgr-wishlist .wpgr-m_card__price-wrapper {
     padding: 8px 20px;
   }
 }
 
-.wpgr-m_card__price {
+section.wpgr-wishlist .wpgr-m_card__price {
   margin: 0;
   font-size: 26px;
   font-weight: 900;
@@ -102,12 +102,12 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__price {
+  section.wpgr-wishlist .wpgr-m_card__price {
     font-size: 26px;
   }
 }
 
-.wpgr-m_card__price-text {
+section.wpgr-wishlist .wpgr-m_card__price-text {
   margin: 0;
   margin-top: -6px;
   font-size: 12px;
@@ -116,28 +116,28 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__price-text {
+  section.wpgr-wishlist .wpgr-m_card__price-text {
     margin-top: -6px;
     font-size: 12px;
   }
 }
 
-.wpgr-m_card__price-icon {
+section.wpgr-wishlist .wpgr-m_card__price-icon {
   display: none;
 }
 
-.wpgr-m_card__main {
+section.wpgr-wishlist .wpgr-m_card__main {
   padding: 0rem 2rem 2rem 2rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__main {
+  section.wpgr-wishlist .wpgr-m_card__main {
     display: flex;
     padding: 2rem 2rem 2rem 2rem;
   }
 }
 
-.wpgr-m_card__figure-wrapper {
+section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
   width: 100%;
   margin-top: -50px;
   margin-bottom: 1rem;
@@ -145,7 +145,7 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__figure-wrapper {
+  section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
     width: 160px;
     margin: 0;
     margin-right: 4rem;
@@ -153,7 +153,7 @@ body.no-scroll {
   }
 }
 
-.wpgr-m_card__figure {
+section.wpgr-wishlist .wpgr-m_card__figure {
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -167,17 +167,17 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__figure {
+  section.wpgr-wishlist .wpgr-m_card__figure {
     width: 160px;
     height: 160px;
   }
 }
 
-.wpgr-m_card__content {
+section.wpgr-wishlist .wpgr-m_card__content {
   padding: 0;
 }
 
-.wpgr-m_card__heading {
+section.wpgr-wishlist .wpgr-m_card__heading {
   transition: color 0.2s ease-in-out;
   margin-top: 0;
   margin-bottom: 0.6em;
@@ -188,13 +188,13 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__heading {
+  section.wpgr-wishlist .wpgr-m_card__heading {
     font-size: 32px;
     line-height: 44px;
   }
 }
 
-.wpgr-m_card__desc {
+section.wpgr-wishlist .wpgr-m_card__desc {
   margin-top: 0;
   margin-bottom: 20px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -204,41 +204,41 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__desc {
+  section.wpgr-wishlist .wpgr-m_card__desc {
     margin-bottom: 1.5rem;
     font-size: 16px;
     line-height: 26px;
   }
 }
 
-.wpgr-m_card__btn-wrapper {
+section.wpgr-wishlist .wpgr-m_card__btn-wrapper {
   text-align: left;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__btn-wrapper {
+  section.wpgr-wishlist .wpgr-m_card__btn-wrapper {
     text-align: right;
   }
 }
 
-.wpgr-m_card__btn {
+section.wpgr-wishlist .wpgr-m_card__btn {
   position: relative;
   padding-right: 40px !important;
 }
 
-.wpgr-m_card__btn:not(:first-child) {
+section.wpgr-wishlist .wpgr-m_card__btn:not(:first-child) {
   margin-top: 10px;
 }
 
-.wpgr-m_card__btn:not(:last-child) {
+section.wpgr-wishlist .wpgr-m_card__btn:not(:last-child) {
   margin-right: 10px;
 }
 
-.wpgr-m_card__btn-text {
+section.wpgr-wishlist .wpgr-m_card__btn-text {
   display: inline-block;
 }
 
-.wpgr-m_card__btn-icon {
+section.wpgr-wishlist .wpgr-m_card__btn-icon {
   display: inline-block;
   position: absolute;
   top: 9px;
@@ -250,38 +250,38 @@ body.no-scroll {
   margin: 0 auto;
 }
 
-.wpgr-m_card__btn-icon--view {
+section.wpgr-wishlist .wpgr-m_card__btn-icon--view {
   background-image: url("../src/img/ic_visibility_48px-wgite.svg");
 }
 
-.wpgr-m_card__btn-icon--give {
+section.wpgr-wishlist .wpgr-m_card__btn-icon--give {
   background-image: url("../src/img/ic_gift_48px-white.svg");
   top: 5px;
   width: 26px;
   height: 26px;
 }
 
-.wpgr-m_card__footer {
+section.wpgr-wishlist .wpgr-m_card__footer {
   position: relative;
   padding: 1rem 2rem 3rem 2rem;
   background: #fcfcfc;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__footer {
+  section.wpgr-wishlist .wpgr-m_card__footer {
     display: flex;
     padding: 1rem 6rem 2rem 2rem;
   }
 }
 
-.wpgr-m_card__buyer-wrapper {
+section.wpgr-wishlist .wpgr-m_card__buyer-wrapper {
   width: 100%;
   margin-bottom: 1rem;
   text-align: center;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__buyer-wrapper {
+  section.wpgr-wishlist .wpgr-m_card__buyer-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,7 +291,7 @@ body.no-scroll {
   }
 }
 
-.wpgr-m_card__buyer {
+section.wpgr-wishlist .wpgr-m_card__buyer {
   position: relative;
   display: inline-block;
   width: 50px;
@@ -301,13 +301,13 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__buyer {
+  section.wpgr-wishlist .wpgr-m_card__buyer {
     width: 60px;
     height: 60px;
   }
 }
 
-.wpgr-m_card__process {
+section.wpgr-wishlist .wpgr-m_card__process {
   display: flex;
   align-self: center;
   justify-content: space-between;
@@ -321,12 +321,12 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__process {
+  section.wpgr-wishlist .wpgr-m_card__process {
     height: 30px;
   }
 }
 
-.wpgr-m_card__process-bar {
+section.wpgr-wishlist .wpgr-m_card__process-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -336,7 +336,7 @@ body.no-scroll {
   border-radius: 5px;
 }
 
-.wpgr-m_card__process-price {
+section.wpgr-wishlist .wpgr-m_card__process-price {
   display: inline-block;
   position: relative;
   z-index: 1;
@@ -346,12 +346,12 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__process-price {
+  section.wpgr-wishlist .wpgr-m_card__process-price {
     font-size: 16px;
   }
 }
 
-.wpgr-m_card__process-count {
+section.wpgr-wishlist .wpgr-m_card__process-count {
   display: inline-block;
   position: relative;
   z-index: 1;
@@ -361,12 +361,12 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__process-count {
+  section.wpgr-wishlist .wpgr-m_card__process-count {
     font-size: 16px;
   }
 }
 
-.wpgr-m_card__toggle {
+section.wpgr-wishlist .wpgr-m_card__toggle {
   transition: background-color 0.2s ease-in-out;
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
@@ -381,25 +381,25 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__toggle {
+  section.wpgr-wishlist .wpgr-m_card__toggle {
     width: 60px;
     height: 60px;
   }
 }
 
-.wpgr-m_card__toggle:hover {
+section.wpgr-wishlist .wpgr-m_card__toggle:hover {
   background: #52aaa6;
 }
 
-.wpgr-m_card__toggle:focus {
+section.wpgr-wishlist .wpgr-m_card__toggle:focus {
   outline: 0;
 }
 
-.wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
+section.wpgr-wishlist .wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
   transform: rotate(180deg);
 }
 
-.wpgr-m_card__toggle-icon {
+section.wpgr-wishlist .wpgr-m_card__toggle-icon {
   transition: transform 0.15s ease-in-out;
   display: block;
   background-image: url("../src/img/ic_expand_more_48px-white.svg");
@@ -412,56 +412,56 @@ body.no-scroll {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card__toggle-icon {
+  section.wpgr-wishlist .wpgr-m_card__toggle-icon {
     margin-top: 16px;
   }
 }
 
-.wpgr-m_card--single .wpgr-m_card__main {
+section.wpgr-wishlist .wpgr-m_card--single .wpgr-m_card__main {
   padding: 0rem 2rem 3rem 2rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card--single .wpgr-m_card__main {
+  section.wpgr-wishlist .wpgr-m_card--single .wpgr-m_card__main {
     display: flex;
     padding: 3rem 6rem 2rem 3rem;
   }
 }
 
-.wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
+section.wpgr-wishlist .wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
   padding: 0rem 2rem 3rem 2rem;
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
+  section.wpgr-wishlist .wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
     display: flex;
     padding: 3rem 6rem 4rem 3rem;
   }
 }
 
-.wpgr-m_card--single.is-collapsed .wpgr-m_card__desc {
+section.wpgr-wishlist .wpgr-m_card--single.is-collapsed .wpgr-m_card__desc {
   margin-bottom: 0;
 }
 
-.wpgr-m_card--bought {
+section.wpgr-wishlist .wpgr-m_card--bought {
   transition: opacity 0.2s ease-in-out;
   opacity: 0.6;
 }
 
-.wpgr-m_card--bought:hover {
+section.wpgr-wishlist .wpgr-m_card--bought:hover {
   opacity: 1;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__price-wrapper {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__price {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price {
   display: none;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__price-icon {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-icon {
   display: block;
   background-image: url("../src/img/ic_lock_48px-grey.svg");
   background-repeat: no-repeat;
@@ -471,49 +471,49 @@ body.no-scroll {
   margin: 0 auto;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__figure {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__figure {
   opacity: 1;
   filter: grayscale(100%);
 }
 
-.wpgr-m_card--bought .wpgr-m_card__heading {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__heading {
   color: #a0a0a0;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__desc {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__desc {
   color: #a0a0a0;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__btn {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__btn {
   display: none;
 }
 
-.wpgr-m_card--bought .wpgr-m_card__toggle {
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__toggle {
   background: #a0a0a0;
 }
 
-.wpgr-m_card.is-collapsed {
+section.wpgr-wishlist .wpgr-m_card.is-collapsed {
   cursor: pointer;
 }
 
-.wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__price-wrapper {
+section.wpgr-wishlist .wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__price-wrapper {
   background: #f77d68;
 }
 
-.wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__toggle {
+section.wpgr-wishlist .wpgr-m_card.is-collapsed:not(.wpgr-m_card--bought):hover .wpgr-m_card__toggle {
   background: #52aaa6;
 }
 
-.wpgr-m_card.is-collapsed .wpgr-m_card__btn-wrapper {
+section.wpgr-wishlist .wpgr-m_card.is-collapsed .wpgr-m_card__btn-wrapper {
   display: none;
 }
 
-.wpgr-m_card.is-collapsed .wpgr-m_card__footer {
+section.wpgr-wishlist .wpgr-m_card.is-collapsed .wpgr-m_card__footer {
   display: none;
 }
 
-.wpgr-m_btn,
-a.wpgr-m_btn {
+section.wpgr-wishlist .wpgr-m_btn,
+section.wpgr-wishlist a.wpgr-m_btn {
   transition: background-color 0.2s ease-in-out;
   display: inline-block;
   font-weight: 700;
@@ -530,33 +530,33 @@ a.wpgr-m_btn {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_btn,
-  a.wpgr-m_btn {
+  section.wpgr-wishlist .wpgr-m_btn,
+  section.wpgr-wishlist a.wpgr-m_btn {
     padding: 10px 16px;
     font-size: 14px;
   }
 }
 
-.wpgr-m_btn:visited, .wpgr-m_btn:active, .wpgr-m_btn:link,
-a.wpgr-m_btn:visited,
-a.wpgr-m_btn:active,
-a.wpgr-m_btn:link {
+section.wpgr-wishlist .wpgr-m_btn:visited, section.wpgr-wishlist .wpgr-m_btn:active, section.wpgr-wishlist .wpgr-m_btn:link,
+section.wpgr-wishlist a.wpgr-m_btn:visited,
+section.wpgr-wishlist a.wpgr-m_btn:active,
+section.wpgr-wishlist a.wpgr-m_btn:link {
   color: #ffffff;
 }
 
-.wpgr-m_btn:hover,
-a.wpgr-m_btn:hover {
+section.wpgr-wishlist .wpgr-m_btn:hover,
+section.wpgr-wishlist a.wpgr-m_btn:hover {
   outline: 0;
   background-color: #52aaa6;
   color: #ffffff;
 }
 
-.wpgr-m_btn:focus,
-a.wpgr-m_btn:focus {
+section.wpgr-wishlist .wpgr-m_btn:focus,
+section.wpgr-wishlist a.wpgr-m_btn:focus {
   outline: 0;
 }
 
-.wpgr-m_btn-close {
+section.wpgr-wishlist .wpgr-m_btn-close {
   transition: background-color 0.2s ease-in-out;
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
   background-color: #73cbc7;
@@ -568,21 +568,21 @@ a.wpgr-m_btn:focus {
 }
 
 @media only screen and (min-width: 961px) {
-  .wpgr-m_btn-close {
+  section.wpgr-wishlist .wpgr-m_btn-close {
     width: 60px;
     height: 60px;
   }
 }
 
-.wpgr-m_btn-close:hover {
+section.wpgr-wishlist .wpgr-m_btn-close:hover {
   background-color: #52aaa6;
 }
 
-.wpgr-m_btn-close:focus {
+section.wpgr-wishlist .wpgr-m_btn-close:focus {
   outline: 0;
 }
 
-.wpgr-m_btn-close-icon {
+section.wpgr-wishlist .wpgr-m_btn-close-icon {
   display: block;
   background-image: url("../src/img/ic_close_48px-white.svg");
   background-repeat: no-repeat;
@@ -592,7 +592,7 @@ a.wpgr-m_btn:focus {
   margin: 0 auto;
 }
 
-.wpgr-o_popup {
+section.wpgr-wishlist .wpgr-o_popup {
   display: none;
   overflow-y: scroll;
   position: fixed;
@@ -605,25 +605,25 @@ a.wpgr-m_btn:focus {
   padding-top: 100px;
 }
 
-.wpgr-o_popup--single .wpgr-o_popup__step {
+section.wpgr-wishlist .wpgr-o_popup--single .wpgr-o_popup__step {
   padding: 1.5rem 1.5rem 5rem 1.5rem;
 }
 
-.wpgr-o_popup.is-active {
+section.wpgr-wishlist .wpgr-o_popup.is-active {
   display: block;
 }
 
-.wpgr-o_popup.is-active .wpgr-o_popup__step--1 .wpgr-o_popup__list-item:first-child {
+section.wpgr-wishlist .wpgr-o_popup.is-active .wpgr-o_popup__step--1 .wpgr-o_popup__list-item:first-child {
   background: #73cbc7;
   cursor: default;
 }
 
-.wpgr-o_popup.is-active .wpgr-o_popup__step--2 .wpgr-o_popup__list-item:nth-child(2) {
+section.wpgr-wishlist .wpgr-o_popup.is-active .wpgr-o_popup__step--2 .wpgr-o_popup__list-item:nth-child(2) {
   background: #73cbc7;
   cursor: default;
 }
 
-.wpgr-o_popup__step {
+section.wpgr-wishlist .wpgr-o_popup__step {
   box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
   display: none;
   position: relative;
@@ -638,11 +638,11 @@ a.wpgr-m_btn:focus {
   border-radius: 5px;
 }
 
-.wpgr-o_popup__step.is-active {
+section.wpgr-wishlist .wpgr-o_popup__step.is-active {
   display: block;
 }
 
-.wpgr-o_popup__btn-close {
+section.wpgr-wishlist .wpgr-o_popup__btn-close {
   position: absolute;
   top: 0;
   right: 0;
@@ -650,12 +650,12 @@ a.wpgr-m_btn:focus {
 }
 
 @media only screen and (min-width: 481px) {
-  .wpgr-o_popup__btn-close {
+  section.wpgr-wishlist .wpgr-o_popup__btn-close {
     transform: translate(40%, -40%);
   }
 }
 
-.wpgr-o_popup__process {
+section.wpgr-wishlist .wpgr-o_popup__process {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -667,7 +667,7 @@ a.wpgr-m_btn:focus {
   padding: 0;
 }
 
-.wpgr-o_popup__list-item {
+section.wpgr-wishlist .wpgr-o_popup__list-item {
   transition: background-color 0.2s ease-in-out;
   display: inline-block;
   background: #e6e6e6;
@@ -677,22 +677,22 @@ a.wpgr-m_btn:focus {
   cursor: pointer;
 }
 
-.wpgr-o_popup__list-item:not(:first-child) {
+section.wpgr-wishlist .wpgr-o_popup__list-item:not(:first-child) {
   margin-left: 10px;
 }
 
-.wpgr-o_popup__list-item:hover {
+section.wpgr-wishlist .wpgr-o_popup__list-item:hover {
   background: #ffa393;
 }
 
-.wpgr-o_popup__question {
+section.wpgr-wishlist .wpgr-o_popup__question {
   margin: 0;
   margin-bottom: 0.5em;
   font-size: 22px;
   line-height: 28px;
 }
 
-.wpgr-o_popup__desc {
+section.wpgr-wishlist .wpgr-o_popup__desc {
   margin: 0;
   margin-bottom: 1rem;
   font-size: 14px;
@@ -700,12 +700,12 @@ a.wpgr-m_btn:focus {
   color: #a0a0a0;
 }
 
-.wpgr-o_popup__buyer {
+section.wpgr-wishlist .wpgr-o_popup__buyer {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
 
-.wpgr-o_popup__btn-wrapper {
+section.wpgr-wishlist .wpgr-o_popup__btn-wrapper {
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -715,34 +715,34 @@ a.wpgr-m_btn:focus {
   padding: 1.5rem;
 }
 
-.wpgr-o_popup__btn-wrapper--single {
+section.wpgr-wishlist .wpgr-o_popup__btn-wrapper--single {
   justify-content: flex-end;
 }
 
-.wpgr-o_popup__form:after {
+section.wpgr-wishlist .wpgr-o_popup__form:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__input-wrapper {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-wrapper {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.wpgr-o_popup__form .wpgr-m_btn__buyer-content {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-m_btn__buyer-content {
   display: none;
   position: relative;
   margin-bottom: 1rem;
 }
 
-.wpgr-o_popup__form .wpgr-m_btn__buyer-content.is-active {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-m_btn__buyer-content.is-active {
   display: block;
 }
 
-.wpgr-o_popup__form input[type="text"],
-.wpgr-o_popup__form input[type="number"],
-.wpgr-o_popup__form textarea {
+section.wpgr-wishlist .wpgr-o_popup__form input[type="text"],
+section.wpgr-wishlist .wpgr-o_popup__form input[type="number"],
+section.wpgr-wishlist .wpgr-o_popup__form textarea {
   width: 100%;
   background-color: #fcfcfc;
   border: none;
@@ -750,14 +750,14 @@ a.wpgr-m_btn:focus {
   padding: 1.4em 1em 0.6em;
 }
 
-.wpgr-o_popup__form input[type="text"]:focus,
-.wpgr-o_popup__form input[type="number"]:focus,
-.wpgr-o_popup__form textarea:focus {
+section.wpgr-wishlist .wpgr-o_popup__form input[type="text"]:focus,
+section.wpgr-wishlist .wpgr-o_popup__form input[type="number"]:focus,
+section.wpgr-wishlist .wpgr-o_popup__form textarea:focus {
   outline: 0;
   border-bottom: 2px solid #ffa393;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__input-label {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label {
   position: absolute;
   left: 1em;
   top: 1em;
@@ -768,26 +768,26 @@ a.wpgr-m_btn:focus {
   color: #a0a0a0;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__input-label.is-active, .wpgr-o_popup__form .wpgr-o_popup__input-label.is-done {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-active, section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-done {
   left: 1.2em;
   top: 0.3em;
   font-size: 12px;
   font-weight: 700;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__input-label.is-active {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-active {
   color: #f77d68;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__radio-wrapper {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__radio-wrapper {
   display: inline-block;
 }
 
-.wpgr-o_popup__form .wpgr-o_popup__radio-wrapper:not(:last-child) {
+section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__radio-wrapper:not(:last-child) {
   margin-right: 15px;
 }
 
-.wpgr-o_popup__form input[type='radio'] {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -801,8 +801,8 @@ a.wpgr-m_btn:focus {
   border: none;
 }
 
-.wpgr-o_popup__form input[type='radio']:checked,
-.wpgr-o_popup__form input[type='radio']:not(:checked) {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked,
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:not(:checked) {
   background: transparent;
   position: relative;
   opacity: 0;
@@ -815,19 +815,19 @@ a.wpgr-m_btn:focus {
   z-index: 1;
 }
 
-.wpgr-o_popup__form input[type='radio'] + label {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio'] + label {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: #a0a0a0;
 }
 
-.wpgr-o_popup__form input[type='radio']:checked + label {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label {
   color: #73cbc7;
 }
 
-.wpgr-o_popup__form input[type='radio']:checked + label::before,
-.wpgr-o_popup__form input[type='radio']:not(:checked) + label::before {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label::before,
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:not(:checked) + label::before {
   content: ' ';
   display: inline-block;
   width: 20px;
@@ -839,16 +839,16 @@ a.wpgr-m_btn:focus {
   margin-right: 6px;
 }
 
-.wpgr-o_popup__form input[type=radio]:checked + label::before,
-.wpgr-o_popup__form input[type=radio]:not(:checked) + label::before {
+section.wpgr-wishlist .wpgr-o_popup__form input[type=radio]:checked + label::before,
+section.wpgr-wishlist .wpgr-o_popup__form input[type=radio]:not(:checked) + label::before {
   border-radius: 30px;
 }
 
-.wpgr-o_popup__form input[type='radio']:hover + label {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:hover + label {
   color: #73cbc7;
 }
 
-.wpgr-o_popup__form input[type='radio']:checked + label::before {
+section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label::before {
   background: #73cbc7;
   border: 2px solid #73cbc7;
   box-shadow: inset 0 0 0 4px #ffffff;
