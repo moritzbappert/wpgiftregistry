@@ -176,7 +176,7 @@ class WP_Gift_Registry_Admin {
   	$page_title = __('Settings', 'wpgiftregistry');
   	$menu_title = __('Settings', 'wpgiftregistry');
   	$capability = 'manage_options';
-  	$slug = 'wishlist_settings';
+  	$slug = 'wpgr_settings';
   	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
   	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
   	$position = 100;
@@ -383,6 +383,25 @@ class WP_Gift_Registry_Admin {
 		</div>
 		<?php
   }
+
+  	/**
+	 * wpgr_settings Page Content
+	 *
+	 * @since    1.3.0
+	 */
+  	public function plugin_wpgr_settings_page_content() {
+  	    // Include CMB CSS in the head to avoid FOUC
+		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
+
+		?>
+		<div class="wrap cmb2-options-page wishlist">
+			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
+		</div>
+		<?php
+  	}
+
+
 
   /**
 	 * The Wishlist Settings Page Content
