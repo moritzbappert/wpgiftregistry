@@ -74,7 +74,10 @@ var mCard = (function($) {
     //     toggleContent(e);
     // });
 
-    $btnOpen.on('click', openPopup);
+    $btnOpen.on('click', function(e) {
+        e.stopPropagation();
+        openPopup(e);
+    });
 
     /******************************************************************
         FUNCTIONS
@@ -97,11 +100,17 @@ var mCard = (function($) {
             return string;
     };
 
-    function openPopup() {
-        var $clickedBtn = $(this);
+    function openPopup(e) {
+        var $clickedBtn = $(e.target);
         var $clickedCard = $clickedBtn.closest('.wpgr-m_card');
         var wishID = $clickedCard.data('wish-id');
         var wishlistID = $clickedCard.closest('.wpgr-wishlist').data('id');
+
+        // open popup
+        $popup.attr('data-wish-id', wishID);
+        $popup.attr('data-wishlist-id', wishlistID);
+        $popup.addClass('is-active');
+        $body.addClass('no-scroll');
 
         // make single step one active
         if ($clickedCard.hasClass('wpgr-m_card--single')) {
@@ -114,12 +123,6 @@ var mCard = (function($) {
             var popupStepTwo = $popup.find('#wpgr_popup_buyer');
             popupStepOne.addClass('is-active');
         }
-
-        // open popup
-        $popup.attr('data-wish-id', wishID);
-        $popup.attr('data-wishlist-id', wishlistID);
-        $popup.addClass('is-active');
-        $body.addClass('no-scroll');
     }
 
     function truncateDescriptionText(el) {
