@@ -165,6 +165,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Register custom post type
 			$this->loader->add_action( 'init', $plugin_admin, 'register_post_types');
 
+			// Add custom admin columns for our custom post type
+			$this->loader->add_action( 'init', $plugin_admin, 'add_admin_columns');
+
 			// Add metaboxes to our custom post type
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes');
 
