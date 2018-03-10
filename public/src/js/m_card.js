@@ -18,11 +18,11 @@ var mCard = (function($) {
     ******************************************************************/
 
     // truncate description text
-    $description.each(function(index, el) {
-        // truncateDescriptionText(el);
-        var truncatedText = truncate($(el).text());
-        $(el).text(truncatedText);
-    });
+    // $description.each(function(index, el) {
+    //     // truncateDescriptionText(el);
+    //     var truncatedText = truncate($(el).text());
+    //     $(el).text(truncatedText);
+    // });
 
     // show/hide collapsed content
     $card.on('click', showContent);

@@ -10,6 +10,12 @@
     height: 100%;
     padding-top: 100px;
 
+    &--single {
+        .wpgr-o_popup__step {
+            padding: 1.5rem 1.5rem 5rem 1.5rem;
+        }
+    }
+
     &.is-active {
         display: block;
 

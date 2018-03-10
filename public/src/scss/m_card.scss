@@ -6,6 +6,7 @@
     margin: 0 auto;
     margin-bottom: 100px;
     border: 1px solid $c6-grey;
+    border-radius: 5px;
     font-family: $font-1;
     cursor: default;
 
@@ -60,7 +61,7 @@
 
         @include medium {
             display: flex;
-            padding: 2rem 6rem 2rem 2rem;
+            padding: 2rem 2rem 2rem 2rem;
         }
     }
 
@@ -82,6 +83,7 @@
         display: inline-block;
         width: 100px;
         height: 100px;
+        background-color: $c9-grey;
         background-image: url('../src/img/placeholder-author-detail-02.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -105,7 +107,7 @@
         margin-bottom: 0.6em;
         font-family: $font-1;
         font-size: 24px;
-        line-height: 32px;
+        line-height: 30px;
         font-weight: 400;
 
         @include medium {
@@ -123,7 +125,7 @@
         color: $c4-grey;
 
         @include medium {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-size: 16px;
             line-height: 26px;
         }
@@ -144,6 +146,21 @@
         &:not(:last-child) {
             margin-right: 10px;
         }
+    }
+
+    &__btn-text {
+        display: inline-block;
+    }
+
+    &__btn-icon {
+        display: inline-block;
+        background-image: url('../src/img/ic_visibility_48px-wgite.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+        margin-left: 10px;
     }
 
     &__footer {
@@ -296,7 +313,7 @@
 
             @include medium {
                 display: flex;
-                padding: 3rem 8rem 3rem 3rem;
+                padding: 3rem 6rem 2rem 3rem;
             }
         }
 
@@ -307,7 +324,7 @@
 
                 @include medium {
                     display: flex;
-                    padding: 3rem 8rem 4rem 3rem;
+                    padding: 3rem 6rem 4rem 3rem;
                 }
             }
 

@@ -12,10 +12,17 @@ a.wpgr-m_btn {
     border-bottom: 2px solid  $c2-main;
     font-size: 14px;
     color: $c-white;
+    text-align: left;
 
     @include medium {
         padding: 10px 16px;
         font-size: 14px;
+    }
+
+    &:visited,
+    &:active,
+    &:link {
+        color: $c-white;
     }
 
     &:hover {

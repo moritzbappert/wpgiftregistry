@@ -20,13 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         $is_single = true; // needs to be replaced
         $has_buyer = !empty($gift['gift_reserver']);
 
-        $classes = array('wpgr-m_card', 'is-collapsed');
+        $classes = array('wpgr-m_card');
 
         if ( !$is_available ) {
             $classes[] = 'wpgr-m_card--bought';
         }
         if ( $is_single ) {
-            // $classes[] = 'wpgr-m_card--single';
+            $classes[] = 'wpgr-m_card--single';
         }
 
     ?>
@@ -63,7 +63,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         <?php endif; ?>
                         <div class="wpgr-m_card__btn-wrapper">
                             <?php if ( !empty($gift['gift_url']) ): ?>
-                                <a class="wpgr-m_card__btn wpgr-m_btn" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>"><?= __('View', 'wpgiftregistry') ?></a>
+                                <a class="wpgr-m_card__btn wpgr-m_btn" target="_blank" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>">
+                                    <span class="wpgr-m_card__btn-text"><?= __('View', 'wpgiftregistry') ?></span>
+                                    <i class="wpgr-m_card__btn-icon"></i>
+                                </a>
                             <?php endif; ?>
                             <button class="wpgr-m_card__btn wpgr-m_btn wpgr-m_btn__open" type="button" name="button">    <?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?>
                             </button>
@@ -89,9 +92,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     </div>
                 </footer>
             <?php endif; ?>
-            <div class="wpgr-m_card__toggle">
+            <!-- <div class="wpgr-m_card__toggle">
                 <i class="wpgr-m_card__toggle-icon"></i>
-            </div>
+            </div> -->
         </div>
 <?php
     endforeach;
@@ -269,7 +272,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     </div>
 </section>
 
-<form class="wpgr-o_popup wpgr-o_popup__form">
+<form class="wpgr-o_popup wpgr-o_popup--single wpgr-o_popup__form">
 
     <div id="wpgr_popup_name" class="wpgr-o_popup__step wpgr-o_popup__step--1">
         <header class="wpgr-o_popup__header">

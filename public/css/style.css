@@ -63,6 +63,7 @@ body.no-scroll {
   margin: 0 auto;
   margin-bottom: 100px;
   border: 1px solid #f5f5f5;
+  border-radius: 5px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   cursor: default;
 }
@@ -128,7 +129,7 @@ body.no-scroll {
 @media only screen and (min-width: 961px) {
   .wpgr-m_card__main {
     display: flex;
-    padding: 2rem 6rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
   }
 }
 
@@ -152,6 +153,7 @@ body.no-scroll {
   display: inline-block;
   width: 100px;
   height: 100px;
+  background-color: #fcfcfc;
   background-image: url("../src/img/placeholder-author-detail-02.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -177,7 +179,7 @@ body.no-scroll {
   margin-bottom: 0.6em;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 30px;
   font-weight: 400;
 }
 
@@ -199,7 +201,7 @@ body.no-scroll {
 
 @media only screen and (min-width: 961px) {
   .wpgr-m_card__desc {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 16px;
     line-height: 26px;
   }
@@ -221,6 +223,21 @@ body.no-scroll {
 
 .wpgr-m_card__btn:not(:last-child) {
   margin-right: 10px;
+}
+
+.wpgr-m_card__btn-text {
+  display: inline-block;
+}
+
+.wpgr-m_card__btn-icon {
+  display: inline-block;
+  background-image: url("../src/img/ic_visibility_48px-wgite.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  margin-left: 10px;
 }
 
 .wpgr-m_card__footer {
@@ -353,6 +370,32 @@ body.no-scroll {
   background: #52aaa6;
 }
 
+.wpgr-m_card__toggle:focus {
+  outline: 0;
+}
+
+.wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
+  transform: rotate(180deg);
+}
+
+.wpgr-m_card__toggle-icon {
+  transition: transform 0.15s ease-in-out;
+  display: block;
+  background-image: url("../src/img/ic_expand_more_48px-white.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 961px) {
+  .wpgr-m_card__toggle-icon {
+    margin-top: 16px;
+  }
+}
+
 .wpgr-m_card--single .wpgr-m_card__main {
   padding: 0rem 2rem 3rem 2rem;
 }
@@ -360,7 +403,7 @@ body.no-scroll {
 @media only screen and (min-width: 961px) {
   .wpgr-m_card--single .wpgr-m_card__main {
     display: flex;
-    padding: 3rem 8rem 3rem 3rem;
+    padding: 3rem 6rem 2rem 3rem;
   }
 }
 
@@ -371,7 +414,7 @@ body.no-scroll {
 @media only screen and (min-width: 961px) {
   .wpgr-m_card--single.is-collapsed .wpgr-m_card__main {
     display: flex;
-    padding: 3rem 8rem 4rem 3rem;
+    padding: 3rem 6rem 4rem 3rem;
   }
 }
 
@@ -391,6 +434,16 @@ body.no-scroll {
 .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
+}
+
+.wpgr-m_card--bought .wpgr-m_card__price-icon {
+  display: block;
+  background-image: url("../src/img/ic_lock_48px-grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
 }
 
 .wpgr-m_card--bought .wpgr-m_card__figure {
@@ -444,6 +497,7 @@ a.wpgr-m_btn {
   border-bottom: 2px solid #52aaa6;
   font-size: 14px;
   color: #ffffff;
+  text-align: left;
 }
 
 @media only screen and (min-width: 961px) {
@@ -454,11 +508,23 @@ a.wpgr-m_btn {
   }
 }
 
+.wpgr-m_btn:visited, .wpgr-m_btn:active, .wpgr-m_btn:link,
+a.wpgr-m_btn:visited,
+a.wpgr-m_btn:active,
+a.wpgr-m_btn:link {
+  color: #ffffff;
+}
+
 .wpgr-m_btn:hover,
 a.wpgr-m_btn:hover {
   outline: 0;
   background-color: #52aaa6;
   color: #ffffff;
+}
+
+.wpgr-m_btn:focus,
+a.wpgr-m_btn:focus {
+  outline: 0;
 }
 
 .wpgr-m_btn-close {
@@ -483,6 +549,20 @@ a.wpgr-m_btn:hover {
   background-color: #52aaa6;
 }
 
+.wpgr-m_btn-close:focus {
+  outline: 0;
+}
+
+.wpgr-m_btn-close-icon {
+  display: block;
+  background-image: url("../src/img/ic_close_48px-white.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
 .wpgr-o_popup {
   display: none;
   overflow-y: scroll;
@@ -494,6 +574,10 @@ a.wpgr-m_btn:hover {
   width: 100%;
   height: 100%;
   padding-top: 100px;
+}
+
+.wpgr-o_popup--single .wpgr-o_popup__step {
+  padding: 1.5rem 1.5rem 5rem 1.5rem;
 }
 
 .wpgr-o_popup.is-active {
@@ -604,6 +688,12 @@ a.wpgr-m_btn:hover {
 
 .wpgr-o_popup__btn-wrapper--single {
   justify-content: flex-end;
+}
+
+.wpgr-o_popup__form:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .wpgr-o_popup__form .wpgr-o_popup__input-wrapper {
