@@ -245,8 +245,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
     <div class="wpgr-m_card wpgr-m_card--single wpgr-m_card--buyed is-collapsed">
         <div class="wpgr-m_card__price-wrapper">
-            <p class="wpgr-m_card__price">OUT</p>
-            <p class="wpgr-m_card__price-text">bought</p>
+            <i class="wpgr-m_card__price-icon"></i>
         </div>
         <div class="wpgr-m_card__main">
             <div class="wpgr-m_card__figure-wrapper">
@@ -272,8 +271,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     </div>
 </section>
 
-<div class="wpgr-o_popup wpgr-o_popup--single">
-    <form class="wpgr-o_popup__form">
+<form class="wpgr-o_popup wpgr-o_popup--single wpgr-o_popup__form">
+
 
         <div id="wpgr_popup_name" class="wpgr-o_popup__step is-active">
             <header class="wpgr-o_popup__header">
@@ -292,7 +291,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
 
             <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
+                <i class="wpgr-m_btn-close-icon"></i>
             </button>
 
             <ul class="wpgr-o_popup__process">
@@ -317,7 +316,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <button class="wpgr-o_popup__btn-next wpgr-m_btn wpgr-m_btn--next">Weiter</button>
             </div>
             <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
+                <i class="wpgr-m_btn-close-icon"></i>
             </button>
             <ul class="wpgr-o_popup__process">
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-01"></li>
@@ -361,7 +360,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
 
             <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
-                <i class="wpgr-m_btn-icon">x</i>
+                <i class="wpgr-m_btn-close-icon"></i>
             </button>
 
             <ul class="wpgr-o_popup__process">
@@ -370,5 +369,5 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-03 is-active"></li>
             </ul>
         </div>
+
     </form>
-</div>

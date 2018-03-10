@@ -260,6 +260,33 @@
         &:hover {
             background: $c2-main;
         }
+
+        &:focus {
+            outline: 0;
+        }
+
+        &.is-active {
+
+            .wpgr-m_card__toggle-icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__toggle-icon {
+        transition: transform 0.15s ease-in-out;
+        display: block;
+        background-image: url('../src/img/ic_expand_more_48px-white.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 10px;
+
+        @include medium {
+            margin-top: 16px;
+        }
     }
 
     &--single {
@@ -301,6 +328,16 @@
         .wpgr-m_card__price-wrapper {
             transition: opacity 0.2s ease-in-out;
             background: $c4-grey;
+        }
+
+        .wpgr-m_card__price-icon {
+            display: block;
+            background-image: url('../src/img/ic_lock_48px-grey.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
         }
 
         .wpgr-m_card__figure {

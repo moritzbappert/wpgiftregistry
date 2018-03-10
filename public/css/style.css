@@ -345,6 +345,32 @@ section {
   background: #52aaa6;
 }
 
+.wpgr-m_card__toggle:focus {
+  outline: 0;
+}
+
+.wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
+  transform: rotate(180deg);
+}
+
+.wpgr-m_card__toggle-icon {
+  transition: transform 0.15s ease-in-out;
+  display: block;
+  background-image: url("../src/img/ic_expand_more_48px-white.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 961px) {
+  .wpgr-m_card__toggle-icon {
+    margin-top: 16px;
+  }
+}
+
 .wpgr-m_card--single .wpgr-m_card__main {
   padding: 0rem 2rem 3rem 2rem;
 }
@@ -383,6 +409,16 @@ section {
 .wpgr-m_card--buyed .wpgr-m_card__price-wrapper {
   transition: opacity 0.2s ease-in-out;
   background: #a0a0a0;
+}
+
+.wpgr-m_card--buyed .wpgr-m_card__price-icon {
+  display: block;
+  background-image: url("../src/img/ic_lock_48px-grey.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
 }
 
 .wpgr-m_card--buyed .wpgr-m_card__figure {
@@ -453,6 +489,11 @@ a.wpgr-m_btn:hover {
   color: #ffffff;
 }
 
+.wpgr-m_btn:focus,
+a.wpgr-m_btn:focus {
+  outline: 0;
+}
+
 .wpgr-m_btn-close {
   transition: background-color 0.2s ease-in-out;
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
@@ -473,6 +514,20 @@ a.wpgr-m_btn:hover {
 
 .wpgr-m_btn-close:hover {
   background-color: #52aaa6;
+}
+
+.wpgr-m_btn-close:focus {
+  outline: 0;
+}
+
+.wpgr-m_btn-close-icon {
+  display: block;
+  background-image: url("../src/img/ic_close_48px-white.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
 }
 
 .wpgr-o_popup {
@@ -591,6 +646,12 @@ a.wpgr-m_btn:hover {
 
 .wpgr-o_popup__btn-wrapper--single {
   justify-content: flex-end;
+}
+
+.wpgr-o_popup__form:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .wpgr-o_popup__form .wpgr-o_popup__input-wrapper {

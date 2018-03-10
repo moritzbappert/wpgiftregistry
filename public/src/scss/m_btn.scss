@@ -23,6 +23,10 @@ a.wpgr-m_btn {
         background-color: $c2-main;
         color: $c-white;
     }
+
+    &:focus {
+        outline: 0;
+    }
 }
 
 .wpgr-m_btn-close {
@@ -43,4 +47,18 @@ a.wpgr-m_btn {
     &:hover {
         background-color: $c2-main;
     }
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.wpgr-m_btn-close-icon {
+    display: block;
+    background-image: url('../src/img/ic_close_48px-white.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
 }

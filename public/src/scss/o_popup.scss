@@ -117,6 +117,7 @@
     }
 
     &__form {
+        @include clearfix;
 
         .wpgr-o_popup__input-wrapper {
             position: relative;
