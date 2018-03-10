@@ -65,10 +65,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <?php if ( !empty($gift['gift_url']) ): ?>
                                 <a class="wpgr-m_card__btn wpgr-m_btn" target="_blank" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>">
                                     <span class="wpgr-m_card__btn-text"><?= __('View', 'wpgiftregistry') ?></span>
-                                    <i class="wpgr-m_card__btn-icon"></i>
+                                    <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--view"></i>
                                 </a>
                             <?php endif; ?>
-                            <button class="wpgr-m_card__btn wpgr-m_btn wpgr-m_btn__open" type="button" name="button">    <?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?>
+                            <button class="wpgr-m_card__btn wpgr-m_btn wpgr-m_btn__open" type="button" name="button">
+                                <span class="wpgr-m_card__btn-text"><?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?></span>
+                                <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--give"></i>
                             </button>
                         </div>
                     </div>
@@ -100,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     endforeach;
 ?>
 
-    <div class="wpgr-m_card">
+    <!-- <div class="wpgr-m_card">
         <div class="wpgr-m_card__price-wrapper">
             <p class="wpgr-m_card__price">20€</p>
             <p class="wpgr-m_card__price-text">each</p>
@@ -269,7 +271,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div class="wpgr-m_card__toggle">
             <i class="wpgr-m_card__toggle-icon"></i>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <form class="wpgr-o_popup wpgr-o_popup--single wpgr-o_popup__form">

@@ -143,6 +143,9 @@
     }
 
     &__btn {
+        position: relative;
+        padding-right: 40px !important;
+
         &:not(:first-child) {
             margin-top: 10px;
         }
@@ -157,13 +160,25 @@
 
     &__btn-icon {
         display: inline-block;
-        background-image: url('../src/img/ic_visibility_48px-wgite.svg');
+        position: absolute;
+        top: 9px;
+        right: 10px;
         background-repeat: no-repeat;
         background-size: cover;
         width: 20px;
         height: 20px;
         margin: 0 auto;
-        margin-left: 10px;
+
+        &--view {
+            background-image: url('../src/img/ic_visibility_48px-wgite.svg');
+        }
+
+        &--give {
+            background-image: url('../src/img/ic_gift_48px-white.svg');
+            top: 5px;
+            width: 26px;
+            height: 26px;
+        }
     }
 
     &__footer {
@@ -374,6 +389,10 @@
 
         .wpgr-m_card__desc {
             color: $c4-grey;
+        }
+
+        .wpgr-m_card__btn {
+            display: none;
         }
 
         .wpgr-m_card__toggle {
