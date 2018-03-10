@@ -74,7 +74,8 @@ class WP_Gift_Registry_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '-style-admin', plugin_dir_url( __FILE__ ) . 'css/style-admin.css', array(), $this->version, 'all' );
 	}
 
 	/**
