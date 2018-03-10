@@ -177,7 +177,7 @@ class WP_Gift_Registry_Admin {
   	$menu_title = __('Settings', 'wpgiftregistry');
   	$capability = 'manage_options';
   	$slug = 'wpgr_settings';
-  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
+  	$callback = array( $this, 'plugin_wpgr_settings_page_content' );
   	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
   	$position = 100;
   	add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
