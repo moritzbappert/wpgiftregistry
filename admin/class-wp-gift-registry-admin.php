@@ -105,6 +105,48 @@ class WP_Gift_Registry_Admin {
 
 
 	/**
+	 * Register our custom post type
+	 *
+	 * @since 1.3.0
+	 */
+	public function register_post_types() {
+
+		register_post_type('wpgr_wishlist', [
+		  'labels' => [
+		    'name' => __('Wishlist', 'wpgiftregistry'),
+		    'singular_name' => __('Wishlist', 'wpgiftregistry'),
+		    'menu_name' => __('Wishlists', 'wpgiftregistry'),
+		    'add_new_item' => __('Add new Wishlist', 'wpgiftregistry'),
+		    'edit_item' => __('Edit Wishlist', 'wpgiftregistry'),
+		    'new_item' => __('New Wishlist', 'wpgiftregistry'),
+		    'search_items' => __('Search Wishlists', 'wpgiftregistry'),
+		    'all_items' => __('All Wishlists', 'wpgiftregistry'),
+		  ],
+		  'description' => '',
+		  'public' => TRUE,
+		  'publicly_queryable' => FALSE,
+		  'show_ui' => TRUE,
+		  'show_in_rest' => FALSE,
+		  'rest_base' => '',
+		  'has_archive' => FALSE,
+		  'show_in_menu' => TRUE,
+		  'exclude_from_search' => TRUE,
+		  'capability_type' => 'post',
+		  'map_meta_cap' => TRUE,
+		  'hierarchical' => FALSE,
+		  'rewrite' => [
+		    'slug' => 'wishlist',
+		    'with_front' => FALSE
+		  ],
+		  'supports' => ['title', 'author'],
+		  'menu_icon' => plugins_url( "../images/gift_registry_icon.png", __FILE__ ),
+		]);
+
+	}
+
+
+
+	/**
 	 * Create a Settings Page
 	 *
 	 * @since    1.0.0
@@ -129,7 +171,194 @@ class WP_Gift_Registry_Admin {
   	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
   	$position = 100;
   	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
+
+  	// Add the Wishlist Settings Page
+  	$page_title = __('Settings', 'wpgiftregistry');
+  	$menu_title = __('Settings', 'wpgiftregistry');
+  	$capability = 'manage_options';
+  	$slug = 'wpgr_settings';
+  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
+  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+  	$position = 100;
+  	add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
   }
+
+
+  	/**
+  	 * Add a metabox with custom fields to our wishlist post type
+  	 *
+  	 * @since 1.3.0
+  	 */
+  	public function add_wishlist_metaboxes() {
+
+  		$prefix = 'wpgr_';
+
+  		$metabox = new_cmb2_box( array(
+			'id'            => $prefix . 'wishlist',
+			//'title'         => esc_html__( 'Wishlist', 'wpgiftregistry' ),
+			'remove_box_wrap' => true,
+			'object_types'  => array( 'wpgr_wishlist' ), // Post type
+			'context'    => 'after_title',
+			'priority'   => 'high',
+			// 'cmb_styles' => false, // false to disable the CMB stylesheet
+			// 'closed'     => true, // true to keep the metabox closed by default
+			// 'classes'    => 'extra-class', // Extra cmb2-wrap classes
+			// 'classes_cb' => 'yourprefix_add_some_classes', // Add classes through a callback.
+		) );
+
+  		$shortcode_description = sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), "<code>[wishlist id='" . $metabox->object_id() . "']</code>" );
+
+  		// General description about shortcode functionality
+  		$metabox->add_field( array(
+			'name' => __( 'Shortcode', 'wpgiftregistry' ),
+			'desc' => $shortcode_description,
+			'type' => 'title',
+			'id'   => $prefix . 'shortcode_description',
+		) );
+
+		// Wishes title
+  		$metabox->add_field( array(
+			'name' => __( 'Wishes', 'wpgiftregistry' ),
+			'type' => 'title',
+			'id'   => $prefix . 'wishes_title',
+		) );
+
+  		// Add a group field (repeater)
+  		$group_field = $metabox->add_field( array(
+  		    'id'          => 'wpgr_wishlist',
+  		    'type'        => 'group',
+  		    // 'repeatable'  => false, // use false if you want non-repeatable group
+  		    'options'     => array(
+  		        'group_title'   => __( 'Gift {#}', 'wpgiftregistry' ), // since version 1.1.4, {#} gets replaced by row number
+  		        'add_button'    => __( 'Add Another Gift', 'wpgiftregistry' ),
+  		        'remove_button' => __( 'Remove Gift', 'wpgiftregistry' ),
+  		        'sortable'      => true, // beta
+  		        // 'closed'     => true, // true to have the groups closed by default
+  		    ),
+  		) );
+
+		// Title
+		$metabox->add_group_field( $group_field, array(
+			'name' => __( 'Gift Title', 'wpgiftregistry' ),
+			'desc' => __( '', 'wpgiftregistry' ),
+			'id'   => 'gift_title',
+			'type' => 'text',
+			'default' => '',
+		) );
+
+		// Image
+		$metabox->add_group_field( $group_field, array(
+		    'name'    => __( 'Gift Image', 'wpgiftregistry' ),
+		    'desc'    => __( 'Upload an image or enter a URL. If left empty, we\'ll try to automatically retrieve an image (currently only working with amazon.com).', 'wpgiftregistry' ),
+		    'id'      => 'gift_image',
+		    'type'    => 'file',
+		    'options' => array(
+		        'url' => true, // Hide the text input for the url
+		    ),
+		    'text'    => array(
+		        'add_upload_file_text' => __( 'Add Image', 'wpgiftregistry' ) // Change upload button text.
+		    ),
+		    // query_args are passed to wp.media's library query.
+		    'query_args' => array(
+		        'type' => 'image/jpg',
+		    ),
+		) );
+
+  		// Description
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Description (optional)', 'wpgiftregistry' ),
+	        'desc' => __( '', 'gift_registry' ),
+	        'id'   => 'gift_description',
+	        'type' => 'textarea_small',
+	    ) );
+
+		$currency_symbol_placement = get_option('wishlist_settings')['currency_symbol_placement'];
+		$currency_symbol = get_option('wishlist_settings')['currency_symbol'];
+
+		if ( $currency_symbol_placement === 'before' ) {
+			$before = $currency_symbol . ' ';
+			$after = '';
+		} else {
+			$before = '';
+			$after = ' ' . $currency_symbol;
+		}
+
+		// Price
+		$metabox->add_group_field( $group_field, array(
+		    'name' => __( 'Price', 'wpgiftregistry' ),
+		    'desc' => '',
+		    'id' => 'gift_price',
+		    'type' => 'text_small',
+		    'before_field' => $before,
+		    'after_field' => $after
+		) );
+
+	    // URL
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Product URL', 'wpgiftregistry' ),
+	        'desc' => __( '', 'wpgiftregistry' ),
+	        'id'   => 'gift_url',
+	        'type' => 'text_url',
+	    ) );
+
+	    // Availability
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Availability', 'wpgiftregistry' ),
+	        'desc' => __( 'Is the gift available for purchase (nobody already buying it)?', 'wpgiftregistry' ),
+	        'id'   => 'gift_availability',
+	        'type' => 'radio_inline',
+	        'options' => array(
+	            'true' => __( 'Yes', 'wpgiftregistry' ),
+	            'false'   => __( 'No', 'wpgiftregistry' ),
+	        ),
+	        'default' => 'true',
+	    ) );
+
+	    // Shortcode Metabox
+	    $shortcode_metabox = new_cmb2_box( array(
+			'id'            => $prefix . 'wishlist_shortcode',
+			'title'         => __( 'Shortcode', 'wpgiftregistry' ),
+			'object_types'  => array( 'wpgr_wishlist' ), // Post type
+			'context'    => 'side',
+			'priority'   => 'high',
+		) );
+
+		// Shortcode
+  		$shortcode_metabox->add_field( array(
+			'name' => "<pre><code>[wishlist id='" . $metabox->object_id() . "']</code></pre>",
+			'type' => 'title',
+			'id'   => $prefix . 'shortcode',
+		) );
+
+  	}
+
+  	// Add a custom shortcode column
+  	public function add_admin_columns() {
+
+  		function add_shortcode_column( $columns ) {
+
+  			$new_columns = array();
+
+  			foreach ($columns as $key => $title) {
+  				if ($key == 'author') {
+  					// put the shortcode column before the author column
+  					$new_columns['shortcode'] = __( 'Shortcode', 'wpgiftregistry' );
+  				}
+  				$new_columns[$key] = $title;
+  			}
+  			return $new_columns;
+  		}
+  		add_filter( 'manage_wpgr_wishlist_posts_columns', 'add_shortcode_column', 5 );
+
+
+  		function shortcode_column_content( $column, $id ) {
+  		  if( 'shortcode' == $column ) {
+  		    echo "<pre><code>[wishlist id='" . $id . "']</code></pre>";
+  		  }
+  		}
+  		add_action( 'manage_wpgr_wishlist_posts_custom_column', 'shortcode_column_content', 5, 2 );
+
+  	}
 
 
   /**
@@ -155,6 +384,25 @@ class WP_Gift_Registry_Admin {
 		<?php
   }
 
+  	/**
+	 * wpgr_settings Page Content
+	 *
+	 * @since    1.3.0
+	 */
+  	public function plugin_wpgr_settings_page_content() {
+  	    // Include CMB CSS in the head to avoid FOUC
+		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
+
+		?>
+		<div class="wrap cmb2-options-page wishlist">
+			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
+		</div>
+		<?php
+  	}
+
+
+
   /**
 	 * The Wishlist Settings Page Content
 	 *
@@ -173,9 +421,10 @@ class WP_Gift_Registry_Admin {
   }
 
 
+
   /**
 	 * Add the options metabox to the array of metaboxes
-	 * @since  0.1.0
+	 * @since  1.0.0
 	 */
 	function add_options_page_metabox() {
 		// hook in our save notices
