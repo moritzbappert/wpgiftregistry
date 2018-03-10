@@ -401,20 +401,40 @@ class WP_Gift_Registry_Public {
 			die ( 'Busted!');
 		}
 
-		$item_name = $_POST['itemName'];
-		$item_availability = $_POST['availability'];
-		$options_array = get_option('wishlist');
-		$wishlist = $options_array['wishlist_group'];
+		if ( $_POST['version'] == 'new' ) {
+			// update new custom post type wishlists
 
-		foreach($wishlist as $gift_key => $gift) {
-			if ( $gift['gift_title'] === $item_name ) {
-				$wishlist[$gift_key]['gift_availability'] = $item_availability;
+			$wishlist_id 		= $_POST['wishlist_id'];
+			$gift_id 			= $_POST['gift_id'];
+			$gift_availability 	= $_POST['gift_availability'];
+			$gift_reserver		= $_POST['gift_reserver'];
+
+			$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
+			$to_be_updated = array_search($gift_id, array_column($wishlist, 'gift_id'));
+
+			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
+			$wishlist[$to_be_updated]['gift_reserver'] = $gift_reserver;
+
+			update_post_meta($wishlist_id, 'wpgr_wishlist', $wishlist);
+
+		} else {
+			// update old wishlist type (managed through options page)
+
+			$item_name = $_POST['itemName'];
+			$item_availability = $_POST['availability'];
+			$options_array = get_option('wishlist');
+			$wishlist = $options_array['wishlist_group'];
+
+			foreach($wishlist as $gift_key => $gift) {
+				if ( $gift['gift_title'] === $item_name ) {
+					$wishlist[$gift_key]['gift_availability'] = $item_availability;
+				}
 			}
+
+			$options_array['wishlist_group'] = $wishlist;
+
+			update_option('wishlist', $options_array);
 		}
-
-		$options_array['wishlist_group'] = $wishlist;
-
-		update_option('wishlist', $options_array);
 
 		die();
 	}
