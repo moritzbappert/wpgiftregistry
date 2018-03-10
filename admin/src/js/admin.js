@@ -1,6 +1,6 @@
 var adminJS = (function($) {
 
-    var $box = $( '#wpgr_wishlist_repeat' );
+    var $box = $( '#wpgr_wishlist_repeat, #wishlist_group_repeat' );
     var replaceTitles = function() {
         $box.find( '.cmb-group-title' ).each( function() {
             var $this = $( this );
