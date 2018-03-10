@@ -298,11 +298,6 @@ section.wpgr-wishlist {
         &:hover {
             background: $c1-second;
         }
-
-        &.is-active {
-            background: $c1-main;
-            cursor: default;
-        }
     }
 
     &__question {
