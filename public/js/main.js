@@ -68,11 +68,11 @@ var mCard = (function($) {
     // });
 
     // show/hide collapsed content
-    $card.on('click', showContent);
-    $btntoggle.on('click', function(e) {
-        e.stopPropagation();
-        toggleContent(e);
-    });
+    // $card.on('click', showContent);
+    // $btntoggle.on('click', function(e) {
+    //     e.stopPropagation();
+    //     toggleContent(e);
+    // });
 
     $btnOpen.on('click', openPopup);
 
@@ -101,6 +101,7 @@ var mCard = (function($) {
         var $clickedBtn = $(this);
         var $clickedCard = $clickedBtn.closest('.wpgr-m_card');
         var wishID = $clickedCard.data('wish-id');
+        var wishlistID = $clickedCard.closest('.wpgr-wishlist').data('id');
 
         // make single step one active
         if ($clickedCard.hasClass('wpgr-m_card--single')) {
@@ -115,7 +116,8 @@ var mCard = (function($) {
         }
 
         // open popup
-        $popup.attr('data-wish', wishID);
+        $popup.attr('data-wish-id', wishID);
+        $popup.attr('data-wishlist-id', wishlistID);
         $popup.addClass('is-active');
         $body.addClass('no-scroll');
     }
@@ -188,7 +190,7 @@ var mPopup = (function($) {
     // save data on click on btn save
     $btnSave.on('click', function(e) {
         e.preventDefault();
-        saveData();
+        saveData(e);
     });
 
     // close popup on click on btn close
@@ -301,23 +303,32 @@ var mPopup = (function($) {
         $body.removeClass('no-scroll');
     }
 
-    function saveData() {
+    function saveData(e) {
+        var $currentGiftPopup = $(e.target).closest('.wpgr-o_popup');
+        var giftID = $currentGiftPopup.data('wish-id');
+        var wishlistID = $currentGiftPopup.data('wishlist-id');
+        var reserverName = $currentGiftPopup.find('#your_name2').val();
 
-        // $.ajax({
-        //     url: '/path/to/file',
-        //     type: 'default GET (Other values: POST)',
-        //     dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-        //     data: {param1: 'value1'},
-        // })
-        // .done(function() {
-        //     console.log("success");
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // })
-        // .always(function() {
-        //     console.log("complete");
-        // });
+        $.ajax({
+            url: variables.ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'update_gift_availability',
+                nonce: variables.update_gift_availabilty_nonce,
+                version: 'new',
+                wishlist_id: wishlistID,
+                gift_id: giftID,
+                gift_availability: 'false',
+                gift_reserver: reserverName,
+            },
+        })
+        .done(function(response) {
+
+            // deactivate card
+            $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
+
+        });
 
         closePopup();
     }

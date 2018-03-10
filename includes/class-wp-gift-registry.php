@@ -168,25 +168,35 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 
 			// Register custom post type
-			$this->loader->add_action( 'init', $plugin_admin, 'register_post_types');
+			$this->loader->add_action( 'init', $plugin_admin, 'register_post_types' );
 
 			// Add custom admin columns for our custom post type
-			$this->loader->add_action( 'init', $plugin_admin, 'add_admin_columns');
+			$this->loader->add_action( 'init', $plugin_admin, 'add_admin_columns' );
 
 			// Add metaboxes to our custom post type
-			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes');
+			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes' );
 
 			// Add custom field type for unique ids
-			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_custom_cmb2_fields');
+			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_custom_cmb2_fields' );
+
+			// Add settings pages
+			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_settings_pages' );
 
 
 		// Old version stuff for compatibility
 
-			// Hook into the admin menu
-			$this->loader->add_action( 'admin_menu', $plugin_admin, 'create_plugin_settings_page' );
+			// Only show old menu pages if old data is in the db
+			if ( get_option('wishlist') !== false ) {
 
-			// Add metaboxes to our options page
-			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_options_page_metabox' );
+				// Hook into the admin menu
+				$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_old_settings_pages' );
+
+				// Add metaboxes to our options page
+				$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_old_wishlist_page_metaboxes' );
+
+				// Add admin notices (notice about the new version)
+				$this->loader->add_action( 'admin_notices', $plugin_admin, 'add_update_notice_for_old_plugin' );
+			}
 
 		}
 

@@ -180,10 +180,11 @@ class WP_Gift_Registry_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-  public function create_plugin_settings_page() {
-  	// Add the Wishlist menu item and page
-  	$page_title = __('Wishlist', 'wpgiftregistry');
-  	$menu_title = __('Wishlist', 'wpgiftregistry');
+  public function add_old_settings_pages() {
+
+  	// Add the old Wishlist menu item and page
+  	$page_title = __('Old Wishlist', 'wpgiftregistry');
+  	$menu_title = __('Old Wishlist', 'wpgiftregistry');
   	$capability = 'manage_options';
   	$slug = 'wishlist';
   	$callback = array( $this, 'plugin_wishlist_page_content' );
@@ -191,7 +192,7 @@ class WP_Gift_Registry_Admin {
   	$position = 100;
   	add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 
-  	// Add the Wishlist Settings Page
+  	// Add the old Wishlist Settings Page
   	$page_title = __('Settings', 'wpgiftregistry');
   	$menu_title = __('Settings', 'wpgiftregistry');
   	$capability = 'manage_options';
@@ -200,18 +201,25 @@ class WP_Gift_Registry_Admin {
   	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
   	$position = 100;
   	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
-
-  	// Add the Wishlist Settings Page
-  	$page_title = __('Settings', 'wpgiftregistry');
-  	$menu_title = __('Settings', 'wpgiftregistry');
-  	$capability = 'manage_options';
-  	$slug = 'wpgr_settings';
-  	$callback = array( $this, 'plugin_wpgr_settings_page_content' );
-  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
-  	$position = 100;
-  	add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
   }
 
+  	/**
+  	 * Add a metabox with custom fields to our wishlist post type
+  	 *
+  	 * @since 1.3.0
+  	 */
+  	public function add_settings_pages() {
+
+  		// Add the Wishlist Settings Page
+  		$page_title = __('Settings', 'wpgiftregistry');
+  		$menu_title = __('Settings', 'wpgiftregistry');
+  		$capability = 'manage_options';
+  		$slug = 'wpgr_settings';
+  		$callback = array( $this, 'plugin_wpgr_settings_page_content' );
+  		$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+  		$position = 100;
+  		add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
+  	}
 
   	/**
   	 * Add a metabox with custom fields to our wishlist post type
@@ -474,7 +482,7 @@ class WP_Gift_Registry_Admin {
 	 * Add the options metabox to the array of metaboxes
 	 * @since  1.0.0
 	 */
-	function add_options_page_metabox() {
+	function add_old_wishlist_page_metaboxes() {
 		// hook in our save notices
 		add_action( "cmb2_save_options-page_fields_wishlist", array( $this, 'wishlist_notices' ), 10, 2 );
 		add_action( "cmb2_save_options-page_fields_wishlist_settings", array( $this, 'wishlist_settings_notices' ), 10, 2 );
@@ -628,6 +636,23 @@ class WP_Gift_Registry_Admin {
 		    'default' => 'before'
 		) );
 
+	}
+
+	/**
+	 * Add a notice for users of the old plugin about our updates to custom post type etc.
+	 */
+	public function add_update_notice_for_old_plugin() {
+		$screen = get_current_screen();
+
+		if ( $screen->id === 'toplevel_page_wishlist' || $screen->id === 'old-wishlist_page_wishlist_settings' ) :
+			?>
+
+			<div class="notice notice-warning is-dismissible">
+			    <h3><?= __( 'WPGiftRegistry has been updated!', 'wpgiftregistry' ); ?></h3>
+			    <p><?= __( 'If you want to use all the new features, like multiple wishlists, please start using the new "Wishlists" menu item.', 'wpgiftregistry' ); ?></p>
+			</div>
+
+		<?php endif;
 	}
 
 

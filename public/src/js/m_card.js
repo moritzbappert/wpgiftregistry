@@ -25,11 +25,11 @@ var mCard = (function($) {
     // });
 
     // show/hide collapsed content
-    $card.on('click', showContent);
-    $btntoggle.on('click', function(e) {
-        e.stopPropagation();
-        toggleContent(e);
-    });
+    // $card.on('click', showContent);
+    // $btntoggle.on('click', function(e) {
+    //     e.stopPropagation();
+    //     toggleContent(e);
+    // });
 
     $btnOpen.on('click', openPopup);
 
@@ -58,6 +58,7 @@ var mCard = (function($) {
         var $clickedBtn = $(this);
         var $clickedCard = $clickedBtn.closest('.wpgr-m_card');
         var wishID = $clickedCard.data('wish-id');
+        var wishlistID = $clickedCard.closest('.wpgr-wishlist').data('id');
 
         // make single step one active
         if ($clickedCard.hasClass('wpgr-m_card--single')) {
@@ -72,7 +73,8 @@ var mCard = (function($) {
         }
 
         // open popup
-        $popup.attr('data-wish', wishID);
+        $popup.attr('data-wish-id', wishID);
+        $popup.attr('data-wishlist-id', wishlistID);
         $popup.addClass('is-active');
         $body.addClass('no-scroll');
     }
