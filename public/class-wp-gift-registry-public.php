@@ -102,13 +102,21 @@ class WP_Gift_Registry_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
 
+		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
+		wp_localize_script( $this->plugin_name, 'variablesOld', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'updateGiftAvailabiltyNonce' => wp_create_nonce( 'gift-availability-81991' )
+		) );
+
+
+
 		// new scripts
 		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
-		wp_localize_script( $this->plugin_name, 'variables', array(
+		wp_localize_script( $this->plugin_name . '-main', 'variables', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'updateGiftAvailabiltyNonce' => wp_create_nonce( 'gift-availability-81991' )
+			'update_gift_availabilty_nonce' => wp_create_nonce( 'gift-availability-81991' )
 		) );
 	}
 
