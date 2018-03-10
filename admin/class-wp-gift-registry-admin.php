@@ -97,10 +97,10 @@ class WP_Gift_Registry_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main-admin.js', array( 'jquery' ), $this->version, true );
 
 
-		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, true );
 
 	}
 
