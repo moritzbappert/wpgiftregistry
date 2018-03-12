@@ -47,12 +47,12 @@ var mCard = (function($) {
         VARS
     ******************************************************************/
 
-    var $card = $('.wpgr-m_card');
-    var $btntoggle = $('.wpgr-m_card__toggle');
-    var $btnOpen = $('.wpgr-m_btn__open');
-    var $popup = $('.wpgr-o_popup');
-    var $description = $('.wpgr-m_card__desc');
-    var $body = $('body');
+    var $card              = $('.wpgr-m_card');
+    var $btntoggle         = $('.wpgr-m_card__toggle');
+    var $btnOpen           = $('.wpgr-m_btn__open');
+    var $popup             = $('.wpgr-o_popup');
+    var $description       = $('.wpgr-m_card__desc');
+    var $body              = $('body');
     var descriptionStrings = [];
 
 
@@ -79,6 +79,11 @@ var mCard = (function($) {
         openPopup(e);
     });
 
+    $btntoggle.on('click', function(e) {
+
+        toggleContent(e);
+    });
+
     /******************************************************************
         FUNCTIONS
     ******************************************************************/
@@ -89,8 +94,22 @@ var mCard = (function($) {
     }
 
     function toggleContent(e) {
-        $(e.target).closest('.wpgr-m_card').toggleClass('is-collapsed');
-        $(e.target).closest('.wpgr-m_card').find('.wpgr-m_card__toggle').toggleClass('is-active');
+        // $(e.target).closest('.wpgr-m_card').toggleClass('is-collapsed');
+        // $(e.target).closest('.wpgr-m_card').find('.wpgr-m_card__toggle').toggleClass('is-active');
+
+        var $this = $(e.target);
+        var $content = $this.closest('.wpgr-m_card').find('.wpgr-m_card__content');
+        var $toggle = $this.closest('.wpgr-m_card').find('.wpgr-m_card__toggle');
+
+
+        $content.slideToggle('fast');
+        $content.toggleClass('is-active');
+        $toggle.toggleClass('is-active');
+
+        // $(e.target).closest('.wpgr-m_card__content').slideToggle('fast');
+        // $(e.target).closest('.wpgr-m_card__content').find('.wpgr-m_card__toggle').toggleClass('is-active');
+
+        console.log('TEST');
     }
 
     function truncate(string){

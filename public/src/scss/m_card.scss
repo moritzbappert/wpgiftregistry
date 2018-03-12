@@ -1,19 +1,115 @@
 section.wpgr-wishlist {
+
+    .wpgr-wishlist__inner {
+        // max-width: 85%;
+        // margin: 0 auto;
+        //
+        // @include small {
+        //     max-width: 80%;
+        // }
+    }
+
     .wpgr-m_card {
         box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
         position: relative;
         background-color: $c-white;
         max-width: 500px;
         margin: 0 auto;
-        margin-bottom: 100px;
+        margin-bottom: 35px;
         border: 1px solid $c6-grey;
         border-radius: 5px;
         font-family: $font-1;
         cursor: default;
 
+        @include small {
+            margin-bottom: 40px;
+        }
+
         @include medium {
-            max-width: 960px;
-            margin-bottom: 70px;
+            max-width: 760px;
+            margin-bottom: 45px;
+        }
+
+        &--single {
+            padding: 30px 30px 30px 60px;
+
+            @include small {
+                padding: 30px 30px 30px 100px;
+            }
+
+            @include medium {
+                padding: 40px 70px 45px 110px;
+            }
+        }
+
+        &__figure-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-30%, -30%);
+
+            @include small {
+                top: 50%;
+                left: 0;
+                transform: translate(-30%, -50%);
+            }
+
+            @include medium {
+                left: 0;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &__figure {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: $c9-grey;
+            background-image: url('../src/img/placeholder-author-detail-02.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid 	$c6-grey;
+            border-radius: 50%;
+            box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.2);
+
+            @include small {
+                width: 110px;
+                height: 110px;
+            }
+
+            @include medium {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        &__heading-wrapper {
+        }
+
+        &__heading {
+            transition: color 0.2s ease-in-out;
+            margin-top: 0;
+            margin-bottom: 0.6em;
+            font-family: $font-1;
+            font-size: 17px;
+            line-height: 22px;
+            font-weight: 400;
+            text-align: left;
+            font-weight: 700;
+            color: $c1-grey;
+
+            @include small {
+                font-size: 20px;
+                line-height: 26px;
+                text-align: left;
+            }
+
+            @include medium {
+                font-size: 26px;
+                line-height: 34px;
+                font-weight: 600;
+                text-align: left;
+            }
         }
 
         &__price-wrapper {
@@ -35,25 +131,12 @@ section.wpgr-wishlist {
 
         &__price {
             margin: 0;
-            font-size: 26px;
+            font-size: 20px;
             font-weight: 900;
             color: $c-white;
 
             @include medium {
-                font-size: 26px;
-            }
-        }
-
-        &__price-text {
-            margin: 0;
-            margin-top: -6px;
-            font-size: 12px;
-            color: $c-white;
-            text-align: center;
-
-            @include medium {
-                margin-top: -6px;
-                font-size: 12px;
+                font-size: 22px;
             }
         }
 
@@ -61,72 +144,23 @@ section.wpgr-wishlist {
             display: none;
         }
 
-        &__main {
-            padding: 0rem 2rem 2rem 2rem;
-
-            @include medium {
-                display: flex;
-                padding: 2rem 2rem 2rem 2rem;
-            }
-        }
-
-        &__figure-wrapper {
-            width: 100%;
-            margin-top: -50px;
-            margin-bottom: 1rem;
-            text-align: center;
-
-            @include medium {
-                width: 160px;
-                margin: 0;
-                margin-right: 4rem;
-                margin-bottom: 0;
-            }
-        }
-
-        &__figure {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            background-color: $c9-grey;
-            background-image: url('../src/img/placeholder-author-detail-02.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            border: 1px solid 	$c6-grey;
-            border-radius: 50%;
-            box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.1);
-
-            @include medium {
-                width: 160px;
-                height: 160px;
-            }
-        }
-
         &__content {
+            transition: opacity 0.3s ease-in-out;
+            display: none;
+            opacity: 0;
             padding: 0;
-        }
 
-        &__heading {
-            transition: color 0.2s ease-in-out;
-            margin-top: 0;
-            margin-bottom: 0.6em;
-            font-family: $font-1;
-            font-size: 24px;
-            line-height: 30px;
-            font-weight: 400;
-
-            @include medium {
-                font-size: 32px;
-                line-height: 44px;
+            &.is-active {
+                opacity: 1;
             }
         }
 
         &__desc {
             margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-family: $font-1;
             font-size: 15px;
-            line-height: 24px;
+            line-height: 22px;
             color: $c4-grey;
 
             @include medium {
@@ -138,24 +172,26 @@ section.wpgr-wishlist {
 
         &__btn-wrapper {
             text-align: left;
-            // max-height: 100px;
-            // opacity: 1;
-            // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            margin-bottom: 10px;
+
+            @include small {
+                text-align: right;
+            }
 
             @include medium {
-                text-align: right;
+                margin-bottom: 0;
             }
         }
 
         &__btn {
             position: relative;
-            padding-right: 40px !important;
+            padding-right: 34px !important;
 
             &:not(:first-child) {
-                margin-top: 10px;
+                margin-top: 6px;
             }
             &:not(:last-child) {
-                margin-right: 10px;
+                margin-right: 4px;
             }
         }
 
@@ -170,8 +206,8 @@ section.wpgr-wishlist {
             right: 10px;
             background-repeat: no-repeat;
             background-size: cover;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             margin: 0 auto;
 
             &--view {
@@ -181,104 +217,9 @@ section.wpgr-wishlist {
             &--give {
                 background-image: url('../src/img/ic_gift_48px-white.svg');
                 top: 5px;
-                width: 26px;
-                height: 26px;
-            }
-        }
-
-        &__footer {
-            position: relative;
-            padding: 1rem 2rem 3rem 2rem;
-            background: $c9-grey;
-            // max-height: 100px;
-            // opacity: 1;
-            // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-            @include medium {
-                display: flex;
-                padding: 1rem 6rem 2rem 2rem;
-            }
-        }
-
-        &__buyer-wrapper {
-            width: 100%;
-            margin-bottom: 1rem;
-            text-align: center;
-
-            @include medium {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex: 160px 0 0;
-                margin-right: 4rem;
-                margin-bottom: 0;
-            }
-        }
-
-        &__buyer {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: $c1-second;
-
-            @include medium {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        &__process {
-            display: flex;
-            align-self: center;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            width: 100%;
-            height: 30px;
-            background: rgba($c1-second, 0.3);
-            border-radius: 5px;
-            padding: 0 2rem;
-
-            @include medium {
-                height: 30px;
-            }
-        }
-
-        &__process-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            background: $c1-second;
-            border-radius: 5px;
-        }
-
-        &__process-price {
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            color: $c-white;
-            font-size: 16px;
-            font-weight: 700;
-
-            @include medium {
-                font-size: 16px;
-            }
-        }
-
-        &__process-count {
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            color: $c-white;
-            font-size: 16px;
-            font-weight: 700;
-
-            @include medium {
-                font-size: 16px;
+                right: 8px;
+                width: 24px;
+                height: 24px;
             }
         }
 
@@ -289,15 +230,20 @@ section.wpgr-wishlist {
             bottom: 0;
             left: 50%;
             transform: translate(-50%, 50%);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: $c1-main;
             cursor: pointer;
 
+            @include small {
+                width: 46px;
+                height: 46px;
+            }
+
             @include medium {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
 
             &:hover {
@@ -309,9 +255,24 @@ section.wpgr-wishlist {
             }
 
             &.is-active {
+                background: $c4-grey;
+
+                &:hover {
+                    background: $c1-main;
+                }
 
                 .wpgr-m_card__toggle-icon {
                     transform: rotate(180deg);
+
+                    margin-top: 5px;
+
+                    @include small {
+                        margin-top: 8px;
+                    }
+
+                    @include medium {
+                        margin-top: 9px;
+                    }
                 }
             }
         }
@@ -325,38 +286,14 @@ section.wpgr-wishlist {
             width: 30px;
             height: 30px;
             margin: 0 auto;
-            margin-top: 10px;
+            margin-top: 6px;
+
+            @include small {
+                margin-top: 9px;
+            }
 
             @include medium {
-                margin-top: 16px;
-            }
-        }
-
-        &--single {
-
-            .wpgr-m_card__main {
-                padding: 0rem 2rem 3rem 2rem;
-
-                @include medium {
-                    display: flex;
-                    padding: 3rem 6rem 2rem 3rem;
-                }
-            }
-
-            &.is-collapsed {
-
-                .wpgr-m_card__main {
-                    padding: 0rem 2rem 3rem 2rem;
-
-                    @include medium {
-                        display: flex;
-                        padding: 3rem 6rem 4rem 3rem;
-                    }
-                }
-
-                .wpgr-m_card__desc {
-                    margin-bottom: 0;
-                }
+                margin-top: 12px;
             }
         }
 
@@ -382,9 +319,14 @@ section.wpgr-wishlist {
                 background-image: url('../src/img/ic_lock_48px-grey.svg');
                 background-repeat: no-repeat;
                 background-size: cover;
-                width: 30px;
-                height: 30px;
+                width: 24px;
+                height: 24px;
                 margin: 0 auto;
+
+                @include medium {
+                    width: 28px;
+                    height: 28px;
+                }
             }
 
             .wpgr-m_card__figure {
@@ -406,36 +348,10 @@ section.wpgr-wishlist {
 
             .wpgr-m_card__toggle {
                 background: $c4-grey;
-            }
-        }
 
-        &.is-collapsed {
-            cursor: pointer;
-
-            &:not(.wpgr-m_card--bought) {
                 &:hover {
-                    .wpgr-m_card__price-wrapper {
-                        background: $c2-second;
-                    }
-
-                    .wpgr-m_card__toggle {
-                        background: $c2-main;
-                    }
+                    background: $c2-grey;
                 }
-            }
-
-            .wpgr-m_card__btn-wrapper {
-                display: none;
-                // opacity: 0;
-                // visibility: hidden;
-                // max-height: 0;
-            }
-
-            .wpgr-m_card__footer {
-                display: none;
-                // opacity: 0;
-                // visibility: hidden;
-                // max-height: 0;
             }
         }
     }

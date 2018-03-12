@@ -11,16 +11,16 @@ section.wpgr-wishlist {
         transition: 0.1s ease-in-out;
         background-color: $c1-main;
         border-bottom: 2px solid  $c2-main;
-        font-size: 14px;
+        font-size: 12px;
         color: $c-white;
         text-align: left;
         box-shadow: none;
         text-decoration: none;
 
-        @include medium {
-            padding: 10px 16px;
-            font-size: 14px;
-        }
+        // @include medium {
+        //     padding: 10px 16px;
+        //     font-size: 14px;
+        // }
 
         &:visited,
         &:active,
@@ -43,15 +43,20 @@ section.wpgr-wishlist {
         transition: background-color 0.2s ease-in-out;
         box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1);
         background-color: $c1-main;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         padding: 0;
         border: 0;
         border-radius: 50%;
 
+        @include small {
+            width: 46px;
+            height: 46px;
+        }
+
         @include medium {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
         }
 
         &:hover {
@@ -68,8 +73,18 @@ section.wpgr-wishlist {
         background-image: url('../src/img/ic_close_48px-white.svg');
         background-repeat: no-repeat;
         background-size: cover;
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 26px;
         margin: 0 auto;
+
+        @include small {
+            width: 30px;
+            height: 30px;
+        }
+
+        @include medium {
+            width: 32px;
+            height: 32px;
+        }
     }
 }

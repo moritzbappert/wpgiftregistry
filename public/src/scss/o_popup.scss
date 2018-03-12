@@ -168,8 +168,12 @@ section.wpgr-wishlist {
                 z-index: 5;
                 user-select: none;
                 transition: font-size 0.1s ease-out;
-                font-size: 18px;
+                font-size: 15px;
                 color: $c4-grey;
+
+                @include medium {
+                    font-size: 16px;
+                }
 
                 &.is-active,
                 &.is-done {

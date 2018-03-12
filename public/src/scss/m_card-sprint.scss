@@ -1,0 +1,442 @@
+section.wpgr-wishlist {
+    .wpgr-m_card {
+        box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
+        position: relative;
+        background-color: $c-white;
+        max-width: 500px;
+        margin: 0 auto;
+        margin-bottom: 100px;
+        border: 1px solid $c6-grey;
+        border-radius: 5px;
+        font-family: $font-1;
+        cursor: default;
+
+        @include medium {
+            max-width: 960px;
+            margin-bottom: 70px;
+        }
+
+        &__price-wrapper {
+            transition: background-color 0.2s ease-in-out;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(20%, -30%);
+            background: $c1-second;
+            padding: 6px 15px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1);
+
+            @include medium {
+                padding: 8px 20px;
+            }
+        }
+
+        &__price {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 900;
+            color: $c-white;
+
+            @include medium {
+                font-size: 26px;
+            }
+        }
+
+        &__price-text {
+            margin: 0;
+            margin-top: -6px;
+            font-size: 12px;
+            color: $c-white;
+            text-align: center;
+
+            @include medium {
+                margin-top: -6px;
+                font-size: 12px;
+            }
+        }
+
+        &__price-icon {
+            display: none;
+        }
+
+        &__main {
+            padding: 0rem 2rem 2rem 2rem;
+
+            @include medium {
+                display: flex;
+                padding: 2rem 2rem 2rem 2rem;
+            }
+        }
+
+        &__figure-wrapper {
+            width: 100%;
+            margin-top: -50px;
+            margin-bottom: 1rem;
+            text-align: center;
+
+            @include medium {
+                width: 160px;
+                margin: 0;
+                margin-right: 4rem;
+                margin-bottom: 0;
+            }
+        }
+
+        &__figure {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: $c9-grey;
+            background-image: url('../src/img/placeholder-author-detail-02.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid 	$c6-grey;
+            border-radius: 50%;
+            box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.1);
+
+            @include medium {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        &__content {
+            padding: 0;
+        }
+
+        &__heading {
+            transition: color 0.2s ease-in-out;
+            margin-top: 0;
+            margin-bottom: 0.6em;
+            font-family: $font-1;
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: 400;
+
+            @include medium {
+                font-size: 32px;
+                line-height: 44px;
+            }
+        }
+
+        &__desc {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-family: $font-1;
+            font-size: 15px;
+            line-height: 24px;
+            color: $c4-grey;
+
+            @include medium {
+                margin-bottom: 1.5rem;
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+
+        &__btn-wrapper {
+            text-align: left;
+            // max-height: 100px;
+            // opacity: 1;
+            // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+            @include medium {
+                text-align: right;
+            }
+        }
+
+        &__btn {
+            position: relative;
+            padding-right: 40px !important;
+
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+
+        &__btn-text {
+            display: inline-block;
+        }
+
+        &__btn-icon {
+            display: inline-block;
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+
+            &--view {
+                background-image: url('../src/img/ic_visibility_48px-wgite.svg');
+            }
+
+            &--give {
+                background-image: url('../src/img/ic_gift_48px-white.svg');
+                top: 5px;
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        &__footer {
+            position: relative;
+            padding: 1rem 2rem 3rem 2rem;
+            background: $c9-grey;
+            // max-height: 100px;
+            // opacity: 1;
+            // transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+            @include medium {
+                display: flex;
+                padding: 1rem 6rem 2rem 2rem;
+            }
+        }
+
+        &__buyer-wrapper {
+            width: 100%;
+            margin-bottom: 1rem;
+            text-align: center;
+
+            @include medium {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 160px 0 0;
+                margin-right: 4rem;
+                margin-bottom: 0;
+            }
+        }
+
+        &__buyer {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: $c1-second;
+
+            @include medium {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        &__process {
+            display: flex;
+            align-self: center;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background: rgba($c1-second, 0.3);
+            border-radius: 5px;
+            padding: 0 2rem;
+
+            @include medium {
+                height: 30px;
+            }
+        }
+
+        &__process-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: $c1-second;
+            border-radius: 5px;
+        }
+
+        &__process-price {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            color: $c-white;
+            font-size: 16px;
+            font-weight: 700;
+
+            @include medium {
+                font-size: 16px;
+            }
+        }
+
+        &__process-count {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            color: $c-white;
+            font-size: 16px;
+            font-weight: 700;
+
+            @include medium {
+                font-size: 16px;
+            }
+        }
+
+        &__toggle {
+            transition: background-color 0.2s ease-in-out;
+            box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: $c1-main;
+            cursor: pointer;
+
+            @include medium {
+                width: 60px;
+                height: 60px;
+            }
+
+            &:hover {
+                background: $c2-main;
+            }
+
+            &:focus {
+                outline: 0;
+            }
+
+            &.is-active {
+
+                .wpgr-m_card__toggle-icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &__toggle-icon {
+            transition: transform 0.15s ease-in-out;
+            display: block;
+            background-image: url('../src/img/ic_expand_more_48px-white.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+
+            @include medium {
+                margin-top: 16px;
+            }
+        }
+
+        &--single {
+
+            .wpgr-m_card__main {
+                padding: 0rem 2rem 3rem 2rem;
+
+                @include medium {
+                    display: flex;
+                    padding: 3rem 6rem 2rem 3rem;
+                }
+            }
+
+            &.is-collapsed {
+
+                .wpgr-m_card__main {
+                    padding: 0rem 2rem 3rem 2rem;
+
+                    @include medium {
+                        display: flex;
+                        padding: 3rem 6rem 4rem 3rem;
+                    }
+                }
+
+                .wpgr-m_card__desc {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        &--bought {
+            transition: opacity 0.2s ease-in-out;
+            opacity: 0.6;
+
+            &:hover {
+                // opacity: 1;
+            }
+
+            .wpgr-m_card__price-wrapper {
+                transition: opacity 0.2s ease-in-out;
+                background: $c4-grey;
+            }
+
+            .wpgr-m_card__price {
+                display: none;
+            }
+
+            .wpgr-m_card__price-icon {
+                display: block;
+                background-image: url('../src/img/ic_lock_48px-grey.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 30px;
+                height: 30px;
+                margin: 0 auto;
+            }
+
+            .wpgr-m_card__figure {
+                opacity: 1;
+                filter: grayscale(100%);
+            }
+
+            .wpgr-m_card__heading {
+                color: $c4-grey;
+            }
+
+            .wpgr-m_card__desc {
+                color: $c4-grey;
+            }
+
+            .wpgr-m_card__btn {
+                display: none;
+            }
+
+            .wpgr-m_card__toggle {
+                background: $c4-grey;
+            }
+        }
+
+        &.is-collapsed {
+            cursor: pointer;
+
+            &:not(.wpgr-m_card--bought) {
+                &:hover {
+                    .wpgr-m_card__price-wrapper {
+                        background: $c2-second;
+                    }
+
+                    .wpgr-m_card__toggle {
+                        background: $c2-main;
+                    }
+                }
+            }
+
+            .wpgr-m_card__btn-wrapper {
+                display: none;
+                // opacity: 0;
+                // visibility: hidden;
+                // max-height: 0;
+            }
+
+            .wpgr-m_card__footer {
+                display: none;
+                // opacity: 0;
+                // visibility: hidden;
+                // max-height: 0;
+            }
+        }
+    }
+}
