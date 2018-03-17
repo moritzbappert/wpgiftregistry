@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         $is_available = $gift['gift_availability'] == 'true';
         $is_single = true; // needs to be replaced
         $has_buyer = !empty($gift['gift_reserver']);
+        $gift_price = number_format_i18n( $gift['gift_price'] );
 
         $classes = array('wpgr-m_card');
 
@@ -33,10 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
         <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $gift['gift_id'] ?>">
 
-        <?php if ( !empty($gift['gift_price']) ): ?>
+        <?php if ( !empty($gift_price) ): ?>
             <div class="wpgr-m_card__price-wrapper">
                 <p class="wpgr-m_card__price">
-                    <?= $currency_placement === 'before' ? $currency . $gift['gift_price'] : $gift['gift_price'] . $currency ?>
+                    <?= $currency_placement === 'before' ? $currency . $gift_price : $gift_price . $currency ?>
                 </p>
                 <?php if ( !$is_single ): ?>
                     <p class="wpgr-m_card__price-text">
