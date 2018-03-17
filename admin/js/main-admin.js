@@ -61,6 +61,11 @@ var adminJS = (function($) {
             }
         });
     };
+    var setRadioDefaults = function( evt, $row ) {
+        var iterator = $row.data('iterator');
+        var $gift_availability_true = $('#wpgr_wishlist_' + iterator + '_gift_availability1');
+        $gift_availability_true.prop('checked', true);
+    };
     var replaceOnKeyUp = function( evt ) {
         var $this = $( evt.target );
         var id = 'title';
@@ -69,59 +74,9 @@ var adminJS = (function($) {
         }
     };
     $box
-        .on( 'cmb2_add_row cmb2_shift_rows_complete', function( evt ) {
-            replaceTitles();
-        })
+        .on( 'cmb2_add_row', setRadioDefaults )
+        .on( 'cmb2_shift_rows_complete', replaceTitles )
         .on( 'keyup', replaceOnKeyUp );
     replaceTitles();
-
-})(jQuery);
-
-/******************************************************************
-    _EXAMPLE.JS
-
-        > VARS
-        > EVENTS
-        > FUNCTIONS
-        > PUBLIC_FUNCTIONS
-
-        @USAGE
-        e.g. nMain.showNav();
-        e.g. $(window).on('scroll', global.debounce(nMain.hideNav, 1000));
-
-******************************************************************/
-
-
-var example = (function($) {
-
-
-    /******************************************************************
-        VARS
-    ******************************************************************/
-
-    // your code here
-
-
-    /******************************************************************
-        EVENTS
-    ******************************************************************/
-
-    // your code here
-
-
-    /******************************************************************
-        FUNCTIONS
-    ******************************************************************/
-
-    // your code here
-
-
-    /******************************************************************
-        PUBLIC_FUNCTIONS
-    ******************************************************************/
-
-    return {
-        // your code here
-    };
 
 })(jQuery);
