@@ -526,7 +526,7 @@ class WP_Gift_Registry_Admin {
 		// Image
 		$cmb->add_group_field( $group_field_id, array(
 		    'name'    => __( 'Gift Image', 'wpgiftregistry' ),
-		    'desc'    => __( 'Upload an image or enter a URL. If left empty, we\'ll try to automatically retrieve an image (currently only working with amazon.com).', 'wpgiftregistry' ),
+		    'desc'    => __( 'Upload an image or enter a URL.', 'wpgiftregistry' ),
 		    'id'      => 'gift_image',
 		    'type'    => 'file',
 		    // Optional:
