@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 $is_available = $gift['gift_availability'] == 'true';
                 $is_single = true; // needs to be replaced
                 $has_buyer = !empty($gift['gift_reserver']);
-                $gift_price = number_format_i18n( $gift['gift_price'] );
+                $gift_price = !empty( $gift['gift_price'] ) ? number_format_i18n( $gift['gift_price'] ) : "";
 
                 $classes = array('wpgr-m_card');
 
@@ -113,6 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </button>
             </div>
 
+            <?php /*
             <div id="wpgr_popup_parts" class="wpgr-o_popup__step wpgr-o_popup__step--1">
                 <header class="wpgr-o_popup__header">
                     <p class="wpgr-o_popup__question">Wieviele Teile möchtest Du schenken?</p>
@@ -179,6 +180,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <li class="wpgr-o_popup__list-item wpgr-o_popup__list-item-02"></li>
                 </ul>
             </div>
+            */ ?>
+
         </form>
     </div>
 </section>
