@@ -37,7 +37,8 @@ gulp.task('scripts-admin', function () {
     return gulp
         .src([
             '../admin/src/js/globals/**.js',
-            '../admin/src/js/**.js'
+            '../admin/src/js/**.js',
+            '!../admin/src/js/_example.js'
         ])
         .pipe(concat('main-admin.js'))
         .pipe(gulp.dest('../admin/js'))
