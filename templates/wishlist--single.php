@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <section class="wpgr-wishlist" data-id="<?= $atts['id'] ?>">
     <div class="wpgr-wishlist__inner">
         <?php
-            $i = 0;
 
             foreach ( $wishlist as $gift ):
 
@@ -95,17 +94,17 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
             <div id="wpgr_popup_name" class="wpgr-o_popup__step wpgr-o_popup__step--1">
                 <header class="wpgr-o_popup__header">
-                    <p class="wpgr-o_popup__question">Geschenk reservieren?</p>
-                    <p class="wpgr-o_popup__desc">Lasse den Beschenkten wissen, dass das Geschenk von Dir ist.</p>
+                    <p class="wpgr-o_popup__question"><?= __('Mark gift as reserved?', 'wpgiftregistry') /* Geschenk reservieren? */ ?></p>
+                    <p class="wpgr-o_popup__desc"><?= __('Leave your name for the recipient:', 'wpgiftregistry') /* Lasse den Beschenkten wissen, dass das Geschenk von Dir ist: */ ?></p>
                 </header>
 
                 <div class="wpgr-o_popup__input-wrapper">
-                    <label class="wpgr-o_popup__input-label" for="your_name2">Dein Name</label>
+                    <label class="wpgr-o_popup__input-label" for="your_name2"><?= __('Your name', 'wpgiftregistry') /* Dein Name */ ?></label>
                     <input id="your_name2" class="wpgr-o_popup__input-text" type="text">
                 </div>
                 <div class="wpgr-o_popup__btn-wrapper">
-                    <button class="wpgr-o_popup__btn-prev wpgr-m_btn">Abbrechen</button>
-                    <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="Bestätigen">
+                    <button class="wpgr-o_popup__btn-prev wpgr-m_btn"><?= __('Cancel', 'wpgiftregistry') /* Abbrechen */ ?></button>
+                    <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="<?= __('Confirm', 'wpgiftregistry') /* Bestätigen */ ?>">
                 </div>
 
                 <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">
