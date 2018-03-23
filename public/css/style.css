@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300);
+@import url("https://fonts.googleapis.com/css?family=Roboto:700,500,400");
 /******************************************************************
 	COLORS
 ******************************************************************/
@@ -42,168 +43,201 @@
 
 ******************************************************************/
 section {
-  width: 100%;
-  margin: 2em auto;
+  width: 100% !important;
+  margin: 2em auto !important;
 }
 
 body {
-  overflow-x: hidden;
+  font-family: "Roboto", sans-serif !important;
+  overflow-x: hidden !important;
 }
 
 body.no-scroll {
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card {
-  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
-  position: relative;
-  background-color: #ffffff;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 35px;
-  border: 1px solid #f5f5f5;
-  border-radius: 5px;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  cursor: default;
+  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
+  position: relative !important;
+  background-color: #ffffff !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+  margin-bottom: 40px !important;
+  padding: 30px 30px 30px 60px !important;
+  border: 1px solid #f5f5f5 !important;
+  border-radius: 5px !important;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_card {
-    margin-bottom: 40px;
+    margin-bottom: 45px !important;
+    padding: 30px 30px 20px 100px !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card {
-    max-width: 760px;
-    margin-bottom: 45px;
+    max-width: 760px !important;
+    margin-bottom: 55px !important;
+    padding: 40px 70px 45px 110px !important;
   }
 }
 
-section.wpgr-wishlist .wpgr-m_card--single {
-  padding: 30px 30px 30px 60px;
+section.wpgr-wishlist .wpgr-m_card--content {
+  cursor: pointer;
+  padding: 30px 30px 30px 60px !important;
 }
 
 @media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_card--single {
-    padding: 30px 30px 30px 100px;
+  section.wpgr-wishlist .wpgr-m_card--content {
+    padding: 30px 30px 34px 100px !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
-  section.wpgr-wishlist .wpgr-m_card--single {
-    padding: 40px 70px 45px 110px;
+  section.wpgr-wishlist .wpgr-m_card--content {
+    padding: 40px 70px 40px 110px !important;
   }
+}
+
+section.wpgr-wishlist .wpgr-m_card--content.is-open {
+  cursor: default !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card--nocontent {
+  padding: 30px 30px 20px 60px !important;
+}
+
+@media only screen and (min-width: 481px) {
+  section.wpgr-wishlist .wpgr-m_card--nocontent {
+    padding: 30px 30px 20px 100px !important;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  section.wpgr-wishlist .wpgr-m_card--nocontent {
+    padding: 40px 70px 45px 110px !important;
+  }
+}
+
+section.wpgr-wishlist .wpgr-m_card--nocontent .wpgr-m_card__heading {
+  margin-bottom: 1.2em !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card--nocontent .wpgr-m_card__content {
+  display: block;
+  opacity: 1 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
-  transform: translate(-30%, -30%);
+  transform: translate(-30%, -30%) !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
     top: 50%;
     left: 0;
-    transform: translate(-30%, -50%);
+    transform: translate(-30%, -50%) !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
     left: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__figure {
   display: inline-block;
-  width: 80px;
-  height: 80px;
-  background-color: #fcfcfc;
-  background-image: url("../src/img/placeholder-author-detail-02.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid #f5f5f5;
-  border-radius: 50%;
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  width: 80px !important;
+  height: 80px !important;
+  background-color: #fcfcfc !important;
+  background-image: url("../src/img/logo-gift-registry.svg");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_card__figure {
-    width: 110px;
-    height: 110px;
+    width: 110px !important;
+    height: 110px !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__figure {
-    width: 160px;
-    height: 160px;
+    width: 160px !important;
+    height: 160px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__heading {
-  transition: color 0.2s ease-in-out;
-  margin-top: 0;
-  margin-bottom: 0.6em;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 17px;
-  line-height: 22px;
-  font-weight: 400;
-  text-align: left;
-  font-weight: 700;
-  color: #4a4a4a;
+  transition: color 0.2s ease-in-out !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 17px !important;
+  line-height: 22px !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+  color: #4a4a4a !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_card__heading {
-    font-size: 20px;
-    line-height: 26px;
-    text-align: left;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    text-align: left !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__heading {
-    font-size: 26px;
-    line-height: 34px;
-    font-weight: 600;
-    text-align: left;
+    font-size: 26px !important;
+    line-height: 32px !important;
+    font-weight: 500 !important;
+    text-align: left !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__price-wrapper {
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out !important;
   display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(20%, -30%);
-  background: #ffa393;
-  padding: 6px 15px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  transform: translate(20%, -30%) !important;
+  background: #ffa393 !important;
+  padding: 6px 14px !important;
+  border-radius: 5px !important;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1) !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__price-wrapper {
-    padding: 8px 20px;
+    padding: 8px 16px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__price {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 900;
-  color: #ffffff;
+  margin: 0 !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__price {
-    font-size: 22px;
+    font-size: 18px !important;
   }
 }
 
@@ -212,61 +246,63 @@ section.wpgr-wishlist .wpgr-m_card__price-icon {
 }
 
 section.wpgr-wishlist .wpgr-m_card__content {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out !important;
   display: none;
-  opacity: 0;
-  padding: 0;
+  opacity: 0 !important;
+  padding: 0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__content.is-active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__desc {
-  margin-top: 0;
-  margin-bottom: 18px;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 22px;
-  color: #a0a0a0;
+  margin-top: 0 !important;
+  margin-top: 14px !important;
+  margin-bottom: 18px !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  line-height: 22px !important;
+  color: #a0a0a0 !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__desc {
-    margin-bottom: 1.5rem;
-    font-size: 16px;
-    line-height: 26px;
+    margin-bottom: 1.5rem !important;
+    font-size: 16px !important;
+    line-height: 26px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn-wrapper {
-  text-align: left;
-  margin-bottom: 10px;
+  text-align: left !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_card__btn-wrapper {
-    text-align: right;
+    text-align: right !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__btn-wrapper {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn {
   position: relative;
-  padding-right: 34px !important;
+  min-width: 80px !important;
+  text-align: center !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn:not(:first-child) {
-  margin-top: 6px;
+  margin-top: 6px !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn:not(:last-child) {
-  margin-right: 4px;
+  margin-right: 4px !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn-text {
@@ -275,121 +311,106 @@ section.wpgr-wishlist .wpgr-m_card__btn-text {
 
 section.wpgr-wishlist .wpgr-m_card__btn-icon {
   display: inline-block;
-  position: absolute;
-  top: 9px;
-  right: 10px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 18px;
-  height: 18px;
-  margin: 0 auto;
+  position: absolute !important;
+  top: 9px !important;
+  right: 10px !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 auto !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn-icon--view {
-  background-image: url("../src/img/ic_visibility_48px-wgite.svg");
+  background-image: url("../src/img/ic_visibility_48px-wgite.svg") !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__btn-icon--give {
-  background-image: url("../src/img/ic_gift_48px-white.svg");
-  top: 5px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+  background-image: url("../src/img/ic_gift_48px-white.svg") !important;
+  top: 5px !important;
+  right: 8px !important;
+  width: 24px !important;
+  height: 24px !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card__toggle {
-  transition: background-color 0.2s ease-in-out;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #73cbc7;
-  cursor: pointer;
-}
-
-@media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_card__toggle {
-    width: 46px;
-    height: 46px;
-  }
+  transition: background-color 0.2s ease-in-out !important;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1) !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translate(-50%, 50%) !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: #a0a0a0;
+  cursor: pointer !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__toggle {
-    width: 50px;
-    height: 50px;
+    width: 46px !important;
+    height: 46px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__toggle:hover {
-  background: #52aaa6;
-}
-
-section.wpgr-wishlist .wpgr-m_card__toggle:focus {
-  outline: 0;
-}
-
-section.wpgr-wishlist .wpgr-m_card__toggle.is-active {
-  background: #a0a0a0;
-}
-
-section.wpgr-wishlist .wpgr-m_card__toggle.is-active:hover {
   background: #73cbc7;
 }
 
-section.wpgr-wishlist .wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
-  transform: rotate(180deg);
-  margin-top: 5px;
+section.wpgr-wishlist .wpgr-m_card__toggle:focus {
+  outline: 0 !important;
 }
 
-@media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
-    margin-top: 8px;
-  }
+section.wpgr-wishlist .wpgr-m_card__toggle.is-active {
+  background: #a0a0a0 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card__toggle.is-active:hover {
+  background: #73cbc7 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
+  transform: rotate(180deg) !important;
+  margin-top: 5px !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__toggle.is-active .wpgr-m_card__toggle-icon {
-    margin-top: 9px;
+    margin-top: 8px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card__toggle-icon {
-  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out !important;
   display: block;
-  background-image: url("../src/img/ic_expand_more_48px-white.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-  margin-top: 6px;
-}
-
-@media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_card__toggle-icon {
-    margin-top: 9px;
-  }
+  background-image: url("../src/img/ic_expand_more_48px-white.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 auto !important;
+  margin-top: 6px !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card__toggle-icon {
-    margin-top: 12px;
+    margin-top: 9px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought {
-  transition: opacity 0.2s ease-in-out;
-  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out !important;
+  opacity: 0.6 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card--bought.wpgr-m_card--nocontent .wpgr-m_card__heading {
+  margin-bottom: 0em !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
-  transition: opacity 0.2s ease-in-out;
-  background: #a0a0a0;
+  transition: opacity 0.2s ease-in-out !important;
+  background-color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price {
@@ -398,266 +419,272 @@ section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price {
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-icon {
   display: block;
-  background-image: url("../src/img/ic_lock_48px-grey.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 24px;
-  height: 24px;
-  margin: 0 auto;
+  background-image: url("../src/img/ic_lock_48px-grey.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 auto !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-icon {
-    width: 28px;
-    height: 28px;
+    width: 24px !important;
+    height: 24px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__figure {
-  opacity: 1;
-  filter: grayscale(100%);
+  opacity: 1 !important;
+  filter: grayscale(100%) !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__heading {
-  color: #a0a0a0;
+  color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__desc {
-  color: #a0a0a0;
+  color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__btn {
-  display: none;
+  display: none !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__toggle {
-  background: #a0a0a0;
+  background-color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__toggle:hover {
-  background: #5e5e5e;
+  background-color: #5e5e5e !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn,
 section.wpgr-wishlist a.wpgr-m_btn {
-  transition: background-color 0.2s ease-in-out;
-  display: inline-block;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 16px;
-  transition: 0.1s ease-in-out;
-  background-color: #73cbc7;
-  border-bottom: 2px solid #52aaa6;
-  font-size: 12px;
-  color: #ffffff;
+  transition: background-color 0.2s ease-in-out !important;
+  display: inline-block !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 10px 16px !important;
+  transition: 0.1s ease-in-out !important;
+  background-color: #73cbc7 !important;
+  border-bottom: 2px solid #52aaa6 !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
   text-align: left;
-  box-shadow: none;
-  text-decoration: none;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn:visited, section.wpgr-wishlist .wpgr-m_btn:active, section.wpgr-wishlist .wpgr-m_btn:link,
 section.wpgr-wishlist a.wpgr-m_btn:visited,
 section.wpgr-wishlist a.wpgr-m_btn:active,
 section.wpgr-wishlist a.wpgr-m_btn:link {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn:hover,
 section.wpgr-wishlist a.wpgr-m_btn:hover {
-  outline: 0;
-  background-color: #52aaa6;
-  color: #ffffff;
+  outline: 0 !important;
+  background-color: #52aaa6 !important;
+  color: #ffffff !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn:focus,
 section.wpgr-wishlist a.wpgr-m_btn:focus {
-  outline: 0;
+  outline: 0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn-close {
-  transition: background-color 0.2s ease-in-out;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
-  background-color: #73cbc7;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out !important;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1) !important;
+  background-color: #73cbc7 !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_btn-close {
-    width: 46px;
-    height: 46px;
+    width: 46px !important;
+    height: 46px !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_btn-close {
-    width: 50px;
-    height: 50px;
+    width: 50px !important;
+    height: 50px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-m_btn-close:hover {
-  background-color: #52aaa6;
+  background-color: #52aaa6 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn-close:focus {
-  outline: 0;
+  outline: 0 !important;
 }
 
 section.wpgr-wishlist .wpgr-m_btn-close-icon {
-  display: block;
-  background-image: url("../src/img/ic_close_48px-white.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 26px;
-  height: 26px;
-  margin: 0 auto;
+  display: block !important;
+  background-image: url("../src/img/ic_close_48px-white.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 26px !important;
+  height: 26px !important;
+  margin: 0 auto !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-m_btn-close-icon {
-    width: 30px;
-    height: 30px;
+    width: 30px !important;
+    height: 30px !important;
   }
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-m_btn-close-icon {
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-o_popup {
-  display: none;
-  overflow-y: scroll;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.9);
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
+  display: none !important;
+  overflow-y: scroll !important;
+  position: fixed !important;
+  z-index: 10 !important;
+  top: 0 !important;
+  left: 0 !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding-top: 100px !important;
+  font-family: "Roboto", sans-serif !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup--single .wpgr-o_popup__step {
-  padding: 1.5rem 1.5rem 5rem 1.5rem;
+  padding: 1.5rem 1.5rem 5rem 1.5rem !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup.is-active {
-  display: block;
+  display: block !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup.is-active .wpgr-o_popup__step--1 .wpgr-o_popup__list-item:first-child {
-  background: #73cbc7;
-  cursor: default;
+  background: #73cbc7 !important;
+  cursor: default !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup.is-active .wpgr-o_popup__step--2 .wpgr-o_popup__list-item:nth-child(2) {
-  background: #73cbc7;
-  cursor: default;
+  background: #73cbc7 !important;
+  cursor: default !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__step {
-  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1);
-  display: none;
-  position: relative;
-  background: #ffffff;
-  width: 90%;
-  max-width: 400px;
-  margin: 0 auto;
-  margin-top: 40vh;
-  padding: 3rem 1.5rem 5rem 1.5rem;
-  border: 1px solid #f5f5f5;
-  transform: translateY(-50%);
-  border-radius: 5px;
+  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
+  display: none !important;
+  position: relative !important;
+  background: #ffffff !important;
+  width: 90% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+  margin-top: 40vh !important;
+  padding: 3rem 1.5rem 5rem 1.5rem !important;
+  border: 1px solid #f5f5f5 !important;
+  transform: translateY(-50%) !important;
+  border-radius: 5px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__step.is-active {
-  display: block;
+  display: block !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__btn-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(30%, -40%);
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  transform: translate(30%, -40%) !important;
 }
 
 @media only screen and (min-width: 481px) {
   section.wpgr-wishlist .wpgr-o_popup__btn-close {
-    transform: translate(40%, -40%);
+    transform: translate(40%, -40%) !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-o_popup__process {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  list-style: none;
-  margin: 0;
-  margin-top: 1rem;
-  padding: 0;
+  display: inline-block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  list-style: none !important;
+  margin: 0 !important;
+  margin-top: 1rem !important;
+  padding: 0 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__list-item {
-  transition: background-color 0.2s ease-in-out;
-  display: inline-block;
-  background: #e6e6e6;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  cursor: pointer;
+  transition: background-color 0.2s ease-in-out !important;
+  display: inline-block !important;
+  background: #e6e6e6 !important;
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__list-item:not(:first-child) {
-  margin-left: 10px;
+  margin-left: 10px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__list-item:hover {
-  background: #ffa393;
+  background: #ffa393 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__question {
-  margin: 0;
-  margin-bottom: 0.5em;
-  font-size: 22px;
-  line-height: 28px;
+  margin: 0 !important;
+  margin-bottom: 0.5em !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 22px !important;
+  line-height: 28px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__desc {
-  margin: 0;
-  margin-bottom: 1rem;
-  font-size: 14px;
-  line-height: 22px;
-  color: #a0a0a0;
+  margin: 0 !important;
+  margin-bottom: 1rem !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+  color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__buyer {
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2rem !important;
+  margin-bottom: 1.5rem !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__btn-wrapper {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  padding: 1.5rem;
+  display: flex !important;
+  justify-content: space-between !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  padding: 1.5rem !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__btn-wrapper--single {
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form:after {
@@ -667,138 +694,138 @@ section.wpgr-wishlist .wpgr-o_popup__form:after {
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-wrapper {
-  position: relative;
-  margin-bottom: 1rem;
+  position: relative !important;
+  margin-bottom: 1rem !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-m_btn__buyer-content {
-  display: none;
-  position: relative;
-  margin-bottom: 1rem;
+  display: none !important;
+  position: relative !important;
+  margin-bottom: 1rem !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-m_btn__buyer-content.is-active {
-  display: block;
+  display: block !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type="text"],
 section.wpgr-wishlist .wpgr-o_popup__form input[type="number"],
 section.wpgr-wishlist .wpgr-o_popup__form textarea {
-  width: 100%;
-  background-color: #fcfcfc;
-  border: none;
-  border-bottom: 2px solid #73cbc7;
-  padding: 1.4em 1em 0.6em;
+  width: 100% !important;
+  background-color: #fcfcfc !important;
+  border: none !important;
+  border-bottom: 2px solid #73cbc7 !important;
+  padding: 1.4em 1em 0.6em !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type="text"]:focus,
 section.wpgr-wishlist .wpgr-o_popup__form input[type="number"]:focus,
 section.wpgr-wishlist .wpgr-o_popup__form textarea:focus {
-  outline: 0;
-  border-bottom: 2px solid #ffa393;
+  outline: 0 !important;
+  border-bottom: 2px solid #ffa393 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label {
-  position: absolute;
-  left: 1em;
-  top: 1em;
-  z-index: 5;
-  user-select: none;
-  transition: font-size 0.1s ease-out;
-  font-size: 15px;
-  color: #a0a0a0;
+  position: absolute !important;
+  left: 1em !important;
+  top: 1em !important;
+  z-index: 5 !important;
+  user-select: none !important;
+  transition: font-size 0.1s ease-out !important;
+  font-size: 15px !important;
+  color: #a0a0a0 !important;
 }
 
 @media only screen and (min-width: 961px) {
   section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label {
-    font-size: 16px;
+    font-size: 16px !important;
   }
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-active, section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-done {
-  left: 1.2em;
-  top: 0.3em;
-  font-size: 12px;
-  font-weight: 700;
+  left: 1.2em !important;
+  top: 0.3em !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__input-label.is-active {
-  color: #f77d68;
+  color: #f77d68 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__radio-wrapper {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form .wpgr-o_popup__radio-wrapper:not(:last-child) {
-  margin-right: 15px;
+  margin-right: 15px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio'] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  border-radius: 0;
-  font-size: 1em;
-  width: 100%;
-  width: auto;
-  float: left;
-  background: transparent;
-  border: none;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  font-size: 1em !important;
+  width: 100% !important;
+  width: auto !important;
+  float: left !important;
+  background: transparent !important;
+  border: none !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked,
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:not(:checked) {
-  background: transparent;
-  position: relative;
-  opacity: 0;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 30px;
-  margin-bottom: -30px;
-  cursor: pointer;
-  z-index: 1;
+  background: transparent !important;
+  position: relative !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 30px !important;
+  margin-bottom: -30px !important;
+  cursor: pointer !important;
+  z-index: 1 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio'] + label {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #a0a0a0;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  color: #a0a0a0 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label {
-  color: #73cbc7;
+  color: #73cbc7 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label::before,
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:not(:checked) + label::before {
-  content: ' ';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  top: 4px;
-  border: 2px solid #a0a0a0;
-  background: #ffffff;
-  margin-right: 6px;
+  content: ' ' !important;
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  position: relative !important;
+  top: 4px !important;
+  border: 2px solid #a0a0a0 !important;
+  background: #ffffff !important;
+  margin-right: 6px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type=radio]:checked + label::before,
 section.wpgr-wishlist .wpgr-o_popup__form input[type=radio]:not(:checked) + label::before {
-  border-radius: 30px;
+  border-radius: 30px !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:hover + label {
-  color: #73cbc7;
+  color: #73cbc7 !important;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__form input[type='radio']:checked + label::before {
-  background: #73cbc7;
-  border: 2px solid #73cbc7;
-  box-shadow: inset 0 0 0 4px #ffffff;
+  background: #73cbc7 !important;
+  border: 2px solid #73cbc7 !important;
+  box-shadow: inset 0 0 0 4px #ffffff !important;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

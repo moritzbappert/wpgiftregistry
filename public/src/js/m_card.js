@@ -5,6 +5,7 @@ var mCard = (function($) {
     ******************************************************************/
 
     var $card              = $('.wpgr-m_card');
+    var $cardContent       = $('.wpgr-m_card--content');
     var $btntoggle         = $('.wpgr-m_card__toggle');
     var $btnOpen           = $('.wpgr-m_btn__open');
     var $popup             = $('.wpgr-o_popup');
@@ -17,64 +18,36 @@ var mCard = (function($) {
         EVENTS
     ******************************************************************/
 
-    // truncate description text
-    // $description.each(function(index, el) {
-    //     // truncateDescriptionText(el);
-    //     var truncatedText = truncate($(el).text());
-    //     $(el).text(truncatedText);
-    // });
-
-    // show/hide collapsed content
-    // $card.on('click', showContent);
-    // $btntoggle.on('click', function(e) {
-    //     e.stopPropagation();
-    //     toggleContent(e);
-    // });
-
     $btnOpen.on('click', function(e) {
         e.stopPropagation();
         openPopup(e);
     });
 
-    $btntoggle.on('click', function(e) {
+    $cardContent.on('click', function(e) {
+        var $this    = $(e.target);
+        var $card = $this.closest('.wpgr-m_card');
+        var $content = $this.closest('.wpgr-m_card').find('.wpgr-m_card__content');
+        var $toggle  = $this.closest('.wpgr-m_card').find('.wpgr-m_card__toggle');
 
-        toggleContent(e);
+        if (!$content.hasClass('is-active')) {
+            toggleContent()
+        } else if ($content.hasClass('is-active') && $this.hasClass('wpgr-m_card__toggle-icon') || $this.hasClass('wpgr-m_card__toggle')) {
+            toggleContent()
+        } else {
+            return;
+        }
+
+        function toggleContent() {
+            $content.slideToggle('fast');
+            $card.toggleClass('is-open');
+            $content.toggleClass('is-active');
+            $toggle.toggleClass('is-active');
+        }
     });
 
     /******************************************************************
         FUNCTIONS
     ******************************************************************/
-
-    function showContent() {
-        $(this).closest('.wpgr-m_card').removeClass('is-collapsed');
-        $(this).closest('.wpgr-m_card').find('.wpgr-m_card__toggle').addClass('is-active');
-    }
-
-    function toggleContent(e) {
-        // $(e.target).closest('.wpgr-m_card').toggleClass('is-collapsed');
-        // $(e.target).closest('.wpgr-m_card').find('.wpgr-m_card__toggle').toggleClass('is-active');
-
-        var $this = $(e.target);
-        var $content = $this.closest('.wpgr-m_card').find('.wpgr-m_card__content');
-        var $toggle = $this.closest('.wpgr-m_card').find('.wpgr-m_card__toggle');
-
-
-        $content.slideToggle('fast');
-        $content.toggleClass('is-active');
-        $toggle.toggleClass('is-active');
-
-        // $(e.target).closest('.wpgr-m_card__content').slideToggle('fast');
-        // $(e.target).closest('.wpgr-m_card__content').find('.wpgr-m_card__toggle').toggleClass('is-active');
-
-        console.log('TEST');
-    }
-
-    function truncate(string){
-        if (string.length > 70)
-            return string.substring(0,70) + '...';
-        else
-            return string;
-    };
 
     function openPopup(e) {
         var $clickedBtn = $(e.target);
@@ -100,26 +73,4 @@ var mCard = (function($) {
             popupStepOne.addClass('is-active');
         }
     }
-
-    function truncateDescriptionText(el) {
-        // var $this = $(el);
-
-        // // create wish object
-        // var wishEl = {};
-
-        // // create unique wishlist ID
-        // wishEl[$this.closest('.wpgr-section').data('id') + '-' + $this.closest('.wpgr-m_card').data('wish-id')] = $this.text();
-
-        // // get description text
-        // // wishEl.text = $this.text();
-
-        // // save complete text in array to re-display it later
-        // descriptionStrings.push(wishEl: wishEl);
-        // console.log(descriptionStrings);
-
-        // // truncate text
-        // var truncatedString = truncate($(el).text());
-    }
-
-
 })(jQuery);
