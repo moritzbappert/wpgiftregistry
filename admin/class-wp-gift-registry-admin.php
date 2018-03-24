@@ -280,11 +280,14 @@ class WP_Gift_Registry_Admin {
 
 		// Title
 		$metabox->add_group_field( $group_field, array(
-			'name' => __( 'Gift Title', 'wpgiftregistry' ),
+			'name' => __( 'Gift Title', 'wpgiftregistry' ) . '*',
 			'desc' => __( '', 'wpgiftregistry' ),
 			'id'   => 'gift_title',
 			'type' => 'text',
 			'default' => '',
+			'attributes'  => array(
+				'required'    => 'required',
+			),
 		) );
 
 		// Image
