@@ -1,13 +1,13 @@
 section.wpgr-wishlist {
 
-    .wpgr-wishlist__inner {
-        // max-width: 85% !important;
-        // margin: 0 auto !important;
-        //
-        // @include small {
-        //     max-width: 80% !important;
-        // }
-    }
+    // .wpgr-wishlist__inner {
+    //     max-width: 85% !important;
+    //     margin: 0 auto !important;
+    //
+    //     @include small {
+    //         max-width: 80% !important;
+    //     }
+    // }
 
     .wpgr-m_card {
         box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
@@ -136,6 +136,7 @@ section.wpgr-wishlist {
             }
 
             @include medium {
+                margin-bottom: 14px !important;
                 font-size: 26px !important;
                 line-height: 32px !important;
                 font-weight: 500 !important;
@@ -187,8 +188,7 @@ section.wpgr-wishlist {
         }
 
         &__desc {
-            margin-top: 0 !important;
-            margin-top: 14px !important;
+            margin-bottom: 14px !important;
             margin-bottom: 18px !important;
             font-family: $font-roboto !important;
             font-weight: 400 !important;
@@ -197,6 +197,7 @@ section.wpgr-wishlist {
             color: $c4-grey !important;
 
             @include medium {
+                margin-top: 0 !important;
                 margin-bottom: 1.5rem !important;
                 font-size: 16px !important;
                 line-height: 26px !important;
