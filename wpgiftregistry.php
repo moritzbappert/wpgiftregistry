@@ -48,7 +48,7 @@ function deactivate_wp_gift_registry() {
 	WP_Gift_Registry_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_wp_wp_gift_registry' );
+register_activation_hook( __FILE__, 'activate_wp_gift_registry' );
 register_deactivation_hook( __FILE__, 'deactivate_wp_gift_registry' );
 
 /**
