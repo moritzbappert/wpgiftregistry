@@ -15,7 +15,7 @@ Easily create wishlists for your wedding, birthday or other occasion.
 Are you looking for a clean and simple solution to display your wedding gift registry on your website or just want to create a wishlist for your birthday or other occasions?
 WPGiftRegistry easily lets you add gifts to your wishlist and embed it anywhere with a shortcode. Each gift is displayed with an image, a title, a description, the price and a product link. More importantly, people can indicate if they already bought the gift (so nobody else does).
 
-WPGiftRegistry comes with a sleek look that suits most websites because of it’s simplicity and is designed responsively so it displays nicely on all devices.
+WPGiftRegistry comes with a nice design and is built responsively so it displays nicely on all devices.
 
 = Languages =
 * English
