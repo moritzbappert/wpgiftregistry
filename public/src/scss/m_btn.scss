@@ -1,0 +1,86 @@
+section.wpgr-wishlist {
+    .wpgr-m_btn,
+    a.wpgr-m_btn {
+        transition: background-color 0.2s ease-in-out !important;
+        display: inline-block !important;
+        font-family: $font-roboto !important;
+        font-weight: 500 !important;
+        text-transform: uppercase !important;
+        border: none !important;
+        border-radius: 5px !important;
+        padding: 10px 16px !important;
+        transition: 0.1s ease-in-out !important;
+        background-color: $c1-main !important;
+        border-bottom: 2px solid  $c2-main !important;
+        font-size: 12px !important;
+        color: $c-white !important;
+        text-align: left;
+        box-shadow: none !important;
+        text-decoration: none !important;
+
+        &:visited,
+        &:active,
+        &:link {
+            color: $c-white !important;
+        }
+
+        &:hover {
+            outline: 0 !important;
+            background-color: $c2-main !important;
+            color: $c-white !important;
+        }
+
+        &:focus {
+            outline: 0 !important;
+        }
+    }
+
+    .wpgr-m_btn-close {
+        transition: background-color 0.2s ease-in-out !important;
+        box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1) !important;
+        background-color: $c1-main !important;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 50% !important;
+
+        @include small {
+            width: 46px !important;
+            height: 46px !important;
+        }
+
+        @include medium {
+            width: 50px !important;
+            height: 50px !important;
+        }
+
+        &:hover {
+            background-color: $c2-main !important;
+        }
+
+        &:focus {
+            outline: 0 !important;
+        }
+    }
+
+    .wpgr-m_btn-close-icon {
+        display: block !important;
+        background-image: url('../src/img/ic_close_48px-white.svg') !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        width: 26px !important;
+        height: 26px !important;
+        margin: 0 auto !important;
+
+        @include small {
+            width: 30px !important;
+            height: 30px !important;
+        }
+
+        @include medium {
+            width: 32px !important;
+            height: 32px !important;
+        }
+    }
+}

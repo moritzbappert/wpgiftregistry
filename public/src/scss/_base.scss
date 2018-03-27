@@ -1,0 +1,13 @@
+section {
+    width: 100% !important;
+    margin: 2em auto !important;
+}
+
+body {
+    font-family: $font-roboto !important;
+    overflow-x: hidden !important;
+
+    &.no-scroll {
+        overflow-y: hidden !important;
+    }
+}
