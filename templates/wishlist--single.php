@@ -56,11 +56,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <?php endif; ?>
 
             <?php /* CARD_IMAGE */  ?>
-            <a class="wpgr-m_card__figure-anchor" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>" target="_blank">
-                <div class="wpgr-m_card__figure-wrapper">
-                    <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ? '' : "style='background-image:url(" . $gift['gift_image'] . ")'" ?>></div>
-                </div>
-            </a>
+            <?php if ( !empty($gift['gift_url']) ): ?>
+                <a class="wpgr-m_card__figure-anchor" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>" target="_blank">
+            <?php endif; ?>
+                    <div class="wpgr-m_card__figure-wrapper">
+                        <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ? '' : "style='background-image:url(" . $gift['gift_image'] . ")'" ?>></div>
+                    </div>
+            <?php if ( !empty($gift['gift_url']) ): ?>
+                </a>
+            <?php endif; ?>
 
             <?php /* CARD_HEADING */  ?>
             <div class="wpgr-m_card__heading-wrapper">
