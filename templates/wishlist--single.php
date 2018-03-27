@@ -55,10 +55,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </div>
             <?php endif; ?>
 
-            <?php /* PRICE_LABEL */  ?>
-            <div class="wpgr-m_card__figure-wrapper">
-                <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ? '' : "style='background-image:url(" . $gift['gift_image'] . ")'" ?>></div>
-            </div>
+            <?php /* CARD_IMAGE */  ?>
+            <a class="wpgr-m_card__figure-anchor" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>" target="_blank">
+                <div class="wpgr-m_card__figure-wrapper">
+                    <div class="wpgr-m_card__figure" <?= empty($gift['gift_image']) ? '' : "style='background-image:url(" . $gift['gift_image'] . ")'" ?>></div>
+                </div>
+            </a>
 
             <?php /* CARD_HEADING */  ?>
             <div class="wpgr-m_card__heading-wrapper">
@@ -76,12 +78,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php if ( !empty($gift['gift_url']) ): ?>
                         <a class="wpgr-m_card__btn wpgr-m_btn" target="_blank" href="<?= transform_to_affiliate_link( $gift['gift_url'] ) ?>">
                             <span class="wpgr-m_card__btn-text"><?= __('View', 'wpgiftregistry') ?></span>
-                            <!-- <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--view"></i> -->
+                            <?php /* <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--view"></i> */ ?>
                         </a>
                     <?php endif; ?>
                     <button class="wpgr-m_card__btn wpgr-m_btn wpgr-m_btn__open" type="button" name="button">
                         <span class="wpgr-m_card__btn-text"><?= $is_single ? __('Give', 'wpgiftregistry') : __('Give Part', 'wpgiftregistry') ?></span>
-                        <!-- <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--give"></i> -->
+                        <?php /* <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--give"></i> */ ?>
                     </button>
                 </div>
             </div>

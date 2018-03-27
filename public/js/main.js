@@ -72,6 +72,10 @@ var mCard = (function($) {
         var $content = $this.closest('.wpgr-m_card').find('.wpgr-m_card__content');
         var $toggle  = $this.closest('.wpgr-m_card').find('.wpgr-m_card__toggle');
 
+        if ($this.hasClass('wpgr-m_card__figure')) {
+            return;
+        }
+
         if (!$content.hasClass('is-active')) {
             toggleContent()
         } else if ($content.hasClass('is-active') && $this.hasClass('wpgr-m_card__toggle-icon') || $this.hasClass('wpgr-m_card__toggle')) {
