@@ -281,7 +281,7 @@ class WP_Gift_Registry_Admin {
 		// Title
 		$metabox->add_group_field( $group_field, array(
 			'name' => __( 'Gift Title', 'wpgiftregistry' ) . '*',
-			'desc' => __( '', 'wpgiftregistry' ),
+			'desc' => '',
 			'id'   => 'gift_title',
 			'type' => 'text',
 			'default' => '',
@@ -311,7 +311,7 @@ class WP_Gift_Registry_Admin {
   		// Description
 	    $metabox->add_group_field( $group_field, array(
 	        'name' => __( 'Description (optional)', 'wpgiftregistry' ),
-	        'desc' => __( '', 'gift_registry' ),
+	        'desc' => '',
 	        'id'   => 'gift_description',
 	        'type' => 'textarea_small',
 	    ) );
@@ -340,7 +340,7 @@ class WP_Gift_Registry_Admin {
 	    // URL
 	    $metabox->add_group_field( $group_field, array(
 	        'name' => __( 'Product URL', 'wpgiftregistry' ),
-	        'desc' => __( '', 'wpgiftregistry' ),
+	        'desc' => '',
 	        'id'   => 'gift_url',
 	        'type' => 'text_url',
 	    ) );
@@ -517,7 +517,7 @@ class WP_Gift_Registry_Admin {
 		// Title
 		$cmb->add_group_field( $group_field_id, array(
 			'name' => __( 'Gift Title', 'wpgiftregistry' ),
-			'desc' => __( '', 'wpgiftregistry' ),
+			'desc' => '',
 			'id'   => 'gift_title',
 			'type' => 'text',
 			'default' => '',
@@ -545,7 +545,7 @@ class WP_Gift_Registry_Admin {
 		// Description
 		$cmb->add_group_field( $group_field_id, array(
 	    	'name' => __( 'Description (optional)', 'wpgiftregistry' ),
-	    	'desc' => __( '', 'gift_registry' ),
+	    	'desc' => '',
 	    	'id'   => 'gift_description',
 	    	'type' => 'textarea_small',
 	    ) );
@@ -579,7 +579,7 @@ class WP_Gift_Registry_Admin {
     // URL
     $cmb->add_group_field( $group_field_id, array(
         'name' => __( 'Product URL', 'wpgiftregistry' ),
-        'desc' => __( '', 'wpgiftregistry' ),
+        'desc' => '',
         'id'   => 'gift_url',
         'type' => 'text_url',
     ) );
