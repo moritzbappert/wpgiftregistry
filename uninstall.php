@@ -29,3 +29,28 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+
+/**
+ * Remove Options
+ */
+
+$options = array(
+	'wpgr_settings',
+	'wishlist', // old wishlist data
+	'wishlist_settings', // old wishlist settings
+);
+
+foreach ( $options as $option ) {
+	if ( get_option( $option ) ) {
+		delete_option( $option );
+	}
+}
+
+
+/**
+ * Remove Posts and Postmeta of our wpgr_wishlist CPT
+ */
+
+$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'wpgr_wishlist' );" );
+$wpdb->query( "DELETE FROM {$wpdb->postmeta} meta LEFT JOIN {$wpdb->posts} posts ON posts.ID = meta.post_id WHERE wp.ID IS NULL;" );

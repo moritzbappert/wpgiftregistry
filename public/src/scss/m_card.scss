@@ -1,0 +1,387 @@
+section.wpgr-wishlist {
+
+    // .wpgr-wishlist__inner {
+    //     max-width: 85% !important;
+    //     margin: 0 auto !important;
+    //
+    //     @include small {
+    //         max-width: 80% !important;
+    //     }
+    // }
+
+    .wpgr-m_card {
+        box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        background-color: $c-white !important;
+        max-width: 500px !important;
+        margin: 0 auto !important;
+        margin-bottom: 40px !important;
+        padding: 30px 30px 30px 60px !important;
+        border: 1px solid $c6-grey !important;
+        border-radius: 5px !important;
+        font-family: $font-1 !important;
+
+        @include small {
+            margin-bottom: 45px !important;
+            padding: 30px 30px 20px 100px !important;
+        }
+
+        @include medium {
+            max-width: 760px !important;
+            margin-bottom: 55px !important;
+            padding: 40px 70px 45px 110px !important;
+        }
+
+        &--content {
+            cursor: pointer;
+            padding: 30px 30px 30px 60px !important;
+
+            @include small {
+                padding: 30px 30px 34px 100px !important;
+            }
+
+            @include medium {
+                padding: 40px 70px 40px 110px !important;
+            }
+
+            &.is-open {
+                cursor: default !important;
+            }
+        }
+
+        &--nocontent {
+            padding: 30px 30px 20px 60px !important;
+
+            @include small {
+                padding: 30px 30px 20px 100px !important;
+            }
+
+            @include medium {
+                padding: 40px 70px 45px 110px !important;
+            }
+
+            .wpgr-m_card__heading {
+                margin-bottom: 1.2em !important;
+            }
+
+            .wpgr-m_card__content {
+                display: block;
+                opacity: 1 !important;
+            }
+        }
+
+        &--single {
+        }
+
+        &__figure-wrapper {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            transform: translate(-30%, -30%) !important;
+
+            @include small {
+                top: 50%;
+                left: 0;
+                transform: translate(-30%, -50%) !important;
+            }
+
+            @include medium {
+                left: 0;
+                transform: translate(-50%, -50%) !important;
+            }
+        }
+
+        &__figure {
+            display: inline-block;
+            width: 80px !important;
+            height: 80px !important;
+            background-color: $c9-grey !important;
+            background-image: url('../src/img/logo-gift-registry.svg');
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            border: 0 !important;
+            border-radius: 50% !important;
+            box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.2) !important;
+
+            @include small {
+                width: 110px !important;
+                height: 110px !important;
+            }
+
+            @include medium {
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+
+        &__heading-wrapper {
+        }
+
+        &__heading {
+            transition: color 0.2s ease-in-out !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            font-family: $font-roboto !important;
+            font-size: 17px !important;
+            line-height: 22px !important;
+            font-weight: 500 !important;
+            text-align: left !important;
+            color: $c1-grey !important;
+
+            @include small {
+                font-size: 20px !important;
+                line-height: 24px !important;
+                text-align: left !important;
+            }
+
+            @include medium {
+                margin-bottom: 14px !important;
+                font-size: 26px !important;
+                line-height: 32px !important;
+                font-weight: 500 !important;
+                text-align: left !important;
+            }
+        }
+
+        &__price-wrapper {
+            transition: background-color 0.2s ease-in-out !important;
+            display: inline-block;
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            transform: translate(20%, -30%) !important;
+            background: $c1-second !important;
+            padding: 6px 14px !important;
+            border-radius: 5px !important;
+            box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1) !important;
+
+            @include medium {
+                padding: 8px 16px !important;
+            }
+        }
+
+        &__price {
+            margin: 0 !important;
+            font-size: 16px !important;
+            font-weight: 900 !important;
+            color: $c-white !important;
+
+            @include medium {
+                font-size: 18px !important;
+            }
+        }
+
+        &__price-icon {
+            display: none;
+        }
+
+        &__content {
+            transition: opacity 0.3s ease-in-out !important;
+            display: none;
+            opacity: 0 !important;
+            padding: 0 !important;
+
+            &.is-active {
+                opacity: 1 !important;
+            }
+        }
+
+        &__desc {
+            margin-bottom: 14px !important;
+            margin-bottom: 18px !important;
+            font-family: $font-roboto !important;
+            font-weight: 400 !important;
+            font-size: 15px !important;
+            line-height: 22px !important;
+            color: $c4-grey !important;
+
+            @include medium {
+                margin-top: 0 !important;
+                margin-bottom: 1.5rem !important;
+                font-size: 16px !important;
+                line-height: 26px !important;
+            }
+        }
+
+        &__btn-wrapper {
+            text-align: left !important;
+            // margin-bottom: 10px;
+
+            @include small {
+                text-align: right !important;
+            }
+
+            @include medium {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        &__btn {
+            position: relative;
+            // padding-right: 34px !important;
+            min-width: 80px !important;
+            text-align: center !important;
+
+            &:not(:first-child) {
+                margin-top: 6px !important;
+            }
+            &:not(:last-child) {
+                margin-right: 4px !important;
+            }
+        }
+
+        &__btn-text {
+            display: inline-block;
+        }
+
+        &__btn-icon {
+            display: inline-block;
+            position: absolute !important;
+            top: 9px !important;
+            right: 10px !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            width: 18px !important;
+            height: 18px !important;
+            margin: 0 auto !important;
+
+            &--view {
+                background-image: url('../src/img/ic_visibility_48px-wgite.svg') !important;
+            }
+
+            &--give {
+                background-image: url('../src/img/ic_gift_48px-white.svg') !important;
+                top: 5px !important;
+                right: 8px !important;
+                width: 24px !important;
+                height: 24px !important;
+            }
+        }
+
+        &__toggle {
+            transition: background-color 0.2s ease-in-out !important;
+            box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.1) !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translate(-50%, 50%) !important;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            background: $c4-grey;
+            cursor: pointer !important;
+
+            @include medium {
+                width: 46px !important;
+                height: 46px !important;
+            }
+
+            &:hover {
+                background: $c1-main;
+            }
+
+            &:focus {
+                outline: 0 !important;
+            }
+
+            &.is-active {
+                background: $c4-grey !important;
+
+                &:hover {
+                    background: $c1-main !important;
+                }
+
+                .wpgr-m_card__toggle-icon {
+                    transform: rotate(180deg) !important;
+
+                    margin-top: 5px !important;
+
+                    @include medium {
+                        margin-top: 8px !important;
+                    }
+                }
+            }
+        }
+
+        &__toggle-icon {
+            transition: transform 0.15s ease-in-out !important;
+            display: block;
+            background-image: url('../src/img/ic_expand_more_48px-white.svg') !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+            width: 30px !important;
+            height: 30px !important;
+            margin: 0 auto !important;
+            margin-top: 6px !important;
+
+            @include medium {
+                margin-top: 9px !important;
+            }
+        }
+
+        &--bought {
+            transition: opacity 0.2s ease-in-out !important;
+            opacity: 0.6 !important;
+
+            &:hover {
+                // opacity: 1 !important;
+            }
+
+            &.wpgr-m_card--nocontent {
+                .wpgr-m_card__heading {
+                    margin-bottom: 0em !important;
+                }
+            }
+
+            .wpgr-m_card__price-wrapper {
+                transition: opacity 0.2s ease-in-out !important;
+                background-color: $c4-grey !important;
+            }
+
+            .wpgr-m_card__price {
+                display: none;
+            }
+
+            .wpgr-m_card__price-icon {
+                display: block;
+                background-image: url('../src/img/ic_lock_48px-grey.svg') !important;
+                background-repeat: no-repeat !important;
+                background-size: cover !important;
+                width: 20px !important;
+                height: 20px !important;
+                margin: 0 auto !important;
+
+                @include medium {
+                    width: 24px !important;
+                    height: 24px !important;
+                }
+            }
+
+            .wpgr-m_card__figure {
+                opacity: 1 !important;
+                filter: grayscale(100%) !important;
+            }
+
+            .wpgr-m_card__heading {
+                color: $c4-grey !important;
+            }
+
+            .wpgr-m_card__desc {
+                color: $c4-grey !important;
+            }
+
+            .wpgr-m_card__btn {
+                display: none !important;
+            }
+
+            .wpgr-m_card__toggle {
+                background-color: $c4-grey !important;
+
+                &:hover {
+                    background-color: $c2-grey !important;
+                }
+            }
+        }
+    }
+}
