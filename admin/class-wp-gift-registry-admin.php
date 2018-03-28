@@ -99,7 +99,7 @@ class WP_Gift_Registry_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-admin.js', array( 'jquery' ), $this->version, false );
 
 
-		wp_enqueue_script( 'Sortable', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, false );
+		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, false );
 
 	}
 
