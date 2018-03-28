@@ -128,7 +128,6 @@ var mPopup = (function($) {
 
         // make next step active
         $currentStep.next('#wpgr_popup_buyer').addClass('is-active');
-    }
 
     function checkIfPopupWasClicked(e) {
         var $clickTarget = $(e.target);
