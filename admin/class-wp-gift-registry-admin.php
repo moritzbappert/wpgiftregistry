@@ -647,7 +647,7 @@ class WP_Gift_Registry_Admin {
 		if ( $screen->id === 'toplevel_page_wishlist' || $screen->id === 'old-wishlist_page_wishlist_settings' ) :
 			?>
 
-			<div class="notice notice-warning is-dismissible">
+			<div class="notice notice-success is-dismissible">
 			    <h3><?= __( 'WPGiftRegistry has been updated!', 'wpgiftregistry' ); ?></h3>
 			    <p><?= __( 'If you want to use all the new features, like multiple wishlists, please start using the new "Wishlists" menu item.', 'wpgiftregistry' ); ?></p>
 			</div>
