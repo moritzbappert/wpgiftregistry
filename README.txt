@@ -1,10 +1,10 @@
-=== WPGiftRegistry - Simple Wishlists for Weddings, Birthdays etc. ===
+=== Simple Wishlists for Weddings, Birthdays etc. ===
 Contributors: 3qbik
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=86EEHAN7TGUMY
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
 Tested up to: 4.9.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,10 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.3.2 =
+* Bugfix for empty settings page
+* Fallback for NumberFormatter (caused a fatal error on activation if absent)
 
 = 1.3.1 =
 * Bugfix in the uninstall script
