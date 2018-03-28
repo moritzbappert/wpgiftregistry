@@ -145,6 +145,34 @@ class WP_Gift_Registry_Admin {
 
 	}
 
+	/**
+	 * Add custom field type for unique ids
+	 *
+	 * @since    1.3.0
+	 */
+	public function add_custom_cmb2_fields() {
+
+		add_filter( 'cmb2_render_unique_id', 'cmb2_render_unique_id', 10, 5 );
+		add_filter( 'cmb2_sanitize_unique_id', 'cmb2_sanitize_unique_id', 10, 3 );
+
+		// render unique id
+		function cmb2_render_unique_id( $field_args, $escaped_value, $object_id, $object_type, $field_type_object ) {
+		    echo $field_type_object->input( array( 'class' => 'cmb2_unique_id', 'type' => 'hidden' ) );
+		}
+
+		// sanitize the field
+		function cmb2_sanitize_unique_id( $override, $new, $object_id ) {
+		    // Set unique id if it's not already set
+		    if( empty( $new ) ) {
+		        $value = uniqid( $object_id, false );
+		    } else {
+		        $value = $new;
+		    }
+		    return $value;
+		}
+	}
+
+
 
 
 	/**
@@ -237,6 +265,13 @@ class WP_Gift_Registry_Admin {
   		        'closed'     => true, // true to have the groups closed by default
   		    ),
   		) );
+
+  		// Unique ID
+  		$metabox->add_group_field( $group_field, array(
+  			'id' => 'gift_id',
+  			'type' => 'unique_id'
+  		) );
+
 
 		// Title
 		$metabox->add_group_field( $group_field, array(
