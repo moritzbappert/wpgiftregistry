@@ -124,6 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <i class="wpgr-m_btn-close-icon"></i>
                 </button>
             </div>
+        </div>
 
         </form>
     </div>
