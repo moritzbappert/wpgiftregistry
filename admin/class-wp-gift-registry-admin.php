@@ -638,6 +638,23 @@ class WP_Gift_Registry_Admin {
 
 	}
 
+	/**
+	 * Add a notice for users of the old plugin about our updates to custom post type etc.
+	 */
+	public function add_update_notice_for_old_plugin() {
+		$screen = get_current_screen();
+
+		if ( $screen->id === 'toplevel_page_wishlist' || $screen->id === 'old-wishlist_page_wishlist_settings' ) :
+			?>
+
+			<div class="notice notice-warning is-dismissible">
+			    <h3><?= __( 'WPGiftRegistry has been updated!', 'wpgiftregistry' ); ?></h3>
+			    <p><?= __( 'If you want to use all the new features, like multiple wishlists, please start using the new "Wishlists" menu item.', 'wpgiftregistry' ); ?></p>
+			</div>
+
+		<?php endif;
+	}
+
 
 
 	/**
