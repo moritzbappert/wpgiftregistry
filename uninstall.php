@@ -52,5 +52,6 @@ foreach ( $options as $option ) {
  * Remove Posts and Postmeta of our wpgr_wishlist CPT
  */
 
+global $wpdb;
 $wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'wpgr_wishlist' );" );
-$wpdb->query( "DELETE FROM {$wpdb->postmeta} meta LEFT JOIN {$wpdb->posts} posts ON posts.ID = meta.post_id WHERE wp.ID IS NULL;" );
+$wpdb->query( "DELETE meta FROM {$wpdb->postmeta} meta LEFT JOIN {$wpdb->posts} posts ON posts.ID = meta.post_id WHERE posts.ID IS NULL;" );

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
 Tested up to: 4.9.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,8 +28,8 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 1. Upload the `wpgiftregistry` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Add gifts to your wishlist through the new backend menu titled "Wishlist"
-4. Place `[wishlist]` anywhere in your content, to display the wishlist
+3. Create wishlists through the new backend menu titled "Wishlists"
+4. Place your shortcode (e.g. `[wishlist id='49']`) anywhere in your content, to display the wishlist
 
 == Frequently Asked Questions ==
 
@@ -47,6 +47,9 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.3.1 =
+* Bugfix in the uninstall script
 
 = 1.3.0 =
 * Major design overhaul
