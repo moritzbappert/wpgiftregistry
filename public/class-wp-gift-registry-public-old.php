@@ -74,7 +74,7 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp_gift_registry-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -122,7 +122,7 @@ class WP_Gift_Registry_Public {
 
 			ob_start();
 
-			if ( !empty( $wishlist ) ) {
+
 			?>
 
 			<section class="wishlist">
@@ -185,8 +185,8 @@ class WP_Gift_Registry_Public {
 				</div>
 			</section>
 
+
 			<?php
-			}
 
 			$output = ob_get_clean();
 			return $output;
