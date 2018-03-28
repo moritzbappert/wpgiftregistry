@@ -35,8 +35,12 @@ class WP_Gift_Registry_Activator {
 			$local_settings = localeconv();
 			$locale = get_locale(); // browser or user locale
 			$currency = $local_settings['int_curr_symbol'];
-			$fmt = new NumberFormatter( $locale."@currency=$currency", NumberFormatter::CURRENCY );
-			$symbol = $fmt->getSymbol(NumberFormatter::CURRENCY_SYMBOL);
+			if ( class_exists('NumberFormatter') ) {
+				$fmt = new NumberFormatter( $locale."@currency=$currency", NumberFormatter::CURRENCY );
+				$symbol = $fmt->getSymbol(NumberFormatter::CURRENCY_SYMBOL);
+			} else {
+				$symbol = '€';
+			}
 
 			$wpgr_settings = array(
 				'currency_symbol' => $symbol,
