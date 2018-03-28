@@ -312,133 +312,51 @@ var mPopup = (function($) {
 
 })(jQuery);
 
-(function( $ ) {
-    'use strict';
+/******************************************************************
+    _EXAMPLE.JS
 
-    /**
-     * DOCUMENT READY
-     */
-    $(function() {
+        > VARS
+        > EVENTS
+        > FUNCTIONS
+        > PUBLIC_FUNCTIONS
 
-        var wishlistItems = $('.wishlist li');
-        var overlay = $('.wishlist .overlay');
+        @USAGE
+        e.g. nMain.showNav();
+        e.g. $(window).on('scroll', global.debounce(nMain.hideNav, 1000));
 
-        if ( overlay ) {
-            $('button#no', overlay).on('click', function() {
-                overlay.toggleClass('hidden');
-            });
+******************************************************************/
 
-            $('button#yes', overlay).on('click', function(e) {
-                var itemName = $(this).data('item-name');
 
-                $.ajax({
-                    url: variables.ajaxurl,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        action: 'update_gift_availability',
-                        nonce: variables.updateGiftAvailabiltyNonce,
-                        itemName: itemName,
-                        availability: 'false'
-                    },
-                })
-                .done(function(response) {
+var example = (function($) {
 
-                    // update the button
-                    $('li[data-item-name="' + itemName + '"] .buy-button').toggleClass('unavailable');
 
-                });
+    /******************************************************************
+        VARS
+    ******************************************************************/
 
-                overlay.toggleClass('hidden');
-            });
-        }
-        wishlistItems.each(function(index, el) {
-            $('.buy-button', $(this)).on('click', function(e) {
-                //e.preventDefault();
+    // your code here
 
-                var itemName = $('h2', $(this).parent()).html();
-                $('#item-name', overlay).html(itemName);
-                $('button#yes', overlay).data('item-name', itemName);
-                overlay.toggleClass('hidden');
-            });
-        });
-    });
-    $btnNext.on('click', nextStep);
-    $btnPrev.on('click', prevStep);
-    $btnSave.on('click', saveData);
-    $btnClose.on('click', closePopup);
+
+    /******************************************************************
+        EVENTS
+    ******************************************************************/
+
+    // your code here
+
 
     /******************************************************************
         FUNCTIONS
     ******************************************************************/
 
-    function nextStep() {
-        var $clickedBtn = $(this);
-        var $currentStep = $clickedBtn.closest('.m_popup__step');
+    // your code here
 
-        // hide current step
-        $currentStep.removeClass('is-active');
 
-        // make next step active
-        $currentStep.next('.m_popup__step').addClass('is-active');
-    }
+    /******************************************************************
+        PUBLIC_FUNCTIONS
+    ******************************************************************/
 
-    function prevStep() {
-        var $clickedBtn = $(this);
-        var $currentStep = $clickedBtn.closest('.m_popup__step');
-
-        // hide current step
-        $currentStep.removeClass('is-active');
-
-        // make next step active
-        $currentStep.prev('.m_popup__step').addClass('is-active');
-    }
-
-    function checkIfPopupWasClicked(e) {
-        var $clickTarget = $(e.target);
-
-        // do not prevent click of view button
-        if ($(e.target).hasClass('m_btn__view')) return;
-
-        // check if popup is even active
-        if (!$popup.hasClass('is-active')) return;
-
-        // prevent closing on click on popup elements
-        if ($(e.target).closest('.m_popup').length) {
-            // allow x icon and save button to be clicked
-            if (!$(e.target).hasClass('m_btn--close') || !$(e.target).hasClass('m_btn--save')) return;
-        }
-        closePopup();
-    }
-
-    function closePopup() {
-        // make first step active for future popups
-        $step.removeClass('is-active');
-        $('.m_popup__step:first-child').addClass('is-active');
-
-        // close popup
-        $popup.removeClass('is-active');
-    }
-
-    function saveData() {
-
-        // $.ajax({
-        //     url: '/path/to/file',
-        //     type: 'default GET (Other values: POST)',
-        //     dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-        //     data: {param1: 'value1'},
-        // })
-        // .done(function() {
-        //     console.log("success");
-        // })
-        // .fail(function() {
-        //     console.log("error");
-        // })
-        // .always(function() {
-        //     console.log("complete");
-        // });
-
-        closePopup();
-    }
+    return {
+        // your code here
+    };
 
 })(jQuery);

@@ -74,11 +74,8 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-gift-registry-public.css', array(), $this->version, 'all' );
-
-		// new styles
-		wp_enqueue_style( $this->plugin_name . '-style', plugin_dir_url( __FILE__ ) . 'css/style.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -100,24 +97,14 @@ class WP_Gift_Registry_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-gift-registry-public.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp_gift_registry-public.js', array( 'jquery' ), $this->version, false );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
-		wp_localize_script( $this->plugin_name, 'variablesOld', array(
+		wp_localize_script( $this->plugin_name, 'variables', array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
 			'updateGiftAvailabiltyNonce' => wp_create_nonce( 'gift-availability-81991' )
 		) );
 
-
-
-		// new scripts
-		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
-
-		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
-		wp_localize_script( $this->plugin_name . '-main', 'variables', array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'update_gift_availabilty_nonce' => wp_create_nonce( 'gift-availability-81991' )
-		) );
 	}
 
 	/**
@@ -180,40 +167,20 @@ class WP_Gift_Registry_Public {
 			die ( 'Busted!');
 		}
 
-		if ( $_POST['version'] == 'new' ) {
-			// update new custom post type wishlists
+		$item_name = $_POST['itemName'];
+		$item_availability = $_POST['availability'];
+		$options_array = get_option('wishlist');
+		$wishlist = $options_array['wishlist_group'];
 
-			$wishlist_id 		= $_POST['wishlist_id'];
-			$gift_id 			= $_POST['gift_id'];
-			$gift_availability 	= $_POST['gift_availability'];
-			$gift_reserver		= $_POST['gift_reserver'];
-
-			$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
-			$to_be_updated = array_search($gift_id, array_column($wishlist, 'gift_id'));
-
-			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
-			$wishlist[$to_be_updated]['gift_reserver'] = $gift_reserver;
-
-			update_post_meta($wishlist_id, 'wpgr_wishlist', $wishlist);
-
-		} else {
-			// update old wishlist type (managed through options page)
-
-			$item_name = $_POST['itemName'];
-			$item_availability = $_POST['availability'];
-			$options_array = get_option('wishlist');
-			$wishlist = $options_array['wishlist_group'];
-
-			foreach($wishlist as $gift_key => $gift) {
-				if ( $gift['gift_title'] === $item_name ) {
-					$wishlist[$gift_key]['gift_availability'] = $item_availability;
-				}
+		foreach($wishlist as $gift_key => $gift) {
+			if ( $gift['gift_title'] === $item_name ) {
+				$wishlist[$gift_key]['gift_availability'] = $item_availability;
 			}
-
-			$options_array['wishlist_group'] = $wishlist;
-
-			update_option('wishlist', $options_array);
 		}
+
+		$options_array['wishlist_group'] = $wishlist;
+
+		update_option('wishlist', $options_array);
 
 		die();
 	}
