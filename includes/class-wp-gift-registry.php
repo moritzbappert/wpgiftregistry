@@ -182,6 +182,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Add settings pages
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_settings_pages' );
 
+			// Add metaboxes to our settings page
+			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_old_wishlist_page_metaboxes' );
+
 
 		// Old version stuff for compatibility
 
@@ -190,9 +193,6 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 				// Hook into the admin menu
 				$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_old_settings_pages' );
-
-				// Add metaboxes to our options page
-				$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_old_wishlist_page_metaboxes' );
 
 				// Add admin notices (notice about the new version)
 				$this->loader->add_action( 'admin_notices', $plugin_admin, 'add_update_notice_for_old_plugin' );
