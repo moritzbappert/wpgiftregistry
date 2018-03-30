@@ -127,10 +127,7 @@ class WP_Gift_Registry_Public {
 	 */
 	public function create_wishlist_shortcode() {
 
-		add_shortcode('wishlist', function($atts = [], $content = null) {
-
-			// normalize attribute keys, lowercase
-			$atts = array_change_key_case((array)$atts, CASE_LOWER);
+		add_shortcode('wishlist', function( $atts = [] ) {
 
 			// set attribute defaults
 			$atts = shortcode_atts(
@@ -148,7 +145,7 @@ class WP_Gift_Registry_Public {
 				$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
 
 				if ( !empty( $wishlist ) ) {
-					require_once( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+					require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
 				}
 
 			} else {
@@ -158,7 +155,7 @@ class WP_Gift_Registry_Public {
 				$wishlist = get_option('wishlist')['wishlist_group'];
 
 				if ( !empty( $wishlist ) ) {
-					require_once( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single-old.php' );
+					require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single-old.php' );
 				}
 			}
 
