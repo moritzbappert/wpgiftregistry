@@ -26,8 +26,15 @@ var mPopup = (function($) {
     ******************************************************************/
 
     // close popup on click on body
-    $body.on('click', function(e){
+    $body.on('click', function(e) {
         checkIfPopupWasClicked(e);
+    });
+
+    // close popup on ESC key
+    $body.on('keyup', function(e) {
+        if (e.which == 27) {
+            closePopup();
+        }
     });
 
     // navigate to next step
@@ -40,10 +47,22 @@ var mPopup = (function($) {
     $indicatorOne.on('click', goToStepOne);
     $indicatorTwo.on('click', goToStepTwo);
 
-    // save data on click on btn save
-    $btnSave.on('click', function(e) {
+    // save data on submit of the form (click on btn save)
+    $popup.on('submit', function(e) {
         e.preventDefault();
         saveData(e);
+    });
+    // $btnSave.on('click', function(e) {
+    //     e.preventDefault();
+    //     saveData(e);
+    // });
+
+    // submit form on enter
+    $popup.find('#your_name2').on('keypress', function (e) {
+        if (e.which == 13) {
+            e.preventDefault(); // prevent triggering click event
+            $popup.submit();
+        }
     });
 
     // close popup on click on btn close
@@ -154,6 +173,12 @@ var mPopup = (function($) {
         // close popup
         $popup.removeClass('is-active');
         $body.removeClass('no-scroll');
+
+        // reset popup
+        //$popup.get(0).reset(); // currently not working
+        $popup.find('#your_name2').val('');
+        $popup.removeAttr('data-wish-id');
+        $popup.removeAttr('data-wishlist-id');
     }
 
     function saveData(e) {
@@ -180,6 +205,11 @@ var mPopup = (function($) {
 
             // deactivate card
             $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
+
+        })
+        .fail(function() {
+
+            // implement error message here
 
         });
 
