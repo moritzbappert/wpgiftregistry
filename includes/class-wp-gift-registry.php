@@ -71,7 +71,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 		public function __construct() {
 
 			$this->plugin_name = 'WPGiftRegistry';
-			$this->version = '1.3.2';
+			$this->version = '1.3.3';
 
 			$this->load_dependencies();
 			$this->set_locale();
@@ -163,7 +163,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 			$plugin_admin = new WP_Gift_Registry_Admin( $this->get_plugin_name(), $this->get_version() );
 
-			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles', 9999 );
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 
@@ -211,7 +211,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 			$plugin_public = new WP_Gift_Registry_Public( $this->get_plugin_name(), $this->get_version() );
 
-			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles', 9999 );
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 			// Add the wishlist shortcode

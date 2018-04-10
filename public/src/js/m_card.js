@@ -60,8 +60,8 @@ var mCard = (function($) {
         var wishlistID = $clickedCard.closest('.wpgr-wishlist').data('id');
 
         // open popup
-        $popup.attr('data-wish-id', wishID);
-        $popup.attr('data-wishlist-id', wishlistID);
+        $popup.data('wish-id', wishID);
+        $popup.data('wishlist-id', wishlistID);
         $popup.addClass('is-active');
         $body.addClass('no-scroll');
 

@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
 
             <?php /* CARD_CONTENT */  ?>
-            <div class="wpgr-m_card__content php">
+            <div class="wpgr-m_card__content">
                 <?php if ( !empty($gift['gift_description']) ): ?>
                     <p class="wpgr-m_card__desc"><?= $gift['gift_description'] ?></p>
                 <?php endif; ?>
@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         endforeach;
     ?>
 
-        <form class="wpgr-o_popup wpgr-o_popup--single wpgr-o_popup__form">
+        <form id="wpgr_popup" class="wpgr-o_popup wpgr-o_popup--single wpgr-o_popup__form">
 
             <div id="wpgr_popup_name" class="wpgr-o_popup__step wpgr-o_popup__step--1">
                 <header class="wpgr-o_popup__header">
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
                 <div class="wpgr-o_popup__input-wrapper">
                     <label class="wpgr-o_popup__input-label" for="your_name2"><?= __('Your name', 'wpgiftregistry') /* Dein Name */ ?></label>
-                    <input id="your_name2" class="wpgr-o_popup__input-text" type="text">
+                    <input id="your_name2" name="your_name2" class="wpgr-o_popup__input-text" type="text">
                 </div>
                 <div class="wpgr-o_popup__btn-wrapper">
                     <button class="wpgr-o_popup__btn-prev wpgr-m_btn"><?= __('Cancel', 'wpgiftregistry') /* Abbrechen */ ?></button>
