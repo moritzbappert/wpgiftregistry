@@ -142,10 +142,28 @@ class WP_Gift_Registry_Public {
 			if ( $atts['id'] !== false ) {
 				$currency = get_option('wpgr_settings')['currency_symbol'];
 				$currency_placement = get_option('wpgr_settings')['currency_symbol_placement'];
-				$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
 
-				if ( !empty( $wishlist ) ) {
-					require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+				if ( $atts['id'] !== 'all' ) {
+					$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
+
+					if ( !empty( $wishlist ) ) {
+						require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+					}
+
+				} else {
+
+					$all_wishlists = get_posts(array(
+					    'fields'          => 'ids',
+					    'posts_per_page'  => -1,
+					    'post_type' => 'wpgr_wishlist'
+					));
+
+					foreach ( $all_wishlists as $wishlist_id ) {
+						$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
+						if ( !empty( $wishlist ) ) {
+							require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+						}
+					}
 				}
 
 			} else {

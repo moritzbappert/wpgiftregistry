@@ -1,5 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300);
-@import url("https://fonts.googleapis.com/css?family=Roboto:700,500,400");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:900,700,600,400,300|Roboto:700,500,400");
 /******************************************************************
 	COLORS
 ******************************************************************/
@@ -130,6 +129,24 @@ section.wpgr-wishlist .wpgr-m_card--nocontent .wpgr-m_card__content {
   opacity: 1 !important;
 }
 
+section.wpgr-wishlist .wpgr-m_card__figure {
+  display: inline-block;
+  width: 80px !important;
+  height: 80px !important;
+  background-color: #fcfcfc !important;
+  background-image: url("../src/img/logo-gift-registry.svg");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+section.wpgr-wishlist .wpgr-m_card__figure-anchor {
+  position: static !important;
+}
+
 section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
   position: absolute !important;
   top: 0;
@@ -150,20 +167,6 @@ section.wpgr-wishlist .wpgr-m_card__figure-wrapper {
     left: 0;
     transform: translate(-50%, -50%) !important;
   }
-}
-
-section.wpgr-wishlist .wpgr-m_card__figure {
-  display: inline-block;
-  width: 80px !important;
-  height: 80px !important;
-  background-color: #fcfcfc !important;
-  background-image: url("../src/img/logo-gift-registry.svg");
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  border: 0 !important;
-  border-radius: 50% !important;
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media only screen and (min-width: 481px) {

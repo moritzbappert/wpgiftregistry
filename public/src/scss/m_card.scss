@@ -73,24 +73,6 @@ section.wpgr-wishlist {
         &--single {
         }
 
-        &__figure-wrapper {
-            position: absolute !important;
-            top: 0;
-            left: 0;
-            transform: translate(-30%, -30%) !important;
-
-            @include small {
-                top: 50%;
-                left: 0;
-                transform: translate(-30%, -50%) !important;
-            }
-
-            @include medium {
-                left: 0;
-                transform: translate(-50%, -50%) !important;
-            }
-        }
-
         &__figure {
             display: inline-block;
             width: 80px !important;
@@ -103,6 +85,29 @@ section.wpgr-wishlist {
             border: 0 !important;
             border-radius: 50% !important;
             box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.2) !important;
+
+            &-anchor {
+                position: static !important;
+            }
+
+            &-wrapper {
+                position: absolute !important;
+                top: 0;
+                left: 0;
+                transform: translate(-30%, -30%) !important;
+
+                @include small {
+                    top: 50%;
+                    left: 0;
+                    transform: translate(-30%, -50%) !important;
+                }
+
+                @include medium {
+                    left: 0;
+                    transform: translate(-50%, -50%) !important;
+                }
+            }
+
 
             @include small {
                 width: 110px !important;
