@@ -161,6 +161,8 @@ class WP_Gift_Registry_Public {
 					foreach ( $all_wishlists as $wishlist_id ) {
 						$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
 						if ( !empty( $wishlist ) ) {
+
+							echo "<h2>" . get_the_title($wishlist_id) . "</h2>";
 							require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
 						}
 					}
