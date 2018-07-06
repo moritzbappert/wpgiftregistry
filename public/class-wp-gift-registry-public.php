@@ -180,16 +180,20 @@ class WP_Gift_Registry_Public {
 		if ( $_POST['version'] == 'new' ) {
 			// update new custom post type wishlists
 
-			$wishlist_id 		= $_POST['wishlist_id'];
-			$gift_id 			= $_POST['gift_id'];
-			$gift_availability 	= $_POST['gift_availability'];
-			$gift_reserver		= $_POST['gift_reserver'];
+			$wishlist_id 			= $_POST['wishlist_id'];
+			$gift_id 				= $_POST['gift_id'];
+			$gift_availability 		= $_POST['gift_availability'];
+			$gift_reserver			= $_POST['gift_reserver'];
+			$gift_reserver_email	= $_POST['gift_reserver_email'];
+			$gift_reserver_message	= $_POST['gift_reserver_message'];
 
 			$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
 			$to_be_updated = array_search($gift_id, array_column($wishlist, 'gift_id'));
 
 			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
 			$wishlist[$to_be_updated]['gift_reserver'] = $gift_reserver;
+			$wishlist[$to_be_updated]['gift_reserver_email'] = $gift_reserver_email;
+			$wishlist[$to_be_updated]['gift_reserver_message'] = $gift_reserver_message;
 
 			update_post_meta($wishlist_id, 'wpgr_wishlist', $wishlist);
 

@@ -177,6 +177,8 @@ var mPopup = (function($) {
         // reset popup
         //$popup.get(0).reset(); // currently not working
         $popup.find('#your_name2').val('');
+        $popup.find('#your_email').val('');
+        $popup.find('#your_message').val('');
         $popup.removeAttr('data-wish-id');
         $popup.removeAttr('data-wishlist-id');
     }
@@ -186,6 +188,8 @@ var mPopup = (function($) {
         var giftID = $currentGiftPopup.data('wish-id');
         var wishlistID = $currentGiftPopup.data('wishlist-id');
         var reserverName = $currentGiftPopup.find('#your_name2').val();
+        var reserverEmail = $currentGiftPopup.find('#your_email').val();
+        var reserverMessage = $currentGiftPopup.find('#your_message').val();
 
         $.ajax({
             url: variables.ajaxurl,
@@ -199,6 +203,8 @@ var mPopup = (function($) {
                 gift_id: giftID,
                 gift_availability: 'false',
                 gift_reserver: reserverName,
+                gift_reserver_email: reserverEmail,
+                gift_reserver_message: reserverMessage,
             },
         })
         .done(function(response) {

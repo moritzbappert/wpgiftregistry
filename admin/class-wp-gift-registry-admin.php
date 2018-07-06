@@ -370,6 +370,30 @@ class WP_Gift_Registry_Admin {
     		// ),
 	    ) );
 
+	    // E-Mail
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Email', 'wpgiftregistry' ),
+	        'desc' => '',
+	        'id'   => 'gift_reserver_email',
+	        'type' => 'text_medium',
+	     	// 'attributes' => array(
+    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+    		// 	'data-conditional-value' => 'false',
+    		// ),
+	    ) );
+
+	    // E-Mail
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Message', 'wpgiftregistry' ),
+	        'desc' => '',
+	        'id'   => 'gift_reserver_message',
+	        'type' => 'textarea_small',
+	     	// 'attributes' => array(
+    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+    		// 	'data-conditional-value' => 'false',
+    		// ),
+	    ) );
+
 	    // Shortcode Metabox
 	    $shortcode_metabox = new_cmb2_box( array(
 			'id'            => $prefix . 'wishlist_shortcode',

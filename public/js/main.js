@@ -41,6 +41,55 @@ var global = (function($) {
 
 })(jQuery);
 
+/******************************************************************
+    _EXAMPLE.JS
+
+        > VARS
+        > EVENTS
+        > FUNCTIONS
+        > PUBLIC_FUNCTIONS
+
+        @USAGE
+        e.g. nMain.showNav();
+        e.g. $(window).on('scroll', global.debounce(nMain.hideNav, 1000));
+
+******************************************************************/
+
+
+var example = (function($) {
+
+
+    /******************************************************************
+        VARS
+    ******************************************************************/
+
+    // your code here
+
+
+    /******************************************************************
+        EVENTS
+    ******************************************************************/
+
+    // your code here
+
+
+    /******************************************************************
+        FUNCTIONS
+    ******************************************************************/
+
+    // your code here
+
+
+    /******************************************************************
+        PUBLIC_FUNCTIONS
+    ******************************************************************/
+
+    return {
+        // your code here
+    };
+
+})(jQuery);
+
 var mCard = (function($) {
 
     /******************************************************************
@@ -301,6 +350,8 @@ var mPopup = (function($) {
         // reset popup
         //$popup.get(0).reset(); // currently not working
         $popup.find('#your_name2').val('');
+        $popup.find('#your_email').val('');
+        $popup.find('#your_message').val('');
         $popup.removeAttr('data-wish-id');
         $popup.removeAttr('data-wishlist-id');
     }
@@ -310,6 +361,8 @@ var mPopup = (function($) {
         var giftID = $currentGiftPopup.data('wish-id');
         var wishlistID = $currentGiftPopup.data('wishlist-id');
         var reserverName = $currentGiftPopup.find('#your_name2').val();
+        var reserverEmail = $currentGiftPopup.find('#your_email').val();
+        var reserverMessage = $currentGiftPopup.find('#your_message').val();
 
         $.ajax({
             url: variables.ajaxurl,
@@ -323,6 +376,8 @@ var mPopup = (function($) {
                 gift_id: giftID,
                 gift_availability: 'false',
                 gift_reserver: reserverName,
+                gift_reserver_email: reserverEmail,
+                gift_reserver_message: reserverMessage,
             },
         })
         .done(function(response) {
