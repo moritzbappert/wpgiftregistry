@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Main Wrap
+ * Main Wrap
 --------------------------------------------------------------*/
 
 .cmb2-wrap {
@@ -256,6 +256,10 @@ Main Wrap
 			border-top: solid 1px $light-gray;
 		}
 
+		&.ui-sortable-helper {
+			outline: dashed 2px $light-gray !important; // Sometime, we need !important :).
+		}
+
 		&:before {
 			content: counter(el);
 			display: block;
@@ -267,7 +271,7 @@ Main Wrap
 			width: 35px;
 			height: 100%;
 			line-height: 35px;
-
+			cursor: move;
 			color: $gray;
 			text-align: center;
 			border-right: solid 1px $light-gray;
