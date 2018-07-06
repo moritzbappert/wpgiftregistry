@@ -3,8 +3,8 @@ Contributors: 3qbik
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=86EEHAN7TGUMY
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
-Tested up to: 4.9.5
-Stable tag: 1.3.3
+Tested up to: 4.9.7
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.3.4 =
+* A few minor bugfixes
 
 = 1.3.3 =
 * Bugfix for successive gift reservations
