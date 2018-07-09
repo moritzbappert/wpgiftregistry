@@ -5,7 +5,7 @@ Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, bir
 Requires at least: 3.0.1
 Tested up to: 4.9.7
 Requires PHP: 5.5
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,10 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.3.5 =
+* New settings to enable/disable email and personal message fields in the gift reservation dialogue
+* Optional tracking of anonymous user data to improve the plugin
 
 = 1.3.4 =
 * A few minor bugfixes

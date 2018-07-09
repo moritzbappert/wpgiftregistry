@@ -71,7 +71,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 		public function __construct() {
 
 			$this->plugin_name = 'WPGiftRegistry';
-			$this->version = '1.3.4';
+			$this->version = '1.3.5';
 
 			$this->load_dependencies();
 			$this->set_locale();
@@ -131,6 +131,11 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			//   require_once __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php';
 			// }
 
+			// Include plugin usage tracker
+			if ( file_exists( __DIR__ . '/libraries/wp-plugin-usage-tracker/wp-plugin-usage-tracker.php' ) ) {
+			  require_once __DIR__ . '/libraries/wp-plugin-usage-tracker/wp-plugin-usage-tracker.php';
+			}
+
 			$this->loader = new WP_Gift_Registry_Loader();
 
 		}
@@ -184,6 +189,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 			// Add metaboxes to our settings page
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_old_wishlist_page_metaboxes' );
+
+			// Init plugin usage tracker
+			$this->loader->add_action( 'init', $plugin_admin, 'track_plugin_usage' );
 
 
 		// Old version stuff for compatibility

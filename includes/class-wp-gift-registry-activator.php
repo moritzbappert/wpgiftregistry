@@ -48,7 +48,8 @@ class WP_Gift_Registry_Activator {
 
 			$wpgr_settings = array(
 				'currency_symbol' => $symbol,
-				'currency_symbol_placement' => 'after'
+				'currency_symbol_placement' => 'after',
+				'activation_date' => date('j F Y'),
 			);
 		    update_option('wpgr_settings', $wpgr_settings);
 		}

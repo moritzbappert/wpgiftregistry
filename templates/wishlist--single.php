@@ -7,6 +7,8 @@
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+$settings = get_option('wpgr_settings');
+
 ?>
 
 <section class="wpgr-wishlist" data-id="<?= $atts['id'] ?>">
@@ -115,14 +117,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <label class="wpgr-o_popup__input-label" for="your_name2"><?= __('Your name', 'wpgiftregistry') /* Dein Name */ ?></label>
                     <input id="your_name2" name="your_name2" class="wpgr-o_popup__input-text" type="text">
                 </div>
-                <div class="wpgr-o_popup__input-wrapper">
-                    <label class="wpgr-o_popup__input-label" for="your_name2"><?= __('Your email', 'wpgiftregistry') ?></label>
-                    <input id="your_email" name="your_email" class="wpgr-o_popup__input-text" type="text">
-                </div>
-                <div class="wpgr-o_popup__input-wrapper">
-                    <label class="wpgr-o_popup__input-label" for="your_message"><?= __('Personal message', 'wpgiftregistry') ?></label>
-                    <textarea id="your_message" name="your_message" class="wpgr-o_popup__input-textarea"></textarea>
-                </div>
+                <?php if ( isset($settings['show_email_field']) && $settings['show_email_field'] ): ?>
+                    <div class="wpgr-o_popup__input-wrapper">
+                        <label class="wpgr-o_popup__input-label" for="your_name2"><?= __('Your email', 'wpgiftregistry') ?></label>
+                        <input id="your_email" name="your_email" class="wpgr-o_popup__input-text" type="text">
+                    </div>
+                <?php endif; ?>
+                <?php if ( isset($settings['show_message_field']) && $settings['show_message_field'] ): ?>
+                    <div class="wpgr-o_popup__input-wrapper">
+                        <label class="wpgr-o_popup__input-label" for="your_message"><?= __('Personal message', 'wpgiftregistry') ?></label>
+                        <textarea id="your_message" name="your_message" class="wpgr-o_popup__input-textarea"></textarea>
+                    </div>
+                <?php endif; ?>
                 <div class="wpgr-o_popup__btn-wrapper">
                     <button class="wpgr-o_popup__btn-prev wpgr-m_btn"><?= __('Cancel', 'wpgiftregistry') /* Abbrechen */ ?></button>
                     <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="<?= __('Confirm', 'wpgiftregistry') /* Bestätigen */ ?>">

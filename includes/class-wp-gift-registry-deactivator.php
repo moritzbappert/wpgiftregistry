@@ -32,6 +32,9 @@ class WP_Gift_Registry_Deactivator {
 	 */
 	public static function deactivate() {
 
+		delete_option( 'wpgiftregistry_tracking' );
+		wp_clear_scheduled_hook( 'wpgiftregistry_usage_tracking' );
+
 	}
 
 }

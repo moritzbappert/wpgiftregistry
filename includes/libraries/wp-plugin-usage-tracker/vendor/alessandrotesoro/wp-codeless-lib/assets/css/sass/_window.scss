@@ -1,0 +1,94 @@
+.codelessui-wnd {
+    background: #fff;
+    position: fixed;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    hr {
+      margin: 15px -20px;
+      border: 0;
+      border-top: 1px solid #E5E5E5;
+    }
+
+    .buttons {
+      text-align: right;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: rgba(245, 245, 245, 0.8);
+      padding: 10px 20px;
+      left: 0;
+      height: 50px;
+      border-top: 1px solid #E5E5E5;
+      margin: 0;
+      z-index: 2;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+}
+.codelessui-wnd-title {
+    line-height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 70px 0 20px;
+    border-bottom: 1px solid #ddd;
+    background: #fcfcfc;
+    height: 50px;
+    display: block;
+    font-size: 23px;
+    z-index: 5;
+}
+.codelessui-wnd-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+    border-left: 1px solid #ddd;
+    cursor: pointer;
+    z-index: 10;
+
+    .dashicons {
+        line-height: 50px;
+    }
+
+    &:active, &:focus, &:hover {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+}
+
+.codelessui-wnd-content {
+    position: absolute;
+    top: 51px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 20px;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      padding: 50px 0 0;
+    }
+}
+
+.codelessui-wnd.no-buttons .codelessui-wnd-content:after {
+    padding-top: 0;
+}

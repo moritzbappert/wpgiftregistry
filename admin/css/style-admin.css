@@ -245,6 +245,10 @@ Main Wrap
   vertical-align: middle;
 }
 
+#wishlist_settings .cmb-td {
+  padding: 24px 10px;
+}
+
 /* line 230, sass/partials/_main_wrap.scss */
 .cmb-type-title .cmb-td {
   padding: 0;

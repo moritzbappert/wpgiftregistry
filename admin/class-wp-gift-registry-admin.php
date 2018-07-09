@@ -169,36 +169,33 @@ class WP_Gift_Registry_Admin {
 		}
 	}
 
-
-
-
 	/**
 	 * Create a Settings Page
 	 *
 	 * @since    1.0.0
 	 */
-  public function add_old_settings_pages() {
+	  public function add_old_settings_pages() {
 
-  	// Add the old Wishlist menu item and page
-  	$page_title = __('Old Wishlist', 'wpgiftregistry');
-  	$menu_title = __('Old Wishlist', 'wpgiftregistry');
-  	$capability = 'manage_options';
-  	$slug = 'wishlist';
-  	$callback = array( $this, 'plugin_wishlist_page_content' );
-  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
-  	$position = 100;
-  	add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
+	  	// Add the old Wishlist menu item and page
+	  	$page_title = __('Old Wishlist', 'wpgiftregistry');
+	  	$menu_title = __('Old Wishlist', 'wpgiftregistry');
+	  	$capability = 'manage_options';
+	  	$slug = 'wishlist';
+	  	$callback = array( $this, 'plugin_wishlist_page_content' );
+	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$position = 100;
+	  	add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 
-  	// Add the old Wishlist Settings Page
-  	$page_title = __('Settings', 'wpgiftregistry');
-  	$menu_title = __('Settings', 'wpgiftregistry');
-  	$capability = 'manage_options';
-  	$slug = 'wishlist_settings';
-  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
-  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
-  	$position = 100;
-  	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
-  }
+	  	// Add the old Wishlist Settings Page
+	  	$page_title = __('Settings', 'wpgiftregistry');
+	  	$menu_title = __('Settings', 'wpgiftregistry');
+	  	$capability = 'manage_options';
+	  	$slug = 'wishlist_settings';
+	  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
+	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$position = 100;
+	  	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
+	  }
 
   	/**
   	 * Add a metabox with custom fields to our wishlist post type
@@ -226,6 +223,7 @@ class WP_Gift_Registry_Admin {
   	public function add_wishlist_metaboxes() {
 
   		$prefix = 'wpgr_';
+  		$settings = get_option('wpgr_settings');
 
   		$metabox = new_cmb2_box( array(
 			'id'            => $prefix . 'wishlist',
@@ -370,29 +368,35 @@ class WP_Gift_Registry_Admin {
     		// ),
 	    ) );
 
-	    // E-Mail
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Email', 'wpgiftregistry' ),
-	        'desc' => '',
-	        'id'   => 'gift_reserver_email',
-	        'type' => 'text_medium',
-	     	// 'attributes' => array(
-    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-    		// 	'data-conditional-value' => 'false',
-    		// ),
-	    ) );
 
-	    // E-Mail
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Message', 'wpgiftregistry' ),
-	        'desc' => '',
-	        'id'   => 'gift_reserver_message',
-	        'type' => 'textarea_small',
-	     	// 'attributes' => array(
-    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-    		// 	'data-conditional-value' => 'false',
-    		// ),
-	    ) );
+
+	    if ( isset($settings['show_email_field']) && $settings['show_email_field'] ) {
+		    // E-Mail
+		    $metabox->add_group_field( $group_field, array(
+		        'name' => __( 'Email', 'wpgiftregistry' ),
+		        'desc' => '',
+		        'id'   => 'gift_reserver_email',
+		        'type' => 'text_medium',
+		     	// 'attributes' => array(
+	    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+	    		// 	'data-conditional-value' => 'false',
+	    		// ),
+		    ) );
+	    }
+
+		if ( isset($settings['show_message_field']) && $settings['show_message_field'] ) {
+		    // Message
+		    $metabox->add_group_field( $group_field, array(
+		        'name' => __( 'Message', 'wpgiftregistry' ),
+		        'desc' => '',
+		        'id'   => 'gift_reserver_message',
+		        'type' => 'textarea_small',
+		     	// 'attributes' => array(
+	    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+	    		// 	'data-conditional-value' => 'false',
+	    		// ),
+		    ) );
+		}
 
 	    // Shortcode Metabox
 	    $shortcode_metabox = new_cmb2_box( array(
@@ -441,28 +445,28 @@ class WP_Gift_Registry_Admin {
   	}
 
 
-  /**
+  	/**
 	 * The Wishlist Page Content
 	 *
 	 * @since    1.0.0
 	 */
-  public function plugin_wishlist_page_content() {
+	  public function plugin_wishlist_page_content() {
 
-    // Include CMB CSS in the head to avoid FOUC
-		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
+	    // Include CMB CSS in the head to avoid FOUC
+			add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
 
-		?>
-		<div class="wrap cmb2-options-page wishlist">
-			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<p><?php echo sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), '<code>[wishlist]</code>' ); ?></p>
-			<br>
-			<?php cmb2_metabox_form( 'wishlist', 'wishlist' ); ?>
-			<br>
-			<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
-			<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
-		</div>
-		<?php
-  }
+			?>
+			<div class="wrap cmb2-options-page wishlist">
+				<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+				<p><?php echo sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), '<code>[wishlist]</code>' ); ?></p>
+				<br>
+				<?php cmb2_metabox_form( 'wishlist', 'wishlist' ); ?>
+				<br>
+				<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+				<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
+			</div>
+			<?php
+	  }
 
   	/**
 	 * wpgr_settings Page Content
@@ -483,13 +487,13 @@ class WP_Gift_Registry_Admin {
 
 
 
-  /**
+  	/**
 	 * The Wishlist Settings Page Content
 	 *
 	 * @since    1.1.0
 	 */
-  public function plugin_wishlist_settings_page_content() {
-    // Include CMB CSS in the head to avoid FOUC
+  	public function plugin_wishlist_settings_page_content() {
+    	// Include CMB CSS in the head to avoid FOUC
 		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
 
 		?>
@@ -498,11 +502,11 @@ class WP_Gift_Registry_Admin {
 			<?php cmb2_metabox_form( 'wishlist_settings', 'wishlist_settings' ); ?>
 		</div>
 		<?php
-  }
+  	}
 
 
 
-  /**
+  	/**
 	 * Add the options metabox to the array of metaboxes
 	 * @since  1.0.0
 	 */
@@ -600,65 +604,82 @@ class WP_Gift_Registry_Admin {
 		) );
 
 
-    // URL
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => __( 'Product URL', 'wpgiftregistry' ),
-        'desc' => '',
-        'id'   => 'gift_url',
-        'type' => 'text_url',
-    ) );
+	    // URL
+	    $cmb->add_group_field( $group_field_id, array(
+	        'name' => __( 'Product URL', 'wpgiftregistry' ),
+	        'desc' => '',
+	        'id'   => 'gift_url',
+	        'type' => 'text_url',
+	    ) );
 
-    // Availability
-    $cmb->add_group_field( $group_field_id, array(
-        'name' => __( 'Availability', 'wpgiftregistry' ),
-        'desc' => __( 'Is the gift available for purchase (nobody already buying it)?', 'wpgiftregistry' ),
-        'id'   => 'gift_availability',
-        'type' => 'radio_inline',
-        'options' => array(
-            'true' => __( 'Yes', 'wpgiftregistry' ),
-            'false'   => __( 'No', 'wpgiftregistry' ),
-        ),
-        'default' => 'true',
-    ) );
+	    // Availability
+	    $cmb->add_group_field( $group_field_id, array(
+	        'name' => __( 'Availability', 'wpgiftregistry' ),
+	        'desc' => __( 'Is the gift available for purchase (nobody already buying it)?', 'wpgiftregistry' ),
+	        'id'   => 'gift_availability',
+	        'type' => 'radio_inline',
+	        'options' => array(
+	            'true' => __( 'Yes', 'wpgiftregistry' ),
+	            'false'   => __( 'No', 'wpgiftregistry' ),
+	        ),
+	        'default' => 'true',
+	    ) );
 
 
 
-    /**
-     *  Settings Page
-     */
+	    /**
+	     *  Settings Page
+	     */
 
-    $cmb = new_cmb2_box( array(
-    	'id'         => 'wishlist_settings',
-    	'hookup'     => false,
-    	'cmb_styles' => false,
-    	'show_on'    => array(
-    		// These are important, don't remove
-    		'key'   => 'options-page',
-    		'value' => array( 'wishlist_settings' )
-    	),
-    ) );
+	    $cmb = new_cmb2_box( array(
+	    	'id'         => 'wishlist_settings',
+	    	'hookup'     => false,
+	    	'cmb_styles' => false,
+	    	'show_on'    => array(
+	    		// These are important, don't remove
+	    		'key'   => 'options-page',
+	    		'value' => array( 'wishlist_settings' )
+	    	),
+	    ) );
 
 		// Currency
 		$cmb->add_field( array(
 		    'name'    => __( 'Currency', 'wpgiftregistry' ),
-        'desc'    => __( 'Currency in which the gift price will be displayed', 'wpgiftregistry' ),
-        'default' => '$',
-        'id'      => 'currency_symbol',
-        'type'    => 'text_small'
+	        'desc'    => __( 'Currency in which the gift price will be displayed', 'wpgiftregistry' ),
+	        'default' => '$',
+	        'id'      => 'currency_symbol',
+	        'type'    => 'text_small'
 		) );
 
 		// Currency Symbol Placement
 		$cmb->add_field( array(
 		    'name'    => __( 'Currency Symbol Placement', 'wpgiftregistry' ),
-        'desc'    => '',
-        'id'      => 'currency_symbol_placement',
-        'type'    => 'radio_inline',
-        'options' => array(
-	        'before' => __( 'Before the price', 'wpgiftregistry' ),
-	        'after'   => __( 'After the price', 'wpgiftregistry' )
-		    ),
-		    'default' => 'before'
+	        'desc'    => '',
+	        'id'      => 'currency_symbol_placement',
+	        'type'    => 'radio_inline',
+	        'options' => array(
+		        'before' => __( 'Before the price', 'wpgiftregistry' ),
+		        'after'   => __( 'After the price', 'wpgiftregistry' )
+			),
+			'default' => 'before'
 		) );
+
+		// Currency Symbol Placement
+		$cmb->add_field( array(
+		    'name'    => __( 'Show email field in gift reservation dialogue?', 'wpgiftregistry' ),
+        	'desc'    => '',
+        	'id'      => 'show_email_field',
+        	'type'    => 'checkbox',
+        ) );
+
+
+		// Currency Symbol Placement
+		$cmb->add_field( array(
+		    'name'    => __( 'Show custom message field in gift reservation dialogue?', 'wpgiftregistry' ),
+        	'desc'    => '',
+        	'id'      => 'show_message_field',
+        	'type'    => 'checkbox',
+        ) );
 
 	}
 
@@ -677,6 +698,32 @@ class WP_Gift_Registry_Admin {
 			</div>
 
 		<?php endif;
+	}
+
+
+	/**
+	 * Initialize plugin usage tracking
+	 */
+	public function track_plugin_usage() {
+
+		$wpgr_settings = get_option('wpgr_settings');
+
+		if (isset($wpgr_settings['activation_date'])) {
+			$activation_date = $wpgr_settings['activation_date'];
+		} else {
+			$activation_date = date('j F Y');
+			$wpgr_settings['activation_date'] = $activation_date;
+			update_option('wpgr_settings', $wpgr_settings);
+		}
+
+		$tracker = new WP_Plugin_Usage_Tracker(
+		  'wpgiftregistry',
+		  'WPGiftRegistry',
+		  $activation_date,
+		  '3'
+		);
+
+		$tracker->init();
 	}
 
 
