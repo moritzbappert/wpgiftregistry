@@ -1,9 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGiftRegistry\n"
-"POT-Creation-Date: 2018-03-27 21:23+0200\n"
-"PO-Revision-Date: 2018-03-27 21:42+0200\n"
+"POT-Creation-Date: 2018-08-06 11:20+0200\n"
+"PO-Revision-Date: 2018-08-06 11:27+0200\n"
+"Last-Translator: Moritz Bappert <kontakt@dreiqbik.de>\n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,53 +13,51 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __\n"
-"Last-Translator: Moritz Bappert <kontakt@dreiqbik.de>\n"
-"Language: nl\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-wp-gift-registry-admin.php:114
-#: admin/class-wp-gift-registry-admin.php:115
+#: admin/class-wp-gift-registry-admin.php:119
+#: admin/class-wp-gift-registry-admin.php:120
 msgid "Wishlist"
 msgstr "Wensenlijst"
 
-#: admin/class-wp-gift-registry-admin.php:116
+#: admin/class-wp-gift-registry-admin.php:121
 msgid "Wishlists"
 msgstr "Wensenlijsten"
 
-#: admin/class-wp-gift-registry-admin.php:117
+#: admin/class-wp-gift-registry-admin.php:122
 msgid "Add new Wishlist"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:118
+#: admin/class-wp-gift-registry-admin.php:123
 msgid "Edit Wishlist"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:119
+#: admin/class-wp-gift-registry-admin.php:124
 msgid "New Wishlist"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:120
+#: admin/class-wp-gift-registry-admin.php:125
 msgid "Search Wishlists"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:121
+#: admin/class-wp-gift-registry-admin.php:126
 msgid "All Wishlists"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:183
-#: admin/class-wp-gift-registry-admin.php:184
+#: admin/class-wp-gift-registry-admin.php:185
+#: admin/class-wp-gift-registry-admin.php:186
 msgid "Old Wishlist"
 msgstr "Oude Wensenlijst"
 
-#: admin/class-wp-gift-registry-admin.php:193
-#: admin/class-wp-gift-registry-admin.php:194
-#: admin/class-wp-gift-registry-admin.php:211
-#: admin/class-wp-gift-registry-admin.php:212
+#: admin/class-wp-gift-registry-admin.php:195
+#: admin/class-wp-gift-registry-admin.php:196
+#: admin/class-wp-gift-registry-admin.php:213
+#: admin/class-wp-gift-registry-admin.php:214
 msgid "Settings"
 msgstr "Instellingen"
 
-#: admin/class-wp-gift-registry-admin.php:243
-#: admin/class-wp-gift-registry-admin.php:433
+#: admin/class-wp-gift-registry-admin.php:246
+#: admin/class-wp-gift-registry-admin.php:658
 #, php-format
 msgid ""
 "First add some gifts to your wishlist below. Then use the %s shortcode "
@@ -67,42 +67,43 @@ msgstr ""
 "Daarna kan je de shortcode %s overal op je pagina gebruiken om de "
 "wensenlijst te laten zien."
 
-#: admin/class-wp-gift-registry-admin.php:247
-#: admin/class-wp-gift-registry-admin.php:376
-#: admin/class-wp-gift-registry-admin.php:401
+#: admin/class-wp-gift-registry-admin.php:250
+#: admin/class-wp-gift-registry-admin.php:258
+#: admin/class-wp-gift-registry-admin.php:477
+#: admin/class-wp-gift-registry-admin.php:626
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: admin/class-wp-gift-registry-admin.php:255
+#: admin/class-wp-gift-registry-admin.php:266
 msgid "Wishes"
 msgstr "Wensen"
 
-#: admin/class-wp-gift-registry-admin.php:266
-#: admin/class-wp-gift-registry-admin.php:507
+#: admin/class-wp-gift-registry-admin.php:277
+#: admin/class-wp-gift-registry-admin.php:732
 msgid "Gift {#}"
 msgstr "Cadeau {#}"
 
-#: admin/class-wp-gift-registry-admin.php:267
-#: admin/class-wp-gift-registry-admin.php:508
+#: admin/class-wp-gift-registry-admin.php:278
+#: admin/class-wp-gift-registry-admin.php:733
 msgid "Add Another Gift"
 msgstr "Voeg een ander Cadeau toe"
 
-#: admin/class-wp-gift-registry-admin.php:268
-#: admin/class-wp-gift-registry-admin.php:509
+#: admin/class-wp-gift-registry-admin.php:279
+#: admin/class-wp-gift-registry-admin.php:734
 msgid "Remove Gift"
 msgstr "Verwijder Cadeau"
 
-#: admin/class-wp-gift-registry-admin.php:283
-#: admin/class-wp-gift-registry-admin.php:519
+#: admin/class-wp-gift-registry-admin.php:294
+#: admin/class-wp-gift-registry-admin.php:744
 msgid "Gift Title"
 msgstr "Cadeau Titel"
 
-#: admin/class-wp-gift-registry-admin.php:295
-#: admin/class-wp-gift-registry-admin.php:528
+#: admin/class-wp-gift-registry-admin.php:306
+#: admin/class-wp-gift-registry-admin.php:753
 msgid "Gift Image"
 msgstr "Cadeau afbeelding"
 
-#: admin/class-wp-gift-registry-admin.php:296
+#: admin/class-wp-gift-registry-admin.php:307
 msgid ""
 "Upload an image or enter a URL. If left empty, we'll try to automatically "
 "retrieve an image (currently only working with amazon.com)."
@@ -110,55 +111,96 @@ msgstr ""
 "Upload een afbeelding of vul de link in. Indien leeg, zullen we proberen "
 "automatisch een afbeelding vinden (werkt momenteel enkel met amazon.com)"
 
-#: admin/class-wp-gift-registry-admin.php:303
-#: admin/class-wp-gift-registry-admin.php:537
+#: admin/class-wp-gift-registry-admin.php:314
+#: admin/class-wp-gift-registry-admin.php:762
 msgid "Add Image"
 msgstr "Afbeelding Toevoegen"
 
-#: admin/class-wp-gift-registry-admin.php:313
-#: admin/class-wp-gift-registry-admin.php:547
+#: admin/class-wp-gift-registry-admin.php:324
+#: admin/class-wp-gift-registry-admin.php:772
 msgid "Description (optional)"
 msgstr "Omschrijving (Optioneel)"
 
-#: admin/class-wp-gift-registry-admin.php:332
-#: admin/class-wp-gift-registry-admin.php:568
+#: admin/class-wp-gift-registry-admin.php:343
+#: admin/class-wp-gift-registry-admin.php:793
 msgid "Price"
 msgstr "Prijs"
 
-#: admin/class-wp-gift-registry-admin.php:342
-#: admin/class-wp-gift-registry-admin.php:581
+#: admin/class-wp-gift-registry-admin.php:353
+#: admin/class-wp-gift-registry-admin.php:806
 msgid "Product URL"
 msgstr "Product Link"
 
-#: admin/class-wp-gift-registry-admin.php:350
-#: admin/class-wp-gift-registry-admin.php:589
-msgid "Availability"
-msgstr "Beschikbaar"
-
-#: admin/class-wp-gift-registry-admin.php:351
-#: admin/class-wp-gift-registry-admin.php:590
-msgid "Is the gift available for purchase (nobody already buying it)?"
+#: admin/class-wp-gift-registry-admin.php:361
+msgid "Split gift?"
 msgstr ""
-"Is dit cadeau beschikbaar voor aanschaf (Heeft niemand dit al gekocht)?"
 
-#: admin/class-wp-gift-registry-admin.php:355
-#: admin/class-wp-gift-registry-admin.php:594
-#: public/class-WP_Gift_Registry-public-old.php:192
+#: admin/class-wp-gift-registry-admin.php:362
+msgid "Do you want to split this gift into parts?"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:366
+#: admin/class-wp-gift-registry-admin.php:418
+#: admin/class-wp-gift-registry-admin.php:819
 #: public/class-wp-gift-registry-public-old.php:186
 #: templates/wishlist--single-old.php:67
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/class-wp-gift-registry-admin.php:356
-#: admin/class-wp-gift-registry-admin.php:595
+#: admin/class-wp-gift-registry-admin.php:367
+#: admin/class-wp-gift-registry-admin.php:419
+#: admin/class-wp-gift-registry-admin.php:820
 msgid "No"
 msgstr "Nee"
 
-#: admin/class-wp-gift-registry-admin.php:363
-msgid "Who reserved this?"
+#: admin/class-wp-gift-registry-admin.php:374
+msgid "How many parts?"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:437
+#: admin/class-wp-gift-registry-admin.php:386
+msgid "Plural Parts Label "
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:387
+msgid ""
+"If your gift consists of 12 spoons for example, you can rename the parts "
+"label to \"spoons\"."
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:400
+msgid "Single Part Label"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:413
+#: admin/class-wp-gift-registry-admin.php:814
+msgid "Availability"
+msgstr "Beschikbaar"
+
+#: admin/class-wp-gift-registry-admin.php:414
+#: admin/class-wp-gift-registry-admin.php:815
+msgid "Is the gift available for purchase (nobody already buying it)?"
+msgstr ""
+"Is dit cadeau beschikbaar voor aanschaf (Heeft niemand dit al gekocht)?"
+
+#: admin/class-wp-gift-registry-admin.php:486
+msgid ""
+"Place the following shortcode into the content editor or widget area of your "
+"theme."
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:487
+msgid "Copy Shortcode"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:499
+msgid "Reserved Gifts"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:601
+msgid "No gifts reserved yet!"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:662
 #, php-format
 msgid ""
 "This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik."
@@ -167,60 +209,66 @@ msgstr ""
 "Deze plugin is geschreven door %s. Neem contact met ons op op "
 "kontakt@dreiqbik.de voor vragen of uitbreidingen."
 
-#: admin/class-wp-gift-registry-admin.php:438
+#: admin/class-wp-gift-registry-admin.php:663
 #, php-format
 msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
 msgstr "%sSchrijf een goede review voor ons%s als je deze plugin handig vind."
 
-#: admin/class-wp-gift-registry-admin.php:529
+#: admin/class-wp-gift-registry-admin.php:754
 msgid "Upload an image or enter a URL."
 msgstr "Upload een afbeelding of voer een URL in."
 
-#: admin/class-wp-gift-registry-admin.php:619
+#: admin/class-wp-gift-registry-admin.php:844
 msgid "Currency"
 msgstr "Valuta"
 
-#: admin/class-wp-gift-registry-admin.php:620
+#: admin/class-wp-gift-registry-admin.php:845
 msgid "Currency in which the gift price will be displayed"
 msgstr "Valuta waarin de prijs van het cadeau wordt weergegeven"
 
-#: admin/class-wp-gift-registry-admin.php:628
+#: admin/class-wp-gift-registry-admin.php:853
 msgid "Currency Symbol Placement"
 msgstr "Plaats van valutateken"
 
-#: admin/class-wp-gift-registry-admin.php:633
+#: admin/class-wp-gift-registry-admin.php:858
 msgid "Before the price"
 msgstr "Voor het bedrag"
 
-#: admin/class-wp-gift-registry-admin.php:634
+#: admin/class-wp-gift-registry-admin.php:859
 msgid "After the price"
 msgstr "Achter het bedrag"
 
-#: admin/class-wp-gift-registry-admin.php:651
+#: admin/class-wp-gift-registry-admin.php:866
+msgid "Show email field in gift reservation dialogue?"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:875
+msgid "Show custom message field in gift reservation dialogue?"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:893
 msgid "WPGiftRegistry has been updated!"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:652
+#: admin/class-wp-gift-registry-admin.php:894
 msgid ""
 "If you want to use all the new features, like multiple wishlists, please "
 "start using the new \"Wishlists\" menu item."
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:672
+#: admin/class-wp-gift-registry-admin.php:961
 msgid "Wishlist updated."
 msgstr "Wishlist ge-update."
 
-#: admin/class-wp-gift-registry-admin.php:689
+#: admin/class-wp-gift-registry-admin.php:978
 msgid "Wishlist settings updated."
 msgstr "Wensenlijst instellingen bijgewerkt."
 
-#: public/class-WP_Gift_Registry-public-old.php:179
 #: public/class-wp-gift-registry-public-old.php:173
 #: templates/wishlist--single-old.php:54
 msgid "VIEW/BUY"
 msgstr "BEKIJK/KOOP"
 
-#: public/class-WP_Gift_Registry-public-old.php:190
 #: public/class-wp-gift-registry-public-old.php:184
 #: templates/wishlist--single-old.php:65
 #, php-format
@@ -228,44 +276,51 @@ msgid "Do you want to mark %s as %sbought%s so that nobody else gifts it?"
 msgstr ""
 "Wil je %s markeren als %sgekocht%s zodat niemand anders dit cadeau koopt?"
 
-#: public/class-WP_Gift_Registry-public-old.php:192
 #: public/class-wp-gift-registry-public-old.php:186
 #: templates/wishlist--single-old.php:67
 msgid "No, Cancel"
 msgstr "Nee, annuleren"
 
-#: templates/wishlist--single-sprint.php:46 templates/wishlist--single.php:50
+#: templates/wishlist--single-sprint.php:46 templates/wishlist--single.php:78
 msgid "each"
 msgstr ""
 
-#: templates/wishlist--single-sprint.php:69 templates/wishlist--single.php:84
+#: templates/wishlist--single-sprint.php:69 templates/wishlist--single.php:121
 msgid "View"
 msgstr "Bekijk"
 
-#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:89
+#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:126
 msgid "Give"
 msgstr "Geven"
 
-#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:89
+#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:126
 msgid "Give Part"
 msgstr ""
 
-#: templates/wishlist--single.php:110
+#: templates/wishlist--single.php:147
 msgid "Mark gift as reserved?"
 msgstr "Markeren als gekocht?"
 
-#: templates/wishlist--single.php:111
+#: templates/wishlist--single.php:170
 msgid "Leave your name for the recipient:"
 msgstr ""
 
-#: templates/wishlist--single.php:115
+#: templates/wishlist--single.php:172
 msgid "Your name"
 msgstr ""
 
-#: templates/wishlist--single.php:119
+#: templates/wishlist--single.php:177
+msgid "Your email"
+msgstr ""
+
+#: templates/wishlist--single.php:183
+msgid "Personal message"
+msgstr ""
+
+#: templates/wishlist--single.php:188
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: templates/wishlist--single.php:120
+#: templates/wishlist--single.php:189
 msgid "Confirm"
 msgstr "Ja"
