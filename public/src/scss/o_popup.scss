@@ -101,6 +101,10 @@ section.wpgr-wishlist {
             line-height: 28px !important;
         }
 
+        &__parts {
+            display: none;
+        }
+
         &__desc {
             margin: 0 !important;
             margin-bottom: 1rem !important;
@@ -109,6 +113,49 @@ section.wpgr-wishlist {
             font-size: 14px !important;
             line-height: 22px !important;
             color: $c4-grey !important;
+        }
+
+        &__rangeslider {
+            &-wrapper {
+                display: flex;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                padding-bottom: 32px;
+
+                &.no-price {
+                    padding-bottom: 0;
+                }
+            }
+
+            &-parts {
+                margin-right: 20px;
+                //flex-grow: 0;
+                flex-shrink: 0;
+                white-space: nowrap;
+                font-size: 16px;
+                color: $c1-main;
+                align-self: center;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            &-result {
+                margin-left: 20px;
+                //flex-grow: 0;
+                flex-shrink: 0;
+                text-align: right;
+                white-space: nowrap;
+                font-size: 12px;
+                color: dimgrey;
+                align-self: center;
+            }
+
+            &-val {
+                font-weight: bold;
+                color: $c2-main;
+            }
         }
 
         &__buyer {

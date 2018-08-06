@@ -97,7 +97,7 @@ class WP_Gift_Registry_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main-admin.js', array( 'jquery' ), $this->version, true );
-		wp_enqueue_script( $this->plugin_name + '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, true );
+		wp_enqueue_script( $this->plugin_name . '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, true );
 
 	}
 
@@ -248,6 +248,14 @@ class WP_Gift_Registry_Admin {
 			'id'   => $prefix . 'shortcode_description',
 		) );
 
+		// General description about shortcode functionality
+  		$metabox->add_field( array(
+			'name' => __( 'Shortcode', 'wpgiftregistry' ),
+			'desc' => $shortcode_description,
+			'type' => 'title',
+			'id'   => $prefix . 'shortcode_description',
+		) );
+
 		// Wishes title
   		$metabox->add_field( array(
 			'name' => __( 'Wishes', 'wpgiftregistry' ),
@@ -343,6 +351,58 @@ class WP_Gift_Registry_Admin {
 	        'type' => 'text_url',
 	    ) );
 
+	    // Do you want to split this gift in parts?
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Split gift?', 'wpgiftregistry' ),
+	        'desc' => __( 'Do you want to split this gift into parts?', 'wpgiftregistry' ),
+	        'id'   => 'gift_has_parts',
+	        'type' => 'radio_inline',
+	        'options' => array(
+	            'true' => __( 'Yes', 'wpgiftregistry' ),
+	            'false' => __( 'No', 'wpgiftregistry' ),
+	        ),
+	        'default' => 'false',
+	    ) );
+
+	    // How many parts?
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'How many parts?', 'wpgiftregistry' ),
+	        'id'   => 'gift_parts_total',
+	        'type' => 'text_small',
+	        'attributes' => array(
+	        	'required' => true,
+	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	        	'data-conditional-value' => wp_json_encode( array('true') ),
+	        ),
+	    ) );
+
+	    // Plural Parts Label
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Plural Parts Label ', 'wpgiftregistry' ),
+	        'desc' => '<br><br>' . __( 'If your gift consists of 12 spoons for example, you can rename the parts label to "spoons".', 'wpgiftregistry'),
+	        'id'   => 'gift_parts_string',
+	        'type' => 'text_small',
+	        'default' => 'parts',
+	        'attributes' => array(
+	        	'required' => true,
+	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	        	'data-conditional-value' => wp_json_encode( array('true') ),
+	        ),
+	    ) );
+
+	    // Single Part Label
+	    $metabox->add_group_field( $group_field, array(
+	        'name' => __( 'Single Part Label', 'wpgiftregistry' ),
+	        'id'   => 'gift_part_string',
+	        'type' => 'text_small',
+	        'default' => 'part',
+	        'attributes' => array(
+	        	'required' => true,
+	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	        	'data-conditional-value' => wp_json_encode( array('true') ),
+	        ),
+	    ) );
+
 	    // Availability
 	    $metabox->add_group_field( $group_field, array(
 	        'name' => __( 'Availability', 'wpgiftregistry' ),
@@ -356,47 +416,47 @@ class WP_Gift_Registry_Admin {
 	        'default' => 'true',
 	    ) );
 
-	    // Who reserved this?
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
-	        'desc' => '',
-	        'id'   => 'gift_reserver',
-	        'type' => 'text_medium',
-	     	// 'attributes' => array(
-    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-    		// 	'data-conditional-value' => 'false',
-    		// ),
-	    ) );
+	    // // Who reserved this?
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
+	    //     'desc' => '',
+	    //     'id'   => 'gift_reserver',
+	    //     'type' => 'text_medium',
+	    //  	// 'attributes' => array(
+    	// 	// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+    	// 	// 	'data-conditional-value' => 'false',
+    	// 	// ),
+	    // ) );
 
 
 
-	    if ( isset($settings['show_email_field']) && $settings['show_email_field'] ) {
-		    // E-Mail
-		    $metabox->add_group_field( $group_field, array(
-		        'name' => __( 'Email', 'wpgiftregistry' ),
-		        'desc' => '',
-		        'id'   => 'gift_reserver_email',
-		        'type' => 'text_medium',
-		     	// 'attributes' => array(
-	    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-	    		// 	'data-conditional-value' => 'false',
-	    		// ),
-		    ) );
-	    }
+	    // if ( isset($settings['show_email_field']) && $settings['show_email_field'] ) {
+	   	//  // E-Mail
+	   	//  $metabox->add_group_field( $group_field, array(
+	   	//      'name' => __( 'Email', 'wpgiftregistry' ),
+	   	//      'desc' => '',
+	   	//      'id'   => 'gift_reserver_email',
+	   	//      'type' => 'text_medium',
+	   	//   	// 'attributes' => array(
+	    // 		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+	    // 		// 	'data-conditional-value' => 'false',
+	    // 		// ),
+		//  ) );
+	    // }
 
-		if ( isset($settings['show_message_field']) && $settings['show_message_field'] ) {
-		    // Message
-		    $metabox->add_group_field( $group_field, array(
-		        'name' => __( 'Message', 'wpgiftregistry' ),
-		        'desc' => '',
-		        'id'   => 'gift_reserver_message',
-		        'type' => 'textarea_small',
-		     	// 'attributes' => array(
-	    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-	    		// 	'data-conditional-value' => 'false',
-	    		// ),
-		    ) );
-		}
+		// if ( isset($settings['show_message_field']) && $settings['show_message_field'] ) {
+		//     // Message
+		//     $metabox->add_group_field( $group_field, array(
+		//         'name' => __( 'Message', 'wpgiftregistry' ),
+		//         'desc' => '',
+		//         'id'   => 'gift_reserver_message',
+		//         'type' => 'textarea_small',
+		//      	// 'attributes' => array(
+		//    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
+		//    		// 	'data-conditional-value' => 'false',
+		//    		// ),
+		//     ) );
+		// }
 
 	    // Shortcode Metabox
 	    $shortcode_metabox = new_cmb2_box( array(
@@ -413,10 +473,131 @@ class WP_Gift_Registry_Admin {
 			'type' => 'title',
 			'id'   => $prefix . 'shortcode',
 		) );
-
   	}
 
-  	// Add a custom shortcode column
+  	/**
+  	 * Add a metabox to our cpt for showing which gifts have been reserved yet
+  	 *
+  	 * @since 1.4.0
+  	 */
+  	public function add_reserved_gift_metabox() {
+  		add_meta_box( 'wpgr_reserved_gifts', __( 'Reserved Gifts', 'wpgiftregistry' ), array( $this, 'reserved_gifts_meta_box' ), 'wpgr_wishlist', 'normal', 'high' );
+  	}
+
+
+  	/**
+	 * Add a custom shortcode column
+	 *
+	 * @since 1.4.0
+	 */
+  	public function reserved_gifts_meta_box( $post ) {
+
+  		$reserved_gifts = get_post_meta($post->ID, 'wpgr_reserved_gifts', true);
+  		$wishlist = get_post_meta($post->ID, 'wpgr_wishlist', true);
+  		$settings = get_option('wpgr_settings');
+  		$gifts_reserved = false;
+  		$show_email = isset($settings['show_email_field']) && $settings['show_email_field'];
+  		$show_message = isset($settings['show_message_field']) && $settings['show_message_field'];
+  		?>
+
+  		<div class="gifts-reserved-metabox">
+  			<table>
+  				<thead>
+  					<tr>
+	  					<th>Gift</th>
+	  					<th># of parts</th>
+	  					<th>Reserved by</th>
+
+	  				<?php if ( $show_email ): ?>
+	  					<th>Email</th>
+	  				<?php endif; ?>
+	  				<?php if ( $show_message ): ?>
+	  					<th>Message</th>
+	  				<?php endif; ?>
+
+	  					<th>Date</th>
+	  				</tr>
+	  			</thead>
+
+	  		<?php
+	  			// output the reserver's name from our old format here
+	  			foreach ( $wishlist as $gift ):
+	  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
+	  					$gifts_reserved = true; ?>
+
+	  					<tr>
+		  					<td><?= $gift['gift_title'] ?></td>
+		  					<td>1 / 1</td>
+		  					<td><?= $gift['gift_reserver'] ?></td>
+
+		  				<?php if ( $show_email ): ?>
+		  					<td><?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?></td>
+		  				<?php endif; ?>
+		  				<?php if ( $show_message ): ?>
+		  					<td><?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?></td>
+		  				<?php endif; ?>
+
+		  					<td>–</td>
+		  				</tr>
+	  		<?php
+	  				endif;
+	  			endforeach;
+
+	  		?>
+
+
+	  		<?php if ( !empty($reserved_gifts) ): ?>
+  				<?php foreach ( $reserved_gifts as $g ): ?>
+  					<tr>
+  						<td><?= $g['gift_title'] ?></td>
+	  					<?php
+	  						$total = count($g['gift_reservations']);
+	  						$count = 0;
+	  					?>
+	  					<?php foreach ( $g['gift_reservations'] as $r ):
+	  						$count++;
+	  					?>
+	  						<?php if ($count > 1): ?>
+	  						<tr>
+	  							<td></td>
+	  						<?php endif; ?>
+
+		  						<td><?= $r['gift_parts'] ?> / <?= $g['gift_parts_total'] ?></td>
+		  						<td><?= $r['gift_reserver'] ?></td>
+
+		  					<?php if ( $show_email ): ?>
+		  						<td><?= $r['gift_reserver_email'] ?></td>
+		  					<?php endif; ?>endwhile
+		  					<?php if ( $show_message ): ?>
+		  						<td><?= $r['gift_reserver_message'] ?></td>
+		  					<?php endif; ?>
+
+		  						<td><?= date_i18n('d.m.Y, H:i' ,strtotime($r['gift_reservation_date'])) ?></td>
+		  					<?php if ($count > 1): ?>
+		  					</tr>
+		  					<?php endif; ?>
+		  				<?php endforeach; ?>
+	  				</tr>
+  				<?php endforeach; ?>
+  			<?php elseif ( !$gifts_reserved ): ?>
+  				<tr>
+  					<td colspan="6">
+  						<?= __('No gifts reserved yet!', 'wpgiftregistry') ?>
+  					</td>
+  				</tr>
+
+  			<?php endif; ?>
+  			</table>
+  		</div>
+  		<?php
+  	}
+
+
+  	/**
+	 * Add a custom shortcode column
+	 *
+	 * @since    1.3
+	 */
   	public function add_admin_columns() {
 
   		function add_shortcode_column( $columns ) {

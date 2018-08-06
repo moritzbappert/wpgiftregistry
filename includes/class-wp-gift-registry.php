@@ -127,9 +127,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			}
 
 			// Include CMB2 Conditionals
-			// if ( file_exists( __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php' ) ) {
-			//   require_once __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php';
-			// }
+			if ( file_exists( __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php' ) ) {
+			  require_once __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php';
+			}
 
 			// Include plugin usage tracker
 			if ( file_exists( __DIR__ . '/libraries/wp-plugin-usage-tracker/wp-plugin-usage-tracker.php' ) ) {
@@ -180,6 +180,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 			// Add metaboxes to our custom post type
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes' );
+
+			// Add reserved gift metabox to our cpt
+			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_reserved_gift_metabox' );
 
 			// Add custom field type for unique ids
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_custom_cmb2_fields' );

@@ -2613,4 +2613,31 @@ Sidebar Placement Adjustments
   display: none;
 }
 
+.gifts-reserved-metabox table {
+  width: 100%;
+  margin: 12px auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.gifts-reserved-metabox tr {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.gifts-reserved-metabox th {
+  font-size: 14px;
+  color: #333333;
+  background: rgba(0, 0, 0, 0.07);
+  text-align: left;
+  line-height: 1.4;
+  padding: 16px 8px;
+}
+
+.gifts-reserved-metabox td {
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.4;
+  padding: 16px 8px;
+}
+
 /*# sourceMappingURL=maps/style-admin.css.map */

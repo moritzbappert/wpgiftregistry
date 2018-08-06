@@ -26,7 +26,7 @@ var mPopup = (function($) {
     ******************************************************************/
 
     // close popup on click on body
-    $body.on('click', function(e) {
+    $body.on('mousedown', function(e) {
         checkIfPopupWasClicked(e);
     });
 
@@ -179,6 +179,13 @@ var mPopup = (function($) {
         $popup.find('#your_name2').val('');
         $popup.find('#your_email').val('');
         $popup.find('#your_message').val('');
+        $popup.find('.wpgr-o_popup__parts').hide();
+        $popup.find('.wpgr-o_popup__rangeslider').val('');
+        $popup.find('.wpgr-o_popup__rangeslider').rangeslider('destroy');
+        $popup.find('.rangeslider').remove();
+        $popup.find('.rangeslider__min').remove();
+        $popup.find('.wpgr-o_popup__rangeslider-parts').empty();
+        $popup.find('.wpgr-o_popup__rangeslider-wrapper').removeClass('no-price');
         $popup.removeAttr('data-wish-id');
         $popup.removeAttr('data-wishlist-id');
     }
@@ -187,6 +194,10 @@ var mPopup = (function($) {
         var $currentGiftPopup = $(e.target).closest('.wpgr-o_popup');
         var giftID = $currentGiftPopup.data('wish-id');
         var wishlistID = $currentGiftPopup.data('wishlist-id');
+        var hasParts = $currentGiftPopup.data('has-parts');
+        var rangeValue = $currentGiftPopup.find('#no_of_parts').val();
+        var noOfParts = rangeValue - $currentGiftPopup.data('parts-given');
+        var totalParts = $currentGiftPopup.data('parts');
         var reserverName = $currentGiftPopup.find('#your_name2').val();
         var reserverEmail = $currentGiftPopup.find('#your_email').val();
         var reserverMessage = $currentGiftPopup.find('#your_message').val();
@@ -202,6 +213,8 @@ var mPopup = (function($) {
                 wishlist_id: wishlistID,
                 gift_id: giftID,
                 gift_availability: 'false',
+                gift_has_parts: hasParts,
+                gift_parts_reserved: noOfParts,
                 gift_reserver: reserverName,
                 gift_reserver_email: reserverEmail,
                 gift_reserver_message: reserverMessage,
@@ -209,8 +222,17 @@ var mPopup = (function($) {
         })
         .done(function(response) {
 
-            // deactivate card
-            $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
+            if ( hasParts ) {
+                // update progress bar
+                $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress span').width(rangeValue / totalParts * 100 + '%');
+                $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress-wrapper > span').text(rangeValue);
+            }
+
+            // only if all parts given
+            if ( rangeValue == totalParts || !hasParts ) {
+                // deactivate card
+                $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
+            }
 
         })
         .fail(function() {

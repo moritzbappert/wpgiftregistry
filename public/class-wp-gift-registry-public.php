@@ -111,7 +111,9 @@ class WP_Gift_Registry_Public {
 
 
 		// new scripts
-		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name . '-vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.min.js', array( 'jquery' ), $this->version, true );
+
+		wp_enqueue_script( $this->plugin_name . '-main', plugin_dir_url( __FILE__ ) . 'js/main.min.js', array( 'jquery' ), $this->version, true );
 
 		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 		wp_localize_script( $this->plugin_name . '-main', 'variables', array(
@@ -147,6 +149,8 @@ class WP_Gift_Registry_Public {
 					$wishlist = get_post_meta($atts['id'], 'wpgr_wishlist', true);
 
 					if ( !empty( $wishlist ) ) {
+
+						$wishlist_id = $atts['id'];
 						require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
 					}
 
@@ -185,6 +189,23 @@ class WP_Gift_Registry_Public {
 		});
 	}
 
+	/**
+	 * Get the number of parts of a gift that are already reserved
+	 *
+	 * @since    1.0.0
+	 */
+	public function get_reserved_parts( $wishlist_id, $gift_id ) {
+
+		$reserved_gifts = get_post_meta($wishlist_id, 'wpgr_reserved_gifts', true);
+		$gift = isset($reserved_gifts[$gift_id]) ? $reserved_gifts[$gift_id] : [];
+
+		if ( isset($gift['gift_parts_reserved']) ) {
+			return $gift['gift_parts_reserved'];
+		}
+
+		return 0;
+	}
+
 
 	/**
 	 * Updates the gift availability (called through AJAX)
@@ -203,19 +224,40 @@ class WP_Gift_Registry_Public {
 			$wishlist_id 			= $_POST['wishlist_id'];
 			$gift_id 				= $_POST['gift_id'];
 			$gift_availability 		= $_POST['gift_availability'];
+			$gift_has_parts 		= $_POST['gift_has_parts'];
+			$gift_parts_reserved 	= $_POST['gift_parts_reserved'];
 			$gift_reserver			= $_POST['gift_reserver'];
 			$gift_reserver_email	= $_POST['gift_reserver_email'];
 			$gift_reserver_message	= $_POST['gift_reserver_message'];
 
 			$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
+			$wishlist = !empty($wishlist) ? $wishlist : [];
 			$to_be_updated = array_search($gift_id, array_column($wishlist, 'gift_id'));
 
-			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
-			$wishlist[$to_be_updated]['gift_reserver'] = $gift_reserver;
-			$wishlist[$to_be_updated]['gift_reserver_email'] = $gift_reserver_email;
-			$wishlist[$to_be_updated]['gift_reserver_message'] = $gift_reserver_message;
+			if ( $gift_has_parts ) {
+				$gift_availability = (static::get_reserved_parts($wishlist_id, $gift_id) + $gift_parts_reserved != $wishlist[$to_be_updated]['gift_parts_total']);
+			}
 
+			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
 			update_post_meta($wishlist_id, 'wpgr_wishlist', $wishlist);
+
+			$reserved_gifts = get_post_meta($wishlist_id, 'wpgr_reserved_gifts', true);
+			$reserved_gifts = !empty($reserved_gifts) ? $reserved_gifts : [];
+			$reserved_parts = isset($reserved_gifts[$gift_id]['gift_parts_reserved']) ? $reserved_gifts[$gift_id]['gift_parts_reserved'] : 0;
+
+			$reserved_gifts[$gift_id]['gift_id'] = $gift_id;
+			$reserved_gifts[$gift_id]['gift_title'] = $wishlist[$to_be_updated]['gift_title'];
+			$reserved_gifts[$gift_id]['gift_parts_reserved'] = $reserved_parts + $gift_parts_reserved;
+			$reserved_gifts[$gift_id]['gift_parts_total'] = $wishlist[$to_be_updated]['gift_parts_total'];
+
+			$reserved_gifts[$gift_id]['gift_reservations'][] = [
+				'gift_reserver' 		=> $gift_reserver,
+				'gift_parts'			=> $gift_parts_reserved,
+				'gift_reserver_email' 	=> $gift_reserver_email,
+				'gift_reserver_message' => $gift_reserver_message,
+				'gift_reservation_date'	=> date('YmdHis'),
+			];
+			update_post_meta($wishlist_id, 'wpgr_reserved_gifts', $reserved_gifts);
 
 		} else {
 			// update old wishlist type (managed through options page)
@@ -239,25 +281,34 @@ class WP_Gift_Registry_Public {
 		die();
 	}
 
-
-
-}
-
-
-
-
-/**
- * Transforms Links into Affiliate Links
- * @since    1.0.0
- */
-	function transform_to_affiliate_link( $link ) {
+	/**
+	 * Transforms Links into Affiliate Links
+	 * @since    1.0.0
+	 */
+	public function transform_to_affiliate_link( $link ) {
 		$link = htmlspecialchars( $link ); // This is the original unmodified link that is entered by the user.
-		$pid = substr(strstr($link,"p/"),2,10);
 
+		$link_parts = parse_url($link);
+
+		//
+		// AMAZON
+		//
+
+		$pid = substr(strstr($link,"p/"),2,10);
 		if ( strpos( $link, 'amazon.com' ) ) {
 			// US
-			$affiliate = "?tag=3qbik-20";
-	    return "http://www.amazon.com/gp/product/" . $pid . $affiliate;
+			$affiliate = "?tag=dreiqbik09-20";
+	    	return "http://www.amazon.com/gp/product/" . $pid . $affiliate;
+
+	    } else if ( strpos( $link, 'amazon.ca' ) ) {
+			// Canada
+			$affiliate = "?tag=dreiqbik01-20";
+			return "http://www.amazon.ca/gp/product/" . $pid . $affiliate;
+
+	    } else if ( strpos( $link, 'amazon.com.au' ) ) {
+			// Australia
+			$affiliate = "?tag=dreiqbik-22";
+			return "http://www.amazon.com.au/gp/product/" . $pid . $affiliate;
 
 		} else if ( strpos( $link, 'amazon.de' ) ) {
 			// Germany
@@ -283,10 +334,85 @@ class WP_Gift_Registry_Public {
 			// Italy
 			$affiliate = "?tag=dr0e7-21";
 			return "http://www.amazon.it/gp/product/" . $pid . $affiliate;
+
+
+		// bol.com
 		} else if ( strpos( $link, 'bol.com') ) {
-			// Netherlands
 			return "http://partnerprogramma.bol.com/click/click?p=1&t=url&s=48680&f=TXL&url=" . $link . "&name=plugin";
+
+		// babyland.se
+		} else if ( strpos( $link, 'babyland.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1066444612&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// coolstuff.se
+		} else if ( strpos( $link, 'coolstuff.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1099371260&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// designtorget.se
+		} else if ( strpos( $link, 'designtorget.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1105652948&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// lifestylestore.se
+		} else if ( strpos( $link, 'lifestylestore.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=785123591&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// storochliten.se
+		} else if ( strpos( $link, 'storochliten.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1060728464&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// bagarenochkocken.se
+		} else if ( strpos( $link, 'bagarenochkocken.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1048502774&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// cervera.se
+		} else if ( strpos( $link, 'cervera.se' ) ) {
+			return "https://track.adtraction.com/t/t?a=1144356953&as=1253179067&t=2&tk=1&url=" . $link;
+
+		// babykadowinkel.nl
+		} else if ( strpos( $link, 'babykadowinkel.nl' ) ) {
+			return "http://www.babykadowinkel.nl/website/Includes/TradeTracker/?tt=8977_12_311475_&r=" . wpgr_encode_url($link);
+
+		// baby-schoenen.nl
+		} else if ( strpos( $link, 'baby-schoenen.nl' ) ) {
+			return "https://www.baby-schoenen.nl/babyschoenen/?tt=8063_12_311475_&r=" . wpgr_encode_url($link);
+
+		// coolshop.nl
+		} else if ( strpos( $link, 'coolshop.nl' ) ) {
+			return "http://tc.tradetracker.net/?c=24112&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
+		// geboorte-feestwinkel.nl
+		} else if ( strpos( $link, 'geboorte-feestwinkel.nl' ) ) {
+			return "http://www.geboorte-feestwinkel.nl/?tt=3595_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
+		// hema.nl
+		} else if ( strpos( $link, 'hema.nl' ) ) {
+			return "http://tc.tradetracker.net/?c=25436&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
+		// kindergoed.com
+		} else if ( strpos( $link, 'kindergoed.com' ) ) {
+			return "http://www.kindergoed.com/kinderkleding/?tt=18956_12_311475_&r=" . wpgr_encode_url($link);
+
+		// littlelegends.nl
+		} else if ( strpos( $link, 'littlelegends.nl' ) ) {
+			return "https://www.littlelegends.nl/kinderen/?tt=24164_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
+		// minimeis.com
+		} else if ( strpos( $link, 'minimeis.com' ) ) {
+			return "https://minimeis.com/drager/?tt=27002_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
+		// plaspotje.nl
+		} else if ( strpos( $link, 'plaspotje.nl' ) ) {
+			return "https://www.plaspotje.nl/website/Includes/TradeTracker/?tt=27771_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+
 		}
 
 		return $link;
 	}
+
+	function wpgr_encode_url($string) {
+	    $replacements = array('%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+	    $entities = array('!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
+	    return str_replace($entities, $replacements, urlencode($string));
+	}
+
+}

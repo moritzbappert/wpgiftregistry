@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 					}
 				?>
 				<div class="price"><?php echo $price_string; ?></div>
-				<?php echo (!empty($gift['gift_url']) ? '<a href="' . transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>'); ?>
+				<?php echo (!empty($gift['gift_url']) ? '<a href="' . static::transform_to_affiliate_link( $gift['gift_url'] ) . '" class="buy-button' . $availability_class . '" target="_blank">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>' : '<a href="javascript:void(0)" class="buy-button' . $availability_class . '">' . __('VIEW/BUY', 'wpgiftregistry') . '</a>'); ?>
 			</div>
 		</li>
 	<?php

@@ -55,6 +55,102 @@ body.no-scroll {
   overflow-y: hidden !important;
 }
 
+section.wpgr-wishlist .wpgr-m_btn,
+section.wpgr-wishlist a.wpgr-m_btn {
+  transition: background-color 0.2s ease-in-out !important;
+  display: inline-block !important;
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 10px 16px !important;
+  transition: 0.1s ease-in-out !important;
+  background-color: #73cbc7 !important;
+  border-bottom: 2px solid #52aaa6 !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  text-align: left;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn:visited, section.wpgr-wishlist .wpgr-m_btn:active, section.wpgr-wishlist .wpgr-m_btn:link,
+section.wpgr-wishlist a.wpgr-m_btn:visited,
+section.wpgr-wishlist a.wpgr-m_btn:active,
+section.wpgr-wishlist a.wpgr-m_btn:link {
+  color: #ffffff !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn:hover,
+section.wpgr-wishlist a.wpgr-m_btn:hover {
+  outline: 0 !important;
+  background-color: #52aaa6 !important;
+  color: #ffffff !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn:focus,
+section.wpgr-wishlist a.wpgr-m_btn:focus {
+  outline: 0 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn-close {
+  transition: background-color 0.2s ease-in-out !important;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1) !important;
+  background-color: #73cbc7 !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+}
+
+@media only screen and (min-width: 481px) {
+  section.wpgr-wishlist .wpgr-m_btn-close {
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  section.wpgr-wishlist .wpgr-m_btn-close {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+section.wpgr-wishlist .wpgr-m_btn-close:hover {
+  background-color: #52aaa6 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn-close:focus {
+  outline: 0 !important;
+}
+
+section.wpgr-wishlist .wpgr-m_btn-close-icon {
+  display: block !important;
+  background-image: url("../src/img/ic_close_48px-white.svg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 26px !important;
+  height: 26px !important;
+  margin: 0 auto !important;
+}
+
+@media only screen and (min-width: 481px) {
+  section.wpgr-wishlist .wpgr-m_btn-close-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+@media only screen and (min-width: 961px) {
+  section.wpgr-wishlist .wpgr-m_btn-close-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
 section.wpgr-wishlist .wpgr-m_card {
   box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
   position: relative !important;
@@ -189,6 +285,7 @@ section.wpgr-wishlist .wpgr-m_card__heading {
   margin-bottom: 0 !important;
   font-family: "Roboto", sans-serif !important;
   font-size: 17px !important;
+  letter-spacing: normal !important;
   line-height: 22px !important;
   font-weight: 500 !important;
   text-align: left !important;
@@ -249,6 +346,43 @@ section.wpgr-wishlist .wpgr-m_card__price-icon {
   display: none;
 }
 
+section.wpgr-wishlist .wpgr-m_card__progress {
+  position: relative;
+  display: inline-block;
+  margin-right: 6px;
+  width: 80px;
+  height: 6px;
+  background: #DCE0E3;
+  border-radius: 3px;
+  vertical-align: 1px;
+  overflow: hidden;
+}
+
+section.wpgr-wishlist .wpgr-m_card__progress-wrapper {
+  font-size: 12px;
+  color: dimgrey;
+  float: left;
+  margin-top: 16px;
+}
+
+section.wpgr-wishlist .wpgr-m_card__progress-wrapper > span {
+  font-weight: bold;
+  color: #52aaa6;
+}
+
+section.wpgr-wishlist .wpgr-m_card__progress-wrapper + .wpgr-m_card__content {
+  margin-top: 10px;
+}
+
+section.wpgr-wishlist .wpgr-m_card__progress > span {
+  display: block;
+  height: 100%;
+  background-color: #73cbc7;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
 section.wpgr-wishlist .wpgr-m_card__content {
   transition: opacity 0.3s ease-in-out !important;
   display: none;
@@ -266,6 +400,7 @@ section.wpgr-wishlist .wpgr-m_card__desc {
   font-family: "Roboto", sans-serif !important;
   font-weight: 400 !important;
   font-size: 15px !important;
+  letter-spacing: normal !important;
   line-height: 22px !important;
   color: #a0a0a0 !important;
 }
@@ -408,8 +543,8 @@ section.wpgr-wishlist .wpgr-m_card--bought {
   opacity: 0.6 !important;
 }
 
-section.wpgr-wishlist .wpgr-m_card--bought.wpgr-m_card--nocontent .wpgr-m_card__heading {
-  margin-bottom: 0em !important;
+section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__progress-wrapper {
+  margin-top: 0;
 }
 
 section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__price-wrapper {
@@ -463,100 +598,147 @@ section.wpgr-wishlist .wpgr-m_card--bought .wpgr-m_card__toggle:hover {
   background-color: #5e5e5e !important;
 }
 
-section.wpgr-wishlist .wpgr-m_btn,
-section.wpgr-wishlist a.wpgr-m_btn {
-  transition: background-color 0.2s ease-in-out !important;
-  display: inline-block !important;
-  font-family: "Roboto", sans-serif !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  border: none !important;
-  border-radius: 5px !important;
-  padding: 10px 16px !important;
-  transition: 0.1s ease-in-out !important;
-  background-color: #73cbc7 !important;
-  border-bottom: 2px solid #52aaa6 !important;
-  font-size: 12px !important;
-  color: #ffffff !important;
-  text-align: left;
-  box-shadow: none !important;
-  text-decoration: none !important;
+.rangeslider,
+.rangeslider__fill {
+  display: block;
+  border-radius: 10px;
 }
 
-section.wpgr-wishlist .wpgr-m_btn:visited, section.wpgr-wishlist .wpgr-m_btn:active, section.wpgr-wishlist .wpgr-m_btn:link,
-section.wpgr-wishlist a.wpgr-m_btn:visited,
-section.wpgr-wishlist a.wpgr-m_btn:active,
-section.wpgr-wishlist a.wpgr-m_btn:link {
-  color: #ffffff !important;
+.rangeslider {
+  background: #DCE0E3;
+  position: relative;
 }
 
-section.wpgr-wishlist .wpgr-m_btn:hover,
-section.wpgr-wishlist a.wpgr-m_btn:hover {
-  outline: 0 !important;
-  background-color: #52aaa6 !important;
-  color: #ffffff !important;
+.rangeslider--horizontal {
+  height: 8px;
+  width: 100%;
+  align-self: center;
 }
 
-section.wpgr-wishlist .wpgr-m_btn:focus,
-section.wpgr-wishlist a.wpgr-m_btn:focus {
-  outline: 0 !important;
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
 }
 
-section.wpgr-wishlist .wpgr-m_btn-close {
-  transition: background-color 0.2s ease-in-out !important;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1) !important;
-  background-color: #73cbc7 !important;
-  width: 40px !important;
-  height: 40px !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 50% !important;
+.rangeslider--horizontal .rangeslider__handle {
+  top: -6px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
 }
 
-@media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_btn-close {
-    width: 46px !important;
-    height: 46px !important;
-  }
+.rangeslider--horizontal .rangeslider__handle__value {
+  transition: background-color .2s, box-shadow .1s, transform .1s;
+  box-sizing: border-box;
+  min-width: 36px;
+  height: 24px;
+  padding: 1px 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #73cbc7;
+  border-radius: 50px;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 32px;
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 1px solid #4ebdb8;
+  /* &:after {
+          content: " cm";
+        } */
 }
 
-@media only screen and (min-width: 961px) {
-  section.wpgr-wishlist .wpgr-m_btn-close {
-    width: 50px !important;
-    height: 50px !important;
-  }
+.rangeslider--horizontal .rangeslider__handle__value:before {
+  transition: border-top-color .2s;
+  position: absolute;
+  bottom: 22px;
+  left: calc(50% - 10px);
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 9px solid #73cbc7;
 }
 
-section.wpgr-wishlist .wpgr-m_btn-close:hover {
-  background-color: #52aaa6 !important;
+.rangeslider--vertical {
+  width: 20px;
+  min-height: 150px;
+  max-height: 100%;
 }
 
-section.wpgr-wishlist .wpgr-m_btn-close:focus {
-  outline: 0 !important;
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%;
 }
 
-section.wpgr-wishlist .wpgr-m_btn-close-icon {
-  display: block !important;
-  background-image: url("../src/img/ic_close_48px-white.svg") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  width: 26px !important;
-  height: 26px !important;
-  margin: 0 auto !important;
+.rangeslider--vertical .rangeslider__handle {
+  left: -10px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
 }
 
-@media only screen and (min-width: 481px) {
-  section.wpgr-wishlist .wpgr-m_btn-close-icon {
-    width: 30px !important;
-    height: 30px !important;
-  }
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
 }
 
-@media only screen and (min-width: 961px) {
-  section.wpgr-wishlist .wpgr-m_btn-close-icon {
-    width: 32px !important;
-    height: 32px !important;
-  }
+.rangeslider__fill {
+  background: #73cbc7;
+  position: absolute;
+}
+
+.rangeslider__handle {
+  background: white;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: #52aaa6;
+  border-radius: 50%;
+  box-shadow: 0px -1px 2px 1px rgba(255, 255, 255, 0.6);
+}
+
+.rangeslider__handle:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  border-radius: 50%;
+}
+
+.rangeslider__handle:active,
+.rangeslider--active .rangeslider__handle {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4xMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==");
+  background-size: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.12));
+}
+
+input[type="range"]:focus + .rangeslider__handle {
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+.rangeslider__min {
+  height: 8px;
+  align-self: center;
+  background: #52aaa6;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.rangeslider__min + .rangeslider,
+.rangeslider__min + .rangeslider .rangeslider__fill {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 section.wpgr-wishlist .wpgr-o_popup {
@@ -662,6 +844,10 @@ section.wpgr-wishlist .wpgr-o_popup__question {
   line-height: 28px !important;
 }
 
+section.wpgr-wishlist .wpgr-o_popup__parts {
+  display: none;
+}
+
 section.wpgr-wishlist .wpgr-o_popup__desc {
   margin: 0 !important;
   margin-bottom: 1rem !important;
@@ -670,6 +856,45 @@ section.wpgr-wishlist .wpgr-o_popup__desc {
   font-size: 14px !important;
   line-height: 22px !important;
   color: #a0a0a0 !important;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-wrapper {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 32px;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-wrapper.no-price {
+  padding-bottom: 0;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-parts {
+  margin-right: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #73cbc7;
+  align-self: center;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-parts span {
+  font-weight: bold;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-result {
+  margin-left: 20px;
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 12px;
+  color: dimgrey;
+  align-self: center;
+}
+
+section.wpgr-wishlist .wpgr-o_popup__rangeslider-val {
+  font-weight: bold;
+  color: #52aaa6;
 }
 
 section.wpgr-wishlist .wpgr-o_popup__buyer {
