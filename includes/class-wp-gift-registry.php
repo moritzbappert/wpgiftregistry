@@ -196,6 +196,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Init plugin usage tracker
 			$this->loader->add_action( 'init', $plugin_admin, 'track_plugin_usage' );
 
+			// Hook ajax action for resetting reserved gift parts
+			$this->loader->add_action( 'wp_ajax_reset_reserved_parts', $plugin_admin, 'reset_reserved_parts' );
+
 
 		// Old version stuff for compatibility
 

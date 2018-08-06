@@ -79,4 +79,30 @@ var adminJS = (function($) {
         .on( 'keyup', replaceOnKeyUp );
     replaceTitles();
 
+    $('a#reset-reserved-parts').on('click', function(e) {
+        e.preventDefault();
+
+        var $button = $(this);
+
+        var giftID = $button.parents('.cmb-field-list').find('.cmb2-id-wpgr-wishlist-2-gift-id .cmb2_unique_id').val();
+        var wishlistID = $button.data('wishlist');
+        var nonce = $button.data('nonce');
+
+        $.ajax({
+            url: variables.ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'reset_reserved_parts',
+                wishlist_id: wishlistID,
+                gift_id: giftID,
+                nonce: nonce,
+            },
+        }).done(function() {
+            $button.after("&nbsp;<span style='color: #0073aa'>✓</span>");
+            $('.' + giftID).remove();
+            console.log('.' + giftID);
+        });
+    });
+
 })(jQuery);

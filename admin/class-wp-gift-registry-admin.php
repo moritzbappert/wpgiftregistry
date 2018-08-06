@@ -99,6 +99,11 @@ class WP_Gift_Registry_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/main-admin.js', array( 'jquery' ), $this->version, true );
 		wp_enqueue_script( $this->plugin_name . '_vendor', plugin_dir_url( __FILE__ ) . 'js/vendor/vendor.js', array(), $this->version, true );
 
+		// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
+		wp_localize_script( $this->plugin_name, 'variables', array(
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		) );
+
 	}
 
 
@@ -416,6 +421,14 @@ class WP_Gift_Registry_Admin {
 	        'default' => 'true',
 	    ) );
 
+	    // Reset reserved parts for this gift
+	    $metabox->add_group_field( $group_field, array(
+			'name' => '',
+			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . $_GET['post'] . '" href="#" class="button">Reset Reserved Parts</a>',
+			'type' => 'title',
+			'id'   => 'gift_reset_parts',
+		) );
+
 	    // // Who reserved this?
 	    // $metabox->add_group_field( $group_field, array(
 	    //     'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
@@ -525,7 +538,7 @@ class WP_Gift_Registry_Admin {
 	  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
 	  					$gifts_reserved = true; ?>
 
-	  					<tr>
+	  					<tr class="<?= $gift['gift_id'] ?>">
 		  					<td><?= $gift['gift_title'] ?></td>
 		  					<td>1 / 1</td>
 		  					<td><?= $gift['gift_reserver'] ?></td>
@@ -548,7 +561,7 @@ class WP_Gift_Registry_Admin {
 
 	  		<?php if ( !empty($reserved_gifts) ): ?>
   				<?php foreach ( $reserved_gifts as $g ): ?>
-  					<tr>
+  					<tr class="<?= $g['gift_id'] ?>">
   						<td><?= $g['gift_title'] ?></td>
 	  					<?php
 	  						$total = count($g['gift_reservations']);
@@ -558,7 +571,7 @@ class WP_Gift_Registry_Admin {
 	  						$count++;
 	  					?>
 	  						<?php if ($count > 1): ?>
-	  						<tr>
+	  						<tr class="<?= $g['gift_id'] ?>">
 	  							<td></td>
 	  						<?php endif; ?>
 
@@ -907,6 +920,27 @@ class WP_Gift_Registry_Admin {
 		$tracker->init();
 	}
 
+	/**
+	 * Reset reserved gift parts
+	 */
+	public function reset_reserved_parts() {
+
+		$nonce 			= $_POST['nonce'];
+		$wishlist_id 	= $_POST['wishlist_id'];
+		$gift_id 		= $_POST['gift_id'];
+
+		if ( !wp_verify_nonce( $nonce, 'wpgr_reset_parts' ) ) {
+			die ( 'Busted!');
+		}
+
+		$reserved_gifts = get_post_meta($wishlist_id, 'wpgr_reserved_gifts', true);
+
+		unset($reserved_gifts[$gift_id]);
+
+		update_post_meta($wishlist_id, 'wpgr_reserved_gifts', $reserved_gifts);
+
+		die();
+	}
 
 
 	/**
