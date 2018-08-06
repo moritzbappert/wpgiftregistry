@@ -567,7 +567,7 @@ class WP_Gift_Registry_Admin {
 
 		  					<?php if ( $show_email ): ?>
 		  						<td><?= $r['gift_reserver_email'] ?></td>
-		  					<?php endif; ?>endwhile
+		  					<?php endif; ?>
 		  					<?php if ( $show_message ): ?>
 		  						<td><?= $r['gift_reserver_message'] ?></td>
 		  					<?php endif; ?>

@@ -15,7 +15,20 @@ $settings = get_option('wpgr_settings');
     <div class="wpgr-wishlist__inner">
         <?php
 
-            foreach ( $wishlist as $gift ):
+            // put given gifts to the end of the list
+            $available = [];
+            $unavailable = [];
+            foreach ( $wishlist as $gift ) {
+                if ( $gift['gift_availability'] == 'true' ) {
+                    $available[] = $gift;
+                } else {
+                    $unavailable[] = $gift;
+                }
+            }
+            $sorted_wishlist = array_merge($available, $unavailable);
+
+
+            foreach ( $sorted_wishlist as $gift ):
                 $is_available = $gift['gift_availability'] == 'true';
                 $has_buyer = !empty($gift['gift_reserver']);
                 $raw_gift_price = !empty( $gift['gift_price'] ) ? $gift['gift_price'] : 0;
