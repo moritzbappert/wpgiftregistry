@@ -36,6 +36,7 @@ var adminJS = (function($) {
         .on( 'keyup', replaceOnKeyUp );
     replaceTitles();
 
+    // Reset reserved gift parts
     $('a#reset-reserved-parts').on('click', function(e) {
         e.preventDefault();
 
@@ -60,6 +61,19 @@ var adminJS = (function($) {
             $('.' + giftID).remove();
             console.log('.' + giftID);
         });
+    });
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+
+    // Copy shortcode to clipboard
+    $('.copy-to-clipboard').on('click', function(){
+        copyToClipboard($('code.shortcode'));
     });
 
 })(jQuery);

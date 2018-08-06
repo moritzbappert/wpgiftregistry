@@ -2603,13 +2603,30 @@ Sidebar Placement Adjustments
   font-weight: bold;
 }
 
-#wpgr-shortcode > code {
+.cmb2-id-wpgr-shortcode {
+  padding: 0 !important;
+}
+
+.cmb2-id-wpgr-shortcode code.shortcode {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 1em;
   color: #fff;
   background-color: #ffa393;
   font-size: 20px;
   font-weight: bold;
   font-style: normal;
-  padding: 1em;
+}
+
+.cmb2-id-wpgr-shortcode p {
+  font-style: normal;
+  color: #444;
+  padding-bottom: 0 !important;
+}
+
+.cmb2-id-wpgr-shortcode .button {
+  margin-top: 20px;
 }
 
 .cmb-type-unique-id {

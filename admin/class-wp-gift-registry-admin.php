@@ -243,7 +243,7 @@ class WP_Gift_Registry_Admin {
 			// 'classes_cb' => 'yourprefix_add_some_classes', // Add classes through a callback.
 		) );
 
-  		$shortcode_description = sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), "<code>[wishlist id='" . $metabox->object_id() . "']</code>" );
+  		$shortcode_description = sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), "<code>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code>" );
 
   		// General description about shortcode functionality
   		$metabox->add_field( array(
@@ -424,7 +424,7 @@ class WP_Gift_Registry_Admin {
 	    // Reset reserved parts for this gift
 	    $metabox->add_group_field( $group_field, array(
 			'name' => '',
-			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . $_GET['post'] . '" href="#" class="button">Reset Reserved Parts</a>',
+			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? $_GET['post'] : '' ) . '" href="#" class="button">Reset Reserved Parts</a>',
 			'type' => 'title',
 			'id'   => 'gift_reset_parts',
 		) );
@@ -482,7 +482,9 @@ class WP_Gift_Registry_Admin {
 
 		// Shortcode
   		$shortcode_metabox->add_field( array(
-			'name' => "<code>[wishlist id='" . $metabox->object_id() . "']</code>",
+			'name' => "",
+			'desc' => __('Place the following shortcode into the content editor or widget area of your theme.', 'wpgiftregistry') .
+			"<code class='shortcode'>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code><a class='button button-primary copy copy-to-clipboard'>" . __('Copy Shortcode', 'wpgiftregistry') . "</a>",
 			'type' => 'title',
 			'id'   => $prefix . 'shortcode',
 		) );
@@ -534,28 +536,29 @@ class WP_Gift_Registry_Admin {
 
 	  		<?php
 	  			// output the reserver's name from our old format here
-	  			foreach ( $wishlist as $gift ):
-	  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
-	  					$gifts_reserved = true; ?>
+	  			if ( !empty($reserved_gifts) ):
+		  			foreach ( $wishlist as $gift ):
+		  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
+		  					$gifts_reserved = true; ?>
 
-	  					<tr class="<?= $gift['gift_id'] ?>">
-		  					<td><?= $gift['gift_title'] ?></td>
-		  					<td>1 / 1</td>
-		  					<td><?= $gift['gift_reserver'] ?></td>
+		  					<tr class="<?= $gift['gift_id'] ?>">
+			  					<td><?= $gift['gift_title'] ?></td>
+			  					<td>1 / 1</td>
+			  					<td><?= $gift['gift_reserver'] ?></td>
 
-		  				<?php if ( $show_email ): ?>
-		  					<td><?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?></td>
-		  				<?php endif; ?>
-		  				<?php if ( $show_message ): ?>
-		  					<td><?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?></td>
-		  				<?php endif; ?>
+			  				<?php if ( $show_email ): ?>
+			  					<td><?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?></td>
+			  				<?php endif; ?>
+			  				<?php if ( $show_message ): ?>
+			  					<td><?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?></td>
+			  				<?php endif; ?>
 
-		  					<td>–</td>
-		  				</tr>
-	  		<?php
-	  				endif;
-	  			endforeach;
-
+			  					<td>–</td>
+			  				</tr>
+		  	<?php
+		  				endif;
+		  			endforeach;
+		  		endif;
 	  		?>
 
 
