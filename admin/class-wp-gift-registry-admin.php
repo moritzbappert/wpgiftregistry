@@ -387,7 +387,7 @@ class WP_Gift_Registry_Admin {
 	        'desc' => '<br><br>' . __( 'If your gift consists of 12 spoons for example, you can rename the parts label to "spoons".', 'wpgiftregistry'),
 	        'id'   => 'gift_parts_string',
 	        'type' => 'text_small',
-	        'default' => 'parts',
+	        'default' => __( 'parts', 'wpgiftregistry' ),
 	        'attributes' => array(
 	        	'required' => true,
 	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
@@ -400,7 +400,7 @@ class WP_Gift_Registry_Admin {
 	        'name' => __( 'Single Part Label', 'wpgiftregistry' ),
 	        'id'   => 'gift_part_string',
 	        'type' => 'text_small',
-	        'default' => 'part',
+	        'default' => __( 'part', 'wpgiftregistry' ),
 	        'attributes' => array(
 	        	'required' => true,
 	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),

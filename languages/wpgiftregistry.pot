@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGiftRegistry\n"
-"POT-Creation-Date: 2018-08-06 11:20+0200\n"
+"POT-Creation-Date: 2018-08-07 21:32+0200\n"
 "PO-Revision-Date: 2017-03-07 14:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -163,8 +163,16 @@ msgid ""
 "label to \"spoons\"."
 msgstr ""
 
+#: admin/class-wp-gift-registry-admin.php:390
+msgid "parts"
+msgstr ""
+
 #: admin/class-wp-gift-registry-admin.php:400
 msgid "Single Part Label"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:403
+msgid "part"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:413

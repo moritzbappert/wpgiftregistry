@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGiftRegistry\n"
-"POT-Creation-Date: 2018-08-06 11:20+0200\n"
-"PO-Revision-Date: 2018-08-06 11:26+0200\n"
+"POT-Creation-Date: 2018-08-07 21:32+0200\n"
+"PO-Revision-Date: 2018-08-07 21:36+0200\n"
 "Last-Translator: Moritz Bappert <kontakt@dreiqbik.de>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -170,9 +170,17 @@ msgstr ""
 "Wenn dein Geschenk zum Beispiel aus 12 Löffeln besteht, kannst du das Teile-"
 "Label in „Löffel“ umbenennen."
 
+#: admin/class-wp-gift-registry-admin.php:390
+msgid "parts"
+msgstr "Teile"
+
 #: admin/class-wp-gift-registry-admin.php:400
 msgid "Single Part Label"
 msgstr "Teile-Label Singular"
+
+#: admin/class-wp-gift-registry-admin.php:403
+msgid "part"
+msgstr "Teil"
 
 #: admin/class-wp-gift-registry-admin.php:413
 #: admin/class-wp-gift-registry-admin.php:814
@@ -191,6 +199,8 @@ msgid ""
 "Place the following shortcode into the content editor or widget area of your "
 "theme."
 msgstr ""
+"Kopiere den folgenden Shortcode in den Editor oder in den Widget-Bereich "
+"deines Themes."
 
 #: admin/class-wp-gift-registry-admin.php:487
 msgid "Copy Shortcode"
