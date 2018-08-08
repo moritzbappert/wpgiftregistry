@@ -152,8 +152,12 @@ section.wpgr-wishlist {
 
         &__price-wrapper {
             transition: background-color 0.2s ease-in-out !important;
-            display: inline-block;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
             position: absolute !important;
+            height: 36px !important;
             top: 0 !important;
             right: 0 !important;
             transform: translate(20%, -30%) !important;
@@ -164,6 +168,7 @@ section.wpgr-wishlist {
 
             @include medium {
                 padding: 8px 16px !important;
+                height: 44px !important;
             }
         }
 
@@ -171,10 +176,22 @@ section.wpgr-wishlist {
             margin: 0 !important;
             font-size: 16px !important;
             font-weight: 900 !important;
+            line-height: 1 !important;
             color: $c-white !important;
 
             @include medium {
                 font-size: 18px !important;
+            }
+
+            &-text {
+                color: $c-white !important;
+                font-size: 10px !important;
+                line-height: 1 !important;
+                margin: 0 !important;
+
+                @include medium {
+                    font-size: 12px !important;
+                }
             }
         }
 
@@ -196,8 +213,17 @@ section.wpgr-wishlist {
             &-wrapper {
                 font-size: 12px;
                 color: dimgrey;
-                float: left;
-                margin-top: 16px;
+                display: block;
+                margin-top: -8px;
+                margin-bottom: 12px;
+
+                @include small {
+                    float: left;
+                    margin-top: 16px;
+                    margin-bottom: 0;
+                    margin-right: 16px;
+                }
+
 
                 > span {
                     font-weight: bold;
@@ -266,6 +292,7 @@ section.wpgr-wishlist {
             // padding-right: 34px !important;
             min-width: 80px !important;
             text-align: center !important;
+            line-height: 1.6 !important;
 
             &:not(:first-child) {
                 margin-top: 6px !important;
@@ -379,7 +406,11 @@ section.wpgr-wishlist {
             }
 
             .wpgr-m_card__progress-wrapper {
-                margin-top: 0;
+                margin-top: -16px;
+
+                @include medium {
+                    margin-top: 0;
+                }
             }
 
             .wpgr-m_card__price-wrapper {

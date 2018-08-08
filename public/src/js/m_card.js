@@ -74,7 +74,7 @@ var mCard = (function($) {
         $body.addClass('no-scroll');
 
         // make single step one active
-        if ($clickedCard.hasClass('wpgr-m_card--single')) {
+        if ($clickedCard.hasClass('wpgr-m_card--single') || $clickedCard.hasClass('wpgr-m_card--parts')) {
             var popupStepOne = $popup.find('#wpgr_popup_name');
             popupStepOne.addClass('is-active');
 

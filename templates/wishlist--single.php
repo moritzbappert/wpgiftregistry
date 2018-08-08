@@ -36,7 +36,7 @@ $settings = get_option('wpgr_settings');
                 $has_parts = isset($gift['gift_has_parts']) && $gift['gift_has_parts'] == 'true';
                 $gift_parts = $has_parts ? $gift['gift_parts_total'] : 1;
                 $reserved_parts = static::get_reserved_parts($wishlist_id, $gift['gift_id']);
-                $price_per_part = intval($raw_gift_price) / intval($gift_parts);
+                $price_per_part = floatval($raw_gift_price) / floatval($gift_parts);
 
                 // legacy variable when we tried to put gift parts into multiple steps in the popup
                 $is_single = true; // needs to be replaced
@@ -46,7 +46,9 @@ $settings = get_option('wpgr_settings');
                 if ( !$is_available ) {
                     $classes[] = 'wpgr-m_card--bought';
                 }
-                if ( $is_single ) {
+                if ( $has_parts) {
+                    $classes[] = 'wpgr-m_card--parts';
+                } else {
                     $classes[] = 'wpgr-m_card--single';
                 }
                 if ( empty($gift['gift_description']) ) {
@@ -66,12 +68,14 @@ $settings = get_option('wpgr_settings');
                 data-currency-placement="<?= $currency_placement ?>">
 
             <?php /* PRICE_LABEL */  ?>
-            <?php if ( !empty($gift_price) ): ?>
+            <?php if ( !empty($gift_price) || !$is_available ): ?>
                 <div class="wpgr-m_card__price-wrapper">
                     <p class="wpgr-m_card__price">
-                        <?= $currency_placement === 'before' ? $currency . $gift_price : $gift_price . $currency ?>
+                        <?php if (!empty($gift_price)): ?>
+                            <?= $currency_placement === 'before' ? $currency . number_format_i18n($price_per_part) : number_format_i18n($price_per_part) . $currency ?>
+                        <?php endif; ?>
                     </p>
-                    <?php if ( !$is_single ): ?>
+                    <?php if ( $has_parts && $is_available && $gift_price != '' ): ?>
                         <p class="wpgr-m_card__price-text">
                         <?php
                             /* translators: (price per) each part of the gift */
