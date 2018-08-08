@@ -5,7 +5,7 @@ Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, bir
 Requires at least: 3.0.1
 Tested up to: 4.9.8
 Requires PHP: 5.5
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.4.2 =
+* Changed price display to price per part
+* Minor CSS bugfixes
 
 = 1.4.1 =
 * Important bugfix: added missing JS and CSS files
