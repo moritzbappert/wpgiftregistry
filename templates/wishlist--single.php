@@ -35,6 +35,8 @@ $settings = get_option('wpgr_settings');
                 $gift_price = $raw_gift_price != 0 ? number_format_i18n( $raw_gift_price ) : '';
                 $has_parts = isset($gift['gift_has_parts']) && $gift['gift_has_parts'] == 'true';
                 $gift_parts = $has_parts ? $gift['gift_parts_total'] : 1;
+                $gift_parts_string = $gift['gift_parts_string'];
+                $gift_part_string = $gift['gift_part_string'];
                 $reserved_parts = static::get_reserved_parts($wishlist_id, $gift['gift_id']);
                 $price_per_part = floatval($raw_gift_price) / floatval($gift_parts);
 
@@ -64,6 +66,8 @@ $settings = get_option('wpgr_settings');
                 data-parts="<?= $gift_parts ?>"
                 data-parts-given="<?= $reserved_parts ?>"
                 data-price-per-part="<?= $price_per_part ?>"
+                data-parts-string="<?= $gift_parts_string ?>"
+                data-part-string="<?= $gift_part_string ?>"
                 data-currency="<?= $currency ?>"
                 data-currency-placement="<?= $currency_placement ?>">
 
@@ -152,10 +156,10 @@ $settings = get_option('wpgr_settings');
                 </header>
 
                 <div class="wpgr-o_popup__parts">
-                    <p class="wpgr-o_popup__desc">How much do you want to give? Translate this</p>
+                    <p class="wpgr-o_popup__desc"><?= __('How much do you want to give?', 'wpgiftregistry') ?></p>
                     <div class="wpgr-o_popup__rangeslider-wrapper">
                         <?php // Input "each" translation here ?>
-                        <div class="wpgr-o_popup__rangeslider-parts" data-part="part" data-parts="parts">
+                        <div class="wpgr-o_popup__rangeslider-parts" data-part="<?= __('part', 'wpgiftregistry') ?>" data-parts="<?= __('parts', 'wpgiftregistry') ?>">
                         </div>
                         <input
                             id="no_of_parts"
@@ -166,7 +170,7 @@ $settings = get_option('wpgr_settings');
                             data-orientation="horizontal"
                         >
                         <div class="wpgr-o_popup__rangeslider-result">
-                            <span class="wpgr-o_popup__rangeslider-val"></span> / 10
+                            <span class="wpgr-o_popup__rangeslider-val"></span> / <span class="wpgr-o_popup__rangeslider-total"></span>
                         </div>
                     </div>
                 </div>

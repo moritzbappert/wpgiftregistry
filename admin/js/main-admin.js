@@ -85,7 +85,7 @@ var adminJS = (function($) {
 
         var $button = $(this);
 
-        var giftID = $button.parents('.cmb-field-list').find('.cmb2-id-wpgr-wishlist-2-gift-id .cmb2_unique_id').val();
+        var giftID = $button.parents('.cmb-field-list').find('.cmb2_unique_id').val();
         var wishlistID = $button.data('wishlist');
         var nonce = $button.data('nonce');
 

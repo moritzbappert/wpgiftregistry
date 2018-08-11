@@ -424,7 +424,7 @@ class WP_Gift_Registry_Admin {
 	    // Reset reserved parts for this gift
 	    $metabox->add_group_field( $group_field, array(
 			'name' => '',
-			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? $_GET['post'] : '' ) . '" href="#" class="button">Reset Reserved Parts</a>',
+			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? $_GET['post'] : '' ) . '" href="#" class="button">' . __('Reset Reserved Parts', 'wpgiftregistry') . '</a>',
 			'type' => 'title',
 			'id'   => 'gift_reset_parts',
 		) );
@@ -519,18 +519,18 @@ class WP_Gift_Registry_Admin {
   			<table>
   				<thead>
   					<tr>
-	  					<th>Gift</th>
-	  					<th># of parts</th>
-	  					<th>Reserved by</th>
+	  					<th><?= __('Gift', 'wpgiftregistry') ?></th>
+	  					<th><?= __('# of parts', 'wpgiftregistry') ?></th>
+	  					<th><?= __('Reserved by', 'wpgiftregistry') ?></th>
 
 	  				<?php if ( $show_email ): ?>
-	  					<th>Email</th>
+	  					<th><?= __('Email', 'wpgiftregistry') ?></th>
 	  				<?php endif; ?>
 	  				<?php if ( $show_message ): ?>
-	  					<th>Message</th>
+	  					<th><?= __('Message', 'wpgiftregistry') ?></th>
 	  				<?php endif; ?>
 
-	  					<th>Date</th>
+	  					<th><?= __('Date', 'wpgiftregistry') ?></th>
 	  				</tr>
 	  			</thead>
 
@@ -618,7 +618,7 @@ class WP_Gift_Registry_Admin {
 		function add_content_at_advanced( $post ) {
 			if ( $post->post_type == 'wpgr_wishlist' ): ?>
 	            <p><br></p>
-	            <p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+	            <p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the support forum!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>'); ?></p>
 	            <p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
 	        <?php endif;
         }
@@ -697,7 +697,7 @@ class WP_Gift_Registry_Admin {
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
 			<p><br></p>
-			<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+			<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the support forum!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>'); ?></p>
 			<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
 		</div>
 		<?php
@@ -958,7 +958,7 @@ class WP_Gift_Registry_Admin {
 		}
 
 		$reserved_gifts = get_post_meta($wishlist_id, 'wpgr_reserved_gifts', true);
-
+		
 		unset($reserved_gifts[$gift_id]);
 
 		update_post_meta($wishlist_id, 'wpgr_reserved_gifts', $reserved_gifts);

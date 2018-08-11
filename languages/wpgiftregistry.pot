@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPGiftRegistry\n"
-"POT-Creation-Date: 2018-08-07 21:32+0200\n"
+"POT-Creation-Date: 2018-08-11 23:05+0200\n"
 "PO-Revision-Date: 2017-03-07 14:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __\n"
@@ -58,7 +58,7 @@ msgid "Settings"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:246
-#: admin/class-wp-gift-registry-admin.php:658
+#: admin/class-wp-gift-registry-admin.php:676
 #, php-format
 msgid ""
 "First add some gifts to your wishlist below. Then use the %s shortcode "
@@ -68,7 +68,7 @@ msgstr ""
 #: admin/class-wp-gift-registry-admin.php:250
 #: admin/class-wp-gift-registry-admin.php:258
 #: admin/class-wp-gift-registry-admin.php:477
-#: admin/class-wp-gift-registry-admin.php:626
+#: admin/class-wp-gift-registry-admin.php:644
 msgid "Shortcode"
 msgstr ""
 
@@ -77,27 +77,27 @@ msgid "Wishes"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:277
-#: admin/class-wp-gift-registry-admin.php:732
+#: admin/class-wp-gift-registry-admin.php:753
 msgid "Gift {#}"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:278
-#: admin/class-wp-gift-registry-admin.php:733
+#: admin/class-wp-gift-registry-admin.php:754
 msgid "Add Another Gift"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:279
-#: admin/class-wp-gift-registry-admin.php:734
+#: admin/class-wp-gift-registry-admin.php:755
 msgid "Remove Gift"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:294
-#: admin/class-wp-gift-registry-admin.php:744
+#: admin/class-wp-gift-registry-admin.php:765
 msgid "Gift Title"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:306
-#: admin/class-wp-gift-registry-admin.php:753
+#: admin/class-wp-gift-registry-admin.php:774
 msgid "Gift Image"
 msgstr ""
 
@@ -108,22 +108,22 @@ msgid ""
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:314
-#: admin/class-wp-gift-registry-admin.php:762
+#: admin/class-wp-gift-registry-admin.php:783
 msgid "Add Image"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:324
-#: admin/class-wp-gift-registry-admin.php:772
+#: admin/class-wp-gift-registry-admin.php:793
 msgid "Description (optional)"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:343
-#: admin/class-wp-gift-registry-admin.php:793
+#: admin/class-wp-gift-registry-admin.php:814
 msgid "Price"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:353
-#: admin/class-wp-gift-registry-admin.php:806
+#: admin/class-wp-gift-registry-admin.php:827
 msgid "Product URL"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:366
 #: admin/class-wp-gift-registry-admin.php:418
-#: admin/class-wp-gift-registry-admin.php:819
+#: admin/class-wp-gift-registry-admin.php:840
 #: public/class-wp-gift-registry-public-old.php:186
 #: templates/wishlist--single-old.php:67
 msgid "Yes"
@@ -145,7 +145,7 @@ msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:367
 #: admin/class-wp-gift-registry-admin.php:419
-#: admin/class-wp-gift-registry-admin.php:820
+#: admin/class-wp-gift-registry-admin.php:841
 msgid "No"
 msgstr ""
 
@@ -164,6 +164,7 @@ msgid ""
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:390
+#: templates/wishlist--single.php:162
 msgid "parts"
 msgstr ""
 
@@ -172,17 +173,22 @@ msgid "Single Part Label"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:403
+#: templates/wishlist--single.php:162
 msgid "part"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:413
-#: admin/class-wp-gift-registry-admin.php:814
+#: admin/class-wp-gift-registry-admin.php:835
 msgid "Availability"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:414
-#: admin/class-wp-gift-registry-admin.php:815
+#: admin/class-wp-gift-registry-admin.php:836
 msgid "Is the gift available for purchase (nobody already buying it)?"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:427
+msgid "Reset Reserved Parts"
 msgstr ""
 
 #: admin/class-wp-gift-registry-admin.php:486
@@ -199,69 +205,103 @@ msgstr ""
 msgid "Reserved Gifts"
 msgstr ""
 
+#: admin/class-wp-gift-registry-admin.php:522
+msgid "Gift"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:523
+msgid "# of parts"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:524
+msgid "Reserved by"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:527
+msgid "Email"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:530
+msgid "Message"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:533
+msgid "Date"
+msgstr ""
+
 #: admin/class-wp-gift-registry-admin.php:601
 msgid "No gifts reserved yet!"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:662
+#: admin/class-wp-gift-registry-admin.php:621
+#: admin/class-wp-gift-registry-admin.php:700
+#, php-format
+msgid ""
+"This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik."
+"de for any feature requests or use the support forum!"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:622
+#: admin/class-wp-gift-registry-admin.php:681
+#: admin/class-wp-gift-registry-admin.php:701
+#, php-format
+msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
+msgstr ""
+
+#: admin/class-wp-gift-registry-admin.php:680
 #, php-format
 msgid ""
 "This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik."
 "de for any feature requests!"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:663
-#, php-format
-msgid "Please %ssupport us with a good review%s if you find the plugin useful!"
-msgstr ""
-
-#: admin/class-wp-gift-registry-admin.php:754
+#: admin/class-wp-gift-registry-admin.php:775
 msgid "Upload an image or enter a URL."
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:844
+#: admin/class-wp-gift-registry-admin.php:865
 msgid "Currency"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:845
+#: admin/class-wp-gift-registry-admin.php:866
 msgid "Currency in which the gift price will be displayed"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:853
+#: admin/class-wp-gift-registry-admin.php:874
 msgid "Currency Symbol Placement"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:858
+#: admin/class-wp-gift-registry-admin.php:879
 msgid "Before the price"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:859
+#: admin/class-wp-gift-registry-admin.php:880
 msgid "After the price"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:866
+#: admin/class-wp-gift-registry-admin.php:887
 msgid "Show email field in gift reservation dialogue?"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:875
+#: admin/class-wp-gift-registry-admin.php:896
 msgid "Show custom message field in gift reservation dialogue?"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:893
+#: admin/class-wp-gift-registry-admin.php:914
 msgid "WPGiftRegistry has been updated!"
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:894
+#: admin/class-wp-gift-registry-admin.php:915
 msgid ""
 "If you want to use all the new features, like multiple wishlists, please "
 "start using the new \"Wishlists\" menu item."
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:961
+#: admin/class-wp-gift-registry-admin.php:982
 msgid "Wishlist updated."
 msgstr ""
 
-#: admin/class-wp-gift-registry-admin.php:978
+#: admin/class-wp-gift-registry-admin.php:999
 msgid "Wishlist settings updated."
 msgstr ""
 
@@ -281,46 +321,50 @@ msgstr ""
 msgid "No, Cancel"
 msgstr ""
 
-#: templates/wishlist--single-sprint.php:46 templates/wishlist--single.php:78
+#: templates/wishlist--single-sprint.php:46 templates/wishlist--single.php:86
 msgid "each"
 msgstr ""
 
-#: templates/wishlist--single-sprint.php:69 templates/wishlist--single.php:121
+#: templates/wishlist--single-sprint.php:69 templates/wishlist--single.php:129
 msgid "View"
 msgstr ""
 
-#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:126
+#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:134
 msgid "Give"
 msgstr ""
 
-#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:126
+#: templates/wishlist--single-sprint.php:74 templates/wishlist--single.php:134
 msgid "Give Part"
 msgstr ""
 
-#: templates/wishlist--single.php:147
+#: templates/wishlist--single.php:155
 msgid "Mark gift as reserved?"
 msgstr ""
 
-#: templates/wishlist--single.php:170
+#: templates/wishlist--single.php:159
+msgid "How much do you want to give?"
+msgstr ""
+
+#: templates/wishlist--single.php:178
 msgid "Leave your name for the recipient:"
 msgstr ""
 
-#: templates/wishlist--single.php:172
+#: templates/wishlist--single.php:180
 msgid "Your name"
 msgstr ""
 
-#: templates/wishlist--single.php:177
+#: templates/wishlist--single.php:185
 msgid "Your email"
 msgstr ""
 
-#: templates/wishlist--single.php:183
+#: templates/wishlist--single.php:191
 msgid "Personal message"
 msgstr ""
 
-#: templates/wishlist--single.php:188
+#: templates/wishlist--single.php:196
 msgid "Cancel"
 msgstr ""
 
-#: templates/wishlist--single.php:189
+#: templates/wishlist--single.php:197
 msgid "Confirm"
 msgstr ""

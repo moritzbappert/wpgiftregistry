@@ -150,9 +150,11 @@ var mCard = (function($) {
             $clickedCard = $clickedBtn.closest('.wpgr-m_card'),
             wishID = $clickedCard.data('wish-id'),
             wishlistID = $clickedCard.closest('.wpgr-wishlist').data('id'),
-            parts = $clickedCard.data('parts'),
-            partsGiven = $clickedCard.data('parts-given'),
-            pricePerPart = $clickedCard.data('price-per-part'),
+            parts = parseInt($clickedCard.data('parts')),
+            partsGiven = parseInt($clickedCard.data('parts-given')),
+            pricePerPart = parseFloat($clickedCard.data('price-per-part')),
+            partsString = $clickedCard.data('parts-string'),
+            partString = $clickedCard.data('part-string'),
             currency = $clickedCard.data('currency'),
             currencyPlacement = $clickedCard.data('currency-placement');
 
@@ -181,6 +183,7 @@ var mCard = (function($) {
 
                 var $result = $('.wpgr-o_popup__rangeslider-result'),
                     $output = $('.wpgr-o_popup__rangeslider-val'),
+                    $total = $('.wpgr-o_popup__rangeslider-total'),
                     $parts = $('.wpgr-o_popup__rangeslider-parts'),
                     attributes = {
                         min: partsGiven,
@@ -190,6 +193,10 @@ var mCard = (function($) {
                     };
 
                 $r.attr(attributes);
+
+                // set parts strings
+                $parts.data('parts', partsString);
+                $parts.data('part', partString);
 
                 $r.rangeslider({
                     polyfill : false,
@@ -218,6 +225,7 @@ var mCard = (function($) {
                         $result.css('flex-basis', maxWidth);
 
                         $output.html( this.value );
+                        $total.html( parts );
 
                         if ( this.min > 0 ) {
                             var percentage = (this.min / this.max) * 100;
@@ -250,7 +258,7 @@ var mCard = (function($) {
 
                         $handle.text( (currencyPlacement === 'before' ? currency + priceTotal : priceTotal + currency) );
 
-                        $output.html( value );
+                        $output.html( value );  
 
                         if ( (this.value - this.min) > 1 || this.value - this.min == 0 ) {
                             $parts.html( '<span>' + parseInt(this.value - this.min) + '</span> ' + $parts.data('parts') );
@@ -503,6 +511,9 @@ var mPopup = (function($) {
                 // update progress bar
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress span').width(rangeValue / totalParts * 100 + '%');
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress-wrapper > span').text(rangeValue);
+                
+                // update data
+                $('.wpgr-m_card[data-wish-id="' + giftID + '"]').data('parts-given', rangeValue);
             }
 
             // only if all parts given

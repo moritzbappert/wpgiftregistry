@@ -226,6 +226,9 @@ var mPopup = (function($) {
                 // update progress bar
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress span').width(rangeValue / totalParts * 100 + '%');
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress-wrapper > span').text(rangeValue);
+                
+                // update data
+                $('.wpgr-m_card[data-wish-id="' + giftID + '"]').data('parts-given', rangeValue);
             }
 
             // only if all parts given
