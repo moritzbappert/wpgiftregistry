@@ -608,6 +608,24 @@ class WP_Gift_Registry_Admin {
   		<?php
   	}
 
+  	/**
+	 * Add a custom message to the wishlist edit screen offering support and asking for reviews
+	 *
+	 * @since    1.4.3
+	 */
+  	public function add_custom_edit_screen_message() {
+
+		function add_content_at_advanced( $post ) {
+			if ( $post->post_type == 'wpgr_wishlist' ): ?>
+	            <p><br></p>
+	            <p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+	            <p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
+	        <?php endif;
+        }
+        add_action( 'edit_form_advanced', 'add_content_at_advanced' );
+
+  	}
+
 
   	/**
 	 * Add a custom shortcode column
@@ -678,6 +696,9 @@ class WP_Gift_Registry_Admin {
 		<div class="wrap cmb2-options-page wishlist">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
+			<p><br></p>
+			<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
+			<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
 		</div>
 		<?php
   	}

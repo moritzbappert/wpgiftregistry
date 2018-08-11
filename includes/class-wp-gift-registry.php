@@ -184,6 +184,9 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Add reserved gift metabox to our cpt
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_reserved_gift_metabox' );
 
+			// Add custom plugin message to our cpt
+			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_custom_edit_screen_message');
+
 			// Add custom field type for unique ids
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_custom_cmb2_fields' );
 
