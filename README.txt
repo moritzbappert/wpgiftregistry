@@ -5,7 +5,7 @@ Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, bir
 Requires at least: 3.0.1
 Tested up to: 4.9.8
 Requires PHP: 5.5
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,8 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 3. Create wishlists through the new backend menu titled "Wishlists"
 4. Place your shortcode (e.g. `[wishlist id='49']`) anywhere in your content, to display the wishlist
 
+If you want to display a list with links to each of your wishlists, use the shortcode `[wishlist id='all']`.
+
 == Frequently Asked Questions ==
 
 = What features are we planning for future releases? =
@@ -50,6 +52,9 @@ WPGiftRegistry comes with a nice design and is built responsively so it displays
 
 
 == Changelog ==
+
+= 1.4.4 =
+* New shortcode `[wishlist id='all']` displays a list with links to each of your wishlists
 
 = 1.4.3 =
 * Added missing strings to translations

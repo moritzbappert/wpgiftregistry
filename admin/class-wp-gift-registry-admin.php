@@ -127,13 +127,13 @@ class WP_Gift_Registry_Admin {
 		  ],
 		  'description' => '',
 		  'public' => TRUE,
-		  'publicly_queryable' => FALSE,
+		  'publicly_queryable' => TRUE,
 		  'show_ui' => TRUE,
 		  'show_in_rest' => FALSE,
 		  'rest_base' => '',
 		  'has_archive' => FALSE,
 		  'show_in_menu' => TRUE,
-		  'exclude_from_search' => TRUE,
+		  'exclude_from_search' => FALSE,
 		  'capability_type' => 'post',
 		  'map_meta_cap' => TRUE,
 		  'hierarchical' => FALSE,
@@ -514,98 +514,131 @@ class WP_Gift_Registry_Admin {
   		$show_email = isset($settings['show_email_field']) && $settings['show_email_field'];
   		$show_message = isset($settings['show_message_field']) && $settings['show_message_field'];
   		?>
+<div
+    class="gifts-reserved-metabox">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <?= __('Gift', 'wpgiftregistry') ?>
+                </th>
+                <th>
+                    <?= __('# of parts', 'wpgiftregistry') ?>
+                </th>
+                <th>
+                    <?= __('Reserved by', 'wpgiftregistry') ?>
+                </th>
 
-  		<div class="gifts-reserved-metabox">
-  			<table>
-  				<thead>
-  					<tr>
-	  					<th><?= __('Gift', 'wpgiftregistry') ?></th>
-	  					<th><?= __('# of parts', 'wpgiftregistry') ?></th>
-	  					<th><?= __('Reserved by', 'wpgiftregistry') ?></th>
+                <?php if ( $show_email ): ?>
+                <th>
+                    <?= __('Email', 'wpgiftregistry') ?>
+                </th>
+                <?php endif; ?>
+                <?php if ( $show_message ): ?>
+                <th>
+                    <?= __('Message', 'wpgiftregistry') ?>
+                </th>
+                <?php endif; ?>
 
-	  				<?php if ( $show_email ): ?>
-	  					<th><?= __('Email', 'wpgiftregistry') ?></th>
-	  				<?php endif; ?>
-	  				<?php if ( $show_message ): ?>
-	  					<th><?= __('Message', 'wpgiftregistry') ?></th>
-	  				<?php endif; ?>
+                <th>
+                    <?= __('Date', 'wpgiftregistry') ?>
+                </th>
+            </tr>
+        </thead>
 
-	  					<th><?= __('Date', 'wpgiftregistry') ?></th>
-	  				</tr>
-	  			</thead>
-
-	  		<?php
+        <?php
 	  			// output the reserver's name from our old format here
 	  			if ( !empty($reserved_gifts) ):
 		  			foreach ( $wishlist as $gift ):
 		  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
 		  					$gifts_reserved = true; ?>
 
-		  					<tr class="<?= $gift['gift_id'] ?>">
-			  					<td><?= $gift['gift_title'] ?></td>
-			  					<td>1 / 1</td>
-			  					<td><?= $gift['gift_reserver'] ?></td>
+        <tr class="<?= $gift['gift_id'] ?>">
+            <td>
+                <?= $gift['gift_title'] ?>
+            </td>
+            <td>1 / 1</td>
+            <td>
+                <?= $gift['gift_reserver'] ?>
+            </td>
 
-			  				<?php if ( $show_email ): ?>
-			  					<td><?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?></td>
-			  				<?php endif; ?>
-			  				<?php if ( $show_message ): ?>
-			  					<td><?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?></td>
-			  				<?php endif; ?>
+            <?php if ( $show_email ): ?>
+            <td>
+                <?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?>
+            </td>
+            <?php endif; ?>
+            <?php if ( $show_message ): ?>
+            <td>
+                <?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?>
+            </td>
+            <?php endif; ?>
 
-			  					<td>–</td>
-			  				</tr>
-		  	<?php
+            <td>–</td>
+        </tr>
+        <?php
 		  				endif;
 		  			endforeach;
 		  		endif;
 	  		?>
 
 
-	  		<?php if ( !empty($reserved_gifts) ): ?>
-  				<?php foreach ( $reserved_gifts as $g ): ?>
-  					<tr class="<?= $g['gift_id'] ?>">
-  						<td><?= $g['gift_title'] ?></td>
-	  					<?php
+        <?php if ( !empty($reserved_gifts) ): ?>
+        <?php foreach ( $reserved_gifts as $g ): ?>
+        <tr class="<?= $g['gift_id'] ?>">
+            <td>
+                <?= $g['gift_title'] ?>
+            </td>
+            <?php
 	  						$total = count($g['gift_reservations']);
 	  						$count = 0;
 	  					?>
-	  					<?php foreach ( $g['gift_reservations'] as $r ):
+            <?php foreach ( $g['gift_reservations'] as $r ):
 	  						$count++;
 	  					?>
-	  						<?php if ($count > 1): ?>
-	  						<tr class="<?= $g['gift_id'] ?>">
-	  							<td></td>
-	  						<?php endif; ?>
+            <?php if ($count > 1): ?>
+            <tr class="<?= $g['gift_id'] ?>">
+                <td></td>
+                <?php endif; ?>
 
-		  						<td><?= $r['gift_parts'] ?> / <?= $g['gift_parts_total'] ?></td>
-		  						<td><?= $r['gift_reserver'] ?></td>
+                <td>
+                    <?= $r['gift_parts'] ?> /
+                    <?= $g['gift_parts_total'] ?>
+                </td>
+                <td>
+                    <?= $r['gift_reserver'] ?>
+                </td>
 
-		  					<?php if ( $show_email ): ?>
-		  						<td><?= $r['gift_reserver_email'] ?></td>
-		  					<?php endif; ?>
-		  					<?php if ( $show_message ): ?>
-		  						<td><?= $r['gift_reserver_message'] ?></td>
-		  					<?php endif; ?>
+                <?php if ( $show_email ): ?>
+                <td>
+                    <?= $r['gift_reserver_email'] ?>
+                </td>
+                <?php endif; ?>
+                <?php if ( $show_message ): ?>
+                <td>
+                    <?= $r['gift_reserver_message'] ?>
+                </td>
+                <?php endif; ?>
 
-		  						<td><?= date_i18n('d.m.Y, H:i' ,strtotime($r['gift_reservation_date'])) ?></td>
-		  					<?php if ($count > 1): ?>
-		  					</tr>
-		  					<?php endif; ?>
-		  				<?php endforeach; ?>
-	  				</tr>
-  				<?php endforeach; ?>
-  			<?php elseif ( !$gifts_reserved ): ?>
-  				<tr>
-  					<td colspan="6">
-  						<?= __('No gifts reserved yet!', 'wpgiftregistry') ?>
-  					</td>
-  				</tr>
+                <td>
+                    <?= date_i18n('d.m.Y, H:i' ,strtotime($r['gift_reservation_date'])) ?>
+                </td>
+                <?php if ($count > 1): ?>
+            </tr>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </tr>
+        <?php endforeach; ?>
+        <?php elseif ( !$gifts_reserved ): ?>
+        <tr>
+            <td colspan="6">
+                <?= __('No gifts reserved yet!', 'wpgiftregistry') ?>
+            </td>
+        </tr>
 
-  			<?php endif; ?>
-  			</table>
-  		</div>
-  		<?php
+        <?php endif; ?>
+    </table>
+</div>
+<?php
   	}
 
   	/**
@@ -617,10 +650,15 @@ class WP_Gift_Registry_Admin {
 
 		function add_content_at_advanced( $post ) {
 			if ( $post->post_type == 'wpgr_wishlist' ): ?>
-	            <p><br></p>
-	            <p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the support forum!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>'); ?></p>
-	            <p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
-	        <?php endif;
+				<p>
+					<br></p>
+				<p>
+					<?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the %ssupport forum%s!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>', '<a href="https://wordpress.org/support/plugin/wpgiftregistry">', '</a>'); ?>
+				</p>
+				<p>
+					<?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?>
+				</p>
+			<?php endif;
         }
         add_action( 'edit_form_advanced', 'add_content_at_advanced' );
 
@@ -671,16 +709,25 @@ class WP_Gift_Registry_Admin {
 			add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
 
 			?>
-			<div class="wrap cmb2-options-page wishlist">
-				<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-				<p><?php echo sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), '<code>[wishlist]</code>' ); ?></p>
-				<br>
-				<?php cmb2_metabox_form( 'wishlist', 'wishlist' ); ?>
-				<br>
-				<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?></p>
-				<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
-			</div>
-			<?php
+<div
+    class="wrap cmb2-options-page wishlist">
+    <h2>
+        <?php echo esc_html( get_admin_page_title() ); ?>
+    </h2>
+    <p>
+        <?php echo sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), '<code>[wishlist]</code>' ); ?>
+    </p>
+    <br>
+    <?php cmb2_metabox_form( 'wishlist', 'wishlist' ); ?>
+    <br>
+    <p>
+        <?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests!', 'wpgiftregistry'), '<a href="http://dreiqbik.de">dreiQBIK</a>'); ?>
+    </p>
+    <p>
+        <?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?>
+    </p>
+</div>
+<?php
 	  }
 
   	/**
@@ -693,14 +740,21 @@ class WP_Gift_Registry_Admin {
 		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
 
 		?>
-		<div class="wrap cmb2-options-page wishlist">
-			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
-			<p><br></p>
-			<p><?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the support forum!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>'); ?></p>
-			<p><?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?></p>
-		</div>
-		<?php
+<div
+    class="wrap cmb2-options-page wishlist">
+    <h2>
+        <?php echo esc_html( get_admin_page_title() ); ?>
+    </h2>
+    <?php cmb2_metabox_form( 'wishlist_settings', 'wpgr_settings' ); ?>
+    <p><br></p>
+    <p>
+        <?php echo sprintf( __('This plugin was created by %s. Feel free to contact us at kontakt@dreiqbik.de for any feature requests or use the support forum!', 'wpgiftregistry'), '<a href="https://dreiqbik.de">dreiQBIK</a>'); ?>
+    </p>
+    <p>
+        <?php echo sprintf( __('Please %ssupport us with a good review%s if you find the plugin useful!', 'wpgiftregistry'), '<a href="https://wordpress.org/support/plugin/wpgiftregistry/reviews/?rate=5#new-post">', '</a>' ); ?>
+    </p>
+</div>
+<?php
   	}
 
 
@@ -715,11 +769,14 @@ class WP_Gift_Registry_Admin {
 		add_action( "admin_print_styles-wishlist", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
 
 		?>
-		<div class="wrap cmb2-options-page wishlist">
-			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<?php cmb2_metabox_form( 'wishlist_settings', 'wishlist_settings' ); ?>
-		</div>
-		<?php
+<div
+    class="wrap cmb2-options-page wishlist">
+    <h2>
+        <?php echo esc_html( get_admin_page_title() ); ?>
+    </h2>
+    <?php cmb2_metabox_form( 'wishlist_settings', 'wishlist_settings' ); ?>
+</div>
+<?php
   	}
 
 
@@ -909,13 +966,17 @@ class WP_Gift_Registry_Admin {
 
 		if ( $screen->id === 'toplevel_page_wishlist' || $screen->id === 'old-wishlist_page_wishlist_settings' ) :
 			?>
+<div
+    class="notice notice-success is-dismissible">
+    <h3>
+        <?= __( 'WPGiftRegistry has been updated!', 'wpgiftregistry' ); ?>
+    </h3>
+    <p>
+        <?= __( 'If you want to use all the new features, like multiple wishlists, please start using the new "Wishlists" menu item.', 'wpgiftregistry' ); ?>
+    </p>
+</div>
 
-			<div class="notice notice-success is-dismissible">
-			    <h3><?= __( 'WPGiftRegistry has been updated!', 'wpgiftregistry' ); ?></h3>
-			    <p><?= __( 'If you want to use all the new features, like multiple wishlists, please start using the new "Wishlists" menu item.', 'wpgiftregistry' ); ?></p>
-			</div>
-
-		<?php endif;
+<?php endif;
 	}
 
 
@@ -1000,7 +1061,3 @@ class WP_Gift_Registry_Admin {
 		settings_errors( 'wishlist' . '-notices' );
 	}
 }
-
-
-
-

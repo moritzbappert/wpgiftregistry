@@ -71,7 +71,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 		public function __construct() {
 
 			$this->plugin_name = 'WPGiftRegistry';
-			$this->version = '1.4.3';
+			$this->version = '1.4.4';
 
 			$this->load_dependencies();
 			$this->set_locale();
@@ -233,10 +233,13 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 
 			// Add the wishlist shortcode
 			$this->loader->add_action( 'init', $plugin_public, 'create_wishlist_shortcode' );
+			
 			// Register the functions to update gift availability for AJAX
 			$this->loader->add_action( 'wp_ajax_update_gift_availability', $plugin_public, 'update_gift_availability' );
 			$this->loader->add_action( 'wp_ajax_nopriv_update_gift_availability', $plugin_public, 'update_gift_availability' );
 
+			// integrate our wishlist into the page content of single wishlist pages
+			$this->loader->add_filter( 'the_content', $plugin_public, 'filter_wishlist_content' );
 		}
 
 		/**

@@ -162,13 +162,21 @@ class WP_Gift_Registry_Public {
 					    'post_type' => 'wpgr_wishlist'
 					));
 
-					foreach ( $all_wishlists as $wishlist_id ) {
-						$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
-						if ( !empty( $wishlist ) ) {
+					if ( !empty($all_wishlists) ) {
+						echo "<ul class='wpgr_wishlists'>";
+						
+						foreach ( $all_wishlists as $wishlist_id ) {
+							$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
+							if ( !empty( $wishlist ) ) {
 
-							echo "<h2>" . get_the_title($wishlist_id) . "</h2>";
-							require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+								echo "<li><a href='" . get_permalink($wishlist_id) . "'>" . get_the_title($wishlist_id) . "</a></li>";
+								
+								// echo "<h2>" . get_the_title($wishlist_id) . "</h2>";
+								// require( plugin_dir_path( __FILE__ ) . '/../templates/wishlist--single.php' );
+							}
 						}
+
+						echo "</ul>";
 					}
 				}
 
@@ -188,6 +196,19 @@ class WP_Gift_Registry_Public {
 
 		});
 	}
+
+
+	/** 
+	 * Integrate our wishlist into the page content of single wishlist pages 
+	 * @since 1.4.4 
+	 */ 
+	public function filter_wishlist_content( $content ) { 
+		if ( is_singular('wpgr_wishlist') ) { 
+			$content = do_shortcode('[wishlist id="' . $GLOBALS['post']->ID . '"]'); 
+		} 
+		return $content; 
+	}
+
 
 	/**
 	 * Get the number of parts of a gift that are already reserved
