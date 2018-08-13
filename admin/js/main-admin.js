@@ -85,7 +85,7 @@ var adminJS = (function($) {
 
         var $button = $(this);
 
-        var giftID = $button.parents('.cmb-field-list').find('.cmb2_unique_id').val();
+        var giftID = $($button.parents('.cmb-field-list')[0]).find('.cmb2_unique_id').val();
         var wishlistID = $button.data('wishlist');
         var nonce = $button.data('nonce');
 
@@ -102,7 +102,6 @@ var adminJS = (function($) {
         }).done(function() {
             $button.after("&nbsp;<span style='color: #0073aa'>✓</span>");
             $('.' + giftID).remove();
-            console.log('.' + giftID);
         });
     });
 

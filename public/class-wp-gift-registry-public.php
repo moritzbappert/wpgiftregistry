@@ -255,8 +255,8 @@ class WP_Gift_Registry_Public {
 			$wishlist = !empty($wishlist) ? $wishlist : [];
 			$to_be_updated = array_search($gift_id, array_column($wishlist, 'gift_id'));
 
-			if ( $gift_has_parts ) {
-				$gift_availability = (static::get_reserved_parts($wishlist_id, $gift_id) + $gift_parts_reserved != $wishlist[$to_be_updated]['gift_parts_total']);
+			if ( $gift_has_parts == 'true' ) {
+				$gift_availability = ((static::get_reserved_parts($wishlist_id, $gift_id) + $gift_parts_reserved != $wishlist[$to_be_updated]['gift_parts_total']) ? 'true' : 'false');
 			}
 
 			$wishlist[$to_be_updated]['gift_availability'] = $gift_availability;
