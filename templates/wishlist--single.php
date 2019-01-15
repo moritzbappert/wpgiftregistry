@@ -69,7 +69,7 @@ $settings = get_option('wpgr_settings');
             <div class="wpgr-m_card__price-wrapper">
                 <p class="wpgr-m_card__price">
                     <?php if (!empty($gift_price)): ?>
-                    <?= $currency_placement === 'before' ? $currency . number_format_i18n($price_per_part) : number_format_i18n($price_per_part) . $currency ?>
+                    <?= $currency_placement === 'before' ? $currency . number_format_i18n($price_per_part, isset($settings['hide_decimals']) && $settings['hide_decimals'] ? 0 : 2) : number_format_i18n($price_per_part, isset($settings['hide_decimals']) && $settings['hide_decimals'] ? 0 : 2) . $currency ?>
                     <?php endif; ?>
                 </p>
                 <?php if ( $has_parts && $is_available && $gift_price != '' ): ?>

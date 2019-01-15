@@ -41,20 +41,6 @@
         --> @include clearfix;
 
 ******************************************************************/
-section {
-  width: 100% !important;
-  margin: 2em auto !important;
-}
-
-body {
-  font-family: "Roboto", sans-serif !important;
-  overflow-x: hidden !important;
-}
-
-body.no-scroll {
-  overflow-y: hidden !important;
-}
-
 section.wpgr-wishlist .wpgr-m_btn,
 section.wpgr-wishlist a.wpgr-m_btn {
   transition: background-color 0.2s ease-in-out !important;
@@ -149,6 +135,10 @@ section.wpgr-wishlist .wpgr-m_btn-close-icon {
     width: 32px !important;
     height: 32px !important;
   }
+}
+
+section.wpgr-wishlist {
+  margin: 2em 0;
 }
 
 section.wpgr-wishlist .wpgr-m_card {

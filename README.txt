@@ -3,9 +3,9 @@ Contributors: 3qbik
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=86EEHAN7TGUMY
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 3.0.1
-Tested up to: 4.9.8
+Tested up to: 5.0
 Requires PHP: 5.5
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,11 @@ If you want to display a list with links to each of your wishlists, use the shor
 
 
 == Changelog ==
+
+= 1.4.7 =
+* Compatibility with WordPress 5.0
+* Removed aggressive CSS rules that caused problems previously
+* Added an option to hide/show gift price decimals to the settings page
 
 = 1.4.6 =
 * Bugfix for password protecting single wishlists

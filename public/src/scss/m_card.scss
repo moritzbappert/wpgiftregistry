@@ -3,11 +3,13 @@ section.wpgr-wishlist {
     // .wpgr-wishlist__inner {
     //     max-width: 85% !important;
     //     margin: 0 auto !important;
-    //
+
     //     @include small {
     //         max-width: 80% !important;
     //     }
     // }
+
+    margin: 2em 0;
 
     .wpgr-m_card {
         box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
@@ -107,7 +109,6 @@ section.wpgr-wishlist {
                     transform: translate(-50%, -50%) !important;
                 }
             }
-
 
             @include small {
                 width: 110px !important;
@@ -223,7 +224,6 @@ section.wpgr-wishlist {
                     margin-bottom: 0;
                     margin-right: 16px;
                 }
-
 
                 > span {
                     font-weight: bold;

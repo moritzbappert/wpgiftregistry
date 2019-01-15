@@ -315,51 +315,56 @@ class WP_Gift_Registry_Public {
 		// AMAZON
 		//
 
-		$pid = substr(strstr($link,"p/"),2,10);
-		if ( strpos( $link, 'amazon.com' ) ) {
+		$asin = substr(strstr($link,"p/"),2,10);
+
+		if ( strpos( $link, 'amzn.' ) ) {
+			$asin = substr(untrailingslashit($link), -10);
+		}
+
+		if ( strpos( $link, 'amazon.com' ) || strpos( $link, 'amzn.com' ) ) {
 			// US
-			$affiliate = "?tag=dreiqbik09-20";
-	    	return "http://www.amazon.com/gp/product/" . $pid . $affiliate;
+			$affiliate = "?tag=dreiqbik-20";
+	    	return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
 
 	    } else if ( strpos( $link, 'amazon.ca' ) ) {
 			// Canada
 			$affiliate = "?tag=dreiqbik01-20";
-			return "http://www.amazon.ca/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.ca/gp/product/" . $asin . $affiliate;
 
 	    } else if ( strpos( $link, 'amazon.com.au' ) ) {
 			// Australia
 			$affiliate = "?tag=dreiqbik-22";
-			return "http://www.amazon.com.au/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.com.au/gp/product/" . $asin . $affiliate;
 
 		} else if ( strpos( $link, 'amazon.de' ) ) {
 			// Germany
 			$affiliate = "?tag=dr03e-21";
-			return "http://www.amazon.de/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.de/gp/product/" . $asin . $affiliate;
 
 		}	else if ( strpos( $link, 'amazon.co.uk' ) ) {
 			// UK
 			$affiliate = "?tag=dr065-21";
-			return "http://www.amazon.co.uk/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.co.uk/gp/product/" . $asin . $affiliate;
 
 		} else if ( strpos( $link, 'amazon.es' ) ) {
 			// Spain
 			$affiliate = "?tag=dr00a4-21";
-			return "http://www.amazon.es/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.es/gp/product/" . $asin . $affiliate;
 
 		} else if ( strpos( $link, 'amazon.fr' ) ) {
 			// France
 			$affiliate = "?tag=	dr0cb-21";
-			return "http://www.amazon.fr/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.fr/gp/product/" . $asin . $affiliate;
 
 		} else if ( strpos( $link, 'amazon.it' ) ) {
 			// Italy
 			$affiliate = "?tag=dr0e7-21";
-			return "http://www.amazon.it/gp/product/" . $pid . $affiliate;
+			return "https://www.amazon.it/gp/product/" . $asin . $affiliate;
 
 
 		// bol.com
 		} else if ( strpos( $link, 'bol.com') ) {
-			return "http://partnerprogramma.bol.com/click/click?p=1&t=url&s=48680&f=TXL&url=" . $link . "&name=plugin";
+			return "https://partnerprogramma.bol.com/click/click?p=1&t=url&s=48680&f=TXL&url=" . $link . "&name=plugin";
 
 		// babyland.se
 		} else if ( strpos( $link, 'babyland.se' ) ) {
@@ -399,19 +404,19 @@ class WP_Gift_Registry_Public {
 
 		// coolshop.nl
 		} else if ( strpos( $link, 'coolshop.nl' ) ) {
-			return "http://tc.tradetracker.net/?c=24112&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+			return "https://tc.tradetracker.net/?c=24112&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
 		// geboorte-feestwinkel.nl
 		} else if ( strpos( $link, 'geboorte-feestwinkel.nl' ) ) {
-			return "http://www.geboorte-feestwinkel.nl/?tt=3595_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+			return "https://www.geboorte-feestwinkel.nl/?tt=3595_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
 		// hema.nl
 		} else if ( strpos( $link, 'hema.nl' ) ) {
-			return "http://tc.tradetracker.net/?c=25436&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
+			return "https://tc.tradetracker.net/?c=25436&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
 		// kindergoed.com
 		} else if ( strpos( $link, 'kindergoed.com' ) ) {
-			return "http://www.kindergoed.com/kinderkleding/?tt=18956_12_311475_&r=" . wpgr_encode_url($link);
+			return "https://www.kindergoed.com/kinderkleding/?tt=18956_12_311475_&r=" . wpgr_encode_url($link);
 
 		// littlelegends.nl
 		} else if ( strpos( $link, 'littlelegends.nl' ) ) {

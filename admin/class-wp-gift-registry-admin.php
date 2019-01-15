@@ -939,7 +939,15 @@ class WP_Gift_Registry_Admin {
 			'default' => 'before'
 		) );
 
-		// Currency Symbol Placement
+		// Hide decimals?
+		$cmb->add_field( array(
+		    'name'    => __( 'Show price without decimals? ', 'wpgiftregistry' ),
+	        'desc'    => '',
+	        'id'      => 'hide_decimals',
+	        'type'    => 'checkbox',
+		) );
+
+		// Show email field?
 		$cmb->add_field( array(
 		    'name'    => __( 'Show email field in gift reservation dialogue?', 'wpgiftregistry' ),
         	'desc'    => '',
@@ -948,7 +956,7 @@ class WP_Gift_Registry_Admin {
         ) );
 
 
-		// Currency Symbol Placement
+		// Show message field?
 		$cmb->add_field( array(
 		    'name'    => __( 'Show custom message field in gift reservation dialogue?', 'wpgiftregistry' ),
         	'desc'    => '',
@@ -1019,7 +1027,7 @@ class WP_Gift_Registry_Admin {
 		}
 
 		$reserved_gifts = get_post_meta($wishlist_id, 'wpgr_reserved_gifts', true);
-		
+
 		unset($reserved_gifts[$gift_id]);
 
 		update_post_meta($wishlist_id, 'wpgr_reserved_gifts', $reserved_gifts);
