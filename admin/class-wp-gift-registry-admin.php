@@ -424,7 +424,7 @@ class WP_Gift_Registry_Admin {
 	    // Reset reserved parts for this gift
 	    $metabox->add_group_field( $group_field, array(
 			'name' => '',
-			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? $_GET['post'] : '' ) . '" href="#" class="button">' . __('Reset Reserved Parts', 'wpgiftregistry') . '</a>',
+			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? esc_attr( $_GET['post'] ) : '' ) . '" href="#" class="button">' . __('Reset Reserved Parts', 'wpgiftregistry') . '</a>',
 			'type' => 'title',
 			'id'   => 'gift_reset_parts',
 		) );
@@ -553,23 +553,23 @@ class WP_Gift_Registry_Admin {
 		  				if (isset($gift['gift_reserver']) && $gift['gift_reserver'] != ''):
 		  					$gifts_reserved = true; ?>
 
-        <tr class="<?= $gift['gift_id'] ?>">
+        <tr class="<?= sanitize_html_class( $gift['gift_id'] ) ?>">
             <td>
-                <?= $gift['gift_title'] ?>
+                <?= esc_html( $gift['gift_title'] ) ?>
             </td>
             <td>1 / 1</td>
             <td>
-                <?= $gift['gift_reserver'] ?>
+                <?= esc_html( $gift['gift_reserver'] ) ?>
             </td>
 
             <?php if ( $show_email ): ?>
             <td>
-                <?= isset($gift['gift_reserver_email']) ? $gift['gift_reserver_email'] : '' ?>
+                <?= isset($gift['gift_reserver_email']) ? esc_html( $gift['gift_reserver_email'] ) : '' ?>
             </td>
             <?php endif; ?>
             <?php if ( $show_message ): ?>
             <td>
-                <?= isset($gift['gift_reserver_message']) ? $gift['gift_reserver_message'] : '' ?>
+                <?= isset($gift['gift_reserver_message']) ? esc_html( $gift['gift_reserver_message'] ) : '' ?>
             </td>
             <?php endif; ?>
 
@@ -584,9 +584,9 @@ class WP_Gift_Registry_Admin {
 
         <?php if ( !empty($reserved_gifts) ): ?>
         <?php foreach ( $reserved_gifts as $g ): ?>
-        <tr class="<?= $g['gift_id'] ?>">
+        <tr class="<?= sanitize_html_class( $g['gift_id'] ) ?>">
             <td>
-                <?= $g['gift_title'] ?>
+                <?= esc_html( $g['gift_title'] ) ?>
             </td>
             <?php
 	  						$total = count($g['gift_reservations']);
@@ -596,31 +596,31 @@ class WP_Gift_Registry_Admin {
 	  						$count++;
 	  					?>
             <?php if ($count > 1): ?>
-            <tr class="<?= $g['gift_id'] ?>">
+            <tr class="<?= sanitize_html_class( $g['gift_id'] ) ?>">
                 <td></td>
                 <?php endif; ?>
 
                 <td>
-                    <?= $r['gift_parts'] ?> /
-                    <?= $g['gift_parts_total'] ?>
+                    <?= esc_html( $r['gift_parts'] ) ?> /
+                    <?= esc_html( $g['gift_parts_total'] ) ?>
                 </td>
                 <td>
-                    <?= $r['gift_reserver'] ?>
+                    <?= esc_html( $r['gift_reserver'] ) ?>
                 </td>
 
                 <?php if ( $show_email ): ?>
                 <td>
-                    <?= $r['gift_reserver_email'] ?>
+                    <?= esc_html( $r['gift_reserver_email'] ) ?>
                 </td>
                 <?php endif; ?>
                 <?php if ( $show_message ): ?>
                 <td>
-                    <?= $r['gift_reserver_message'] ?>
+                    <?= esc_html( $r['gift_reserver_message'] ) ?>
                 </td>
                 <?php endif; ?>
 
                 <td>
-                    <?= date_i18n('d.m.Y, H:i' ,strtotime($r['gift_reservation_date'])) ?>
+                    <?= date_i18n('d.m.Y, H:i', strtotime($r['gift_reservation_date'])) ?>
                 </td>
                 <?php if ($count > 1): ?>
             </tr>
@@ -690,7 +690,7 @@ class WP_Gift_Registry_Admin {
 
   		function shortcode_column_content( $column, $id ) {
   		  if( 'shortcode' == $column ) {
-  		    echo "<code>[wishlist id='" . $id . "']</code>";
+  		    echo "<code>[wishlist id='" . esc_attr( $id ) . "']</code>";
   		  }
   		}
   		add_action( 'manage_wpgr_wishlist_posts_custom_column', 'shortcode_column_content', 5, 2 );

@@ -242,14 +242,14 @@ class WP_Gift_Registry_Public {
 		if ( $_POST['version'] == 'new' ) {
 			// update new custom post type wishlists
 
-			$wishlist_id 			= $_POST['wishlist_id'];
-			$gift_id 				= $_POST['gift_id'];
-			$gift_availability 		= $_POST['gift_availability'];
-			$gift_has_parts 		= $_POST['gift_has_parts'];
-			$gift_parts_reserved 	= $_POST['gift_parts_reserved'];
-			$gift_reserver			= $_POST['gift_reserver'];
-			$gift_reserver_email	= $_POST['gift_reserver_email'];
-			$gift_reserver_message	= $_POST['gift_reserver_message'];
+			$wishlist_id 			= sanitize_key( $_POST['wishlist_id'] );
+			$gift_id 				= sanitize_key( $_POST['gift_id'] );
+			$gift_availability 		= wp_kses_data( $_POST['gift_availability'] );
+			$gift_has_parts 		= wp_kses_data( $_POST['gift_has_parts'] );
+			$gift_parts_reserved 	= sanitize_key( $_POST['gift_parts_reserved'] );
+			$gift_reserver			= wp_kses_data( $_POST['gift_reserver'] );
+			$gift_reserver_email	= is_email( $_POST['gift_reserver_email'] ) ? $_POST['gift_reserver_email'] : '';
+			$gift_reserver_message	= wp_kses_data( $_POST['gift_reserver_message'] );
 
 			$wishlist = get_post_meta($wishlist_id, 'wpgr_wishlist', true);
 			$wishlist = !empty($wishlist) ? $wishlist : [];
@@ -283,8 +283,8 @@ class WP_Gift_Registry_Public {
 		} else {
 			// update old wishlist type (managed through options page)
 
-			$item_name = $_POST['itemName'];
-			$item_availability = $_POST['availability'];
+			$item_name = sanitize_title( $_POST['itemName'] );
+			$item_availability = wp_kses_data( $_POST['availability'] );
 			$options_array = get_option('wishlist');
 			$wishlist = $options_array['wishlist_group'];
 
@@ -317,7 +317,7 @@ class WP_Gift_Registry_Public {
 
 		$asin = substr(strstr($link,"p/"),2,10);
 
-		if ( strpos( $link, 'amzn.' ) ) {
+		if ( strpos( $link, 'amzn.com' ) ) {
 			$asin = substr(untrailingslashit($link), -10);
 		}
 
