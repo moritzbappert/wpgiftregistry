@@ -11,7 +11,7 @@ $settings = get_option('wpgr_settings');
 
 ?>
 <section
-    class="wpgr-wishlist" data-id="<?= $wishlist_id ?>">
+    class="wpgr-wishlist" data-id="<?= esc_attr( $wishlist_id ) ?>">
     <div class="wpgr-wishlist__inner">
         <?php
 
@@ -60,9 +60,9 @@ $settings = get_option('wpgr_settings');
                 }
             ?>
 
-        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= $gift['gift_id'] ?>" data-parts="<?= $gift_parts ?>" data-parts-given="<?= $reserved_parts ?>"
-            data-price-per-part="<?= $price_per_part ?>" data-parts-string="<?= $gift_parts_string ?>" data-part-string="<?= $gift_part_string ?>"
-            data-currency="<?= $currency ?>" data-currency-placement="<?= $currency_placement ?>">
+        <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= esc_attr( $gift['gift_id'] ) ?>" data-parts="<?= esc_attr( $gift_parts ) ?>" data-parts-given="<?= esc_attr( $reserved_parts ) ?>"
+            data-price-per-part="<?= esc_attr( $price_per_part ) ?>" data-parts-string="<?= esc_attr( $gift_parts_string ) ?>" data-part-string="<?= esc_attr( $gift_part_string ) ?>"
+            data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>">
 
             <?php /* PRICE_LABEL */  ?>
             <?php if ( !empty($gift_price) || !$is_available ): ?>
@@ -86,11 +86,11 @@ $settings = get_option('wpgr_settings');
 
             <?php /* CARD_IMAGE */  ?>
             <?php if ( !empty($gift['gift_url']) ): ?>
-            <a class="wpgr-m_card__figure-anchor" href="<?= static::transform_to_affiliate_link( $gift['gift_url'] ) ?>" target="_blank">
+            <a class="wpgr-m_card__figure-anchor" href="<?= esc_url( static::transform_to_affiliate_link( $gift['gift_url'] ) ) ?>" target="_blank">
                 <?php endif; ?>
                 <div class="wpgr-m_card__figure-wrapper">
-                    <div class="wpgr-m_card__figure" <?= empty($gift[ 'gift_image']) ? '' : "style='background-image:url(" . $gift[
-                        'gift_image'] . ")'" ?>></div>
+                    <div class="wpgr-m_card__figure" <?= empty($gift[ 'gift_image']) ? '' : "style='background-image:url(" . esc_attr( $gift[
+                        'gift_image'] ) . ")'" ?>></div>
                 </div>
                 <?php if ( !empty($gift['gift_url']) ): ?>
             </a>
@@ -116,7 +116,7 @@ $settings = get_option('wpgr_settings');
                     <?php if ( $has_parts ): ?>
                     <div class="wpgr-m_card__progress-wrapper">
                         <div class="wpgr-m_card__progress">
-                            <span style="width: <?= ($reserved_parts / $gift['gift_parts_total']) * 100 ?>%;"></span>
+                            <span style="width: <?= esc_attr( $reserved_parts / $gift['gift_parts_total'] * 100 ) ?>%;"></span>
                         </div>
                         <span>
                             <?= $reserved_parts ?></span> /
@@ -125,7 +125,7 @@ $settings = get_option('wpgr_settings');
                     <?php endif; ?>
 
                     <?php if ( !empty($gift['gift_url']) ): ?>
-                    <a class="wpgr-m_card__btn wpgr-m_btn" target="_blank" href="<?= static::transform_to_affiliate_link( $gift['gift_url'] ) ?>">
+                    <a class="wpgr-m_card__btn wpgr-m_btn" target="_blank" href="<?= esc_url( static::transform_to_affiliate_link( $gift['gift_url'] ) ) ?>">
                         <span class="wpgr-m_card__btn-text">
                             <?= __('View', 'wpgiftregistry') ?></span>
                         <?php /* <i class="wpgr-m_card__btn-icon wpgr-m_card__btn-icon--view"></i> */ ?>
@@ -155,7 +155,7 @@ $settings = get_option('wpgr_settings');
             <div id="wpgr_popup_name" class="wpgr-o_popup__step wpgr-o_popup__step--1">
                 <header class="wpgr-o_popup__header">
                     <p class="wpgr-o_popup__question">
-                        <?= __('Mark gift as reserved?', 'wpgiftregistry') /* Geschenk reservieren? */ ?>
+                        <?= __('Mark gift as reserved?', 'wpgiftregistry') ?>
                     </p>
                 </header>
 
@@ -164,7 +164,6 @@ $settings = get_option('wpgr_settings');
                         <?= __('How much do you want to give?', 'wpgiftregistry') ?>
                     </p>
                     <div class="wpgr-o_popup__rangeslider-wrapper">
-                        <?php // Input "each" translation here ?>
                         <div class="wpgr-o_popup__rangeslider-parts" data-part="<?= __('part', 'wpgiftregistry') ?>" data-parts="<?= __('parts', 'wpgiftregistry') ?>">
                         </div>
                         <input id="no_of_parts" name="no_of_parts" class="wpgr-o_popup__rangeslider" type="range" max="10" data-orientation="horizontal">
@@ -175,11 +174,11 @@ $settings = get_option('wpgr_settings');
                 </div>
 
                 <p class="wpgr-o_popup__desc">
-                    <?= __('Leave your name for the recipient:', 'wpgiftregistry') /* Lasse den Beschenkten wissen, dass das Geschenk von Dir ist: */ ?>
+                    <?= __('Leave your name for the recipient:', 'wpgiftregistry') ?>
                 </p>
                 <div class="wpgr-o_popup__input-wrapper">
                     <label class="wpgr-o_popup__input-label" for="your_name2">
-                        <?= __('Your name', 'wpgiftregistry') /* Dein Name */ ?></label>
+                        <?= __('Your name', 'wpgiftregistry') ?></label>
                     <input id="your_name2" name="your_name2" class="wpgr-o_popup__input-text" type="text">
                 </div>
                 <?php if ( isset($settings['show_email_field']) && $settings['show_email_field'] ): ?>
@@ -198,8 +197,8 @@ $settings = get_option('wpgr_settings');
                 <?php endif; ?>
                 <div class="wpgr-o_popup__btn-wrapper">
                     <button class="wpgr-o_popup__btn-prev wpgr-m_btn">
-                        <?= __('Cancel', 'wpgiftregistry') /* Abbrechen */ ?></button>
-                    <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="<?= __('Confirm', 'wpgiftregistry') /* Bestätigen */ ?>">
+                        <?= __('Cancel', 'wpgiftregistry') ?></button>
+                    <input class="wpgr-o_popup__btn-save wpgr-m_btn wpgr-m_btn--next" type="submit" name="confirm" value="<?= __('Confirm', 'wpgiftregistry') ?>">
                 </div>
 
                 <button class="wpgr-o_popup__btn-close wpgr-m_btn-close">

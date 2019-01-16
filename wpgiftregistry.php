@@ -16,7 +16,7 @@
  * Plugin Name:       WPGiftRegistry
  * Plugin URI:
  * Description:       A simple way to create a linked list of wishes for your wedding, birthday or other occasion.
- * Version:           1.4.7
+ * Version:           1.4.8
  * Author:            Moritz Bappert
  * Author URI:        https://dreiqbik.de
  * License:           GPL-2.0+

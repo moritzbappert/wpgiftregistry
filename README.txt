@@ -5,7 +5,7 @@ Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, bir
 Requires at least: 3.0.1
 Tested up to: 5.0
 Requires PHP: 5.5
-Stable tag: 1.4.7
+Stable tag: 1.4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,9 @@ If you want to display a list with links to each of your wishlists, use the shor
 
 
 == Changelog ==
+
+= 1.4.8 =
+* Fixed XSS vulnerabilities
 
 = 1.4.7 =
 * Compatibility with WordPress 5.0
