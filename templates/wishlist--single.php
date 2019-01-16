@@ -116,7 +116,7 @@ $settings = get_option('wpgr_settings');
                     <?php if ( $has_parts ): ?>
                     <div class="wpgr-m_card__progress-wrapper">
                         <div class="wpgr-m_card__progress">
-                            <span style="width: <?= esc_attr( $reserved_parts / $gift['gift_parts_total']) * 100 ) ?>%;"></span>
+                            <span style="width: <?= esc_attr( $reserved_parts / $gift['gift_parts_total'] * 100 ) ?>%;"></span>
                         </div>
                         <span>
                             <?= $reserved_parts ?></span> /
