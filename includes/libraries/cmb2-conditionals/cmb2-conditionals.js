@@ -5,14 +5,24 @@ jQuery( document ).ready( function( $ ) {
 	 * Add 'show' and 'hide' event to JQuery event detection.
 	 * @see http://viralpatel.net/blogs/jquery-trigger-custom-event-show-hide-element/
 	 */
-	$.each( ['show', 'hide'], function( i, ev ) {
+	// $.each( ['show', 'hide'], function( i, ev ) {
+	// 	var el = $.fn[ev];
+	// 	$.fn[ev] = function() {
+	// 		this.trigger( ev );
+	// 		return el.apply( this, arguments );
+	// 	};
+	// });
+
+	$.each(['show', 'hide', 'fadeOut', 'fadeIn'], function (i, ev) {
 		var el = $.fn[ev];
-		$.fn[ev] = function() {
-			this.trigger( ev );
-			return el.apply( this, arguments );
+		$.fn[ev] = function () {
+			var result = el.apply(this, arguments);
+			result.promise().done(function () {
+				this.triggerHandler(ev, [result]);
+			})
+			return result;
 		};
 	});
-
 
 	/**
 	 * Set up the functionality for CMB2 conditionals.
@@ -125,7 +135,6 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 
-
 		/**
 		 * Make sure it also works when the select/deselect all button is clicked for a multi-checkbox.
 		 */
@@ -136,7 +145,6 @@ jQuery( document ).ready( function( $ ) {
 			multiCheck = button.closest( '.cmb-td' ).find( 'input[type=checkbox]:not([disabled])' );
 			multiCheck.trigger( 'change' );
 		});
-
 
 		/**
 		 * Deal with (un)setting the required property on (un)hiding of form elements.
@@ -155,7 +163,6 @@ jQuery( document ).ready( function( $ ) {
 				$( e ).prop( 'required', true );
 			});
 		});
-
 
 		/**
 		 * Set the initial state for elements on page load.
@@ -185,7 +192,6 @@ jQuery( document ).ready( function( $ ) {
 			}
 		}
 
-
 		/**
 		 * Set the initial state of new elements which are added to the page dynamically (i.e. group elms).
 		 */
@@ -206,7 +212,6 @@ jQuery( document ).ready( function( $ ) {
 			}
 		});
 	}
-
 
 	/**
 	 * Find all fields which are directly conditional on the current field.
@@ -260,7 +265,6 @@ jQuery( document ).ready( function( $ ) {
 			});
 		}
 	}
-
 
 	function CMB2ConditionalsStringToUnicode( string ) {
 		var i, result = '',
