@@ -1,0 +1,14 @@
+{
+    "name": "dreiqbik-mb/wpgiftregistry",
+    "description": "WPGiftRegistry",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Moritz Bappert",
+            "email": "mb@dreiqbik.de"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "^3.0"
+    }
+}

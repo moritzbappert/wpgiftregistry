@@ -21,6 +21,9 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
+use Carbon_Fields\Field;
+use Carbon_Fields\Container;
+
 class WP_Gift_Registry_Admin {
 
 	/**
@@ -230,264 +233,253 @@ class WP_Gift_Registry_Admin {
   		$prefix = 'wpgr_';
   		$settings = get_option('wpgr_settings');
 
-  		$metabox = new_cmb2_box( array(
-			'id'            => $prefix . 'wishlist',
-			//'title'         => esc_html__( 'Wishlist', 'wpgiftregistry' ),
-			'remove_box_wrap' => true,
-			'object_types'  => array( 'wpgr_wishlist' ), // Post type
-			'context'    => 'after_title',
-			'priority'   => 'high',
-			// 'cmb_styles' => false, // false to disable the CMB stylesheet
-			// 'closed'     => true, // true to keep the metabox closed by default
-			// 'classes'    => 'extra-class', // Extra cmb2-wrap classes
-			// 'classes_cb' => 'yourprefix_add_some_classes', // Add classes through a callback.
-		) );
+  		// $metabox = new_cmb2_box( array(
+		// 	'id'            => $prefix . 'wishlist',
+		// 	//'title'         => esc_html__( 'Wishlist', 'wpgiftregistry' ),
+		// 	'remove_box_wrap' => true,
+		// 	'object_types'  => array( 'wpgr_wishlist' ), // Post type
+		// 	'context'    => 'after_title',
+		// 	'priority'   => 'high',
+		// 	// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		// 	// 'closed'     => true, // true to keep the metabox closed by default
+		// 	// 'classes'    => 'extra-class', // Extra cmb2-wrap classes
+		// 	// 'classes_cb' => 'yourprefix_add_some_classes', // Add classes through a callback.
+		// ) );
 
-  		$shortcode_description = sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), "<code>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code>" );
+  		// $shortcode_description = sprintf( __('First add some gifts to your wishlist below. Then use the %s shortcode anywhere on your page to include this whishlist.', 'wpgiftregistry'), "<code>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code>" );
 
-  		// General description about shortcode functionality
-  		$metabox->add_field( array(
-			'name' => __( 'Shortcode', 'wpgiftregistry' ),
-			'desc' => $shortcode_description,
-			'type' => 'title',
-			'id'   => $prefix . 'shortcode_description',
-		) );
+  		// // General description about shortcode functionality
+  		// $metabox->add_field( array(
+		// 	'name' => __( 'Shortcode', 'wpgiftregistry' ),
+		// 	'desc' => $shortcode_description,
+		// 	'type' => 'title',
+		// 	'id'   => $prefix . 'shortcode_description',
+		// ) );
 
-		// General description about shortcode functionality
-  		$metabox->add_field( array(
-			'name' => __( 'Shortcode', 'wpgiftregistry' ),
-			'desc' => $shortcode_description,
-			'type' => 'title',
-			'id'   => $prefix . 'shortcode_description',
-		) );
+		// // General description about shortcode functionality
+  		// $metabox->add_field( array(
+		// 	'name' => __( 'Shortcode', 'wpgiftregistry' ),
+		// 	'desc' => $shortcode_description,
+		// 	'type' => 'title',
+		// 	'id'   => $prefix . 'shortcode_description',
+		// ) );
 
-		// Wishes title
-  		$metabox->add_field( array(
-			'name' => __( 'Wishes', 'wpgiftregistry' ),
-			'type' => 'title',
-			'id'   => $prefix . 'wishes_title',
-		) );
+		// // Wishes title
+  		// $metabox->add_field( array(
+		// 	'name' => __( 'Wishes', 'wpgiftregistry' ),
+		// 	'type' => 'title',
+		// 	'id'   => $prefix . 'wishes_title',
+		// ) );
 
-  		// Add a group field (repeater)
-  		$group_field = $metabox->add_field( array(
-  		    'id'          => 'wpgr_wishlist',
-  		    'type'        => 'group',
-  		    // 'repeatable'  => false, // use false if you want non-repeatable group
-  		    'options'     => array(
-  		        'group_title'   => __( 'Gift {#}', 'wpgiftregistry' ), // since version 1.1.4, {#} gets replaced by row number
-  		        'add_button'    => __( 'Add Another Gift', 'wpgiftregistry' ),
-  		        'remove_button' => __( 'Remove Gift', 'wpgiftregistry' ),
-  		        'sortable'      => true, // beta
-  		        'closed'     => true, // true to have the groups closed by default
-  		    ),
-  		) );
-
-  		// Unique ID
-  		$metabox->add_group_field( $group_field, array(
-  			'id' => 'gift_id',
-  			'type' => 'unique_id'
-  		) );
+  		// // Add a group field (repeater)
+  		// $group_field = $metabox->add_field( array(
+  		//     'id'          => 'wpgr_wishlist',
+  		//     'type'        => 'group',
+  		//     // 'repeatable'  => false, // use false if you want non-repeatable group
+  		//     'options'     => array(
+  		//         'group_title'   => __( 'Gift {#}', 'wpgiftregistry' ), // since version 1.1.4, {#} gets replaced by row number
+  		//         'add_button'    => __( 'Add Another Gift', 'wpgiftregistry' ),
+  		//         'remove_button' => __( 'Remove Gift', 'wpgiftregistry' ),
+  		//         'sortable'      => true, // beta
+  		//         'closed'     => true, // true to have the groups closed by default
+  		//     ),
+		//   ) );
 
 
-		// Title
-		$metabox->add_group_field( $group_field, array(
-			'name' => __( 'Gift Title', 'wpgiftregistry' ) . '*',
-			'desc' => '',
-			'id'   => 'gift_title',
-			'type' => 'text',
-			'default' => '',
-			'attributes'  => array(
-				'required'    => 'required',
-			),
-		) );
+		  Container::make( 'post_meta', __( 'Wishes', 'wpgiftregistry' ) )
+			->where( 'post_type', '=', 'wpgr_wishlist' )
+			->add_fields( array(
+				Field::make( 'complex', 'wpgr_wishlist', __( 'Wishes', 'wpgiftregistry' ) )
+					->setup_labels( [
+						'plural_name' => __( 'Wishes', 'wpgiftregistry' ),
+    					'singular_name' => __( 'Wish', 'wpgiftregistry' ),
+					] )
+					->set_collapsed( TRUE )
+					->add_fields( array(
+						Field::make( 'text', 'gift_title', __( 'Gift Title', 'wpgiftregistry' ) ),
+						Field::make( 'image', 'gift_image', __( 'Gift Image', 'wpgiftregistry' ) )
+							->set_value_type( 'url' ),
+						Field::make( 'textarea', 'gift_description', __( 'Description (optional)', 'wpgiftregistry' ) )
+							->set_rows( 4 ),
+						Field::make( 'text', 'gift_price', __( 'Price', 'wpgiftregistry' ) )
+							->set_attribute( 'type', 'number' )
+							->set_attribute( 'min', 1 )
+							->set_attribute( 'step', 'any' )
 
-		// Image
-		$metabox->add_group_field( $group_field, array(
-		    'name'    => __( 'Gift Image', 'wpgiftregistry' ),
-		    'desc'    => __( 'Upload an image or enter a URL. If left empty, we\'ll try to automatically retrieve an image (currently only working with amazon.com).', 'wpgiftregistry' ),
-		    'id'      => 'gift_image',
-		    'type'    => 'file',
-		    'options' => array(
-		        'url' => true, // Hide the text input for the url
-		    ),
-		    'text'    => array(
-		        'add_upload_file_text' => __( 'Add Image', 'wpgiftregistry' ) // Change upload button text.
-		    ),
-		    // query_args are passed to wp.media's library query.
-		    'query_args' => array(
-		        'type' => 'image/jpg',
-		    ),
-		) );
 
-  		// Description
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Description (optional)', 'wpgiftregistry' ),
-	        'desc' => '',
-	        'id'   => 'gift_description',
-	        'type' => 'textarea_small',
-	    ) );
+					) )
+					->set_header_template("
+						<% if (gift_title !== '') { %>
+							<%= gift_title %>
+						<% } %>
+					")
+			) );
 
-		$currency_symbol_placement = get_option('wishlist_settings')['currency_symbol_placement'];
-		$currency_symbol = get_option('wishlist_settings')['currency_symbol'];
+  		// // Unique ID
+  		// $metabox->add_group_field( $group_field, array(
+  		// 	'id' => 'gift_id',
+  		// 	'type' => 'unique_id'
+  		// ) );
 
-		if ( $currency_symbol_placement === 'before' ) {
-			$before = $currency_symbol . ' ';
-			$after = '';
-		} else {
-			$before = '';
-			$after = ' ' . $currency_symbol;
-		}
 
-		// Price
-		$metabox->add_group_field( $group_field, array(
-		    'name' => __( 'Price', 'wpgiftregistry' ),
-		    'desc' => '',
-		    'id' => 'gift_price',
-		    'type' => 'text_small',
-		    'before_field' => $before,
-		    'after_field' => $after
-		) );
+		// // Title
+		// $metabox->add_group_field( $group_field, array(
+		// 	'name' => __( 'Gift Title', 'wpgiftregistry' ) . '*',
+		// 	'desc' => '',
+		// 	'id'   => 'gift_title',
+		// 	'type' => 'text',
+		// 	'default' => '',
+		// 	'attributes'  => array(
+		// 		'required'    => 'required',
+		// 	),
+		// ) );
 
-	    // URL
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Product URL', 'wpgiftregistry' ),
-	        'desc' => '',
-	        'id'   => 'gift_url',
-	        'type' => 'text_url',
-	    ) );
+		// // Image
+		// $metabox->add_group_field( $group_field, array(
+		//     'name'    => __( 'Gift Image', 'wpgiftregistry' ),
+		//     'desc'    => __( 'Upload an image or enter a URL. If left empty, we\'ll try to automatically retrieve an image (currently only working with amazon.com).', 'wpgiftregistry' ),
+		//     'id'      => 'gift_image',
+		//     'type'    => 'file',
+		//     'options' => array(
+		//         'url' => true, // Hide the text input for the url
+		//     ),
+		//     'text'    => array(
+		//         'add_upload_file_text' => __( 'Add Image', 'wpgiftregistry' ) // Change upload button text.
+		//     ),
+		//     // query_args are passed to wp.media's library query.
+		//     'query_args' => array(
+		//         'type' => 'image/jpg',
+		//     ),
+		// ) );
 
-	    // Do you want to split this gift in parts?
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Split gift?', 'wpgiftregistry' ),
-	        'desc' => __( 'Do you want to split this gift into parts?', 'wpgiftregistry' ),
-	        'id'   => 'gift_has_parts',
-	        'type' => 'radio_inline',
-	        'options' => array(
-	            'true' => __( 'Yes', 'wpgiftregistry' ),
-	            'false' => __( 'No', 'wpgiftregistry' ),
-	        ),
-	        'default' => 'false',
-	    ) );
-
-	    // How many parts?
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'How many parts?', 'wpgiftregistry' ),
-	        'id'   => 'gift_parts_total',
-	        'type' => 'text_small',
-	        'attributes' => array(
-	        	'required' => true,
-	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
-	        	'data-conditional-value' => wp_json_encode( array('true') ),
-	        ),
-	    ) );
-
-	    // Plural Parts Label
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Plural Parts Label ', 'wpgiftregistry' ),
-	        'desc' => '<br><br>' . __( 'If your gift consists of 12 spoons for example, you can rename the parts label to "spoons".', 'wpgiftregistry'),
-	        'id'   => 'gift_parts_string',
-	        'type' => 'text_small',
-	        'default' => __( 'parts', 'wpgiftregistry' ),
-	        'attributes' => array(
-	        	'required' => true,
-	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
-	        	'data-conditional-value' => wp_json_encode( array('true') ),
-	        ),
-	    ) );
-
-	    // Single Part Label
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Single Part Label', 'wpgiftregistry' ),
-	        'id'   => 'gift_part_string',
-	        'type' => 'text_small',
-	        'default' => __( 'part', 'wpgiftregistry' ),
-	        'attributes' => array(
-	        	'required' => true,
-	        	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
-	        	'data-conditional-value' => wp_json_encode( array('true') ),
-	        ),
-	    ) );
-
-	    // Availability
-	    $metabox->add_group_field( $group_field, array(
-	        'name' => __( 'Availability', 'wpgiftregistry' ),
-	        'desc' => __( 'Is the gift available for purchase (nobody already buying it)?', 'wpgiftregistry' ),
-	        'id'   => 'gift_availability',
-	        'type' => 'radio_inline',
-	        'options' => array(
-	            'true' => __( 'Yes', 'wpgiftregistry' ),
-	            'false'   => __( 'No', 'wpgiftregistry' ),
-	        ),
-	        'default' => 'true',
-	    ) );
-
-	    // Reset reserved parts for this gift
-	    $metabox->add_group_field( $group_field, array(
-			'name' => '',
-			'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? esc_attr( $_GET['post'] ) : '' ) . '" href="#" class="button">' . __('Reset Reserved Parts', 'wpgiftregistry') . '</a>',
-			'type' => 'title',
-			'id'   => 'gift_reset_parts',
-		) );
-
-	    // // Who reserved this?
+  		// // Description
 	    // $metabox->add_group_field( $group_field, array(
-	    //     'name' => __( 'Who reserved this?', 'wpgiftregistry' ),
+	    //     'name' => __( 'Description (optional)', 'wpgiftregistry' ),
 	    //     'desc' => '',
-	    //     'id'   => 'gift_reserver',
-	    //     'type' => 'text_medium',
-	    //  	// 'attributes' => array(
-    	// 	// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-    	// 	// 	'data-conditional-value' => 'false',
-    	// 	// ),
+	    //     'id'   => 'gift_description',
+	    //     'type' => 'textarea_small',
 	    // ) );
 
+		// $currency_symbol_placement = get_option('wishlist_settings')['currency_symbol_placement'];
+		// $currency_symbol = get_option('wishlist_settings')['currency_symbol'];
 
-
-	    // if ( isset($settings['show_email_field']) && $settings['show_email_field'] ) {
-	   	//  // E-Mail
-	   	//  $metabox->add_group_field( $group_field, array(
-	   	//      'name' => __( 'Email', 'wpgiftregistry' ),
-	   	//      'desc' => '',
-	   	//      'id'   => 'gift_reserver_email',
-	   	//      'type' => 'text_medium',
-	   	//   	// 'attributes' => array(
-	    // 		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-	    // 		// 	'data-conditional-value' => 'false',
-	    // 		// ),
-		//  ) );
-	    // }
-
-		// if ( isset($settings['show_message_field']) && $settings['show_message_field'] ) {
-		//     // Message
-		//     $metabox->add_group_field( $group_field, array(
-		//         'name' => __( 'Message', 'wpgiftregistry' ),
-		//         'desc' => '',
-		//         'id'   => 'gift_reserver_message',
-		//         'type' => 'textarea_small',
-		//      	// 'attributes' => array(
-		//    		// 	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_availability' ) ),
-		//    		// 	'data-conditional-value' => 'false',
-		//    		// ),
-		//     ) );
+		// if ( $currency_symbol_placement === 'before' ) {
+		// 	$before = $currency_symbol . ' ';
+		// 	$after = '';
+		// } else {
+		// 	$before = '';
+		// 	$after = ' ' . $currency_symbol;
 		// }
 
-	    // Shortcode Metabox
-	    $shortcode_metabox = new_cmb2_box( array(
-			'id'            => $prefix . 'wishlist_shortcode',
-			'title'         => __( 'Shortcode', 'wpgiftregistry' ),
-			'object_types'  => array( 'wpgr_wishlist' ), // Post type
-			'context'    => 'side',
-			'priority'   => 'high',
-		) );
+		// // Price
+		// $metabox->add_group_field( $group_field, array(
+		//     'name' => __( 'Price', 'wpgiftregistry' ),
+		//     'desc' => '',
+		//     'id' => 'gift_price',
+		//     'type' => 'text_small',
+		//     'before_field' => $before,
+		//     'after_field' => $after
+		// ) );
 
-		// Shortcode
-  		$shortcode_metabox->add_field( array(
-			'name' => "",
-			'desc' => __('Place the following shortcode into the content editor or widget area of your theme.', 'wpgiftregistry') .
-			"<code class='shortcode'>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code><a class='button button-primary copy copy-to-clipboard'>" . __('Copy Shortcode', 'wpgiftregistry') . "</a>",
-			'type' => 'title',
-			'id'   => $prefix . 'shortcode',
-		) );
+	    // // URL
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Product URL', 'wpgiftregistry' ),
+	    //     'desc' => '',
+	    //     'id'   => 'gift_url',
+	    //     'type' => 'text_url',
+	    // ) );
+
+	    // // Do you want to split this gift in parts?
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Split gift?', 'wpgiftregistry' ),
+	    //     'desc' => __( 'Do you want to split this gift into parts?', 'wpgiftregistry' ),
+	    //     'id'   => 'gift_has_parts',
+	    //     'type' => 'radio_inline',
+	    //     'options' => array(
+	    //         'true' => __( 'Yes', 'wpgiftregistry' ),
+	    //         'false' => __( 'No', 'wpgiftregistry' ),
+	    //     ),
+	    //     'default' => 'false',
+	    // ) );
+
+	    // // How many parts?
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'How many parts?', 'wpgiftregistry' ),
+	    //     'id'   => 'gift_parts_total',
+	    //     'type' => 'text_small',
+	    //     'attributes' => array(
+	    //     	'required' => true,
+	    //     	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	    //     	'data-conditional-value' => wp_json_encode( array('true') ),
+	    //     ),
+	    // ) );
+
+	    // // Plural Parts Label
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Plural Parts Label ', 'wpgiftregistry' ),
+	    //     'desc' => '<br><br>' . __( 'If your gift consists of 12 spoons for example, you can rename the parts label to "spoons".', 'wpgiftregistry'),
+	    //     'id'   => 'gift_parts_string',
+	    //     'type' => 'text_small',
+	    //     'default' => __( 'parts', 'wpgiftregistry' ),
+	    //     'attributes' => array(
+	    //     	'required' => true,
+	    //     	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	    //     	'data-conditional-value' => wp_json_encode( array('true') ),
+	    //     ),
+	    // ) );
+
+	    // // Single Part Label
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Single Part Label', 'wpgiftregistry' ),
+	    //     'id'   => 'gift_part_string',
+	    //     'type' => 'text_small',
+	    //     'default' => __( 'part', 'wpgiftregistry' ),
+	    //     'attributes' => array(
+	    //     	'required' => true,
+	    //     	'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+	    //     	'data-conditional-value' => wp_json_encode( array('true') ),
+	    //     ),
+	    // ) );
+
+	    // // Availability
+	    // $metabox->add_group_field( $group_field, array(
+	    //     'name' => __( 'Availability', 'wpgiftregistry' ),
+	    //     'desc' => __( 'Is the gift available for purchase (nobody already buying it)?', 'wpgiftregistry' ),
+	    //     'id'   => 'gift_availability',
+	    //     'type' => 'radio_inline',
+	    //     'options' => array(
+	    //         'true' => __( 'Yes', 'wpgiftregistry' ),
+	    //         'false'   => __( 'No', 'wpgiftregistry' ),
+	    //     ),
+	    //     'default' => 'true',
+	    // ) );
+
+	    // // Reset reserved parts for this gift
+	    // $metabox->add_group_field( $group_field, array(
+		// 	'name' => '',
+		// 	'desc' => '<br><a id="reset-reserved-parts" data-nonce="' . wp_create_nonce('wpgr_reset_parts') . '" data-wishlist="' . (isset($_GET['post']) ? esc_attr( $_GET['post'] ) : '' ) . '" href="#" class="button">' . __('Reset Reserved Parts', 'wpgiftregistry') . '</a>',
+		// 	'type' => 'title',
+		// 	'id'   => 'gift_reset_parts',
+		// ) );
+
+
+	    // // Shortcode Metabox
+	    // $shortcode_metabox = new_cmb2_box( array(
+		// 	'id'            => $prefix . 'wishlist_shortcode',
+		// 	'title'         => __( 'Shortcode', 'wpgiftregistry' ),
+		// 	'object_types'  => array( 'wpgr_wishlist' ), // Post type
+		// 	'context'    => 'side',
+		// 	'priority'   => 'high',
+		// ) );
+
+		// // Shortcode
+  		// $shortcode_metabox->add_field( array(
+		// 	'name' => "",
+		// 	'desc' => __('Place the following shortcode into the content editor or widget area of your theme.', 'wpgiftregistry') .
+		// 	"<code class='shortcode'>[wishlist id='" . ($metabox->object_id() != 0 ? $metabox->object_id() : 'all') . "']</code><a class='button button-primary copy copy-to-clipboard'>" . __('Copy Shortcode', 'wpgiftregistry') . "</a>",
+		// 	'type' => 'title',
+		// 	'id'   => $prefix . 'shortcode',
+		// ) );
   	}
 
   	/**

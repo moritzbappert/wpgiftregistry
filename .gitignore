@@ -1,5 +1,7 @@
 # Files
 *.log
+*.DS_Store
 
 # Folders
 /_config/node_modules
+/vendor/

@@ -28,6 +28,9 @@
  * @author     Moritz Bappert <mb@dreiqbik.de>
  */
 
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
 if ( !class_exists( 'WP_Gift_Registry' ) ) {
 	class WP_Gift_Registry {
 
@@ -131,6 +134,13 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			  require_once __DIR__ . '/libraries/cmb2-conditionals/cmb2-conditionals.php';
 			}
 
+			// Include Carbon Fields
+			function crb_load() {
+				require_once __DIR__ . '/../vendor/autoload.php';
+				\Carbon_Fields\Carbon_Fields::boot();
+			}
+			add_action( 'after_setup_theme', 'crb_load' );
+
 			// Include plugin usage tracker
 			if ( file_exists( __DIR__ . '/libraries/wp-plugin-usage-tracker/wp-plugin-usage-tracker.php' ) ) {
 			  require_once __DIR__ . '/libraries/wp-plugin-usage-tracker/wp-plugin-usage-tracker.php';
@@ -178,8 +188,12 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 			// Add custom admin columns for our custom post type
 			$this->loader->add_action( 'init', $plugin_admin, 'add_admin_columns' );
 
+
+
+
 			// Add metaboxes to our custom post type
-			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes' );
+			// $this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'add_wishlist_metaboxes' );
+			$this->loader->add_action( 'carbon_fields_register_fields', $plugin_admin, 'add_wishlist_metaboxes' );
 
 			// Add reserved gift metabox to our cpt
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_reserved_gift_metabox' );
