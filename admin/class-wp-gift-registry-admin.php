@@ -142,7 +142,7 @@ class WP_Gift_Registry_Admin {
 		    'with_front' => FALSE
 		  ],
 		  'supports' => ['title', 'author'],
-		  'menu_icon' => plugins_url( "../images/gift_registry_icon.png", __FILE__ ),
+		  'menu_icon' => plugins_url( "../images/gift_registry_icon.svg", __FILE__ ),
 		]);
 
 	}
@@ -187,7 +187,7 @@ class WP_Gift_Registry_Admin {
 	  	$capability = 'manage_options';
 	  	$slug = 'wishlist';
 	  	$callback = array( $this, 'plugin_wishlist_page_content' );
-	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
 	  	$position = 100;
 	  	add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 
@@ -197,7 +197,7 @@ class WP_Gift_Registry_Admin {
 	  	$capability = 'manage_options';
 	  	$slug = 'wishlist_settings';
 	  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
-	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
 	  	$position = 100;
 	  	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 	  }
@@ -215,7 +215,7 @@ class WP_Gift_Registry_Admin {
   		$capability = 'manage_options';
   		$slug = 'wpgr_settings';
   		$callback = array( $this, 'plugin_wpgr_settings_page_content' );
-  		$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+  		$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
   		$position = 100;
   		add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
   	}
