@@ -318,13 +318,13 @@ class WP_Gift_Registry_Public {
 		$asin = substr(strstr($link,"p/"),2,10);
 
 		if ( strpos( $link, 'amzn.com' ) ) {
-			$asin = substr(untrailingslashit($link), -10);
+			// $asin = substr(untrailingslashit($link), -10);
 		}
 
 		if ( strpos( $link, 'amazon.com' ) || strpos( $link, 'amzn.com' ) ) {
 			// US
-			$affiliate = "?tag=dreiqbik-20";
-	    	return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
+			// $affiliate = "?tag=dreiqbik-20";
+	    // 	return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
 
 	    } else if ( strpos( $link, 'amazon.ca' ) ) {
 			// Canada
