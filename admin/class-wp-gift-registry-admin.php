@@ -966,6 +966,13 @@ class WP_Gift_Registry_Admin {
 	        'type'    => 'checkbox',
 		) );
 
+		$cmb->add_field( array(
+		    'name'    => __( 'Hide total price for splitted gifts? ', 'wpgiftregistry' ),
+	        'desc'    => '',
+	        'id'      => 'split_gift_hide_total_price',
+	        'type'    => 'checkbox',
+		) );
+
 		// Show email field?
 		$cmb->add_field( array(
 		    'name'    => __( 'Show email field in gift reservation dialogue?', 'wpgiftregistry' ),

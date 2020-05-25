@@ -39,6 +39,7 @@ $settings = get_option('wpgr_settings');
                 $gift_part_string = isset($gift['gift_part_string']) ? $gift['gift_part_string'] : "";
                 $reserved_parts = static::get_reserved_parts($wishlist_id, $gift['gift_id']);
                 $price_per_part = floatval($raw_gift_price) / floatval($gift_parts);
+                $show_total_price = !$settings['split_gift_hide_total_price'];
 
                 // legacy variable when we tried to put gift parts into multiple steps in the popup
                 $is_single = true; // needs to be replaced
@@ -65,7 +66,7 @@ $settings = get_option('wpgr_settings');
             data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>" data-unlimited="<?= esc_attr($gift['gift_unlimited']) ?>">
 
             <?php /* PRICE_LABEL */  ?>
-            <?php if (!empty($gift_price) || !$is_available ): ?>
+            <?php if ( !empty($gift_price) || !$is_available || ($has_parts && $show_total_price) ) : ?>
             <div class="wpgr-m_card__price-wrapper">
                 <?php if (!empty($gift_price)): ?>
                     <p class="wpgr-m_card__price">
