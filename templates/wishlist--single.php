@@ -29,7 +29,7 @@ $settings = get_option('wpgr_settings');
 
 
             foreach ( $sorted_wishlist as $gift ):
-                $is_available = $gift['gift_availability'] == 'true';
+                $is_available = $gift['gift_availability'] == 'true' || $gift['gift_unlimited'] == 'true';
                 $has_buyer = !empty($gift['gift_reserver']);
                 $raw_gift_price = !empty( $gift['gift_price'] ) ? $gift['gift_price'] : 0;
                 $gift_price = $raw_gift_price != 0 ? number_format_i18n( $raw_gift_price ) : '';
@@ -62,7 +62,7 @@ $settings = get_option('wpgr_settings');
 
         <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= esc_attr( $gift['gift_id'] ) ?>" data-parts="<?= esc_attr( $gift_parts ) ?>" data-parts-given="<?= esc_attr( $reserved_parts ) ?>"
             data-price-per-part="<?= esc_attr( $price_per_part ) ?>" data-parts-string="<?= esc_attr( $gift_parts_string ) ?>" data-part-string="<?= esc_attr( $gift_part_string ) ?>"
-            data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>">
+            data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>" data-unlimited="<?= esc_attr($gift['gift_unlimited']) ?>">
 
             <?php /* PRICE_LABEL */  ?>
             <?php if (!empty($gift_price) || !$is_available ): ?>

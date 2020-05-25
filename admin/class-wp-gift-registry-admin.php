@@ -367,7 +367,8 @@ class WP_Gift_Registry_Admin {
 	            'false' => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'false',
-	    ) );
+			) );
+
 
 	    // How many parts?
 	    $metabox->add_group_field( $group_field, array(
@@ -419,7 +420,25 @@ class WP_Gift_Registry_Admin {
 	            'false'   => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'true',
-	    ) );
+			) );
+
+			// unlimited gifts
+	    $metabox->add_group_field( $group_field, array(
+				'name' => __( 'Unlimited?', 'wpgiftregistry' ),
+				'desc' => __( 'Do you want to enable giving multiple times?', 'wpgiftregistry' ),
+				'id'   => 'gift_unlimited',
+				'type' => 'radio_inline',
+				'options' => array(
+						'true' => __( 'Yes', 'wpgiftregistry' ),
+						'false' => __( 'No', 'wpgiftregistry' ),
+				),
+				'default' => 'false',
+				'attributes' => array(
+					'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+					'data-conditional-value' => wp_json_encode( array('false') ),
+				),
+
+		) );
 
 	    // Reset reserved parts for this gift
 	    $metabox->add_group_field( $group_field, array(
