@@ -418,7 +418,8 @@ section.wpgr-wishlist {
                 background-color: $c4-grey !important;
             }
 
-            .wpgr-m_card__price {
+            .wpgr-m_card__price,
+            .wpgr-m_card__price-text {
                 display: none;
             }
 
