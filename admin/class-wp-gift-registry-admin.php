@@ -142,7 +142,7 @@ class WP_Gift_Registry_Admin {
 		    'with_front' => FALSE
 		  ],
 		  'supports' => ['title', 'author'],
-		  'menu_icon' => plugins_url( "../images/gift_registry_icon.png", __FILE__ ),
+		  'menu_icon' => plugins_url( "../images/gift_registry_icon.svg", __FILE__ ),
 		]);
 
 	}
@@ -187,7 +187,7 @@ class WP_Gift_Registry_Admin {
 	  	$capability = 'manage_options';
 	  	$slug = 'wishlist';
 	  	$callback = array( $this, 'plugin_wishlist_page_content' );
-	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
 	  	$position = 100;
 	  	add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 
@@ -197,7 +197,7 @@ class WP_Gift_Registry_Admin {
 	  	$capability = 'manage_options';
 	  	$slug = 'wishlist_settings';
 	  	$callback = array( $this, 'plugin_wishlist_settings_page_content' );
-	  	$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+	  	$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
 	  	$position = 100;
 	  	add_submenu_page( 'wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
 	  }
@@ -215,7 +215,7 @@ class WP_Gift_Registry_Admin {
   		$capability = 'manage_options';
   		$slug = 'wpgr_settings';
   		$callback = array( $this, 'plugin_wpgr_settings_page_content' );
-  		$icon = plugins_url( "../images/gift_registry_icon.png", __FILE__ );
+  		$icon = plugins_url( "../images/gift_registry_icon.svg", __FILE__ );
   		$position = 100;
   		add_submenu_page( 'edit.php?post_type=wpgr_wishlist', $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
   	}
@@ -367,7 +367,8 @@ class WP_Gift_Registry_Admin {
 	            'false' => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'false',
-	    ) );
+			) );
+
 
 	    // How many parts?
 	    $metabox->add_group_field( $group_field, array(
@@ -419,7 +420,25 @@ class WP_Gift_Registry_Admin {
 	            'false'   => __( 'No', 'wpgiftregistry' ),
 	        ),
 	        'default' => 'true',
-	    ) );
+			) );
+
+		// Unlimited gifts
+	    $metabox->add_group_field( $group_field, array(
+				'name' => __( 'Unlimited?', 'wpgiftregistry' ),
+				'desc' => __( 'Do you want to enable giving this gift unlimitedly, so it doesn\'t get locked?', 'wpgiftregistry' ),
+				'id'   => 'gift_unlimited',
+				'type' => 'radio_inline',
+				'options' => array(
+						'true' => __( 'Yes', 'wpgiftregistry' ),
+						'false' => __( 'No', 'wpgiftregistry' ),
+				),
+				'default' => 'false',
+				'attributes' => array(
+					'data-conditional-id' => wp_json_encode( array( $group_field, 'gift_has_parts' ) ),
+					'data-conditional-value' => wp_json_encode( array('false') ),
+				),
+
+		) );
 
 	    // Reset reserved parts for this gift
 	    $metabox->add_group_field( $group_field, array(
@@ -944,6 +963,14 @@ class WP_Gift_Registry_Admin {
 		    'name'    => __( 'Show price without decimals? ', 'wpgiftregistry' ),
 	        'desc'    => '',
 	        'id'      => 'hide_decimals',
+	        'type'    => 'checkbox',
+		) );
+
+		// Hide total price?
+		$cmb->add_field( array(
+		    'name'    => __( 'Hide total price for splitted gifts? ', 'wpgiftregistry' ),
+	        'desc'    => '',
+	        'id'      => 'split_gift_hide_total_price',
 	        'type'    => 'checkbox',
 		) );
 

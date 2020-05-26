@@ -138,7 +138,7 @@ gulp.task('css', function () {
     var processors = [
         pixrem(),
         autoprefixer({
-            browsers: ['last 4 versions']
+            overrideBrowserslist: ['last 4 versions']
         }),
         cssnano()
     ];
@@ -154,7 +154,7 @@ gulp.task('css-admin', function () {
     var processors = [
         pixrem(),
         autoprefixer({
-            browsers: ['last 4 versions']
+            overrideBrowserslist: ['last 4 versions']
         }),
         cssnano()
     ];
@@ -167,14 +167,14 @@ gulp.task('css-admin', function () {
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch('../admin/src/js/**.js', ['lint', 'scripts-admin', 'scripts-vendor-admin']);
-    gulp.watch('../public/src/js/**.js', ['lint', 'scripts', 'scripts-vendor']);
-    gulp.watch('../admin/src/scss/**/*.scss', ['sass-admin']);
-    gulp.watch('../public/src/scss/**/*.scss', ['sass']);
+    gulp.watch('../admin/src/js/**.js', gulp.series('lint', 'scripts-admin', 'scripts-vendor-admin'));
+    gulp.watch('../public/src/js/**.js', gulp.series('lint', 'scripts', 'scripts-vendor'));
+    gulp.watch('../admin/src/scss/**/*.scss', gulp.series('sass-admin'));
+    gulp.watch('../public/src/scss/**/*.scss', gulp.series('sass'));
 });
 
 // Default Tasks
-gulp.task('default', ['sass', 'sass-admin', 'scripts', 'scripts-vendor', 'scripts-admin', 'scripts-vendor-admin', 'watch']);
+gulp.task('default', gulp.series('sass', 'sass-admin', 'scripts', 'scripts-vendor', 'scripts-admin', 'scripts-vendor-admin', 'watch'));
 
 // Build Tasks
-gulp.task('build', ['sass', 'sass-admin', 'css', 'css-admin', 'lint', 'scripts', 'scripts-vendor', 'scripts-admin', 'scripts-vendor-admin']);
+gulp.task('build', gulp.series('sass', 'sass-admin', 'css', 'css-admin', 'lint', 'scripts', 'scripts-vendor', 'scripts-admin', 'scripts-vendor-admin'));

@@ -9,7 +9,7 @@ section.wpgr-wishlist {
     //     }
     // }
 
-    margin: 2em 0;
+    margin: 0 auto;
 
     .wpgr-m_card {
         box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.1) !important;
@@ -418,7 +418,8 @@ section.wpgr-wishlist {
                 background-color: $c4-grey !important;
             }
 
-            .wpgr-m_card__price {
+            .wpgr-m_card__price,
+            .wpgr-m_card__price-text {
                 display: none;
             }
 

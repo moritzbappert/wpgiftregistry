@@ -194,6 +194,7 @@ var mPopup = (function($) {
         var $currentGiftPopup = $(e.target).closest('.wpgr-o_popup');
         var giftID = $currentGiftPopup.data('wish-id');
         var wishlistID = $currentGiftPopup.data('wishlist-id');
+        var isUnlimited = $currentGiftPopup.data('unlimited') == 'true';
         var hasParts = $currentGiftPopup.data('has-parts');
         var rangeValue = $currentGiftPopup.find('#no_of_parts').val();
         var noOfParts = (hasParts ? rangeValue - $currentGiftPopup.data('parts-given') : 1);
@@ -226,13 +227,13 @@ var mPopup = (function($) {
                 // update progress bar
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress span').width(rangeValue / totalParts * 100 + '%');
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').find('.wpgr-m_card__progress-wrapper > span').text(rangeValue);
-                
+
                 // update data
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').data('parts-given', rangeValue);
             }
 
             // only if all parts given
-            if ( rangeValue == totalParts || !hasParts ) {
+            if (( rangeValue == totalParts || !hasParts ) && !isUnlimited) {
                 // deactivate card
                 $('.wpgr-m_card[data-wish-id="' + giftID + '"]').addClass('wpgr-m_card--bought');
             }
