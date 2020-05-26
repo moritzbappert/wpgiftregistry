@@ -65,7 +65,7 @@ $settings = get_option('wpgr_settings');
             data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>">
 
             <?php /* PRICE_LABEL */  ?>
-            <?php if (!empty($gift_price) || !empty($gift_price) || !$is_available ): ?>
+            <?php if (!empty($gift_price) || !$is_available ): ?>
             <div class="wpgr-m_card__price-wrapper">
                 <?php if (!empty($gift_price)): ?>
                     <p class="wpgr-m_card__price">
@@ -75,9 +75,9 @@ $settings = get_option('wpgr_settings');
                 <?php if ( $has_parts && $is_available && $gift_price != '' ): ?>
                     <p class="wpgr-m_card__price-text">
                         <?php
-                                /* translators: (price per) each part of the gift */
-                                echo __('each', 'wpgiftregistry');
-                            ?>
+                            /* translators: (price per) each part of the gift */
+                            echo __('each', 'wpgiftregistry');
+                        ?>
                     </p>
                 <?php endif; ?>
                 <i class="wpgr-m_card__price-icon"></i>
