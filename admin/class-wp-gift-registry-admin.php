@@ -422,10 +422,10 @@ class WP_Gift_Registry_Admin {
 	        'default' => 'true',
 			) );
 
-			// unlimited gifts
+		// Unlimited gifts
 	    $metabox->add_group_field( $group_field, array(
 				'name' => __( 'Unlimited?', 'wpgiftregistry' ),
-				'desc' => __( 'Do you want to enable giving multiple times?', 'wpgiftregistry' ),
+				'desc' => __( 'Do you want to enable giving this gift unlimitedly, so it doesn\'t get locked?', 'wpgiftregistry' ),
 				'id'   => 'gift_unlimited',
 				'type' => 'radio_inline',
 				'options' => array(
@@ -966,6 +966,7 @@ class WP_Gift_Registry_Admin {
 	        'type'    => 'checkbox',
 		) );
 
+		// Hide total price?
 		$cmb->add_field( array(
 		    'name'    => __( 'Hide total price for splitted gifts? ', 'wpgiftregistry' ),
 	        'desc'    => '',
