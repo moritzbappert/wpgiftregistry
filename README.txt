@@ -2,10 +2,10 @@
 Contributors: 3qbik
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=86EEHAN7TGUMY
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
-Requires at least: 3.0.1
-Tested up to: 5.0
-Requires PHP: 5.5
-Stable tag: 1.4.9
+Requires at least: 4.8
+Tested up to: 5.4.1
+Requires PHP: 5.6
+Stable tag: 1.4.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,17 @@ If you want to display a list with links to each of your wishlists, use the shor
 
 
 == Changelog ==
+
+= 1.4.10 =
+2020-05-26
+
+* Assured compatibility with WordPress 5.4.1
+* Fixed styling issues with the Twenty Twenty theme
+* Fixed various broken Amazon links
+* Fixed several other small bugs
+* Added global option to hide the total price of splitted gifts
+* Added the option to enable gifts to be given unlimitedly
+* Updated CMB2 library to v2.7.0
 
 = 1.4.9 =
 * Bugfixes/Updates to CMB2 and CMB2-Conditionals to fix problems with WPBakery Visual Composer (thanks to @jtsternberg)
