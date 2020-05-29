@@ -71,7 +71,7 @@ if ( !class_exists( 'WP_Gift_Registry' ) ) {
 		public function __construct() {
 
 			$this->plugin_name = 'WPGiftRegistry';
-			$this->version = '1.4.10';
+			$this->version = '1.4.11';
 
 			$this->load_dependencies();
 			$this->set_locale();

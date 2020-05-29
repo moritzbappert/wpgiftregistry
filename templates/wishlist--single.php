@@ -63,7 +63,7 @@ $settings = get_option('wpgr_settings');
 
         <div class="<?= implode(' ', $classes) ?>" data-wish-id="<?= esc_attr( $gift['gift_id'] ) ?>" data-parts="<?= esc_attr( $gift_parts ) ?>" data-parts-given="<?= esc_attr( $reserved_parts ) ?>"
             data-price-per-part="<?= esc_attr( $price_per_part ) ?>" data-parts-string="<?= esc_attr( $gift_parts_string ) ?>" data-part-string="<?= esc_attr( $gift_part_string ) ?>"
-            data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>">
+            data-currency="<?= esc_attr( $currency ) ?>" data-currency-placement="<?= esc_attr( $currency_placement ) ?>" data-unlimited="<?= esc_attr($gift['gift_unlimited']) ?>">
 
             <?php /* PRICE_LABEL */  ?>
             <?php if ( !empty($gift_price) || !$is_available || ($has_parts && $show_total_price) ) : ?>

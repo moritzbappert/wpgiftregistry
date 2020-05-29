@@ -5,7 +5,7 @@ Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, bir
 Requires at least: 4.8
 Tested up to: 5.4.1
 Requires PHP: 5.6
-Stable tag: 1.4.10
+Stable tag: 1.4.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,11 @@ If you want to display a list with links to each of your wishlists, use the shor
 
 
 == Changelog ==
+
+= 1.4.11 =
+2020-05-29
+
+* Fixed issues with CMB2 upgrade, metaboxes where not showing when editing whishlists
 
 = 1.4.10 =
 2020-05-26
