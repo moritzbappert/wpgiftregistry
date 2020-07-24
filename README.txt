@@ -3,9 +3,9 @@ Contributors: 3qbik
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=86EEHAN7TGUMY
 Tags: gift registry, wishlist, gift, wishes, wedding gift registry, wedding, birthday, product list, plugin
 Requires at least: 4.8
-Tested up to: 5.4.1
+Tested up to: 5.4.2
 Requires PHP: 5.6
-Stable tag: 1.4.11
+Stable tag: 1.4.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,11 @@ If you want to display a list with links to each of your wishlists, use the shor
 
 
 == Changelog ==
+
+= 1.4.12 =
+2020-07-24
+
+* Fixed some broken links
 
 = 1.4.11 =
 2020-05-29

@@ -321,10 +321,10 @@ class WP_Gift_Registry_Public {
             $asin = substr(untrailingslashit($link), -10);
         }
 
-        if ( (strpos( $link, 'amazon.com/' ) || strpos( $link, 'amzn.com/')) && strpos( $link, 'amazon.com/wedding/' ) !== FALSE ) {
+        if ( (strpos( $link, 'amazon.com/' ) || strpos( $link, 'amzn.com/')) && strpos( $link, 'amazon.com/wedding/' ) === FALSE ) {
             // US
-            // $affiliate = "?tag=dreiqbik0c-20";
-            // 	return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
+            $affiliate = "?tag=dreiqbik0c-20";
+            return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
 
         } else if ( strpos( $link, 'amazon.ca/' ) ) {
             // Canada
