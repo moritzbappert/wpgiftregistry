@@ -315,124 +315,128 @@ class WP_Gift_Registry_Public {
         // AMAZON
         //
 
-        $asin = substr(strstr($link,"p/"),2,10);
+        $asin = substr(strstr($link, 'p/'), 2, 10);
 
-        if ( strpos( $link, 'amzn.com/' ) ) {
+        if (strlen($asin) != 10) && strpos($link, 'gp/product/') !== FALSE) {
+            $asin = substr(strstr($link, 'gp/product/'), 11, 10);
+        }
+
+        if ( strpos( $link, 'amzn.com/' ) !== FALSE ) {
             $asin = substr(untrailingslashit($link), -10);
         }
 
-        if ( (strpos( $link, 'amazon.com/' ) || strpos( $link, 'amzn.com/')) && strpos( $link, 'amazon.com/wedding/' ) === FALSE ) {
+        if ( (strpos( $link, 'amazon.com/' ) !== FALSE || strpos( $link, 'amzn.com/') !== FALSE) && strpos( $link, 'amazon.com/wedding/' ) === FALSE ) {
             // US
             $affiliate = "?tag=dreiqbik0c-20";
             return "https://www.amazon.com/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.ca/' ) ) {
+        } else if ( strpos( $link, 'amazon.ca/' ) !== FALSE ) {
             // Canada
             $affiliate = "?tag=dreiqbik04-20";
             return "https://www.amazon.ca/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.com.au/' ) ) {
+        } else if ( strpos( $link, 'amazon.com.au/' !== FALSE ) ) {
             // Australia
             $affiliate = "?tag=dreiqbik0e-22";
             return "https://www.amazon.com.au/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.de/' ) ) {
+        } else if ( strpos( $link, 'amazon.de/' ) !== FALSE ) {
             // Germany
             $affiliate = "?tag=dr03e-21";
             return "https://www.amazon.de/gp/product/" . $asin . $affiliate;
 
-        }	else if ( strpos( $link, 'amazon.co.uk/' ) ) {
+        }	else if ( strpos( $link, 'amazon.co.uk/' ) !== FALSE ) {
             // UK
             $affiliate = "?tag=dr065-21";
             return "https://www.amazon.co.uk/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.es/' ) ) {
+        } else if ( strpos( $link, 'amazon.es/' ) !== FALSE ) {
             // Spain
             // $affiliate = "?tag=dr00a4-21";
             // return "https://www.amazon.es/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.fr/' ) ) {
+        } else if ( strpos( $link, 'amazon.fr/' ) !== FALSE ) {
             // France
-            $affiliate = "?tag=	dr0cb-21";
+            $affiliate = "?tag=dr0cb-21";
             return "https://www.amazon.fr/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.it/' ) ) {
+        } else if ( strpos( $link, 'amazon.it/' ) !== FALSE ) {
             // Italy
             $affiliate = "?tag=dr0e7-21";
             return "https://www.amazon.it/gp/product/" . $asin . $affiliate;
 
-        } else if ( strpos( $link, 'amazon.nl/' ) ) {
+        } else if ( strpos( $link, 'amazon.nl/' ) !== FALSE ) {
             // Netherlands
             $affiliate = "?tag=dreiqbik06-21";
             return "https://www.amazon.nl/gp/product/" . $asin . $affiliate;
 
 
         // bol.com
-        } else if ( strpos( $link, 'bol.com') ) {
+        } else if ( strpos( $link, 'bol.com') !== FALSE ) {
             return "https://partnerprogramma.bol.com/click/click?p=1&t=url&s=48680&f=TXL&url=" . $link . "&name=plugin";
 
         // babyland.se
-        } else if ( strpos( $link, 'babyland.se' ) ) {
+        } else if ( strpos( $link, 'babyland.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1066444612&as=1253179067&t=2&tk=1&url=" . $link;
 
         // coolstuff.se
-        } else if ( strpos( $link, 'coolstuff.se' ) ) {
+        } else if ( strpos( $link, 'coolstuff.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1099371260&as=1253179067&t=2&tk=1&url=" . $link;
 
         // designtorget.se
-        } else if ( strpos( $link, 'designtorget.se' ) ) {
+        } else if ( strpos( $link, 'designtorget.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1105652948&as=1253179067&t=2&tk=1&url=" . $link;
 
         // lifestylestore.se
-        } else if ( strpos( $link, 'lifestylestore.se' ) ) {
+        } else if ( strpos( $link, 'lifestylestore.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=785123591&as=1253179067&t=2&tk=1&url=" . $link;
 
         // storochliten.se
-        } else if ( strpos( $link, 'storochliten.se' ) ) {
+        } else if ( strpos( $link, 'storochliten.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1060728464&as=1253179067&t=2&tk=1&url=" . $link;
 
         // bagarenochkocken.se
-        } else if ( strpos( $link, 'bagarenochkocken.se' ) ) {
+        } else if ( strpos( $link, 'bagarenochkocken.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1048502774&as=1253179067&t=2&tk=1&url=" . $link;
 
         // cervera.se
-        } else if ( strpos( $link, 'cervera.se' ) ) {
+        } else if ( strpos( $link, 'cervera.se' ) !== FALSE ) {
             return "https://track.adtraction.com/t/t?a=1144356953&as=1253179067&t=2&tk=1&url=" . $link;
 
         // babykadowinkel.nl
-        } else if ( strpos( $link, 'babykadowinkel.nl' ) ) {
+        } else if ( strpos( $link, 'babykadowinkel.nl' ) !== FALSE ) {
             return "http://www.babykadowinkel.nl/website/Includes/TradeTracker/?tt=8977_12_311475_&r=" . wpgr_encode_url($link);
 
         // baby-schoenen.nl
-        } else if ( strpos( $link, 'baby-schoenen.nl' ) ) {
+        } else if ( strpos( $link, 'baby-schoenen.nl' ) !== FALSE ) {
             return "https://www.baby-schoenen.nl/babyschoenen/?tt=8063_12_311475_&r=" . wpgr_encode_url($link);
 
         // coolshop.nl
-        } else if ( strpos( $link, 'coolshop.nl' ) ) {
+        } else if ( strpos( $link, 'coolshop.nl' ) !== FALSE ) {
             return "https://tc.tradetracker.net/?c=24112&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         // geboorte-feestwinkel.nl
-        } else if ( strpos( $link, 'geboorte-feestwinkel.nl' ) ) {
+        } else if ( strpos( $link, 'geboorte-feestwinkel.nl' ) !== FALSE ) {
             return "https://www.geboorte-feestwinkel.nl/?tt=3595_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         // hema.nl
-        } else if ( strpos( $link, 'hema.nl' ) ) {
+        } else if ( strpos( $link, 'hema.nl' ) !== FALSE ) {
             return "https://tc.tradetracker.net/?c=25436&m=12&a=311475&u=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         // kindergoed.com
-        } else if ( strpos( $link, 'kindergoed.com' ) ) {
+        } else if ( strpos( $link, 'kindergoed.com' ) !== FALSE ) {
             return "https://www.kindergoed.com/kinderkleding/?tt=18956_12_311475_&r=" . wpgr_encode_url($link);
 
         // littlelegends.nl
-        } else if ( strpos( $link, 'littlelegends.nl' ) ) {
+        } else if ( strpos( $link, 'littlelegends.nl' ) !== FALSE ) {
             return "https://www.littlelegends.nl/kinderen/?tt=24164_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         // minimeis.com
-        } else if ( strpos( $link, 'minimeis.com' ) ) {
+        } else if ( strpos( $link, 'minimeis.com' ) !== FALSE ) {
             return "https://minimeis.com/drager/?tt=27002_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         // plaspotje.nl
-        } else if ( strpos( $link, 'plaspotje.nl' ) ) {
+        } else if ( strpos( $link, 'plaspotje.nl' ) !== FALSE ) {
             return "https://www.plaspotje.nl/website/Includes/TradeTracker/?tt=27771_12_311475_&r=" . wpgr_encode_url( $link_parts['path'] . '?' . $link_parts['query'] );
 
         }
