@@ -26,6 +26,6 @@
     "gulp-util": "^3.0.8",
     "jshint": "^2.11.0",
     "pixrem": "^5.0.0",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^13.2.0"
   }
 }
